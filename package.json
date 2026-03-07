@@ -2,6 +2,7 @@
   "name": "rythra",
   "module": "index.ts",
   "type": "module",
+  "version": "0.0.1",
   "private": true,
   "scripts": {
     "docs:build": "astro build --root docs",

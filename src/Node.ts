@@ -78,7 +78,7 @@ export class Node extends EventEmitter {
         this.ws = new WebSocket(url, {
             headers: {
                 Authorization: this.options.password || "youshallnotpass",
-                "Client-Name": `${this.manager.options.clientName || "Rythra"}/1.0.0`,
+                "Client-Name": `${this.manager.options.clientName || "Rythra"}/${this.manager.version}`,
                 "User-Id": this.manager.options.clientId || this.manager.options.connector.getId() || "",
             },
             // @ts-ignore

@@ -7,6 +7,8 @@ import type { Node } from "./Node";
 export interface RythraOptions {
     /** The connector to use for Discord library integration. */
     connector: Connector;
+    /** The library version. */
+    version?: string;
     /** The array of Lavalink nodes to connect to. */
     nodes?: NodeOptions[];
     /** The bot's client ID. */

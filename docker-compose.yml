@@ -1,0 +1,7 @@
+services:
+  rythra-docs:
+    image: ghcr.io/ekretos/rythra-docs:latest
+    container_name: rythra-docs
+    ports:
+      - "8080:80"
+    restart: unless-stopped

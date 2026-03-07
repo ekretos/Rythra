@@ -34,12 +34,18 @@ export class Rythra extends EventEmitter implements IRythra {
     public readonly options: RythraOptions;
 
     /**
+     * The version of the Rythra library.
+     */
+    public readonly version: string;
+
+    /**
      * Creates a new Rythra instance.
      * @param options The options for the Rythra manager.
      */
     constructor(options: RythraOptions) {
         super();
         this.options = options;
+        this.version = options.version || "0.0.1";
         this.options.connector.setManager(this);
         this.options.connector.listen();
 
