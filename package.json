@@ -1,0 +1,26 @@
+{
+  "name": "rythra",
+  "module": "index.ts",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "docs:build": "astro build --root docs",
+    "dev": "astro dev --root docs",
+    "start": "astro dev --root docs",
+    "build": "astro build --root docs",
+    "preview": "astro preview --root docs",
+    "astro": "astro --root docs"
+  },
+  "dependencies": {
+    "@astrojs/starlight": "^0.37.7",
+    "astro": "^5.6.1",
+    "sharp": "^0.34.2",
+    "starlight-typedoc": "^0.21.5",
+    "typedoc": "^0.28.17",
+    "typedoc-plugin-markdown": "^4.10.0",
+    "@types/bun": "latest"
+  },
+  "peerDependencies": {
+    "typescript": "^5"
+  }
+}
