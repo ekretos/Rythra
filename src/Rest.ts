@@ -1,7 +1,6 @@
-import type { Node } from "./Node";
+import type { Node } from './Node';
 import type {
     SearchResponse,
-    Versions,
     LavalinkPlayer,
     Track,
     UpdatePlayerInfo,
@@ -12,8 +11,8 @@ import type {
     FetchOptions,
     FinalFetchOptions,
     LavalinkRestError,
-    LavalinkResponse
-} from "./Types";
+    LavalinkResponse,
+} from './Types';
 
 export class RestError extends Error {
     public readonly timestamp: number;
@@ -53,7 +52,7 @@ export class Rest {
     constructor(node: Node) {
         this.node = node;
         this.url = node.restUrl;
-        this.auth = node.options.password || "youshallnotpass";
+        this.auth = node.options.password || 'youshallnotpass';
     }
 
     /**
@@ -85,7 +84,7 @@ export class Rest {
      */
     public async search(identifier: string): Promise<SearchResponse> {
         const res = await this.resolve(identifier);
-        if (!res) throw new Error("Search returned no response");
+        if (!res) throw new Error('Search returned no response');
         return res;
     }
 

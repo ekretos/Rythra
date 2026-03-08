@@ -1,7 +1,7 @@
-import { EventEmitter } from "node:events";
-import { Node } from "./Node";
-import { Queue } from "./Queue";
-import type { PlayerOptions, Track } from "./Types";
+import { EventEmitter } from 'node:events';
+import { Node } from './Node';
+import { Queue } from './Queue';
+import type { PlayerOptions, Track, VoiceStateUpdate } from './Types';
 
 /**
  * Manages audio playback for a specific guild.
@@ -23,7 +23,7 @@ export class RythraPlayer extends EventEmitter {
     /** The current volume of the player (0-1000). */
     public volume = 100;
     /** The current voice state of the player. */
-    public voiceState: any = {};
+    public voiceState: Partial<VoiceStateUpdate> = {};
     /** The track queue for this player. */
     public readonly queue: Queue = new Queue();
 
@@ -39,12 +39,12 @@ export class RythraPlayer extends EventEmitter {
         this.voiceChannel = options.voiceChannel;
         this.textChannel = options.textChannel;
 
-        this.on("TrackStartEvent", (data) => {
+        this.on('TrackStartEvent', (data: { track: string }) => {
             this.playing = true;
-            this.emit("trackStart", this.queue.current, data);
+            this.emit('trackStart', this.queue.current, data);
         });
 
-        this.on("TrackEndEvent", (data) => {
+        this.on('TrackEndEvent', (data: { track: string; reason: string }) => {
             this.playing = false;
 
             // Only add to previous and clear if it's the track that actually ended
@@ -53,12 +53,12 @@ export class RythraPlayer extends EventEmitter {
                 this.queue.current = null;
             }
 
-            if (data.reason !== "replaced" && data.reason !== "stopped") {
+            if (data.reason !== 'replaced' && data.reason !== 'stopped') {
                 if (this.node.manager.options.autoPlay && this.queue.length > 0) {
                     this.play();
                 }
             }
-            this.emit("trackEnd", data);
+            this.emit('trackEnd', data);
         });
     }
 
@@ -67,9 +67,9 @@ export class RythraPlayer extends EventEmitter {
      * @param track The track to play (encoded string or Track object).
      * @param options Additional playback options.
      */
-    public async play(track?: string | Track, options?: any): Promise<void> {
+    public async play(track?: string | Track, options?: Record<string, unknown>): Promise<void> {
         if (track) {
-            this.queue.add(typeof track === "string" ? { encoded: track } as Track : track);
+            this.queue.add(typeof track === 'string' ? ({ encoded: track } as Track) : track);
         }
 
         if (!this.queue.current && this.queue.length > 0) {
@@ -92,7 +92,7 @@ export class RythraPlayer extends EventEmitter {
         });
 
         this.playing = true;
-        this.emit("start", this.queue.current);
+        this.emit('start', this.queue.current);
     }
 
     /**
@@ -109,14 +109,14 @@ export class RythraPlayer extends EventEmitter {
         });
 
         this.playing = false;
-        this.emit("stop");
+        this.emit('stop');
     }
 
     /**
      * Skips the current track and plays the next one in the queue.
      */
     public async skip(): Promise<void> {
-        this.emit("trackSkip", this.queue.current);
+        this.emit('trackSkip', this.queue.current);
         if (this.queue.current) this.queue.previous.unshift(this.queue.current);
         this.queue.current = null;
 
@@ -140,7 +140,7 @@ export class RythraPlayer extends EventEmitter {
         });
 
         this.paused = pause;
-        this.emit("pause", pause);
+        this.emit('pause', pause);
     }
 
     /**
@@ -156,23 +156,28 @@ export class RythraPlayer extends EventEmitter {
         });
 
         this.volume = volume;
-        this.emit("volume", volume);
+        this.emit('volume', volume);
     }
 
     /**
      * Connects the player to a voice channel.
      * @param options The connection options.
      */
-    public connect(options?: { voiceChannel?: string, selfMute?: boolean, selfDeaf?: boolean }): void {
+    public connect(options?: { voiceChannel?: string; selfMute?: boolean; selfDeaf?: boolean }): void {
         this.voiceChannel = options?.voiceChannel ?? this.voiceChannel;
-        this.node.manager.options.connector.sendPacket(0, { // Assuming shard 0
-            op: 4,
-            d: {
-                guild_id: this.guild,
-                channel_id: this.voiceChannel,
-                self_mute: options?.selfMute ?? false,
-                self_deaf: options?.selfDeaf ?? false,
-            }
-        }, false);
+        this.node.manager.options.connector.sendPacket(
+            0,
+            {
+                // Assuming shard 0
+                op: 4,
+                d: {
+                    guild_id: this.guild,
+                    channel_id: this.voiceChannel,
+                    self_mute: options?.selfMute ?? false,
+                    self_deaf: options?.selfDeaf ?? false,
+                },
+            },
+            false
+        );
     }
 }

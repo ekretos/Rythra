@@ -1,12 +1,11 @@
 {
-    "entryPoints": [
-        "src/index.ts"
-    ],
-    "out": "docs",
+    "entryPoints": ["src/index.ts"],
+    "out": "typedocs",
     "theme": "default",
     "name": "Rythra Documentation",
     "includeVersion": true,
     "excludePrivate": true,
     "excludeInternal": true,
+    "exclude": ["example/**", "docs/**"],
     "readme": "README.md"
 }

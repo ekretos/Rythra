@@ -28,11 +28,11 @@ npm install rythra
 ### Quick Start (Discord.js)
 
 ```typescript
-import { Client, GatewayIntentBits } from "discord.js";
-import { Rythra, Connector } from "rythra";
+import { Client, GatewayIntentBits } from 'discord.js';
+import { Rythra, Connector } from 'rythra';
 
 const client = new Client({
-    intents: [GatewayIntentBits.Guilds, GatewayIntentBits.GuildVoiceStates, GatewayIntentBits.GuildMessages, GatewayIntentBits.MessageContent]
+    intents: [GatewayIntentBits.Guilds, GatewayIntentBits.GuildVoiceStates, GatewayIntentBits.GuildMessages, GatewayIntentBits.MessageContent],
 });
 
 // Create the connector
@@ -43,24 +43,24 @@ const rythra = new Rythra({
     connector,
     nodes: [
         {
-            host: "localhost",
+            host: 'localhost',
             port: 2333,
-            password: "youshallnotpass",
-            secure: false
-        }
+            password: 'youshallnotpass',
+            secure: false,
+        },
     ],
-    autoPlay: true // Automatically play the next song in queue
+    autoPlay: true, // Automatically play the next song in queue
 });
 
-client.on("ready", () => {
+client.on('ready', () => {
     console.log(`Logged in as ${client.user.tag}`);
     rythra.connect();
 });
 
 // Simple play command example
-client.on("messageCreate", async (message) => {
-    if (message.content.startsWith("!play")) {
-        const query = message.content.split(" ").slice(1).join(" ");
+client.on('messageCreate', async (message) => {
+    if (message.content.startsWith('!play')) {
+        const query = message.content.split(' ').slice(1).join(' ');
         const voiceChannel = message.member?.voice.channel;
 
         if (!voiceChannel || !query) return;
@@ -69,18 +69,18 @@ client.on("messageCreate", async (message) => {
         const player = rythra.createPlayer({
             guild: message.guild.id,
             voiceChannel: voiceChannel.id,
-            textChannel: message.channel.id
+            textChannel: message.channel.id,
         });
 
         player.connect();
         player.queue.add(result.data.tracks[0] || result.data[0]);
-        
+
         if (!player.playing) await player.play();
         message.reply(`Added to queue: **${player.queue.current.info.title}**`);
     }
 });
 
-client.login("YOUR_BOT_TOKEN");
+client.login('YOUR_BOT_TOKEN');
 ```
 
 ---
@@ -99,25 +99,33 @@ Rythra abstracts library interactions through a clean static API on the `Connect
 ## 🏗️ Architecture
 
 ### `Rythra` (Manager)
+
 The central orchestrator for nodes and players.
+
 - `search(query, requester, source?)`: Robust search across YouTube, SoundCloud, Spotify, etc.
 - `createPlayer(options)`: Get or create a guild-specific player.
 - `nodes`: Access and manage Lavalink nodes.
 
 ### `RythraPlayer`
+
 Handles playback for a single guild.
+
 - `play()`, `stop()`, `pause()`, `skip()`
 - `setVolume(volume)`
 - `queue`: Access the built-in `Queue` instance.
 
 ### `Queue`
+
 A powerful array-based queue.
+
 - `add(track)`: Supports single tracks or arrays (playlists).
 - `shuffle()`, `clear()`, `shift()`
 - `current`, `previous`: Track history and current state.
 
 ### `Rest`
+
 Direct access to the Lavalink REST API.
+
 - Comprehensive support for sessions, players, stats, and route planners.
 - Handles Lavalink v4 requirements (like `sessionId`).
 
@@ -129,9 +137,9 @@ Direct access to the Lavalink REST API.
 const rythra = new Rythra({
     connector: new Connector.DiscordJS(client),
     autoPlay: true, // Auto-advance queue
-    defaultSearchPlatform: "youtube",
-    userAgent: "MyBot/1.0",
-    restTimeout: 15 // Seconds
+    defaultSearchPlatform: 'youtube',
+    userAgent: 'MyBot/1.0',
+    restTimeout: 15, // Seconds
 });
 ```
 

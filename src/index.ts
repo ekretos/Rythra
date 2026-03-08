@@ -1,15 +1,15 @@
-export * from "./Rythra";
-export * from "./Node";
-export * from "./Player";
-export * from "./Queue";
-export * from "./Rest";
-export * from "./Types";
+export * from './Rythra';
+export * from './Node';
+export * from './Player';
+export * from './Queue';
+export * from './Rest';
+export * from './Types';
 
-import { Connector as BaseConnector } from "./Connector";
-import { DiscordJS } from "./connectors/DiscordJS";
-import { Eris } from "./connectors/Eris";
-import { OceanicJS } from "./connectors/OceanicJS";
-import { Seyfert } from "./connectors/Seyfert";
+import { Connector as BaseConnector } from './Connector';
+import { DiscordJS } from './connectors/DiscordJS';
+import { Eris } from './connectors/Eris';
+import { OceanicJS } from './connectors/OceanicJS';
+import { Seyfert } from './connectors/Seyfert';
 
 /**
  * Grouped connectors for easier access.

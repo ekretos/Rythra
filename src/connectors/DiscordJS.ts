@@ -1,18 +1,20 @@
-import { Connector } from "../Connector";
+import { Client } from 'discord.js';
+import { Connector } from '../Connector';
+import type { GatewayPacket, VoiceStateUpdate, VoiceServerUpdate } from '../Types';
 
 /**
  * Connector for the discord.js library.
  */
-export class DiscordJS extends Connector {
+export class DiscordJS extends Connector<Client> {
     /**
      * Starts listening for discord.js 'raw' events to handle voice updates.
      */
     public listen(): void {
-        this.client.on("raw", (packet: any) => {
-            if (packet.t === "VOICE_STATE_UPDATE") {
-                this.manager?.voiceStateUpdate(packet.d);
-            } else if (packet.t === "VOICE_SERVER_UPDATE") {
-                this.manager?.voiceServerUpdate(packet.d);
+        this.client.on('raw', (packet: GatewayPacket) => {
+            if (packet.t === 'VOICE_STATE_UPDATE') {
+                this.manager?.voiceStateUpdate(packet.d as VoiceStateUpdate);
+            } else if (packet.t === 'VOICE_SERVER_UPDATE') {
+                this.manager?.voiceServerUpdate(packet.d as VoiceServerUpdate);
             }
         });
     }
@@ -23,7 +25,7 @@ export class DiscordJS extends Connector {
      * @param payload The payload to send.
      * @param important Whether the packet is important.
      */
-    public sendPacket(shardId: number, payload: any, important: boolean): void {
+    public sendPacket(shardId: number, payload: GatewayPacket, important: boolean): void {
         this.client.ws.shards.get(shardId)?.send(payload, important);
     }
 

@@ -1,14 +1,16 @@
-import { EventEmitter } from "node:events";
-import { Node } from "./Node";
-import { RythraPlayer } from "./Player";
+import { EventEmitter } from 'node:events';
+import { Node } from './Node';
+import { RythraPlayer } from './Player';
 import type {
     RythraOptions,
     NodeOptions,
     PlayerOptions,
     SearchPlatform,
     SearchResponse,
-    IRythra
-} from "./Types";
+    IRythra,
+    VoiceStateUpdate,
+    VoiceServerUpdate,
+} from './Types';
 
 /**
  * The main manager class for nodes and players.
@@ -45,7 +47,7 @@ export class Rythra extends EventEmitter implements IRythra {
     constructor(options: RythraOptions) {
         super();
         this.options = options;
-        this.version = options.version || "0.0.1";
+        this.version = options.version || '0.0.2';
         this.options.connector.setManager(this);
         this.options.connector.listen();
 
@@ -64,8 +66,8 @@ export class Rythra extends EventEmitter implements IRythra {
     public createNode(options: NodeOptions): Node {
         const node = new Node(this, options);
         this.nodes.set(options.identifier || options.host, node);
-        node.on("error", (err) => this.emit("nodeError", node, err));
-        this.emit("nodeCreate", node);
+        node.on('error', (err) => this.emit('nodeError', node, err));
+        this.emit('nodeCreate', node);
         return node;
     }
 
@@ -80,11 +82,11 @@ export class Rythra extends EventEmitter implements IRythra {
         if (existing) return existing;
 
         const node = Array.from(this.nodes.values())[0]; // Simple selection for now
-        if (!node) throw new Error("No nodes available.");
+        if (!node) throw new Error('No nodes available.');
 
         const player = new RythraPlayer(node, options);
         this.players.set(options.guild, player);
-        this.emit("playerCreate", player);
+        this.emit('playerCreate', player);
         return player;
     }
 
@@ -108,24 +110,24 @@ export class Rythra extends EventEmitter implements IRythra {
      * @returns A promise that resolves to the search response.
      * @throws Error if no nodes are available.
      */
-    public async search(query: string, requester: any, source?: SearchPlatform): Promise<SearchResponse> {
+    public async search(query: string, requester: unknown, source?: SearchPlatform): Promise<SearchResponse> {
         const node = Array.from(this.nodes.values())[0];
-        if (!node) throw new Error("No nodes available.");
+        if (!node) throw new Error('No nodes available.');
 
         const sources: Record<string, string> = {
-            youtube: "ytsearch",
-            "youtube music": "ytmsearch",
-            soundcloud: "scsearch",
-            deezer: "dzsearch",
-            spotify: "spsearch",
-            yandex: "ymsearch",
+            youtube: 'ytsearch',
+            'youtube music': 'ytmsearch',
+            soundcloud: 'scsearch',
+            deezer: 'dzsearch',
+            spotify: 'spsearch',
+            yandex: 'ymsearch',
         };
 
         let identifier = query;
         const isUrl = /^https?:\/\//.test(query);
 
-        if (!isUrl && !Object.values(sources).some(s => query.startsWith(`${s}:`))) {
-            const platform = (source || this.options.defaultSearchPlatform || "youtube") as string;
+        if (!isUrl && !Object.values(sources).some((s) => query.startsWith(`${s}:`))) {
+            const platform = (source || this.options.defaultSearchPlatform || 'youtube') as string;
             identifier = `${sources[platform] || platform}:${query}`;
         }
 
@@ -136,7 +138,7 @@ export class Rythra extends EventEmitter implements IRythra {
      * Handles voice state updates from the Discord gateway.
      * @param data The voice state update data.
      */
-    public voiceStateUpdate(data: any): void {
+    public voiceStateUpdate(data: VoiceStateUpdate): void {
         if (!data.guild_id) return;
         const player = this.players.get(data.guild_id);
         if (player) {
@@ -148,7 +150,7 @@ export class Rythra extends EventEmitter implements IRythra {
      * Handles voice server updates from the Discord gateway.
      * @param data The voice server update data.
      */
-    public async voiceServerUpdate(data: any): Promise<void> {
+    public async voiceServerUpdate(data: VoiceServerUpdate): Promise<void> {
         const player = this.players.get(data.guild_id);
         if (player) {
             await player.node.rest.updatePlayer({
@@ -157,8 +159,8 @@ export class Rythra extends EventEmitter implements IRythra {
                     voice: {
                         token: data.token,
                         endpoint: data.endpoint,
-                        sessionId: player.voiceState.session_id,
-                        channelId: player.voiceState.channel_id,
+                        sessionId: player.voiceState.session_id!,
+                        channelId: player.voiceState.channel_id!,
                     },
                 },
             });

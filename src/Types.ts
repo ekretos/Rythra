@@ -1,5 +1,5 @@
-import { Connector } from "./Connector";
-import type { Node } from "./Node";
+import { Connector } from './Connector';
+import type { Node } from './Node';
 
 /**
  * Configuration options for the Rythra manager.
@@ -29,11 +29,26 @@ export interface RythraOptions {
     restTimeout?: number;
 }
 
-export type LavalinkSearchPlatform = "ytsearch" | "ytmsearch" | "scsearch" | "spsearch" | "sprec" | "amsearch" | "dzsearch" | "dzisrc" | "ymsearch" | "speak" | "tts";
-export type RythraSearchPlatform = "youtube" | "youtube music" | "soundcloud" | "ytm" | "yt" | "sc" | "am" | "sp" | "sprec" | "spsuggestion" | "ds" | "dz" | "deezer" | "yandex" | "yandexmusic";
+export type LavalinkSearchPlatform = 'ytsearch' | 'ytmsearch' | 'scsearch' | 'spsearch' | 'sprec' | 'amsearch' | 'dzsearch' | 'dzisrc' | 'ymsearch' | 'speak' | 'tts';
+export type RythraSearchPlatform =
+    | 'youtube'
+    | 'youtube music'
+    | 'soundcloud'
+    | 'ytm'
+    | 'yt'
+    | 'sc'
+    | 'am'
+    | 'sp'
+    | 'sprec'
+    | 'spsuggestion'
+    | 'ds'
+    | 'dz'
+    | 'deezer'
+    | 'yandex'
+    | 'yandexmusic';
 export type SearchPlatform = LavalinkSearchPlatform | RythraSearchPlatform;
 
-export type LoadType = "track" | "playlist" | "search" | "empty" | "error";
+export type LoadType = 'track' | 'playlist' | 'search' | 'empty' | 'error';
 
 export interface TrackInfo {
     identifier: string;
@@ -52,17 +67,34 @@ export interface TrackInfo {
 export interface Track {
     encoded: string;
     info: TrackInfo;
-    pluginInfo: any;
-    userData: any;
+    pluginInfo: Record<string, unknown>;
+    userData: Record<string, unknown>;
 }
 
-export interface SearchResponse {
-    loadType: LoadType;
-    data: any;
+export interface PlaylistInfo {
+    name: string;
+    selectedTrack: number;
 }
 
-export type leastUsedNodeSortType = "memory" | "calls" | "players";
-export type leastLoadNodeSortType = "cpu" | "memory";
+export interface PlaylistData {
+    info: PlaylistInfo;
+    pluginInfo: Record<string, unknown>;
+    tracks: Track[];
+}
+
+export interface SearchResultData {
+    tracks: Track[];
+}
+
+export type SearchResponse =
+    | { loadType: 'track'; data: Track }
+    | { loadType: 'playlist'; data: PlaylistData }
+    | { loadType: 'search'; data: SearchResultData }
+    | { loadType: 'empty'; data: Record<string, never> }
+    | { loadType: 'error'; data: LavalinkRestError };
+
+export type leastUsedNodeSortType = 'memory' | 'calls' | 'players';
+export type leastLoadNodeSortType = 'cpu' | 'memory';
 
 export interface Payload {
     /** The OP code */
@@ -109,19 +141,93 @@ export interface PlayerOptions {
 
 export interface IRythra {
     /**
-   * Emitted when a Node is created.
-   * @event Manager#nodeCreate
-   */
-    on(event: "nodeCreate", listener: (node: Node) => void): this;
+     * Emitted when a Node is created.
+     * @event Manager#nodeCreate
+     */
+    on(event: 'nodeCreate', listener: (node: Node) => void): this;
 }
 
 export enum Versions {
-    REST_VERSION = 4
+    REST_VERSION = 4,
 }
 
-export interface LavalinkResponse {
-    loadType: LoadType;
-    data: any;
+export type LavalinkResponse = SearchResponse;
+
+export interface Equalizer {
+    band: number;
+    gain: number;
+}
+
+export interface Karaoke {
+    level?: number;
+    monoLevel?: number;
+    filterBand?: number;
+    filterWidth?: number;
+}
+
+export interface Timescale {
+    speed?: number;
+    pitch?: number;
+    rate?: number;
+}
+
+export interface Tremolo {
+    frequency?: number;
+    depth?: number;
+}
+
+export interface Vibrato {
+    frequency?: number;
+    depth?: number;
+}
+
+export interface Rotation {
+    rotationHz?: number;
+}
+
+export interface Distortion {
+    sinOffset?: number;
+    sinScale?: number;
+    cosOffset?: number;
+    cosScale?: number;
+    tanOffset?: number;
+    tanScale?: number;
+    cos2Offset?: number;
+    cos2Scale?: number;
+    tan2Offset?: number;
+    tan2Scale?: number;
+}
+
+export interface ChannelMix {
+    leftToLeft?: number;
+    leftToRight?: number;
+    rightToLeft?: number;
+    rightToRight?: number;
+}
+
+export interface LowPass {
+    smoothing?: number;
+}
+
+export interface Filters {
+    volume?: number;
+    equalizer?: Equalizer[];
+    karaoke?: Karaoke;
+    timescale?: Timescale;
+    tremolo?: Tremolo;
+    vibrato?: Vibrato;
+    rotation?: Rotation;
+    distortion?: Distortion;
+    channelMix?: ChannelMix;
+    lowPass?: LowPass;
+    pluginFilters?: Record<string, unknown>;
+}
+
+export interface PlayerState {
+    time: number;
+    position: number;
+    connected: boolean;
+    ping: number;
 }
 
 export interface LavalinkPlayer {
@@ -134,7 +240,8 @@ export interface LavalinkPlayer {
         endpoint: string;
         sessionId: string;
     };
-    filters: any;
+    filters: Filters;
+    state: PlayerState;
 }
 
 export interface UpdatePlayerInfo {
@@ -144,12 +251,12 @@ export interface UpdatePlayerInfo {
         track?: {
             encoded?: string | null;
             identifier?: string;
-            userData?: any;
+            userData?: Record<string, unknown>;
         };
         position?: number;
         volume?: number;
         paused?: boolean;
-        filters?: any;
+        filters?: Filters;
         voice?: {
             token: string;
             endpoint: string;
@@ -188,7 +295,12 @@ export interface Stats {
 
 export interface RoutePlanner {
     class: string | null;
-    details: any | null;
+    details: Record<string, unknown> | null;
+}
+
+export interface PluginInfo {
+    name: string;
+    version: string;
 }
 
 export interface NodeInfo {
@@ -210,7 +322,7 @@ export interface NodeInfo {
     lavaplayer: string;
     sourceManagers: string[];
     filters: string[];
-    plugins: any[];
+    plugins: PluginInfo[];
 }
 
 export interface FetchOptions {
@@ -219,7 +331,7 @@ export interface FetchOptions {
         method?: string;
         params?: Record<string, string>;
         headers?: Record<string, string>;
-        body?: any;
+        body?: unknown;
     };
 }
 
@@ -237,4 +349,22 @@ export interface LavalinkRestError {
     message: string;
     path: string;
     trace?: string;
+}
+
+export interface GatewayPacket {
+    t?: string;
+    d?: unknown;
+    op?: number;
+}
+
+export interface VoiceServerUpdate {
+    guild_id: string;
+    token: string;
+    endpoint: string;
+}
+
+export interface VoiceStateUpdate {
+    guild_id: string;
+    session_id: string;
+    channel_id: string | null;
 }

@@ -1,4 +1,4 @@
-import type { Track } from "./Types";
+import type { Track } from './Types';
 
 /**
  * A queue of tracks to be played.

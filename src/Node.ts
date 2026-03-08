@@ -1,7 +1,8 @@
-import { EventEmitter } from "node:events";
-import { Rythra } from "./Rythra";
-import type { NodeOptions } from "./Types";
-import { Rest } from "./Rest";
+import { EventEmitter } from 'node:events';
+import { Rythra } from './Rythra';
+import type { NodeOptions, Stats } from './Types';
+import { Rest } from './Rest';
+import WebSocket from 'ws';
 
 /**
  * Represents a single Lavalink node connection.
@@ -15,9 +16,9 @@ export class Node extends EventEmitter {
     /** The REST client used to interact with this node's API. */
     public readonly rest: Rest;
     /** The WebSocket instance for this node. */
-    public ws: any | null = null;
+    public ws: WebSocket | null = null;
     /** Real-time statistics received from the Lavalink node. */
-    public stats: any = {
+    public stats: Stats = {
         players: 0,
         playingPlayers: 0,
         uptime: 0,
@@ -31,11 +32,6 @@ export class Node extends EventEmitter {
             cores: 0,
             systemLoad: 0,
             lavalinkLoad: 0,
-        },
-        frameStats: {
-            sent: 0,
-            nulled: 0,
-            deficit: 0,
         },
     };
     /** The session ID assigned by the Lavalink node upon connection. */
@@ -59,9 +55,9 @@ export class Node extends EventEmitter {
      * Gets the full REST API URL for this node.
      */
     public get restUrl(): string {
-        const protocol = this.options.secure ? "https" : "http";
+        const protocol = this.options.secure ? 'https' : 'http';
         const host = this.options.host;
-        const port = this.options.port ? `:${this.options.port}` : "";
+        const port = this.options.port ? `:${this.options.port}` : '';
         return `${protocol}://${host}${port}/v4`;
     }
 
@@ -71,34 +67,33 @@ export class Node extends EventEmitter {
     public connect(): void {
         if (this.connected) return;
 
-        const protocol = this.options.secure ? "wss" : "ws";
+        const protocol = this.options.secure ? 'wss' : 'ws';
         const host = this.options.host;
-        const port = this.options.port ? `:${this.options.port}` : "";
+        const port = this.options.port ? `:${this.options.port}` : '';
         const url = `${protocol}://${host}${port}/v4/websocket`;
         this.ws = new WebSocket(url, {
             headers: {
-                Authorization: this.options.password || "youshallnotpass",
-                "Client-Name": `${this.manager.options.clientName || "Rythra"}/${this.manager.version}`,
-                "User-Id": this.manager.options.clientId || this.manager.options.connector.getId() || "",
+                Authorization: this.options.password || 'youshallnotpass',
+                'Client-Name': `${this.manager.options.clientName || 'Rythra'}/${this.manager.version}`,
+                'User-Id': this.manager.options.clientId || this.manager.options.connector.getId() || '',
             },
-            // @ts-ignore
             rejectUnauthorized: this.options.rejectUnauthorized ?? true,
-        } as any);
+        } as WebSocket.ClientOptions);
 
         this.ws.onopen = () => {
             this.connected = true;
-            this.emit("connect");
+            this.emit('connect');
         };
 
-        this.ws.onmessage = (event: MessageEvent) => {
-            const data = JSON.parse(event.data);
-            if (data.op === "ready") {
+        this.ws.onmessage = (event: WebSocket.MessageEvent) => {
+            const data = JSON.parse(event.data.toString());
+            if (data.op === 'ready') {
                 this.sessionId = data.sessionId;
-                this.emit("ready");
-            } else if (data.op === "stats") {
+                this.emit('ready');
+            } else if (data.op === 'stats') {
                 this.stats = data;
-                this.emit("stats", data);
-            } else if (data.op === "event") {
+                this.emit('stats', data);
+            } else if (data.op === 'event') {
                 // Handle player events (TrackStartEvent, etc.)
                 const player = this.manager.players.get(data.guildId);
                 if (player) {
@@ -109,14 +104,14 @@ export class Node extends EventEmitter {
 
         this.ws.onclose = () => {
             this.connected = false;
-            this.emit("disconnect");
+            this.emit('disconnect');
             // Basic reconnection logic
             setTimeout(() => this.connect(), this.options.retryInterval || 5000);
         };
 
-        this.ws.onerror = (err: any) => {
+        this.ws.onerror = (err: WebSocket.ErrorEvent) => {
             console.error(`WebSocket Error [${this.options.identifier}]:`, err.message || err);
-            this.emit("error", err);
+            this.emit('error', err);
         };
     }
 
@@ -126,6 +121,6 @@ export class Node extends EventEmitter {
     public disconnect(): void {
         if (!this.connected) return;
         this.connected = false;
-        this.emit("disconnect");
+        this.emit('disconnect');
     }
 }

@@ -1,26 +1,46 @@
 {
   "name": "rythra",
-  "module": "index.ts",
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./dist/index.d.mts",
+        "default": "./dist/index.mjs"
+      },
+      "require": {
+        "types": "./dist/index.d.ts",
+        "default": "./dist/index.js"
+      }
+    }
+  },
   "type": "module",
-  "version": "0.0.1",
+  "version": "0.0.2",
+  "files": [
+    "dist"
+  ],
   "scripts": {
-    "docs:build": "astro build --root docs",
-    "dev": "astro dev --root docs",
-    "start": "astro dev --root docs",
-    "build": "astro build --root docs",
-    "preview": "astro preview --root docs",
-    "astro": "astro --root docs"
+    "build": "bun run build:ts && bun run build:docs",
+    "build:ts": "tsup && bun x tsc -p tsconfig.dist.json",
+    "build:docs": "typedoc",
+    "lint": "eslint .",
+    "format": "prettier --write .",
+    "prepare": "bun run build:ts"
   },
   "dependencies": {
-    "@astrojs/starlight": "^0.37.7",
-    "astro": "^5.6.1",
-    "sharp": "^0.34.2",
-    "starlight-typedoc": "^0.21.5",
-    "typedoc": "^0.28.17",
-    "typedoc-plugin-markdown": "^4.10.0",
-    "@types/bun": "latest"
+    "@types/bun": "latest",
+    "discord.js": "^14.25.1"
   },
   "peerDependencies": {
     "typescript": "^5"
+  },
+  "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "eslint": "^10.0.3",
+    "eslint-config-prettier": "^10.1.8",
+    "prettier": "^3.8.1",
+    "tsup": "^8.5.1",
+    "typescript-eslint": "^8.56.1"
   }
 }
