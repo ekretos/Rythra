@@ -1,0 +1,12 @@
+---
+title: LavalinkSearchPlatform
+description: API Reference for LavalinkSearchPlatform
+---
+
+[**Rythra Documentation v0.0.2**](../README.md)
+
+***
+
+> **LavalinkSearchPlatform** = `"ytsearch"` \| `"ytmsearch"` \| `"scsearch"` \| `"spsearch"` \| `"sprec"` \| `"amsearch"` \| `"dzsearch"` \| `"dzisrc"` \| `"ymsearch"` \| `"speak"` \| `"tts"`
+
+Defined in: [src/Types.ts:32](https://github.com/ekretos/Rythra/blob/97bb66158cadfed295d503388eb818d9992b5725/src/Types.ts#L32)

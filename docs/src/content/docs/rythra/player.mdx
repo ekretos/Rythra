@@ -1,0 +1,186 @@
+---
+title: Player Control
+description: Learn how to control audio playback with RythraPlayer.
+---
+
+import { Tabs, TabItem } from '@astrojs/starlight/components';
+
+The `RythraPlayer` class is responsible for managing audio playback in a specific guild.
+
+## Managing Playback
+
+### Playing Tracks
+
+You can play a track by passing its encoded string or a `Track` object to the `play` method:
+
+<Tabs>
+<TabItem label="TypeScript">
+```typescript
+// Play a track directly
+await player.play(track);
+
+// Add to queue and play if nothing is playing
+player.queue.add(track);
+if (!player.playing) await player.play();
+```
+</TabItem>
+<TabItem label="ESM">
+```javascript
+// Play a track directly
+await player.play(track);
+
+// Add to queue and play if nothing is playing
+player.queue.add(track);
+if (!player.playing) await player.play();
+```
+</TabItem>
+<TabItem label="CJS">
+```javascript
+// Play a track directly
+await player.play(track).catch(console.error);
+
+// Add to queue and play if nothing is playing
+player.queue.add(track);
+if (!player.playing) player.play().catch(console.error);
+```
+</TabItem>
+</Tabs>
+
+### Pausing and Resuming
+
+<Tabs>
+<TabItem label="TypeScript">
+```typescript
+// Pause playback
+await player.pause(true);
+
+// Resume playback
+await player.pause(false);
+```
+</TabItem>
+<TabItem label="ESM">
+```javascript
+// Pause playback
+await player.pause(true);
+
+// Resume playback
+await player.pause(false);
+```
+</TabItem>
+<TabItem label="CJS">
+```javascript
+// Pause playback
+player.pause(true).catch(console.error);
+
+// Resume playback
+player.pause(false).catch(console.error);
+```
+</TabItem>
+</Tabs>
+
+### Stopping Playback
+
+<Tabs>
+<TabItem label="TypeScript">
+```typescript
+await player.stop();
+```
+</TabItem>
+<TabItem label="ESM">
+```javascript
+await player.stop();
+```
+</TabItem>
+<TabItem label="CJS">
+```javascript
+player.stop().catch(console.error);
+```
+</TabItem>
+</Tabs>
+
+### Skipping Tracks
+
+<Tabs>
+<TabItem label="TypeScript">
+```typescript
+await player.skip();
+```
+</TabItem>
+<TabItem label="ESM">
+```javascript
+await player.skip();
+```
+</TabItem>
+<TabItem label="CJS">
+```javascript
+player.skip().catch(console.error);
+```
+</TabItem>
+</Tabs>
+
+## Volume Control
+
+You can set the volume level between 0 and 1000 (default is 100):
+
+<Tabs>
+<TabItem label="TypeScript">
+```typescript
+await player.setVolume(200);
+```
+</TabItem>
+<TabItem label="ESM">
+```javascript
+await player.setVolume(200);
+```
+</TabItem>
+<TabItem label="CJS">
+```javascript
+player.setVolume(200).catch(console.error);
+```
+</TabItem>
+</Tabs>
+
+## Queue Management
+
+The `player.queue` object allows you to manage the list of upcoming tracks.
+
+<Tabs>
+<TabItem label="TypeScript">
+```typescript
+// Add a track to the queue
+player.queue.add(track);
+
+// Clear the queue
+player.queue.clear();
+
+// Get the number of tracks in the queue
+console.log(`Queue length: ${player.queue.length}`);
+```
+</TabItem>
+<TabItem label="ESM">
+```javascript
+// Add a track to the queue
+player.queue.add(track);
+
+// Clear the queue
+player.queue.clear();
+
+// Get the number of tracks in the queue
+console.log(`Queue length: ${player.queue.length}`);
+```
+</TabItem>
+<TabItem label="CJS">
+```javascript
+// Add a track to the queue
+player.queue.add(track);
+
+// Clear the queue
+player.queue.clear();
+
+// Get the number of tracks in the queue
+console.log(`Queue length: ${player.queue.length}`);
+```
+</TabItem>
+</Tabs>
+
+Next, learn more about [Event Handling](/rythra/events).

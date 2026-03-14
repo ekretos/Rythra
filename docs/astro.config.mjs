@@ -31,4 +31,11 @@ export default defineConfig({
 			],
 		}),
 	],
+	vite: {
+		server: {
+			fs: {
+				allow: ['..'],
+			},
+		},
+	},
 });

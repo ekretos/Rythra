@@ -1,11 +1,14 @@
 {
     "entryPoints": ["src/index.ts"],
-    "out": "typedocs",
+    "out": "docs/src/content/docs/reference",
+    "plugin": ["typedoc-plugin-markdown"],
+    "hideBreadcrumbs": true,
+    "hidePageTitle": true,
     "theme": "default",
     "name": "Rythra Documentation",
     "includeVersion": true,
     "excludePrivate": true,
     "excludeInternal": true,
     "exclude": ["example/**", "docs/**"],
-    "readme": "README.md"
+    "readme": "none"
 }

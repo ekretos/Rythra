@@ -1,0 +1,140 @@
+---
+title: Event Handling
+description: Learn how to handle events from Rythra and its players.
+---
+
+import { Tabs, TabItem } from '@astrojs/starlight/components';
+
+Rythra and its players emit various events to keep you informed about what's happening.
+
+## Rythra Manager Events
+
+Listen for manager-level events like node connections or player creations.
+
+<Tabs>
+<TabItem label="TypeScript">
+```typescript
+rythra.on("nodeCreate", (node) => {
+    console.log(`Node ${node.options.identifier} created.`);
+});
+
+rythra.on("nodeConnect", (node) => {
+    console.log(`Node ${node.options.identifier} connected.`);
+});
+
+rythra.on("nodeError", (node, error) => {
+    console.error(`Node ${node.options.identifier} error:`, error);
+});
+
+rythra.on("playerCreate", (player) => {
+    console.log(`Player created for guild ${player.guild}..`);
+});
+```
+</TabItem>
+<TabItem label="ESM">
+```javascript
+rythra.on("nodeCreate", (node) => {
+    console.log(`Node ${node.options.identifier} created.`);
+});
+
+rythra.on("nodeConnect", (node) => {
+    console.log(`Node ${node.options.identifier} connected.`);
+});
+
+rythra.on("nodeError", (node, error) => {
+    console.error(`Node ${node.options.identifier} error:`, error);
+});
+
+rythra.on("playerCreate", (player) => {
+    console.log(`Player created for guild ${player.guild}.`);
+});
+```
+</TabItem>
+<TabItem label="CJS">
+```javascript
+rythra.on("nodeCreate", (node) => {
+    console.log(`Node ${node.options.identifier} created.`);
+});
+
+rythra.on("nodeConnect", (node) => {
+    console.log(`Node ${node.options.identifier} connected.`);
+});
+
+rythra.on("nodeError", (node, error) => {
+    console.error(`Node ${node.options.identifier} error:`, error);
+});
+
+rythra.on("playerCreate", (player) => {
+    console.log(`Player created for guild ${player.guild}.`);
+});
+```
+</TabItem>
+</Tabs>
+
+## Player Events
+
+Listen for playback-related events on individual players.
+
+<Tabs>
+<TabItem label="TypeScript">
+```typescript
+player.on("trackStart", (track) => {
+    console.log(`Started playing: ${track.info.title}`);
+});
+
+player.on("trackEnd", (data) => {
+    console.log(`Track ended. Reason: ${data.reason}`);
+});
+
+player.on("trackError", (data) => {
+    console.error("Playback error:", data.error);
+});
+
+player.on("trackSkip", (track) => {
+    console.log(`Skipped: ${track.info.title}`);
+});
+```
+</TabItem>
+<TabItem label="ESM">
+```javascript
+player.on("trackStart", (track) => {
+    console.log(`Started playing: ${track.info.title}`);
+});
+
+player.on("trackEnd", (data) => {
+    console.log(`Track ended. Reason: ${data.reason}`);
+});
+
+player.on("trackError", (data) => {
+    console.error("Playback error:", data.error);
+});
+
+player.on("trackSkip", (track) => {
+    console.log(`Skipped: ${track.info.title}`);
+});
+```
+</TabItem>
+<TabItem label="CJS">
+```javascript
+player.on("trackStart", (track) => {
+    console.log("Started playing: " + track.info.title);
+});
+
+player.on("trackEnd", (data) => {
+    console.log("Track ended. Reason: " + data.reason);
+});
+
+player.on("trackError", (data) => {
+    console.error("Playback error:", data.error);
+});
+
+player.on("trackSkip", (track) => {
+    console.log("Skipped: " + track.info.title);
+});
+```
+</TabItem>
+</Tabs>
+
+### Common Event Data
+
+Many player events provide the current `track` and additional metadata about the event.
