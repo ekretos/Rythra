@@ -9,7 +9,7 @@ export class CircuitBreaker {
     /** Time at which circuit opened. */ public openedAt = 0;
     private readonly failureThreshold: number; private readonly resetTimeout: number;
     /** Creates a circuit breaker. */
-    public constructor(options: CircuitBreakerOptions = {}) { this.failureThreshold = Math.max(1, options.failureThreshold ?? 5); this.resetTimeout = Math.max(100, options.resetTimeout ?? 30_000); }
+    public constructor(options: CircuitBreakerOptions = {}) { this.failureThreshold = Math.max(1, options.failureThreshold ?? 5); this.resetTimeout = Math.max(0, options.resetTimeout ?? 30_000); }
     /** Determines whether a request may currently be attempted. */
     public canRequest(): boolean { if (this.state === 'closed') return true; if (this.state === 'open' && Date.now() - this.openedAt >= this.resetTimeout) { this.state = 'half-open'; return true; } return this.state === 'half-open'; }
     /** Records success and closes the circuit. */
