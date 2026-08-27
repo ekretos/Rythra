@@ -16,9 +16,7 @@ import type { Track, SearchResponse } from 'rythra';
 /** Discord bot token. Set BOT_TOKEN in the environment. */
 const TOKEN = process.env.BOT_TOKEN;
 
-if (!TOKEN) {
-    throw new Error('BOT_TOKEN is required.');
-}
+if (!TOKEN) throw new Error('BOT_TOKEN is required.');
 
 const client = new Client({
     intents: [
@@ -32,24 +30,17 @@ const client = new Client({
 /** Discord.js connector used to bridge Discord gateway voice state with Rythra. */
 const connector = new DiscordJS(client);
 
-/**
- * Rythra manager.
- *
- * The application only supplies the Discord connector and Lavalink node
- * configuration; playback and node lifecycle remain framework-agnostic.
- */
+/** Rythra manager configured with the application's Lavalink node. */
 const rythra = new Rythra({
     connector,
     autoPlay: true,
-    nodes: [
-        {
-            host: process.env.LAVALINK_HOST || 'localhost',
-            port: Number(process.env.LAVALINK_PORT || 2333),
-            password: process.env.LAVALINK_PASSWORD || 'youshallnotpass',
-            identifier: process.env.LAVALINK_IDENTIFIER || 'main',
-            secure: process.env.LAVALINK_SECURE === 'true',
-        },
-    ],
+    nodes: [{
+        host: process.env.LAVALINK_HOST || 'localhost',
+        port: Number(process.env.LAVALINK_PORT || 2333),
+        password: process.env.LAVALINK_PASSWORD || 'youshallnotpass',
+        identifier: process.env.LAVALINK_IDENTIFIER || 'main',
+        secure: process.env.LAVALINK_SECURE === 'true',
+    }],
 });
 
 /** Log node-level failures without exposing credentials. */
@@ -61,7 +52,6 @@ rythra.on('nodeError', (node: Node, error: Error) => {
 rythra.on('nodeCreate', (node: Node) => {
     const identifier = node.options.identifier ?? 'unknown';
     console.log(`[Rythra] Node ${identifier} created`);
-
     node.on('connect', () => console.log(`[Rythra] Node ${identifier} connected`));
     node.on('disconnect', () => console.log(`[Rythra] Node ${identifier} disconnected`));
 });
@@ -70,11 +60,9 @@ rythra.on('nodeCreate', (node: Node) => {
 rythra.on('playerCreate', (player: RythraPlayer) => {
     player.on('trackStart', (track: Track | null | undefined) => {
         if (!track) return;
-
         const channel = client.channels.cache.get(player.textChannel) as TextChannel | undefined;
         if (channel) void channel.send(`Now playing: **${track.info.title}**`);
     });
-
     player.on('trackException', (data: unknown) => {
         console.error(`[Rythra] Playback exception in ${player.guild}:`, data);
     });
@@ -83,7 +71,6 @@ rythra.on('playerCreate', (player: RythraPlayer) => {
 /** Connect Lavalink nodes once Discord is ready. */
 client.once('clientReady', async () => {
     console.log(`Logged in as ${client.user?.tag}!`);
-
     try {
         await rythra.connect();
         console.log('[Rythra] Lavalink connection established');
@@ -95,8 +82,8 @@ client.once('clientReady', async () => {
 /**
  * Minimal text-command example.
  *
- * Commands are intentionally kept here instead of inside Rythra because
- * commands and Discord UX are application concerns, not Lavalink concerns.
+ * Commands remain in the example because Discord commands and UX are
+ * application concerns, not responsibilities of the framework-agnostic core.
  */
 client.on('messageCreate', async (message: Message) => {
     if (message.author.bot || !message.guild) return;
@@ -116,7 +103,6 @@ client.on('messageCreate', async (message: Message) => {
 
         try {
             const searchResult: SearchResponse = await rythra.search(query, message.author.id, 'youtube');
-
             if (searchResult.loadType === 'empty' || searchResult.loadType === 'error') {
                 return void message.reply('No results found or Lavalink returned an error.');
             }
@@ -127,20 +113,31 @@ client.on('messageCreate', async (message: Message) => {
                 textChannel: message.channel.id,
             });
 
-            if (searchResult.loadType === 'playlist') {
-                player.queue.add(searchResult.data.tracks);
-                await message.reply(
-                    `Added playlist **${searchResult.data.info.name}** with ${searchResult.data.tracks.length} tracks.`,
-                );
-            } else {
-                const track = searchResult.loadType === 'track'
-                    ? searchResult.data
-                    : searchResult.data.tracks[0];
+            switch (searchResult.loadType) {
+                case 'playlist':
+                    player.queue.add(searchResult.data.tracks);
+                    await message.reply(
+                        `Added playlist **${searchResult.data.info.name}** with ${searchResult.data.tracks.length} tracks.`,
+                    );
+                    break;
 
-                if (!track) return void message.reply('No results found.');
+                case 'track': {
+                    const track = searchResult.data;
+                    player.queue.add(track);
+                    await message.reply(`Added **${track.info.title}** to the queue.`);
+                    break;
+                }
 
-                player.queue.add(track);
-                await message.reply(`Added **${track.info.title}** to the queue.`);
+                case 'search': {
+                    const track = searchResult.data.tracks[0];
+                    if (!track) return void message.reply('No results found.');
+                    player.queue.add(track);
+                    await message.reply(`Added **${track.info.title}** to the queue.`);
+                    break;
+                }
+
+                default:
+                    return void message.reply('No playable results found.');
             }
 
             player.connect();
@@ -154,7 +151,6 @@ client.on('messageCreate', async (message: Message) => {
     if (command === 'skip') {
         const player = rythra.players.get(message.guild.id);
         if (!player) return void message.reply('No player found for this guild.');
-
         await player.skip();
         await message.reply('Skipped the current track.');
     }
@@ -162,10 +158,7 @@ client.on('messageCreate', async (message: Message) => {
     if (command === 'queue') {
         const player = rythra.players.get(message.guild.id);
         if (!player) return void message.reply('No player found for this guild.');
-
-        if (player.queue.length === 0 && !player.queue.current) {
-            return void message.reply('The queue is empty.');
-        }
+        if (player.queue.length === 0 && !player.queue.current) return void message.reply('The queue is empty.');
 
         const queue = player.queue
             .map((track: Track, index: number) => `${index + 1}. **${track.info.title}**`)
@@ -179,7 +172,6 @@ client.on('messageCreate', async (message: Message) => {
     if (command === 'stop') {
         const player = rythra.players.get(message.guild.id);
         if (!player) return void message.reply('No player found for this guild.');
-
         await player.stop();
         await message.reply('Stopped playback.');
     }
@@ -187,7 +179,6 @@ client.on('messageCreate', async (message: Message) => {
     if (command === 'pause') {
         const player = rythra.players.get(message.guild.id);
         if (!player) return void message.reply('No player found for this guild.');
-
         await player.pause(true);
         await message.reply('Paused playback.');
     }
@@ -195,7 +186,6 @@ client.on('messageCreate', async (message: Message) => {
     if (command === 'resume') {
         const player = rythra.players.get(message.guild.id);
         if (!player) return void message.reply('No player found for this guild.');
-
         await player.pause(false);
         await message.reply('Resumed playback.');
     }
