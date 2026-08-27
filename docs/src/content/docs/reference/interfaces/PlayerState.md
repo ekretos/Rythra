@@ -7,7 +7,7 @@ description: API Reference for PlayerState
 
 ***
 
-Defined in: [packages/core/src/Types.ts:53](https://github.com/ekretos/Rythra/blob/f7f92181524349d3a52cccb7d61140eaeab9e974/packages/core/src/Types.ts#L53)
+Defined in: [packages/core/src/Types.ts:53](https://github.com/ekretos/Rythra/blob/6f3cdb5f756fe86d62209c0aacb9051c0a349611/packages/core/src/Types.ts#L53)
 
 Runtime player state.
 
@@ -17,7 +17,7 @@ Runtime player state.
 
 > **connected**: `boolean`
 
-Defined in: [packages/core/src/Types.ts:53](https://github.com/ekretos/Rythra/blob/f7f92181524349d3a52cccb7d61140eaeab9e974/packages/core/src/Types.ts#L53)
+Defined in: [packages/core/src/Types.ts:53](https://github.com/ekretos/Rythra/blob/6f3cdb5f756fe86d62209c0aacb9051c0a349611/packages/core/src/Types.ts#L53)
 
 ***
 
@@ -25,7 +25,7 @@ Defined in: [packages/core/src/Types.ts:53](https://github.com/ekretos/Rythra/bl
 
 > **ping**: `number`
 
-Defined in: [packages/core/src/Types.ts:53](https://github.com/ekretos/Rythra/blob/f7f92181524349d3a52cccb7d61140eaeab9e974/packages/core/src/Types.ts#L53)
+Defined in: [packages/core/src/Types.ts:53](https://github.com/ekretos/Rythra/blob/6f3cdb5f756fe86d62209c0aacb9051c0a349611/packages/core/src/Types.ts#L53)
 
 ***
 
@@ -33,7 +33,7 @@ Defined in: [packages/core/src/Types.ts:53](https://github.com/ekretos/Rythra/bl
 
 > **position**: `number`
 
-Defined in: [packages/core/src/Types.ts:53](https://github.com/ekretos/Rythra/blob/f7f92181524349d3a52cccb7d61140eaeab9e974/packages/core/src/Types.ts#L53)
+Defined in: [packages/core/src/Types.ts:53](https://github.com/ekretos/Rythra/blob/6f3cdb5f756fe86d62209c0aacb9051c0a349611/packages/core/src/Types.ts#L53)
 
 ***
 
@@ -41,4 +41,4 @@ Defined in: [packages/core/src/Types.ts:53](https://github.com/ekretos/Rythra/bl
 
 > **time**: `number`
 
-Defined in: [packages/core/src/Types.ts:53](https://github.com/ekretos/Rythra/blob/f7f92181524349d3a52cccb7d61140eaeab9e974/packages/core/src/Types.ts#L53)
+Defined in: [packages/core/src/Types.ts:53](https://github.com/ekretos/Rythra/blob/6f3cdb5f756fe86d62209c0aacb9051c0a349611/packages/core/src/Types.ts#L53)

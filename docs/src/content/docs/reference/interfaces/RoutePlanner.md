@@ -7,7 +7,7 @@ description: API Reference for RoutePlanner
 
 ***
 
-Defined in: [packages/core/src/Types.ts:58](https://github.com/ekretos/Rythra/blob/f7f92181524349d3a52cccb7d61140eaeab9e974/packages/core/src/Types.ts#L58)
+Defined in: [packages/core/src/Types.ts:58](https://github.com/ekretos/Rythra/blob/6f3cdb5f756fe86d62209c0aacb9051c0a349611/packages/core/src/Types.ts#L58)
 
 Route planner status.
 
@@ -17,7 +17,7 @@ Route planner status.
 
 > **class**: `string` \| `null`
 
-Defined in: [packages/core/src/Types.ts:58](https://github.com/ekretos/Rythra/blob/f7f92181524349d3a52cccb7d61140eaeab9e974/packages/core/src/Types.ts#L58)
+Defined in: [packages/core/src/Types.ts:58](https://github.com/ekretos/Rythra/blob/6f3cdb5f756fe86d62209c0aacb9051c0a349611/packages/core/src/Types.ts#L58)
 
 ***
 
@@ -25,4 +25,4 @@ Defined in: [packages/core/src/Types.ts:58](https://github.com/ekretos/Rythra/bl
 
 > **details**: `Record`\<`string`, `unknown`\> \| `null`
 
-Defined in: [packages/core/src/Types.ts:58](https://github.com/ekretos/Rythra/blob/f7f92181524349d3a52cccb7d61140eaeab9e974/packages/core/src/Types.ts#L58)
+Defined in: [packages/core/src/Types.ts:58](https://github.com/ekretos/Rythra/blob/6f3cdb5f756fe86d62209c0aacb9051c0a349611/packages/core/src/Types.ts#L58)

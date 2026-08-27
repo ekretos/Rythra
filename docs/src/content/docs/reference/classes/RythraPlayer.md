@@ -7,7 +7,7 @@ description: API Reference for RythraPlayer
 
 ***
 
-Defined in: [packages/core/src/Player.ts:24](https://github.com/ekretos/Rythra/blob/f7f92181524349d3a52cccb7d61140eaeab9e974/packages/core/src/Player.ts#L24)
+Defined in: [packages/core/src/Player.ts:24](https://github.com/ekretos/Rythra/blob/6f3cdb5f756fe86d62209c0aacb9051c0a349611/packages/core/src/Player.ts#L24)
 
 Manages audio playback for a single Discord guild.
 
@@ -27,7 +27,7 @@ events received from Lavalink.
 
 > **new RythraPlayer**(`node`, `options`): `RythraPlayer`
 
-Defined in: [packages/core/src/Player.ts:36](https://github.com/ekretos/Rythra/blob/f7f92181524349d3a52cccb7d61140eaeab9e974/packages/core/src/Player.ts#L36)
+Defined in: [packages/core/src/Player.ts:36](https://github.com/ekretos/Rythra/blob/6f3cdb5f756fe86d62209c0aacb9051c0a349611/packages/core/src/Player.ts#L36)
 
 Creates a guild player.
 
@@ -55,7 +55,7 @@ Creates a guild player.
 
 > `readonly` **guild**: `string`
 
-Defined in: [packages/core/src/Player.ts:26](https://github.com/ekretos/Rythra/blob/f7f92181524349d3a52cccb7d61140eaeab9e974/packages/core/src/Player.ts#L26)
+Defined in: [packages/core/src/Player.ts:26](https://github.com/ekretos/Rythra/blob/6f3cdb5f756fe86d62209c0aacb9051c0a349611/packages/core/src/Player.ts#L26)
 
 The Discord guild ID associated with this player.
 
@@ -65,7 +65,7 @@ The Discord guild ID associated with this player.
 
 > `readonly` **node**: [`Node`](Node.md)
 
-Defined in: [packages/core/src/Player.ts:25](https://github.com/ekretos/Rythra/blob/f7f92181524349d3a52cccb7d61140eaeab9e974/packages/core/src/Player.ts#L25)
+Defined in: [packages/core/src/Player.ts:25](https://github.com/ekretos/Rythra/blob/6f3cdb5f756fe86d62209c0aacb9051c0a349611/packages/core/src/Player.ts#L25)
 
 The Lavalink node currently assigned to this player.
 
@@ -75,7 +75,7 @@ The Lavalink node currently assigned to this player.
 
 > **paused**: `boolean` = `false`
 
-Defined in: [packages/core/src/Player.ts:30](https://github.com/ekretos/Rythra/blob/f7f92181524349d3a52cccb7d61140eaeab9e974/packages/core/src/Player.ts#L30)
+Defined in: [packages/core/src/Player.ts:30](https://github.com/ekretos/Rythra/blob/6f3cdb5f756fe86d62209c0aacb9051c0a349611/packages/core/src/Player.ts#L30)
 
 Whether playback is currently paused.
 
@@ -85,7 +85,7 @@ Whether playback is currently paused.
 
 > **playing**: `boolean` = `false`
 
-Defined in: [packages/core/src/Player.ts:29](https://github.com/ekretos/Rythra/blob/f7f92181524349d3a52cccb7d61140eaeab9e974/packages/core/src/Player.ts#L29)
+Defined in: [packages/core/src/Player.ts:29](https://github.com/ekretos/Rythra/blob/6f3cdb5f756fe86d62209c0aacb9051c0a349611/packages/core/src/Player.ts#L29)
 
 Whether a track is currently considered active.
 
@@ -95,7 +95,7 @@ Whether a track is currently considered active.
 
 > `readonly` **queue**: [`Queue`](Queue.md)
 
-Defined in: [packages/core/src/Player.ts:33](https://github.com/ekretos/Rythra/blob/f7f92181524349d3a52cccb7d61140eaeab9e974/packages/core/src/Player.ts#L33)
+Defined in: [packages/core/src/Player.ts:33](https://github.com/ekretos/Rythra/blob/6f3cdb5f756fe86d62209c0aacb9051c0a349611/packages/core/src/Player.ts#L33)
 
 Queue containing upcoming and previously played tracks.
 
@@ -105,7 +105,7 @@ Queue containing upcoming and previously played tracks.
 
 > **textChannel**: `string`
 
-Defined in: [packages/core/src/Player.ts:28](https://github.com/ekretos/Rythra/blob/f7f92181524349d3a52cccb7d61140eaeab9e974/packages/core/src/Player.ts#L28)
+Defined in: [packages/core/src/Player.ts:28](https://github.com/ekretos/Rythra/blob/6f3cdb5f756fe86d62209c0aacb9051c0a349611/packages/core/src/Player.ts#L28)
 
 The Discord text channel ID associated with player interactions.
 
@@ -115,7 +115,7 @@ The Discord text channel ID associated with player interactions.
 
 > **voiceChannel**: `string`
 
-Defined in: [packages/core/src/Player.ts:27](https://github.com/ekretos/Rythra/blob/f7f92181524349d3a52cccb7d61140eaeab9e974/packages/core/src/Player.ts#L27)
+Defined in: [packages/core/src/Player.ts:27](https://github.com/ekretos/Rythra/blob/6f3cdb5f756fe86d62209c0aacb9051c0a349611/packages/core/src/Player.ts#L27)
 
 The Discord voice channel ID currently used by the player.
 
@@ -125,7 +125,7 @@ The Discord voice channel ID currently used by the player.
 
 > **voiceState**: `Partial`\<[`VoiceStateUpdate`](../interfaces/VoiceStateUpdate.md)\> = `{}`
 
-Defined in: [packages/core/src/Player.ts:32](https://github.com/ekretos/Rythra/blob/f7f92181524349d3a52cccb7d61140eaeab9e974/packages/core/src/Player.ts#L32)
+Defined in: [packages/core/src/Player.ts:32](https://github.com/ekretos/Rythra/blob/6f3cdb5f756fe86d62209c0aacb9051c0a349611/packages/core/src/Player.ts#L32)
 
 Latest Discord voice state received for this guild.
 
@@ -135,7 +135,7 @@ Latest Discord voice state received for this guild.
 
 > **volume**: `number` = `100`
 
-Defined in: [packages/core/src/Player.ts:31](https://github.com/ekretos/Rythra/blob/f7f92181524349d3a52cccb7d61140eaeab9e974/packages/core/src/Player.ts#L31)
+Defined in: [packages/core/src/Player.ts:31](https://github.com/ekretos/Rythra/blob/6f3cdb5f756fe86d62209c0aacb9051c0a349611/packages/core/src/Player.ts#L31)
 
 Current player volume, from 0 to 1000.
 
@@ -242,7 +242,7 @@ v0.1.26
 
 > **connect**(`options?`): `void`
 
-Defined in: [packages/core/src/Player.ts:105](https://github.com/ekretos/Rythra/blob/f7f92181524349d3a52cccb7d61140eaeab9e974/packages/core/src/Player.ts#L105)
+Defined in: [packages/core/src/Player.ts:105](https://github.com/ekretos/Rythra/blob/6f3cdb5f756fe86d62209c0aacb9051c0a349611/packages/core/src/Player.ts#L105)
 
 Requests a Discord voice connection through the configured connector.
 
@@ -667,7 +667,7 @@ v0.3.0
 
 > **pause**(`pause`): `Promise`\<`void`\>
 
-Defined in: [packages/core/src/Player.ts:90](https://github.com/ekretos/Rythra/blob/f7f92181524349d3a52cccb7d61140eaeab9e974/packages/core/src/Player.ts#L90)
+Defined in: [packages/core/src/Player.ts:90](https://github.com/ekretos/Rythra/blob/6f3cdb5f756fe86d62209c0aacb9051c0a349611/packages/core/src/Player.ts#L90)
 
 Pauses or resumes playback.
 
@@ -687,7 +687,7 @@ Pauses or resumes playback.
 
 > **play**(`track?`, `options?`): `Promise`\<`void`\>
 
-Defined in: [packages/core/src/Player.ts:64](https://github.com/ekretos/Rythra/blob/f7f92181524349d3a52cccb7d61140eaeab9e974/packages/core/src/Player.ts#L64)
+Defined in: [packages/core/src/Player.ts:64](https://github.com/ekretos/Rythra/blob/6f3cdb5f756fe86d62209c0aacb9051c0a349611/packages/core/src/Player.ts#L64)
 
 Starts playback of a track or the next queued track.
 
@@ -1071,7 +1071,7 @@ v0.3.5
 
 > **setVolume**(`volume`): `Promise`\<`void`\>
 
-Defined in: [packages/core/src/Player.ts:97](https://github.com/ekretos/Rythra/blob/f7f92181524349d3a52cccb7d61140eaeab9e974/packages/core/src/Player.ts#L97)
+Defined in: [packages/core/src/Player.ts:97](https://github.com/ekretos/Rythra/blob/6f3cdb5f756fe86d62209c0aacb9051c0a349611/packages/core/src/Player.ts#L97)
 
 Changes Lavalink player volume.
 
@@ -1091,7 +1091,7 @@ Changes Lavalink player volume.
 
 > **skip**(): `Promise`\<`void`\>
 
-Defined in: [packages/core/src/Player.ts:81](https://github.com/ekretos/Rythra/blob/f7f92181524349d3a52cccb7d61140eaeab9e974/packages/core/src/Player.ts#L81)
+Defined in: [packages/core/src/Player.ts:81](https://github.com/ekretos/Rythra/blob/6f3cdb5f756fe86d62209c0aacb9051c0a349611/packages/core/src/Player.ts#L81)
 
 Skips the current track and advances to the next queued track.
 
@@ -1105,7 +1105,7 @@ Skips the current track and advances to the next queued track.
 
 > **stop**(): `Promise`\<`void`\>
 
-Defined in: [packages/core/src/Player.ts:74](https://github.com/ekretos/Rythra/blob/f7f92181524349d3a52cccb7d61140eaeab9e974/packages/core/src/Player.ts#L74)
+Defined in: [packages/core/src/Player.ts:74](https://github.com/ekretos/Rythra/blob/6f3cdb5f756fe86d62209c0aacb9051c0a349611/packages/core/src/Player.ts#L74)
 
 Stops current playback without clearing the queue.
 

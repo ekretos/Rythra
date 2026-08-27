@@ -7,7 +7,7 @@ description: API Reference for IRythra
 
 ***
 
-Defined in: [packages/core/src/Types.ts:40](https://github.com/ekretos/Rythra/blob/f7f92181524349d3a52cccb7d61140eaeab9e974/packages/core/src/Types.ts#L40)
+Defined in: [packages/core/src/Types.ts:40](https://github.com/ekretos/Rythra/blob/6f3cdb5f756fe86d62209c0aacb9051c0a349611/packages/core/src/Types.ts#L40)
 
 Minimal Rythra manager contract.
 
@@ -17,7 +17,7 @@ Minimal Rythra manager contract.
 
 > **on**(`event`, `listener`): `this`
 
-Defined in: [packages/core/src/Types.ts:40](https://github.com/ekretos/Rythra/blob/f7f92181524349d3a52cccb7d61140eaeab9e974/packages/core/src/Types.ts#L40)
+Defined in: [packages/core/src/Types.ts:40](https://github.com/ekretos/Rythra/blob/6f3cdb5f756fe86d62209c0aacb9051c0a349611/packages/core/src/Types.ts#L40)
 
 #### Parameters
 

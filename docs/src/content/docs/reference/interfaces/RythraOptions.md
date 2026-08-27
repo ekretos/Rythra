@@ -7,7 +7,7 @@ description: API Reference for RythraOptions
 
 ***
 
-Defined in: [packages/core/src/Types.ts:7](https://github.com/ekretos/Rythra/blob/f7f92181524349d3a52cccb7d61140eaeab9e974/packages/core/src/Types.ts#L7)
+Defined in: [packages/core/src/Types.ts:7](https://github.com/ekretos/Rythra/blob/6f3cdb5f756fe86d62209c0aacb9051c0a349611/packages/core/src/Types.ts#L7)
 
 Configuration used to create a Rythra manager.
 
@@ -17,7 +17,7 @@ Configuration used to create a Rythra manager.
 
 > `optional` **autoPlay?**: `boolean`
 
-Defined in: [packages/core/src/Types.ts:14](https://github.com/ekretos/Rythra/blob/f7f92181524349d3a52cccb7d61140eaeab9e974/packages/core/src/Types.ts#L14)
+Defined in: [packages/core/src/Types.ts:14](https://github.com/ekretos/Rythra/blob/6f3cdb5f756fe86d62209c0aacb9051c0a349611/packages/core/src/Types.ts#L14)
 
 Whether players should automatically advance to the next track.
 
@@ -27,7 +27,7 @@ Whether players should automatically advance to the next track.
 
 > `optional` **clientId?**: `string`
 
-Defined in: [packages/core/src/Types.ts:11](https://github.com/ekretos/Rythra/blob/f7f92181524349d3a52cccb7d61140eaeab9e974/packages/core/src/Types.ts#L11)
+Defined in: [packages/core/src/Types.ts:11](https://github.com/ekretos/Rythra/blob/6f3cdb5f756fe86d62209c0aacb9051c0a349611/packages/core/src/Types.ts#L11)
 
 Discord application/client ID sent to Lavalink.
 
@@ -37,7 +37,7 @@ Discord application/client ID sent to Lavalink.
 
 > `optional` **clientName?**: `string`
 
-Defined in: [packages/core/src/Types.ts:12](https://github.com/ekretos/Rythra/blob/f7f92181524349d3a52cccb7d61140eaeab9e974/packages/core/src/Types.ts#L12)
+Defined in: [packages/core/src/Types.ts:12](https://github.com/ekretos/Rythra/blob/6f3cdb5f756fe86d62209c0aacb9051c0a349611/packages/core/src/Types.ts#L12)
 
 Custom client name sent in the Lavalink `Client-Name` header.
 
@@ -47,7 +47,7 @@ Custom client name sent in the Lavalink `Client-Name` header.
 
 > **connector**: [`Connector`](../classes/Connector.md)
 
-Defined in: [packages/core/src/Types.ts:8](https://github.com/ekretos/Rythra/blob/f7f92181524349d3a52cccb7d61140eaeab9e974/packages/core/src/Types.ts#L8)
+Defined in: [packages/core/src/Types.ts:8](https://github.com/ekretos/Rythra/blob/6f3cdb5f756fe86d62209c0aacb9051c0a349611/packages/core/src/Types.ts#L8)
 
 Discord library connector used by the manager.
 
@@ -57,7 +57,7 @@ Discord library connector used by the manager.
 
 > `optional` **defaultSearchPlatform?**: [`SearchPlatform`](../type-aliases/SearchPlatform.md)
 
-Defined in: [packages/core/src/Types.ts:16](https://github.com/ekretos/Rythra/blob/f7f92181524349d3a52cccb7d61140eaeab9e974/packages/core/src/Types.ts#L16)
+Defined in: [packages/core/src/Types.ts:16](https://github.com/ekretos/Rythra/blob/6f3cdb5f756fe86d62209c0aacb9051c0a349611/packages/core/src/Types.ts#L16)
 
 Default search platform.
 
@@ -67,7 +67,7 @@ Default search platform.
 
 > `optional` **lavalinkVersion?**: [`LavalinkApiVersionMode`](../type-aliases/LavalinkApiVersionMode.md)
 
-Defined in: [packages/core/src/Types.ts:19](https://github.com/ekretos/Rythra/blob/f7f92181524349d3a52cccb7d61140eaeab9e974/packages/core/src/Types.ts#L19)
+Defined in: [packages/core/src/Types.ts:19](https://github.com/ekretos/Rythra/blob/6f3cdb5f756fe86d62209c0aacb9051c0a349611/packages/core/src/Types.ts#L19)
 
 Default Lavalink API generation.
 
@@ -77,7 +77,7 @@ Default Lavalink API generation.
 
 > `optional` **nodes?**: [`NodeOptions`](NodeOptions.md)[]
 
-Defined in: [packages/core/src/Types.ts:10](https://github.com/ekretos/Rythra/blob/f7f92181524349d3a52cccb7d61140eaeab9e974/packages/core/src/Types.ts#L10)
+Defined in: [packages/core/src/Types.ts:10](https://github.com/ekretos/Rythra/blob/6f3cdb5f756fe86d62209c0aacb9051c0a349611/packages/core/src/Types.ts#L10)
 
 Lavalink nodes to register during manager initialization.
 
@@ -87,7 +87,7 @@ Lavalink nodes to register during manager initialization.
 
 > `optional` **restTimeout?**: `number`
 
-Defined in: [packages/core/src/Types.ts:18](https://github.com/ekretos/Rythra/blob/f7f92181524349d3a52cccb7d61140eaeab9e974/packages/core/src/Types.ts#L18)
+Defined in: [packages/core/src/Types.ts:18](https://github.com/ekretos/Rythra/blob/6f3cdb5f756fe86d62209c0aacb9051c0a349611/packages/core/src/Types.ts#L18)
 
 REST request timeout in seconds.
 
@@ -97,7 +97,7 @@ REST request timeout in seconds.
 
 > `optional` **shards?**: `number`
 
-Defined in: [packages/core/src/Types.ts:13](https://github.com/ekretos/Rythra/blob/f7f92181524349d3a52cccb7d61140eaeab9e974/packages/core/src/Types.ts#L13)
+Defined in: [packages/core/src/Types.ts:13](https://github.com/ekretos/Rythra/blob/6f3cdb5f756fe86d62209c0aacb9051c0a349611/packages/core/src/Types.ts#L13)
 
 Number of Discord shards used by the bot.
 
@@ -107,7 +107,7 @@ Number of Discord shards used by the bot.
 
 > `optional` **trackPartial?**: `string`[]
 
-Defined in: [packages/core/src/Types.ts:15](https://github.com/ekretos/Rythra/blob/f7f92181524349d3a52cccb7d61140eaeab9e974/packages/core/src/Types.ts#L15)
+Defined in: [packages/core/src/Types.ts:15](https://github.com/ekretos/Rythra/blob/6f3cdb5f756fe86d62209c0aacb9051c0a349611/packages/core/src/Types.ts#L15)
 
 Track properties retained by integrations.
 
@@ -117,7 +117,7 @@ Track properties retained by integrations.
 
 > `optional` **userAgent?**: `string`
 
-Defined in: [packages/core/src/Types.ts:17](https://github.com/ekretos/Rythra/blob/f7f92181524349d3a52cccb7d61140eaeab9e974/packages/core/src/Types.ts#L17)
+Defined in: [packages/core/src/Types.ts:17](https://github.com/ekretos/Rythra/blob/6f3cdb5f756fe86d62209c0aacb9051c0a349611/packages/core/src/Types.ts#L17)
 
 Custom User-Agent used for REST requests.
 
@@ -127,6 +127,6 @@ Custom User-Agent used for REST requests.
 
 > `optional` **version?**: `string`
 
-Defined in: [packages/core/src/Types.ts:9](https://github.com/ekretos/Rythra/blob/f7f92181524349d3a52cccb7d61140eaeab9e974/packages/core/src/Types.ts#L9)
+Defined in: [packages/core/src/Types.ts:9](https://github.com/ekretos/Rythra/blob/6f3cdb5f756fe86d62209c0aacb9051c0a349611/packages/core/src/Types.ts#L9)
 
 Rythra client version included in Lavalink identification headers.

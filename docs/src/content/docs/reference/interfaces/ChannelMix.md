@@ -7,7 +7,7 @@ description: API Reference for ChannelMix
 
 ***
 
-Defined in: [packages/core/src/Types.ts:50](https://github.com/ekretos/Rythra/blob/f7f92181524349d3a52cccb7d61140eaeab9e974/packages/core/src/Types.ts#L50)
+Defined in: [packages/core/src/Types.ts:50](https://github.com/ekretos/Rythra/blob/6f3cdb5f756fe86d62209c0aacb9051c0a349611/packages/core/src/Types.ts#L50)
 
 Channel mix filter.
 
@@ -17,7 +17,7 @@ Channel mix filter.
 
 > `optional` **leftToLeft?**: `number`
 
-Defined in: [packages/core/src/Types.ts:50](https://github.com/ekretos/Rythra/blob/f7f92181524349d3a52cccb7d61140eaeab9e974/packages/core/src/Types.ts#L50)
+Defined in: [packages/core/src/Types.ts:50](https://github.com/ekretos/Rythra/blob/6f3cdb5f756fe86d62209c0aacb9051c0a349611/packages/core/src/Types.ts#L50)
 
 ***
 
@@ -25,7 +25,7 @@ Defined in: [packages/core/src/Types.ts:50](https://github.com/ekretos/Rythra/bl
 
 > `optional` **leftToRight?**: `number`
 
-Defined in: [packages/core/src/Types.ts:50](https://github.com/ekretos/Rythra/blob/f7f92181524349d3a52cccb7d61140eaeab9e974/packages/core/src/Types.ts#L50)
+Defined in: [packages/core/src/Types.ts:50](https://github.com/ekretos/Rythra/blob/6f3cdb5f756fe86d62209c0aacb9051c0a349611/packages/core/src/Types.ts#L50)
 
 ***
 
@@ -33,7 +33,7 @@ Defined in: [packages/core/src/Types.ts:50](https://github.com/ekretos/Rythra/bl
 
 > `optional` **rightToLeft?**: `number`
 
-Defined in: [packages/core/src/Types.ts:50](https://github.com/ekretos/Rythra/blob/f7f92181524349d3a52cccb7d61140eaeab9e974/packages/core/src/Types.ts#L50)
+Defined in: [packages/core/src/Types.ts:50](https://github.com/ekretos/Rythra/blob/6f3cdb5f756fe86d62209c0aacb9051c0a349611/packages/core/src/Types.ts#L50)
 
 ***
 
@@ -41,4 +41,4 @@ Defined in: [packages/core/src/Types.ts:50](https://github.com/ekretos/Rythra/bl
 
 > `optional` **rightToRight?**: `number`
 
-Defined in: [packages/core/src/Types.ts:50](https://github.com/ekretos/Rythra/blob/f7f92181524349d3a52cccb7d61140eaeab9e974/packages/core/src/Types.ts#L50)
+Defined in: [packages/core/src/Types.ts:50](https://github.com/ekretos/Rythra/blob/6f3cdb5f756fe86d62209c0aacb9051c0a349611/packages/core/src/Types.ts#L50)

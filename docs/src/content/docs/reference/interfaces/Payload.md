@@ -7,7 +7,7 @@ description: API Reference for Payload
 
 ***
 
-Defined in: [packages/core/src/Types.ts:36](https://github.com/ekretos/Rythra/blob/f7f92181524349d3a52cccb7d61140eaeab9e974/packages/core/src/Types.ts#L36)
+Defined in: [packages/core/src/Types.ts:36](https://github.com/ekretos/Rythra/blob/6f3cdb5f756fe86d62209c0aacb9051c0a349611/packages/core/src/Types.ts#L36)
 
 Discord gateway packet.
 
@@ -17,7 +17,7 @@ Discord gateway packet.
 
 > **d**: `object`
 
-Defined in: [packages/core/src/Types.ts:36](https://github.com/ekretos/Rythra/blob/f7f92181524349d3a52cccb7d61140eaeab9e974/packages/core/src/Types.ts#L36)
+Defined in: [packages/core/src/Types.ts:36](https://github.com/ekretos/Rythra/blob/6f3cdb5f756fe86d62209c0aacb9051c0a349611/packages/core/src/Types.ts#L36)
 
 #### channel\_id
 
@@ -41,4 +41,4 @@ Defined in: [packages/core/src/Types.ts:36](https://github.com/ekretos/Rythra/bl
 
 > **op**: `number`
 
-Defined in: [packages/core/src/Types.ts:36](https://github.com/ekretos/Rythra/blob/f7f92181524349d3a52cccb7d61140eaeab9e974/packages/core/src/Types.ts#L36)
+Defined in: [packages/core/src/Types.ts:36](https://github.com/ekretos/Rythra/blob/6f3cdb5f756fe86d62209c0aacb9051c0a349611/packages/core/src/Types.ts#L36)
