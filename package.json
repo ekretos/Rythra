@@ -30,6 +30,9 @@
     "test": "bun test",
     "lint": "eslint .",
     "format": "prettier --write .",
+    "check:boundaries": "node scripts/check-workspace-boundaries.mjs",
+    "check:versions": "node scripts/check-package-versions.mjs",
+    "check:packages": "bun run check:boundaries && bun run check:versions",
     "prepare": "bun run build:ts"
   },
   "dependencies": {},
