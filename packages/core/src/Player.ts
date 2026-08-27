@@ -3,7 +3,6 @@ import { Node } from './Node';
 import { Queue } from './Queue';
 import type { PlayerOptions, Track, VoiceStateUpdate } from './Types';
 
-/** Payload shared by Lavalink track lifecycle events. */
 interface TrackEventPayload {
     track?: Track | null;
     encodedTrack?: string | null;
@@ -12,33 +11,25 @@ interface TrackEventPayload {
 }
 
 type IntegrationTrack = Track & Record<string, any>;
+type LoopMode = 'none' | 'track' | 'queue';
 
-/**
- * Manages audio playback for a single Discord guild.
- *
- * @remarks
- * A player owns its queue and delegates playback state to its assigned
- * Lavalink node. Discord-specific gateway operations remain delegated to
- * the configured connector.
- */
 export class RythraPlayer extends EventEmitter {
-    /** The Lavalink node currently assigned to this player. */ public readonly node: Node;
-    /** The Discord guild ID associated with the player. */ public readonly guild: string;
-    /** The Discord voice channel ID currently used by the player. */ public voiceChannel: string;
-    /** The Discord text channel ID associated with player interactions. */ public textChannel: string;
-    /** Whether a track is currently considered active. */ public playing = false;
-    /** Whether playback is currently paused. */ public paused = false;
-    /** Current player volume, from 0 to 1000. */ public volume = 100;
-    /** Latest Discord voice state received for this guild. */ public voiceState: Partial<VoiceStateUpdate> = {};
-    /** Application metadata associated with this player. */ public readonly data = new Map<string, unknown>();
-    /** Queue containing upcoming and previously played tracks. */ public readonly queue: Queue = new Queue();
+    public readonly node: Node;
+    public readonly guild: string;
+    public voiceChannel: string;
+    public textChannel: string;
+    public playing = false;
+    public paused = false;
+    public volume = 100;
+    public loop: LoopMode = 'none';
+    public voiceState: Partial<VoiceStateUpdate> = {};
+    public readonly data = new Map<string, unknown>();
+    public readonly queue: Queue = new Queue();
 
-    /** Stable aliases useful to integrations without introducing framework-specific dependencies. */
     public get guildId(): string { return this.guild; }
     public get voiceId(): string { return this.voiceChannel; }
     public get textId(): string { return this.textChannel; }
 
-    /** Creates a guild player. */
     constructor(node: Node, options: PlayerOptions) {
         super();
         this.node = node;
@@ -52,10 +43,13 @@ export class RythraPlayer extends EventEmitter {
         });
         this.on('TrackEndEvent', async (data: TrackEventPayload) => {
             this.playing = false;
+            const current = this.queue.current;
             const endedEncoded = data.encodedTrack ?? data.track?.encoded;
-            if (this.queue.current && (!endedEncoded || endedEncoded === this.queue.current.encoded)) {
-                this.queue.previous.unshift(this.queue.current);
+            if (current && (!endedEncoded || endedEncoded === current.encoded)) {
+                this.queue.previous.unshift(current);
                 this.queue.current = null;
+                if (this.loop === 'track') this.queue.unshift(current);
+                else if (this.loop === 'queue') this.queue.add(current);
             }
             const reason = data.reason?.toLowerCase();
             if (reason !== 'replaced' && reason !== 'stopped' && this.node.manager.options.autoPlay && this.queue.length > 0) await this.play();
@@ -66,7 +60,6 @@ export class RythraPlayer extends EventEmitter {
         this.on('playerUpdate', (data: unknown) => this.emit('update', data));
     }
 
-    /** Decorates native Lavalink metadata with convenient integration fields. */
     private decorateTrack(track: Track, requester?: unknown): IntegrationTrack {
         const value = track as IntegrationTrack;
         const info = track.info;
@@ -84,29 +77,18 @@ export class RythraPlayer extends EventEmitter {
         return value;
     }
 
-    /** Searches through the Lavalink node selected for this player. */
     public async search(query: string, options: { requester?: unknown; source?: string } = {}): Promise<any> {
         const source = options.source ? String(options.source).replace(/:$/, '') : undefined;
         const response = await this.node.manager.search(query, options.requester, source as any);
         if (response.loadType === 'error') throw new Error(response.data.message || 'Lavalink search failed.');
         if (response.loadType === 'empty') return { type: 'EMPTY', tracks: [] };
-        if (response.loadType === 'playlist') {
-            return {
-                type: 'PLAYLIST',
-                playlistName: response.data.info?.name,
-                tracks: (response.data.tracks || []).map((track: Track) => this.decorateTrack(track, options.requester)),
-            };
-        }
+        if (response.loadType === 'playlist') return { type: 'PLAYLIST', playlistName: response.data.info?.name, tracks: (response.data.tracks || []).map((track: Track) => this.decorateTrack(track, options.requester)) };
         const tracks = response.loadType === 'track' ? [response.data] : (response.data.tracks || []);
         return { type: 'SEARCH', tracks: tracks.map((track: Track) => this.decorateTrack(track, options.requester)) };
     }
 
-    /** Starts playback of a track or the next queued track. */
     public async play(track?: string | Track, options?: Record<string, unknown>): Promise<void> {
-        if (track) {
-            const value = typeof track === 'string' ? ({ encoded: track } as Track) : this.decorateTrack(track);
-            this.queue.add(value);
-        }
+        if (track) this.queue.add(typeof track === 'string' ? ({ encoded: track } as Track) : this.decorateTrack(track));
         if (!this.queue.current && this.queue.length > 0) this.queue.current = this.queue.shift() ?? null;
         if (!this.queue.current) return;
         await this.node.rest.updatePlayer({ guildId: this.guild, playerOptions: { track: { encoded: this.queue.current.encoded }, ...options } });
@@ -114,19 +96,14 @@ export class RythraPlayer extends EventEmitter {
         this.emit('start', this.queue.current);
     }
 
-    /** Stops current playback without clearing the queue. */
     public async stop(): Promise<void> {
         await this.node.rest.updatePlayer({ guildId: this.guild, playerOptions: { track: { encoded: null } } });
         this.playing = false;
         this.emit('stop');
     }
 
-    /** Destroys this guild player through its manager. */
-    public async destroy(): Promise<void> {
-        await this.node.manager.destroyPlayer(this.guild);
-    }
+    public async destroy(): Promise<void> { await this.node.manager.destroyPlayer(this.guild); }
 
-    /** Skips the current track and advances to the next queued track. */
     public async skip(): Promise<void> {
         this.emit('trackSkip', this.queue.current);
         if (this.queue.current) this.queue.previous.unshift(this.queue.current);
@@ -135,14 +112,12 @@ export class RythraPlayer extends EventEmitter {
         else await this.stop();
     }
 
-    /** Pauses or resumes playback. */
     public async pause(pause: boolean): Promise<void> {
         await this.node.rest.updatePlayer({ guildId: this.guild, playerOptions: { paused: pause } });
         this.paused = pause;
         this.emit('pause', pause);
     }
 
-    /** Changes Lavalink player volume. */
     public async setVolume(volume: number): Promise<void> {
         if (!Number.isFinite(volume) || volume < 0 || volume > 1000) throw new RangeError('Volume must be between 0 and 1000.');
         await this.node.rest.updatePlayer({ guildId: this.guild, playerOptions: { volume } });
@@ -150,14 +125,18 @@ export class RythraPlayer extends EventEmitter {
         this.emit('volume', volume);
     }
 
-    /** Seeks the current track to a position in milliseconds. */
+    public async setLoop(mode: LoopMode): Promise<void> {
+        if (!['none', 'track', 'queue'].includes(mode)) throw new RangeError('Loop mode must be none, track, or queue.');
+        this.loop = mode;
+        this.emit('loop', mode);
+    }
+
     public async seek(position: number): Promise<void> {
         if (!Number.isFinite(position) || position < 0) throw new RangeError('Position must be a non-negative number.');
         await this.node.rest.updatePlayer({ guildId: this.guild, playerOptions: { position } });
         this.emit('seek', position);
     }
 
-    /** Requests a Discord voice connection through the configured connector. */
     public connect(options?: { voiceChannel?: string; selfMute?: boolean; selfDeaf?: boolean }): void {
         this.voiceChannel = options?.voiceChannel ?? this.voiceChannel;
         this.node.manager.options.connector.sendPacket(0, { op: 4, d: { guild_id: this.guild, channel_id: this.voiceChannel, self_mute: options?.selfMute ?? false, self_deaf: options?.selfDeaf ?? false } }, false);
