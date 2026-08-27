@@ -23,8 +23,15 @@ export class Rest {
     protected get sessionId(): string { if (!this.node.sessionId) throw new Error('Lavalink session is not ready. Connect the node first.'); return this.node.sessionId; }
     /** Resolves a Lavalink identifier or search query. */
     public resolve(identifier: string): Promise<LavalinkResponse | undefined> { return this.fetch({ endpoint: '/loadtracks', options: { params: { identifier } } }); }
-    /** Searches Lavalink for tracks. */
-    public async search(identifier: string): Promise<SearchResponse> { const res = await this.resolve(identifier); if (!res) throw new Error('Search returned no response'); return res; }
+    /** Searches Lavalink for tracks and normalizes legacy array-shaped search responses. */
+    public async search(identifier: string): Promise<SearchResponse> {
+        const res = await this.resolve(identifier);
+        if (!res) throw new Error('Search returned no response');
+        if (res.loadType === 'search' && Array.isArray(res.data)) {
+            return { loadType: 'search', data: { tracks: res.data } } as SearchResponse;
+        }
+        return res;
+    }
     /** Decodes an encoded Lavalink track. */
     public decode(track: string): Promise<Track | undefined> { return this.fetch({ endpoint: '/decodetrack', options: { params: { track } } }); }
     /** Gets every player belonging to the current Lavalink session. */
