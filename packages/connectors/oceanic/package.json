@@ -1,1 +1,1 @@
-{"name":"@rythra/connector-oceanic","version":"0.0.2","type":"module","private":false,"peerDependencies":{"@rythra/core":"^0.0.2","oceanic.js":">=0"},"exports":{".":{"types":"./dist/index.d.ts","import":"./dist/index.js"}},"types":"./dist/index.d.ts"}
+{"name":"@rythra/connector-oceanic","version":"0.1.0","type":"module","private":false,"peerDependencies":{"@rythra/core":"^0.1.0","oceanic.js":">=0"},"exports":{".":{"types":"./dist/index.d.ts","import":"./dist/index.js"}},"types":"./dist/index.d.ts"}
