@@ -3,11 +3,13 @@ title: LavalinkRestError
 description: API Reference for LavalinkRestError
 ---
 
-[**Rythra Documentation v0.0.2**](../README.md)
+[**Rythra Documentation v0.1.0**](../README.md)
 
 ***
 
-Defined in: [src/Types.ts:345](https://github.com/ekretos/Rythra/blob/97bb66158cadfed295d503388eb818d9992b5725/src/Types.ts#L345)
+Defined in: [packages/core/src/Types.ts:63](https://github.com/ekretos/Rythra/blob/a364f23696345c8ee22bece2228759c31953118f/packages/core/src/Types.ts#L63)
+
+Structured Lavalink REST error.
 
 ## Properties
 
@@ -15,7 +17,7 @@ Defined in: [src/Types.ts:345](https://github.com/ekretos/Rythra/blob/97bb66158c
 
 > **error**: `string`
 
-Defined in: [src/Types.ts:348](https://github.com/ekretos/Rythra/blob/97bb66158cadfed295d503388eb818d9992b5725/src/Types.ts#L348)
+Defined in: [packages/core/src/Types.ts:63](https://github.com/ekretos/Rythra/blob/a364f23696345c8ee22bece2228759c31953118f/packages/core/src/Types.ts#L63)
 
 ***
 
@@ -23,7 +25,7 @@ Defined in: [src/Types.ts:348](https://github.com/ekretos/Rythra/blob/97bb66158c
 
 > **message**: `string`
 
-Defined in: [src/Types.ts:349](https://github.com/ekretos/Rythra/blob/97bb66158cadfed295d503388eb818d9992b5725/src/Types.ts#L349)
+Defined in: [packages/core/src/Types.ts:63](https://github.com/ekretos/Rythra/blob/a364f23696345c8ee22bece2228759c31953118f/packages/core/src/Types.ts#L63)
 
 ***
 
@@ -31,7 +33,7 @@ Defined in: [src/Types.ts:349](https://github.com/ekretos/Rythra/blob/97bb66158c
 
 > **path**: `string`
 
-Defined in: [src/Types.ts:350](https://github.com/ekretos/Rythra/blob/97bb66158cadfed295d503388eb818d9992b5725/src/Types.ts#L350)
+Defined in: [packages/core/src/Types.ts:63](https://github.com/ekretos/Rythra/blob/a364f23696345c8ee22bece2228759c31953118f/packages/core/src/Types.ts#L63)
 
 ***
 
@@ -39,7 +41,7 @@ Defined in: [src/Types.ts:350](https://github.com/ekretos/Rythra/blob/97bb66158c
 
 > **status**: `number`
 
-Defined in: [src/Types.ts:347](https://github.com/ekretos/Rythra/blob/97bb66158cadfed295d503388eb818d9992b5725/src/Types.ts#L347)
+Defined in: [packages/core/src/Types.ts:63](https://github.com/ekretos/Rythra/blob/a364f23696345c8ee22bece2228759c31953118f/packages/core/src/Types.ts#L63)
 
 ***
 
@@ -47,12 +49,12 @@ Defined in: [src/Types.ts:347](https://github.com/ekretos/Rythra/blob/97bb66158c
 
 > **timestamp**: `number`
 
-Defined in: [src/Types.ts:346](https://github.com/ekretos/Rythra/blob/97bb66158cadfed295d503388eb818d9992b5725/src/Types.ts#L346)
+Defined in: [packages/core/src/Types.ts:63](https://github.com/ekretos/Rythra/blob/a364f23696345c8ee22bece2228759c31953118f/packages/core/src/Types.ts#L63)
 
 ***
 
 ### trace?
 
-> `optional` **trace**: `string`
+> `optional` **trace?**: `string`
 
-Defined in: [src/Types.ts:351](https://github.com/ekretos/Rythra/blob/97bb66158cadfed295d503388eb818d9992b5725/src/Types.ts#L351)
+Defined in: [packages/core/src/Types.ts:63](https://github.com/ekretos/Rythra/blob/a364f23696345c8ee22bece2228759c31953118f/packages/core/src/Types.ts#L63)

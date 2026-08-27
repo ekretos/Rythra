@@ -3,19 +3,21 @@ title: FinalFetchOptions
 description: API Reference for FinalFetchOptions
 ---
 
-[**Rythra Documentation v0.0.2**](../README.md)
+[**Rythra Documentation v0.1.0**](../README.md)
 
 ***
 
-Defined in: [src/Types.ts:338](https://github.com/ekretos/Rythra/blob/97bb66158cadfed295d503388eb818d9992b5725/src/Types.ts#L338)
+Defined in: [packages/core/src/Types.ts:62](https://github.com/ekretos/Rythra/blob/a364f23696345c8ee22bece2228759c31953118f/packages/core/src/Types.ts#L62)
+
+Final native fetch options.
 
 ## Properties
 
 ### body?
 
-> `optional` **body**: `string`
+> `optional` **body?**: `string`
 
-Defined in: [src/Types.ts:342](https://github.com/ekretos/Rythra/blob/97bb66158cadfed295d503388eb818d9992b5725/src/Types.ts#L342)
+Defined in: [packages/core/src/Types.ts:62](https://github.com/ekretos/Rythra/blob/a364f23696345c8ee22bece2228759c31953118f/packages/core/src/Types.ts#L62)
 
 ***
 
@@ -23,7 +25,7 @@ Defined in: [src/Types.ts:342](https://github.com/ekretos/Rythra/blob/97bb66158c
 
 > **headers**: `Record`\<`string`, `string`\>
 
-Defined in: [src/Types.ts:340](https://github.com/ekretos/Rythra/blob/97bb66158cadfed295d503388eb818d9992b5725/src/Types.ts#L340)
+Defined in: [packages/core/src/Types.ts:62](https://github.com/ekretos/Rythra/blob/a364f23696345c8ee22bece2228759c31953118f/packages/core/src/Types.ts#L62)
 
 ***
 
@@ -31,7 +33,7 @@ Defined in: [src/Types.ts:340](https://github.com/ekretos/Rythra/blob/97bb66158c
 
 > **method**: `string`
 
-Defined in: [src/Types.ts:339](https://github.com/ekretos/Rythra/blob/97bb66158cadfed295d503388eb818d9992b5725/src/Types.ts#L339)
+Defined in: [packages/core/src/Types.ts:62](https://github.com/ekretos/Rythra/blob/a364f23696345c8ee22bece2228759c31953118f/packages/core/src/Types.ts#L62)
 
 ***
 
@@ -39,4 +41,4 @@ Defined in: [src/Types.ts:339](https://github.com/ekretos/Rythra/blob/97bb66158c
 
 > **signal**: `AbortSignal`
 
-Defined in: [src/Types.ts:341](https://github.com/ekretos/Rythra/blob/97bb66158cadfed295d503388eb818d9992b5725/src/Types.ts#L341)
+Defined in: [packages/core/src/Types.ts:62](https://github.com/ekretos/Rythra/blob/a364f23696345c8ee22bece2228759c31953118f/packages/core/src/Types.ts#L62)

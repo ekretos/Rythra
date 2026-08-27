@@ -3,11 +3,13 @@ title: UpdatePlayerInfo
 description: API Reference for UpdatePlayerInfo
 ---
 
-[**Rythra Documentation v0.0.2**](../README.md)
+[**Rythra Documentation v0.1.0**](../README.md)
 
 ***
 
-Defined in: [src/Types.ts:247](https://github.com/ekretos/Rythra/blob/97bb66158cadfed295d503388eb818d9992b5725/src/Types.ts#L247)
+Defined in: [packages/core/src/Types.ts:55](https://github.com/ekretos/Rythra/blob/a364f23696345c8ee22bece2228759c31953118f/packages/core/src/Types.ts#L55)
+
+Player update request.
 
 ## Properties
 
@@ -15,15 +17,15 @@ Defined in: [src/Types.ts:247](https://github.com/ekretos/Rythra/blob/97bb66158c
 
 > **guildId**: `string`
 
-Defined in: [src/Types.ts:248](https://github.com/ekretos/Rythra/blob/97bb66158cadfed295d503388eb818d9992b5725/src/Types.ts#L248)
+Defined in: [packages/core/src/Types.ts:55](https://github.com/ekretos/Rythra/blob/a364f23696345c8ee22bece2228759c31953118f/packages/core/src/Types.ts#L55)
 
 ***
 
 ### noReplace?
 
-> `optional` **noReplace**: `boolean`
+> `optional` **noReplace?**: `boolean`
 
-Defined in: [src/Types.ts:249](https://github.com/ekretos/Rythra/blob/97bb66158cadfed295d503388eb818d9992b5725/src/Types.ts#L249)
+Defined in: [packages/core/src/Types.ts:55](https://github.com/ekretos/Rythra/blob/a364f23696345c8ee22bece2228759c31953118f/packages/core/src/Types.ts#L55)
 
 ***
 
@@ -31,43 +33,43 @@ Defined in: [src/Types.ts:249](https://github.com/ekretos/Rythra/blob/97bb66158c
 
 > **playerOptions**: `object`
 
-Defined in: [src/Types.ts:250](https://github.com/ekretos/Rythra/blob/97bb66158cadfed295d503388eb818d9992b5725/src/Types.ts#L250)
+Defined in: [packages/core/src/Types.ts:55](https://github.com/ekretos/Rythra/blob/a364f23696345c8ee22bece2228759c31953118f/packages/core/src/Types.ts#L55)
 
 #### filters?
 
-> `optional` **filters**: [`Filters`](Filters.md)
+> `optional` **filters?**: [`Filters`](Filters.md)
 
 #### paused?
 
-> `optional` **paused**: `boolean`
+> `optional` **paused?**: `boolean`
 
 #### position?
 
-> `optional` **position**: `number`
+> `optional` **position?**: `number`
 
 #### track?
 
-> `optional` **track**: `object`
+> `optional` **track?**: `object`
 
 ##### track.encoded?
 
-> `optional` **encoded**: `string` \| `null`
+> `optional` **encoded?**: `string` \| `null`
 
 ##### track.identifier?
 
-> `optional` **identifier**: `string`
+> `optional` **identifier?**: `string`
 
 ##### track.userData?
 
-> `optional` **userData**: `Record`\<`string`, `unknown`\>
+> `optional` **userData?**: `Record`\<`string`, `unknown`\>
 
 #### voice?
 
-> `optional` **voice**: `object`
+> `optional` **voice?**: `object`
 
 ##### voice.channelId?
 
-> `optional` **channelId**: `string`
+> `optional` **channelId?**: `string`
 
 ##### voice.endpoint
 
@@ -83,4 +85,4 @@ Defined in: [src/Types.ts:250](https://github.com/ekretos/Rythra/blob/97bb66158c
 
 #### volume?
 
-> `optional` **volume**: `number`
+> `optional` **volume?**: `number`

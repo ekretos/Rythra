@@ -3,11 +3,13 @@ title: PluginInfo
 description: API Reference for PluginInfo
 ---
 
-[**Rythra Documentation v0.0.2**](../README.md)
+[**Rythra Documentation v0.1.0**](../README.md)
 
 ***
 
-Defined in: [src/Types.ts:301](https://github.com/ekretos/Rythra/blob/97bb66158cadfed295d503388eb818d9992b5725/src/Types.ts#L301)
+Defined in: [packages/core/src/Types.ts:59](https://github.com/ekretos/Rythra/blob/a364f23696345c8ee22bece2228759c31953118f/packages/core/src/Types.ts#L59)
+
+Lavalink plugin metadata.
 
 ## Properties
 
@@ -15,7 +17,7 @@ Defined in: [src/Types.ts:301](https://github.com/ekretos/Rythra/blob/97bb66158c
 
 > **name**: `string`
 
-Defined in: [src/Types.ts:302](https://github.com/ekretos/Rythra/blob/97bb66158cadfed295d503388eb818d9992b5725/src/Types.ts#L302)
+Defined in: [packages/core/src/Types.ts:59](https://github.com/ekretos/Rythra/blob/a364f23696345c8ee22bece2228759c31953118f/packages/core/src/Types.ts#L59)
 
 ***
 
@@ -23,4 +25,4 @@ Defined in: [src/Types.ts:302](https://github.com/ekretos/Rythra/blob/97bb66158c
 
 > **version**: `string`
 
-Defined in: [src/Types.ts:303](https://github.com/ekretos/Rythra/blob/97bb66158cadfed295d503388eb818d9992b5725/src/Types.ts#L303)
+Defined in: [packages/core/src/Types.ts:59](https://github.com/ekretos/Rythra/blob/a364f23696345c8ee22bece2228759c31953118f/packages/core/src/Types.ts#L59)

@@ -4,7 +4,7 @@ export type RythraErrorCode = 'CONFIGURATION' | 'NODE' | 'NODE_CONNECTION' | 'NO
 /** Base error type for all Rythra failures. */
 export class RythraError extends Error {
     /** Stable machine-readable error code. */ public readonly code: RythraErrorCode;
-    /** Optional originating error. */ public readonly override cause?: unknown;
+    /** Optional originating error. */ public override readonly cause?: unknown;
     /** Additional structured diagnostic context. */ public readonly context: Readonly<Record<string, unknown>>;
     /** Creates a structured Rythra error. */
     constructor(message: string, code: RythraErrorCode, options: { cause?: unknown; context?: Record<string, unknown> } = {}) {

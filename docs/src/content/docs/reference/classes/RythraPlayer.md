@@ -3,13 +3,19 @@ title: RythraPlayer
 description: API Reference for RythraPlayer
 ---
 
-[**Rythra Documentation v0.0.2**](../README.md)
+[**Rythra Documentation v0.1.0**](../README.md)
 
 ***
 
-Defined in: [src/Player.ts:10](https://github.com/ekretos/Rythra/blob/97bb66158cadfed295d503388eb818d9992b5725/src/Player.ts#L10)
+Defined in: [packages/core/src/Player.ts:24](https://github.com/ekretos/Rythra/blob/a364f23696345c8ee22bece2228759c31953118f/packages/core/src/Player.ts#L24)
 
-Manages audio playback for a specific guild.
+Manages audio playback for a single Discord guild.
+
+## Remarks
+
+A player owns its queue and delegates playback state to its assigned
+Lavalink node. Player events are emitted both for local actions and for
+events received from Lavalink.
 
 ## Extends
 
@@ -21,9 +27,9 @@ Manages audio playback for a specific guild.
 
 > **new RythraPlayer**(`node`, `options`): `RythraPlayer`
 
-Defined in: [src/Player.ts:35](https://github.com/ekretos/Rythra/blob/97bb66158cadfed295d503388eb818d9992b5725/src/Player.ts#L35)
+Defined in: [packages/core/src/Player.ts:36](https://github.com/ekretos/Rythra/blob/a364f23696345c8ee22bece2228759c31953118f/packages/core/src/Player.ts#L36)
 
-Creates a new RythraPlayer instance.
+Creates a guild player.
 
 #### Parameters
 
@@ -31,13 +37,9 @@ Creates a new RythraPlayer instance.
 
 [`Node`](Node.md)
 
-The node this player will use.
-
 ##### options
 
 [`PlayerOptions`](../interfaces/PlayerOptions.md)
-
-The options for the player.
 
 #### Returns
 
@@ -53,9 +55,9 @@ The options for the player.
 
 > `readonly` **guild**: `string`
 
-Defined in: [src/Player.ts:14](https://github.com/ekretos/Rythra/blob/97bb66158cadfed295d503388eb818d9992b5725/src/Player.ts#L14)
+Defined in: [packages/core/src/Player.ts:26](https://github.com/ekretos/Rythra/blob/a364f23696345c8ee22bece2228759c31953118f/packages/core/src/Player.ts#L26)
 
-The ID of the guild this player belongs to.
+The Discord guild ID associated with this player.
 
 ***
 
@@ -63,9 +65,9 @@ The ID of the guild this player belongs to.
 
 > `readonly` **node**: [`Node`](Node.md)
 
-Defined in: [src/Player.ts:12](https://github.com/ekretos/Rythra/blob/97bb66158cadfed295d503388eb818d9992b5725/src/Player.ts#L12)
+Defined in: [packages/core/src/Player.ts:25](https://github.com/ekretos/Rythra/blob/a364f23696345c8ee22bece2228759c31953118f/packages/core/src/Player.ts#L25)
 
-The node this player is connected to.
+The Lavalink node currently assigned to this player.
 
 ***
 
@@ -73,9 +75,9 @@ The node this player is connected to.
 
 > **paused**: `boolean` = `false`
 
-Defined in: [src/Player.ts:22](https://github.com/ekretos/Rythra/blob/97bb66158cadfed295d503388eb818d9992b5725/src/Player.ts#L22)
+Defined in: [packages/core/src/Player.ts:30](https://github.com/ekretos/Rythra/blob/a364f23696345c8ee22bece2228759c31953118f/packages/core/src/Player.ts#L30)
 
-Whether the player is currently paused.
+Whether playback is currently paused.
 
 ***
 
@@ -83,9 +85,9 @@ Whether the player is currently paused.
 
 > **playing**: `boolean` = `false`
 
-Defined in: [src/Player.ts:20](https://github.com/ekretos/Rythra/blob/97bb66158cadfed295d503388eb818d9992b5725/src/Player.ts#L20)
+Defined in: [packages/core/src/Player.ts:29](https://github.com/ekretos/Rythra/blob/a364f23696345c8ee22bece2228759c31953118f/packages/core/src/Player.ts#L29)
 
-Whether the player is currently playing a track.
+Whether a track is currently considered active.
 
 ***
 
@@ -93,9 +95,9 @@ Whether the player is currently playing a track.
 
 > `readonly` **queue**: [`Queue`](Queue.md)
 
-Defined in: [src/Player.ts:28](https://github.com/ekretos/Rythra/blob/97bb66158cadfed295d503388eb818d9992b5725/src/Player.ts#L28)
+Defined in: [packages/core/src/Player.ts:33](https://github.com/ekretos/Rythra/blob/a364f23696345c8ee22bece2228759c31953118f/packages/core/src/Player.ts#L33)
 
-The track queue for this player.
+Queue containing upcoming and previously played tracks.
 
 ***
 
@@ -103,9 +105,9 @@ The track queue for this player.
 
 > **textChannel**: `string`
 
-Defined in: [src/Player.ts:18](https://github.com/ekretos/Rythra/blob/97bb66158cadfed295d503388eb818d9992b5725/src/Player.ts#L18)
+Defined in: [packages/core/src/Player.ts:28](https://github.com/ekretos/Rythra/blob/a364f23696345c8ee22bece2228759c31953118f/packages/core/src/Player.ts#L28)
 
-The ID of the text channel used for player updates.
+The Discord text channel ID associated with player interactions.
 
 ***
 
@@ -113,9 +115,9 @@ The ID of the text channel used for player updates.
 
 > **voiceChannel**: `string`
 
-Defined in: [src/Player.ts:16](https://github.com/ekretos/Rythra/blob/97bb66158cadfed295d503388eb818d9992b5725/src/Player.ts#L16)
+Defined in: [packages/core/src/Player.ts:27](https://github.com/ekretos/Rythra/blob/a364f23696345c8ee22bece2228759c31953118f/packages/core/src/Player.ts#L27)
 
-The ID of the voice channel the player is currently in.
+The Discord voice channel ID currently used by the player.
 
 ***
 
@@ -123,9 +125,9 @@ The ID of the voice channel the player is currently in.
 
 > **voiceState**: `Partial`\<[`VoiceStateUpdate`](../interfaces/VoiceStateUpdate.md)\> = `{}`
 
-Defined in: [src/Player.ts:26](https://github.com/ekretos/Rythra/blob/97bb66158cadfed295d503388eb818d9992b5725/src/Player.ts#L26)
+Defined in: [packages/core/src/Player.ts:32](https://github.com/ekretos/Rythra/blob/a364f23696345c8ee22bece2228759c31953118f/packages/core/src/Player.ts#L32)
 
-The current voice state of the player.
+Latest Discord voice state received for this guild.
 
 ***
 
@@ -133,9 +135,9 @@ The current voice state of the player.
 
 > **volume**: `number` = `100`
 
-Defined in: [src/Player.ts:24](https://github.com/ekretos/Rythra/blob/97bb66158cadfed295d503388eb818d9992b5725/src/Player.ts#L24)
+Defined in: [packages/core/src/Player.ts:31](https://github.com/ekretos/Rythra/blob/a364f23696345c8ee22bece2228759c31953118f/packages/core/src/Player.ts#L31)
 
-The current volume of the player (0-1000).
+Current player volume, from 0 to 1000.
 
 ## Methods
 
@@ -143,7 +145,7 @@ The current volume of the player (0-1000).
 
 > `optional` **\[captureRejectionSymbol\]**(`error`, `event`, ...`args`): `void`
 
-Defined in: node\_modules/@types/node/events.d.ts:123
+Defined in: node\_modules/@types/node/events.d.ts:87
 
 The `Symbol.for('nodejs.rejection')` method is called in case a
 promise rejection happens when emitting an event and
@@ -178,7 +180,7 @@ class MyClass extends EventEmitter {
 
 ##### event
 
-`string` | `symbol`
+`string` \| `symbol`
 
 ##### args
 
@@ -202,7 +204,7 @@ v13.4.0, v12.16.0
 
 > **addListener**\<`E`\>(`eventName`, `listener`): `this`
 
-Defined in: node\_modules/@types/node/events.d.ts:128
+Defined in: node\_modules/@types/node/events.d.ts:92
 
 Alias for `emitter.on(eventName, listener)`.
 
@@ -216,7 +218,7 @@ Alias for `emitter.on(eventName, listener)`.
 
 ##### eventName
 
-`string` | `symbol`
+`string` \| `symbol`
 
 ##### listener
 
@@ -240,15 +242,13 @@ v0.1.26
 
 > **connect**(`options?`): `void`
 
-Defined in: [src/Player.ts:166](https://github.com/ekretos/Rythra/blob/97bb66158cadfed295d503388eb818d9992b5725/src/Player.ts#L166)
+Defined in: [packages/core/src/Player.ts:105](https://github.com/ekretos/Rythra/blob/a364f23696345c8ee22bece2228759c31953118f/packages/core/src/Player.ts#L105)
 
-Connects the player to a voice channel.
+Requests a Discord voice connection through the configured connector.
 
 #### Parameters
 
 ##### options?
-
-The connection options.
 
 ###### selfDeaf?
 
@@ -272,7 +272,7 @@ The connection options.
 
 > **emit**\<`E`\>(`eventName`, ...`args`): `boolean`
 
-Defined in: node\_modules/@types/node/events.d.ts:170
+Defined in: node\_modules/@types/node/events.d.ts:134
 
 Synchronously calls each of the listeners registered for the event named
 `eventName`, in the order they were registered, passing the supplied arguments
@@ -323,7 +323,7 @@ myEmitter.emit('event', 1, 2, 3, 4, 5);
 
 ##### eventName
 
-`string` | `symbol`
+`string` \| `symbol`
 
 ##### args
 
@@ -347,7 +347,7 @@ v0.1.26
 
 > **eventNames**(): (`string` \| `symbol`)[]
 
-Defined in: node\_modules/@types/node/events.d.ts:190
+Defined in: node\_modules/@types/node/events.d.ts:154
 
 Returns an array listing the events for which the emitter has registered
 listeners.
@@ -384,7 +384,7 @@ v6.0.0
 
 > **getMaxListeners**(): `number`
 
-Defined in: node\_modules/@types/node/events.d.ts:197
+Defined in: node\_modules/@types/node/events.d.ts:161
 
 Returns the current max listener value for the `EventEmitter` which is either
 set by `emitter.setMaxListeners(n)` or defaults to
@@ -408,7 +408,7 @@ v1.0.0
 
 > **listenerCount**\<`E`\>(`eventName`, `listener?`): `number`
 
-Defined in: node\_modules/@types/node/events.d.ts:206
+Defined in: node\_modules/@types/node/events.d.ts:170
 
 Returns the number of listeners listening for the event named `eventName`.
 If `listener` is provided, it will return how many times the listener is found
@@ -424,9 +424,9 @@ in the list of the listeners of the event.
 
 ##### eventName
 
-The name of the event being listened for
+`string` \| `symbol`
 
-`string` | `symbol`
+The name of the event being listened for
 
 ##### listener?
 
@@ -452,7 +452,7 @@ v3.2.0
 
 > **listeners**\<`E`\>(`eventName`): (...`args`) => `void`[]
 
-Defined in: node\_modules/@types/node/events.d.ts:222
+Defined in: node\_modules/@types/node/events.d.ts:186
 
 Returns a copy of the array of listeners for the event named `eventName`.
 
@@ -474,7 +474,7 @@ console.log(util.inspect(server.listeners('connection')));
 
 ##### eventName
 
-`string` | `symbol`
+`string` \| `symbol`
 
 #### Returns
 
@@ -494,7 +494,7 @@ v0.1.26
 
 > **off**\<`E`\>(`eventName`, `listener`): `this`
 
-Defined in: node\_modules/@types/node/events.d.ts:227
+Defined in: node\_modules/@types/node/events.d.ts:191
 
 Alias for `emitter.removeListener()`.
 
@@ -508,7 +508,7 @@ Alias for `emitter.removeListener()`.
 
 ##### eventName
 
-`string` | `symbol`
+`string` \| `symbol`
 
 ##### listener
 
@@ -532,7 +532,7 @@ v10.0.0
 
 > **on**\<`E`\>(`eventName`, `listener`): `this`
 
-Defined in: node\_modules/@types/node/events.d.ts:261
+Defined in: node\_modules/@types/node/events.d.ts:225
 
 Adds the `listener` function to the end of the listeners array for the
 event named `eventName`. No checks are made to see if the `listener` has
@@ -573,9 +573,9 @@ myEE.emit('foo');
 
 ##### eventName
 
-The name of the event.
+`string` \| `symbol`
 
-`string` | `symbol`
+The name of the event.
 
 ##### listener
 
@@ -601,7 +601,7 @@ v0.1.101
 
 > **once**\<`E`\>(`eventName`, `listener`): `this`
 
-Defined in: node\_modules/@types/node/events.d.ts:292
+Defined in: node\_modules/@types/node/events.d.ts:256
 
 Adds a **one-time** `listener` function for the event named `eventName`. The
 next time `eventName` is triggered, this listener is removed and then invoked.
@@ -639,9 +639,9 @@ myEE.emit('foo');
 
 ##### eventName
 
-The name of the event.
+`string` \| `symbol`
 
-`string` | `symbol`
+The name of the event.
 
 ##### listener
 
@@ -667,17 +667,15 @@ v0.3.0
 
 > **pause**(`pause`): `Promise`\<`void`\>
 
-Defined in: [src/Player.ts:134](https://github.com/ekretos/Rythra/blob/97bb66158cadfed295d503388eb818d9992b5725/src/Player.ts#L134)
+Defined in: [packages/core/src/Player.ts:90](https://github.com/ekretos/Rythra/blob/a364f23696345c8ee22bece2228759c31953118f/packages/core/src/Player.ts#L90)
 
-Pauses or resumes audio playback.
+Pauses or resumes playback.
 
 #### Parameters
 
 ##### pause
 
 `boolean`
-
-Whether to pause the player.
 
 #### Returns
 
@@ -689,23 +687,19 @@ Whether to pause the player.
 
 > **play**(`track?`, `options?`): `Promise`\<`void`\>
 
-Defined in: [src/Player.ts:70](https://github.com/ekretos/Rythra/blob/97bb66158cadfed295d503388eb818d9992b5725/src/Player.ts#L70)
+Defined in: [packages/core/src/Player.ts:64](https://github.com/ekretos/Rythra/blob/a364f23696345c8ee22bece2228759c31953118f/packages/core/src/Player.ts#L64)
 
-Starts playback of a track.
+Starts playback of a track or the next queued track.
 
 #### Parameters
 
 ##### track?
 
-The track to play (encoded string or Track object).
-
-`string` | [`Track`](../interfaces/Track.md)
+`string` \| [`Track`](../interfaces/Track.md)
 
 ##### options?
 
 `Record`\<`string`, `unknown`\>
-
-Additional playback options.
 
 #### Returns
 
@@ -717,7 +711,7 @@ Additional playback options.
 
 > **prependListener**\<`E`\>(`eventName`, `listener`): `this`
 
-Defined in: node\_modules/@types/node/events.d.ts:311
+Defined in: node\_modules/@types/node/events.d.ts:275
 
 Adds the `listener` function to the _beginning_ of the listeners array for the
 event named `eventName`. No checks are made to see if the `listener` has
@@ -743,9 +737,9 @@ Returns a reference to the `EventEmitter`, so that calls can be chained.
 
 ##### eventName
 
-The name of the event.
+`string` \| `symbol`
 
-`string` | `symbol`
+The name of the event.
 
 ##### listener
 
@@ -771,7 +765,7 @@ v6.0.0
 
 > **prependOnceListener**\<`E`\>(`eventName`, `listener`): `this`
 
-Defined in: node\_modules/@types/node/events.d.ts:328
+Defined in: node\_modules/@types/node/events.d.ts:292
 
 Adds a **one-time** `listener` function for the event named `eventName` to the
 _beginning_ of the listeners array. The next time `eventName` is triggered, this
@@ -795,9 +789,9 @@ Returns a reference to the `EventEmitter`, so that calls can be chained.
 
 ##### eventName
 
-The name of the event.
+`string` \| `symbol`
 
-`string` | `symbol`
+The name of the event.
 
 ##### listener
 
@@ -823,7 +817,7 @@ v6.0.0
 
 > **rawListeners**\<`E`\>(`eventName`): (...`args`) => `void`[]
 
-Defined in: node\_modules/@types/node/events.d.ts:362
+Defined in: node\_modules/@types/node/events.d.ts:326
 
 Returns a copy of the array of listeners for the event named `eventName`,
 including any wrappers (such as those created by `.once()`).
@@ -863,7 +857,7 @@ emitter.emit('log');
 
 ##### eventName
 
-`string` | `symbol`
+`string` \| `symbol`
 
 #### Returns
 
@@ -883,7 +877,7 @@ v9.4.0
 
 > **removeAllListeners**\<`E`\>(`eventName?`): `this`
 
-Defined in: node\_modules/@types/node/events.d.ts:374
+Defined in: node\_modules/@types/node/events.d.ts:338
 
 Removes all listeners, or those of the specified `eventName`.
 
@@ -903,7 +897,7 @@ Returns a reference to the `EventEmitter`, so that calls can be chained.
 
 ##### eventName?
 
-`string` | `symbol`
+`string` \| `symbol`
 
 #### Returns
 
@@ -923,7 +917,7 @@ v0.1.26
 
 > **removeListener**\<`E`\>(`eventName`, `listener`): `this`
 
-Defined in: node\_modules/@types/node/events.d.ts:461
+Defined in: node\_modules/@types/node/events.d.ts:425
 
 Removes the specified `listener` from the listener array for the event named
 `eventName`.
@@ -1019,7 +1013,7 @@ Returns a reference to the `EventEmitter`, so that calls can be chained.
 
 ##### eventName
 
-`string` | `symbol`
+`string` \| `symbol`
 
 ##### listener
 
@@ -1043,7 +1037,7 @@ v0.1.26
 
 > **setMaxListeners**(`n`): `this`
 
-Defined in: node\_modules/@types/node/events.d.ts:472
+Defined in: node\_modules/@types/node/events.d.ts:436
 
 By default `EventEmitter`s will print a warning if more than `10` listeners are
 added for a particular event. This is a useful default that helps finding
@@ -1077,17 +1071,15 @@ v0.3.5
 
 > **setVolume**(`volume`): `Promise`\<`void`\>
 
-Defined in: [src/Player.ts:150](https://github.com/ekretos/Rythra/blob/97bb66158cadfed295d503388eb818d9992b5725/src/Player.ts#L150)
+Defined in: [packages/core/src/Player.ts:97](https://github.com/ekretos/Rythra/blob/a364f23696345c8ee22bece2228759c31953118f/packages/core/src/Player.ts#L97)
 
-Sets the volume of the player.
+Changes Lavalink player volume.
 
 #### Parameters
 
 ##### volume
 
 `number`
-
-The volume level (0-1000).
 
 #### Returns
 
@@ -1099,9 +1091,9 @@ The volume level (0-1000).
 
 > **skip**(): `Promise`\<`void`\>
 
-Defined in: [src/Player.ts:118](https://github.com/ekretos/Rythra/blob/97bb66158cadfed295d503388eb818d9992b5725/src/Player.ts#L118)
+Defined in: [packages/core/src/Player.ts:81](https://github.com/ekretos/Rythra/blob/a364f23696345c8ee22bece2228759c31953118f/packages/core/src/Player.ts#L81)
 
-Skips the current track and plays the next one in the queue.
+Skips the current track and advances to the next queued track.
 
 #### Returns
 
@@ -1113,9 +1105,9 @@ Skips the current track and plays the next one in the queue.
 
 > **stop**(): `Promise`\<`void`\>
 
-Defined in: [src/Player.ts:101](https://github.com/ekretos/Rythra/blob/97bb66158cadfed295d503388eb818d9992b5725/src/Player.ts#L101)
+Defined in: [packages/core/src/Player.ts:74](https://github.com/ekretos/Rythra/blob/a364f23696345c8ee22bece2228759c31953118f/packages/core/src/Player.ts#L74)
 
-Stops audio playback.
+Stops current playback without clearing the queue.
 
 #### Returns
 

@@ -3,11 +3,13 @@ title: PlayerOptions
 description: API Reference for PlayerOptions
 ---
 
-[**Rythra Documentation v0.0.2**](../README.md)
+[**Rythra Documentation v0.1.0**](../README.md)
 
 ***
 
-Defined in: [src/Types.ts:129](https://github.com/ekretos/Rythra/blob/97bb66158cadfed295d503388eb818d9992b5725/src/Types.ts#L129)
+Defined in: [packages/core/src/Types.ts:39](https://github.com/ekretos/Rythra/blob/a364f23696345c8ee22bece2228759c31953118f/packages/core/src/Types.ts#L39)
+
+Guild player configuration.
 
 ## Properties
 
@@ -15,29 +17,23 @@ Defined in: [src/Types.ts:129](https://github.com/ekretos/Rythra/blob/97bb66158c
 
 > **guild**: `string`
 
-Defined in: [src/Types.ts:131](https://github.com/ekretos/Rythra/blob/97bb66158cadfed295d503388eb818d9992b5725/src/Types.ts#L131)
-
-The guild ID.
+Defined in: [packages/core/src/Types.ts:39](https://github.com/ekretos/Rythra/blob/a364f23696345c8ee22bece2228759c31953118f/packages/core/src/Types.ts#L39)
 
 ***
 
 ### selfDeaf?
 
-> `optional` **selfDeaf**: `boolean`
+> `optional` **selfDeaf?**: `boolean`
 
-Defined in: [src/Types.ts:139](https://github.com/ekretos/Rythra/blob/97bb66158cadfed295d503388eb818d9992b5725/src/Types.ts#L139)
-
-Whether to play the track automatically.
+Defined in: [packages/core/src/Types.ts:39](https://github.com/ekretos/Rythra/blob/a364f23696345c8ee22bece2228759c31953118f/packages/core/src/Types.ts#L39)
 
 ***
 
 ### selfMute?
 
-> `optional` **selfMute**: `boolean`
+> `optional` **selfMute?**: `boolean`
 
-Defined in: [src/Types.ts:137](https://github.com/ekretos/Rythra/blob/97bb66158cadfed295d503388eb818d9992b5725/src/Types.ts#L137)
-
-Whether to play the track automatically.
+Defined in: [packages/core/src/Types.ts:39](https://github.com/ekretos/Rythra/blob/a364f23696345c8ee22bece2228759c31953118f/packages/core/src/Types.ts#L39)
 
 ***
 
@@ -45,9 +41,7 @@ Whether to play the track automatically.
 
 > **textChannel**: `string`
 
-Defined in: [src/Types.ts:135](https://github.com/ekretos/Rythra/blob/97bb66158cadfed295d503388eb818d9992b5725/src/Types.ts#L135)
-
-The text channel ID.
+Defined in: [packages/core/src/Types.ts:39](https://github.com/ekretos/Rythra/blob/a364f23696345c8ee22bece2228759c31953118f/packages/core/src/Types.ts#L39)
 
 ***
 
@@ -55,6 +49,4 @@ The text channel ID.
 
 > **voiceChannel**: `string`
 
-Defined in: [src/Types.ts:133](https://github.com/ekretos/Rythra/blob/97bb66158cadfed295d503388eb818d9992b5725/src/Types.ts#L133)
-
-The voice channel ID.
+Defined in: [packages/core/src/Types.ts:39](https://github.com/ekretos/Rythra/blob/a364f23696345c8ee22bece2228759c31953118f/packages/core/src/Types.ts#L39)

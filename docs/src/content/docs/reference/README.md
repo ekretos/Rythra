@@ -3,7 +3,7 @@ title: README
 description: API Reference for README
 ---
 
-**Rythra Documentation v0.0.2**
+**Rythra Documentation v0.1.0**
 
 ***
 
@@ -13,27 +13,32 @@ description: API Reference for README
 
 ## Classes
 
+- [CircuitBreaker](classes/CircuitBreaker.md)
+- [ConfigurationError](classes/ConfigurationError.md)
 - [Connector](classes/Connector.md)
-- [DiscordJS](classes/DiscordJS.md)
-- [Eris](classes/Eris.md)
+- [Health](classes/Health.md)
 - [Node](classes/Node.md)
-- [OceanicJS](classes/OceanicJS.md)
+- [NodeError](classes/NodeError.md)
+- [PlayerRecoveryError](classes/PlayerRecoveryError.md)
 - [Queue](classes/Queue.md)
 - [Rest](classes/Rest.md)
 - [RestError](classes/RestError.md)
 - [Rythra](classes/Rythra.md)
+- [RythraError](classes/RythraError.md)
 - [RythraPlayer](classes/RythraPlayer.md)
-- [Seyfert](classes/Seyfert.md)
+- [ValidationError](classes/ValidationError.md)
 
 ## Interfaces
 
 - [ChannelMix](interfaces/ChannelMix.md)
+- [CircuitBreakerOptions](interfaces/CircuitBreakerOptions.md)
 - [Distortion](interfaces/Distortion.md)
 - [Equalizer](interfaces/Equalizer.md)
 - [FetchOptions](interfaces/FetchOptions.md)
 - [Filters](interfaces/Filters.md)
 - [FinalFetchOptions](interfaces/FinalFetchOptions.md)
 - [GatewayPacket](interfaces/GatewayPacket.md)
+- [HealthSnapshot](interfaces/HealthSnapshot.md)
 - [IRythra](interfaces/IRythra.md)
 - [Karaoke](interfaces/Karaoke.md)
 - [LavalinkPlayer](interfaces/LavalinkPlayer.md)
@@ -64,15 +69,20 @@ description: API Reference for README
 
 ## Type Aliases
 
+- [CircuitState](type-aliases/CircuitState.md)
+- [LavalinkApiVersion](type-aliases/LavalinkApiVersion.md)
+- [LavalinkApiVersionMode](type-aliases/LavalinkApiVersionMode.md)
 - [LavalinkResponse](type-aliases/LavalinkResponse.md)
 - [LavalinkSearchPlatform](type-aliases/LavalinkSearchPlatform.md)
 - [leastLoadNodeSortType](type-aliases/leastLoadNodeSortType.md)
 - [leastUsedNodeSortType](type-aliases/leastUsedNodeSortType.md)
 - [LoadType](type-aliases/LoadType.md)
+- [RythraErrorCode](type-aliases/RythraErrorCode.md)
 - [RythraSearchPlatform](type-aliases/RythraSearchPlatform.md)
 - [SearchPlatform](type-aliases/SearchPlatform.md)
 - [SearchResponse](type-aliases/SearchResponse.md)
 
-## Variables
+## Functions
 
-- [Connectors](variables/Connectors.md)
+- [getLavalinkApiPath](functions/getLavalinkApiPath.md)
+- [getLavalinkApiVersion](functions/getLavalinkApiVersion.md)

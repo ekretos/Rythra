@@ -3,40 +3,42 @@ title: ChannelMix
 description: API Reference for ChannelMix
 ---
 
-[**Rythra Documentation v0.0.2**](../README.md)
+[**Rythra Documentation v0.1.0**](../README.md)
 
 ***
 
-Defined in: [src/Types.ts:201](https://github.com/ekretos/Rythra/blob/97bb66158cadfed295d503388eb818d9992b5725/src/Types.ts#L201)
+Defined in: [packages/core/src/Types.ts:50](https://github.com/ekretos/Rythra/blob/a364f23696345c8ee22bece2228759c31953118f/packages/core/src/Types.ts#L50)
+
+Channel mix filter.
 
 ## Properties
 
 ### leftToLeft?
 
-> `optional` **leftToLeft**: `number`
+> `optional` **leftToLeft?**: `number`
 
-Defined in: [src/Types.ts:202](https://github.com/ekretos/Rythra/blob/97bb66158cadfed295d503388eb818d9992b5725/src/Types.ts#L202)
+Defined in: [packages/core/src/Types.ts:50](https://github.com/ekretos/Rythra/blob/a364f23696345c8ee22bece2228759c31953118f/packages/core/src/Types.ts#L50)
 
 ***
 
 ### leftToRight?
 
-> `optional` **leftToRight**: `number`
+> `optional` **leftToRight?**: `number`
 
-Defined in: [src/Types.ts:203](https://github.com/ekretos/Rythra/blob/97bb66158cadfed295d503388eb818d9992b5725/src/Types.ts#L203)
+Defined in: [packages/core/src/Types.ts:50](https://github.com/ekretos/Rythra/blob/a364f23696345c8ee22bece2228759c31953118f/packages/core/src/Types.ts#L50)
 
 ***
 
 ### rightToLeft?
 
-> `optional` **rightToLeft**: `number`
+> `optional` **rightToLeft?**: `number`
 
-Defined in: [src/Types.ts:204](https://github.com/ekretos/Rythra/blob/97bb66158cadfed295d503388eb818d9992b5725/src/Types.ts#L204)
+Defined in: [packages/core/src/Types.ts:50](https://github.com/ekretos/Rythra/blob/a364f23696345c8ee22bece2228759c31953118f/packages/core/src/Types.ts#L50)
 
 ***
 
 ### rightToRight?
 
-> `optional` **rightToRight**: `number`
+> `optional` **rightToRight?**: `number`
 
-Defined in: [src/Types.ts:205](https://github.com/ekretos/Rythra/blob/97bb66158cadfed295d503388eb818d9992b5725/src/Types.ts#L205)
+Defined in: [packages/core/src/Types.ts:50](https://github.com/ekretos/Rythra/blob/a364f23696345c8ee22bece2228759c31953118f/packages/core/src/Types.ts#L50)

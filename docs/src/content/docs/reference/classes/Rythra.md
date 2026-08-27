@@ -3,13 +3,19 @@ title: Rythra
 description: API Reference for Rythra
 ---
 
-[**Rythra Documentation v0.0.2**](../README.md)
+[**Rythra Documentation v0.1.0**](../README.md)
 
 ***
 
-Defined in: [src/Rythra.ts:20](https://github.com/ekretos/Rythra/blob/97bb66158cadfed295d503388eb818d9992b5725/src/Rythra.ts#L20)
+Defined in: [packages/core/src/Rythra.ts:28](https://github.com/ekretos/Rythra/blob/a364f23696345c8ee22bece2228759c31953118f/packages/core/src/Rythra.ts#L28)
 
-The main manager class for nodes and players.
+The main Rythra manager responsible for nodes, players and gateway events.
+
+## Remarks
+
+The manager is intentionally framework-agnostic. Discord-specific gateway
+operations are delegated to the configured connector while Lavalink state
+remains owned by Rythra.
 
 ## Implements
 
@@ -29,9 +35,9 @@ IRythra
 
 > **new Rythra**(`options`): `Rythra`
 
-Defined in: [src/Rythra.ts:47](https://github.com/ekretos/Rythra/blob/97bb66158cadfed295d503388eb818d9992b5725/src/Rythra.ts#L47)
+Defined in: [packages/core/src/Rythra.ts:54](https://github.com/ekretos/Rythra/blob/a364f23696345c8ee22bece2228759c31953118f/packages/core/src/Rythra.ts#L54)
 
-Creates a new Rythra instance.
+Creates a new Rythra manager.
 
 #### Parameters
 
@@ -39,11 +45,15 @@ Creates a new Rythra instance.
 
 [`RythraOptions`](../interfaces/RythraOptions.md)
 
-The options for the Rythra manager.
+Manager, connector and Lavalink node configuration.
 
 #### Returns
 
 `Rythra`
+
+#### Throws
+
+If the connector or node configuration is invalid.
 
 #### Overrides
 
@@ -51,14 +61,33 @@ The options for the Rythra manager.
 
 ## Properties
 
+### healthMonitor
+
+> `readonly` **healthMonitor**: [`Health`](Health.md)
+
+Defined in: [packages/core/src/Rythra.ts:44](https://github.com/ekretos/Rythra/blob/a364f23696345c8ee22bece2228759c31953118f/packages/core/src/Rythra.ts#L44)
+
+Local health collector for operational integrations.
+
+***
+
+### migrations
+
+> **migrations**: `number` = `0`
+
+Defined in: [packages/core/src/Rythra.ts:42](https://github.com/ekretos/Rythra/blob/a364f23696345c8ee22bece2228759c31953118f/packages/core/src/Rythra.ts#L42)
+
+Number of player migrations performed by this manager.
+
+***
+
 ### nodes
 
 > `readonly` **nodes**: `Map`\<`string`, [`Node`](Node.md)\>
 
-Defined in: [src/Rythra.ts:25](https://github.com/ekretos/Rythra/blob/97bb66158cadfed295d503388eb818d9992b5725/src/Rythra.ts#L25)
+Defined in: [packages/core/src/Rythra.ts:30](https://github.com/ekretos/Rythra/blob/a364f23696345c8ee22bece2228759c31953118f/packages/core/src/Rythra.ts#L30)
 
-A map of nodes currently managed by this instance.
-The key is the node identifier or host.
+All Lavalink nodes currently managed by this instance.
 
 ***
 
@@ -66,9 +95,9 @@ The key is the node identifier or host.
 
 > `readonly` **options**: [`RythraOptions`](../interfaces/RythraOptions.md)
 
-Defined in: [src/Rythra.ts:36](https://github.com/ekretos/Rythra/blob/97bb66158cadfed295d503388eb818d9992b5725/src/Rythra.ts#L36)
+Defined in: [packages/core/src/Rythra.ts:34](https://github.com/ekretos/Rythra/blob/a364f23696345c8ee22bece2228759c31953118f/packages/core/src/Rythra.ts#L34)
 
-The options used to initialize this instance.
+Configuration used to initialize the manager.
 
 ***
 
@@ -76,10 +105,39 @@ The options used to initialize this instance.
 
 > `readonly` **players**: `Map`\<`string`, [`RythraPlayer`](RythraPlayer.md)\>
 
-Defined in: [src/Rythra.ts:31](https://github.com/ekretos/Rythra/blob/97bb66158cadfed295d503388eb818d9992b5725/src/Rythra.ts#L31)
+Defined in: [packages/core/src/Rythra.ts:32](https://github.com/ekretos/Rythra/blob/a364f23696345c8ee22bece2228759c31953118f/packages/core/src/Rythra.ts#L32)
 
-A map of players currently managed by this instance.
-The key is the guild ID.
+All guild players currently managed by this instance.
+
+***
+
+### reconnects
+
+> **reconnects**: `number` = `0`
+
+Defined in: [packages/core/src/Rythra.ts:40](https://github.com/ekretos/Rythra/blob/a364f23696345c8ee22bece2228759c31953118f/packages/core/src/Rythra.ts#L40)
+
+Number of reconnect attempts observed across managed nodes.
+
+***
+
+### shuttingDown
+
+> **shuttingDown**: `boolean` = `false`
+
+Defined in: [packages/core/src/Rythra.ts:46](https://github.com/ekretos/Rythra/blob/a364f23696345c8ee22bece2228759c31953118f/packages/core/src/Rythra.ts#L46)
+
+Whether the manager has begun shutting down.
+
+***
+
+### startedAt
+
+> `readonly` **startedAt**: `number`
+
+Defined in: [packages/core/src/Rythra.ts:38](https://github.com/ekretos/Rythra/blob/a364f23696345c8ee22bece2228759c31953118f/packages/core/src/Rythra.ts#L38)
+
+Timestamp at which this manager was created.
 
 ***
 
@@ -87,9 +145,9 @@ The key is the guild ID.
 
 > `readonly` **version**: `string`
 
-Defined in: [src/Rythra.ts:41](https://github.com/ekretos/Rythra/blob/97bb66158cadfed295d503388eb818d9992b5725/src/Rythra.ts#L41)
+Defined in: [packages/core/src/Rythra.ts:36](https://github.com/ekretos/Rythra/blob/a364f23696345c8ee22bece2228759c31953118f/packages/core/src/Rythra.ts#L36)
 
-The version of the Rythra library.
+The version string reported as the Rythra client name.
 
 ## Methods
 
@@ -97,7 +155,7 @@ The version of the Rythra library.
 
 > `optional` **\[captureRejectionSymbol\]**(`error`, `event`, ...`args`): `void`
 
-Defined in: node\_modules/@types/node/events.d.ts:123
+Defined in: node\_modules/@types/node/events.d.ts:87
 
 The `Symbol.for('nodejs.rejection')` method is called in case a
 promise rejection happens when emitting an event and
@@ -132,7 +190,7 @@ class MyClass extends EventEmitter {
 
 ##### event
 
-`string` | `symbol`
+`string` \| `symbol`
 
 ##### args
 
@@ -156,7 +214,7 @@ v13.4.0, v12.16.0
 
 > **addListener**\<`E`\>(`eventName`, `listener`): `this`
 
-Defined in: node\_modules/@types/node/events.d.ts:128
+Defined in: node\_modules/@types/node/events.d.ts:92
 
 Alias for `emitter.on(eventName, listener)`.
 
@@ -170,7 +228,7 @@ Alias for `emitter.on(eventName, listener)`.
 
 ##### eventName
 
-`string` | `symbol`
+`string` \| `symbol`
 
 ##### listener
 
@@ -192,15 +250,15 @@ v0.1.26
 
 ### connect()
 
-> **connect**(): `void`
+> **connect**(): `Promise`\<`void`\>
 
-Defined in: [src/Rythra.ts:173](https://github.com/ekretos/Rythra/blob/97bb66158cadfed295d503388eb818d9992b5725/src/Rythra.ts#L173)
+Defined in: [packages/core/src/Rythra.ts:179](https://github.com/ekretos/Rythra/blob/a364f23696345c8ee22bece2228759c31953118f/packages/core/src/Rythra.ts#L179)
 
-Connects to all configured Lavalink nodes.
+Connects all configured Lavalink nodes concurrently.
 
 #### Returns
 
-`void`
+`Promise`\<`void`\>
 
 ***
 
@@ -208,9 +266,9 @@ Connects to all configured Lavalink nodes.
 
 > **createNode**(`options`): [`Node`](Node.md)
 
-Defined in: [src/Rythra.ts:66](https://github.com/ekretos/Rythra/blob/97bb66158cadfed295d503388eb818d9992b5725/src/Rythra.ts#L66)
+Defined in: [packages/core/src/Rythra.ts:79](https://github.com/ekretos/Rythra/blob/a364f23696345c8ee22bece2228759c31953118f/packages/core/src/Rythra.ts#L79)
 
-Creates a new node and adds it to the manager.
+Creates and registers a Lavalink node.
 
 #### Parameters
 
@@ -218,13 +276,9 @@ Creates a new node and adds it to the manager.
 
 [`NodeOptions`](../interfaces/NodeOptions.md)
 
-The options for the new node.
-
 #### Returns
 
 [`Node`](Node.md)
-
-The newly created node.
 
 ***
 
@@ -232,9 +286,9 @@ The newly created node.
 
 > **createPlayer**(`options`): [`RythraPlayer`](RythraPlayer.md)
 
-Defined in: [src/Rythra.ts:80](https://github.com/ekretos/Rythra/blob/97bb66158cadfed295d503388eb818d9992b5725/src/Rythra.ts#L80)
+Defined in: [packages/core/src/Rythra.ts:109](https://github.com/ekretos/Rythra/blob/a364f23696345c8ee22bece2228759c31953118f/packages/core/src/Rythra.ts#L109)
 
-Gets or creates a player for a specific guild.
+Gets an existing guild player or creates one on the best available node.
 
 #### Parameters
 
@@ -242,27 +296,39 @@ Gets or creates a player for a specific guild.
 
 [`PlayerOptions`](../interfaces/PlayerOptions.md)
 
-The options for the player.
-
 #### Returns
 
 [`RythraPlayer`](RythraPlayer.md)
 
-The existing or newly created player.
+***
 
-#### Throws
+### destroy()
 
-Error if no nodes are available.
+> **destroy**(`timeout?`): `Promise`\<`void`\>
+
+Defined in: [packages/core/src/Rythra.ts:165](https://github.com/ekretos/Rythra/blob/a364f23696345c8ee22bece2228759c31953118f/packages/core/src/Rythra.ts#L165)
+
+Gracefully shuts down Rythra and all managed Lavalink nodes.
+
+#### Parameters
+
+##### timeout?
+
+`number` = `10_000`
+
+#### Returns
+
+`Promise`\<`void`\>
 
 ***
 
 ### destroyPlayer()
 
-> **destroyPlayer**(`guild`): `void`
+> **destroyPlayer**(`guild`): `Promise`\<`void`\>
 
-Defined in: [src/Rythra.ts:97](https://github.com/ekretos/Rythra/blob/97bb66158cadfed295d503388eb818d9992b5725/src/Rythra.ts#L97)
+Defined in: [packages/core/src/Rythra.ts:123](https://github.com/ekretos/Rythra/blob/a364f23696345c8ee22bece2228759c31953118f/packages/core/src/Rythra.ts#L123)
 
-Destroys a player and stops its playback.
+Destroys a guild player and removes it from the manager.
 
 #### Parameters
 
@@ -270,11 +336,9 @@ Destroys a player and stops its playback.
 
 `string`
 
-The guild ID of the player to destroy.
-
 #### Returns
 
-`void`
+`Promise`\<`void`\>
 
 ***
 
@@ -282,7 +346,7 @@ The guild ID of the player to destroy.
 
 > **emit**\<`E`\>(`eventName`, ...`args`): `boolean`
 
-Defined in: node\_modules/@types/node/events.d.ts:170
+Defined in: node\_modules/@types/node/events.d.ts:134
 
 Synchronously calls each of the listeners registered for the event named
 `eventName`, in the order they were registered, passing the supplied arguments
@@ -333,7 +397,7 @@ myEmitter.emit('event', 1, 2, 3, 4, 5);
 
 ##### eventName
 
-`string` | `symbol`
+`string` \| `symbol`
 
 ##### args
 
@@ -357,7 +421,7 @@ v0.1.26
 
 > **eventNames**(): (`string` \| `symbol`)[]
 
-Defined in: node\_modules/@types/node/events.d.ts:190
+Defined in: node\_modules/@types/node/events.d.ts:154
 
 Returns an array listing the events for which the emitter has registered
 listeners.
@@ -390,11 +454,25 @@ v6.0.0
 
 ***
 
+### getBestNode()
+
+> **getBestNode**(): [`Node`](Node.md) \| `undefined`
+
+Defined in: [packages/core/src/Rythra.ts:95](https://github.com/ekretos/Rythra/blob/a364f23696345c8ee22bece2228759c31953118f/packages/core/src/Rythra.ts#L95)
+
+Selects the healthiest available node using connection state and player load.
+
+#### Returns
+
+[`Node`](Node.md) \| `undefined`
+
+***
+
 ### getMaxListeners()
 
 > **getMaxListeners**(): `number`
 
-Defined in: node\_modules/@types/node/events.d.ts:197
+Defined in: node\_modules/@types/node/events.d.ts:161
 
 Returns the current max listener value for the `EventEmitter` which is either
 set by `emitter.setMaxListeners(n)` or defaults to
@@ -414,11 +492,25 @@ v1.0.0
 
 ***
 
+### health()
+
+> **health**(): [`HealthSnapshot`](../interfaces/HealthSnapshot.md)
+
+Defined in: [packages/core/src/Rythra.ts:162](https://github.com/ekretos/Rythra/blob/a364f23696345c8ee22bece2228759c31953118f/packages/core/src/Rythra.ts#L162)
+
+Returns the current local health snapshot without performing network I/O.
+
+#### Returns
+
+[`HealthSnapshot`](../interfaces/HealthSnapshot.md)
+
+***
+
 ### listenerCount()
 
 > **listenerCount**\<`E`\>(`eventName`, `listener?`): `number`
 
-Defined in: node\_modules/@types/node/events.d.ts:206
+Defined in: node\_modules/@types/node/events.d.ts:170
 
 Returns the number of listeners listening for the event named `eventName`.
 If `listener` is provided, it will return how many times the listener is found
@@ -434,9 +526,9 @@ in the list of the listeners of the event.
 
 ##### eventName
 
-The name of the event being listened for
+`string` \| `symbol`
 
-`string` | `symbol`
+The name of the event being listened for
 
 ##### listener?
 
@@ -462,7 +554,7 @@ v3.2.0
 
 > **listeners**\<`E`\>(`eventName`): (...`args`) => `void`[]
 
-Defined in: node\_modules/@types/node/events.d.ts:222
+Defined in: node\_modules/@types/node/events.d.ts:186
 
 Returns a copy of the array of listeners for the event named `eventName`.
 
@@ -484,7 +576,7 @@ console.log(util.inspect(server.listeners('connection')));
 
 ##### eventName
 
-`string` | `symbol`
+`string` \| `symbol`
 
 #### Returns
 
@@ -504,7 +596,7 @@ v0.1.26
 
 > **off**\<`E`\>(`eventName`, `listener`): `this`
 
-Defined in: node\_modules/@types/node/events.d.ts:227
+Defined in: node\_modules/@types/node/events.d.ts:191
 
 Alias for `emitter.removeListener()`.
 
@@ -518,7 +610,7 @@ Alias for `emitter.removeListener()`.
 
 ##### eventName
 
-`string` | `symbol`
+`string` \| `symbol`
 
 ##### listener
 
@@ -542,7 +634,7 @@ v10.0.0
 
 > **on**\<`E`\>(`eventName`, `listener`): `this`
 
-Defined in: node\_modules/@types/node/events.d.ts:261
+Defined in: node\_modules/@types/node/events.d.ts:225
 
 Adds the `listener` function to the end of the listeners array for the
 event named `eventName`. No checks are made to see if the `listener` has
@@ -583,9 +675,9 @@ myEE.emit('foo');
 
 ##### eventName
 
-The name of the event.
+`string` \| `symbol`
 
-`string` | `symbol`
+The name of the event.
 
 ##### listener
 
@@ -615,7 +707,7 @@ v0.1.101
 
 > **once**\<`E`\>(`eventName`, `listener`): `this`
 
-Defined in: node\_modules/@types/node/events.d.ts:292
+Defined in: node\_modules/@types/node/events.d.ts:256
 
 Adds a **one-time** `listener` function for the event named `eventName`. The
 next time `eventName` is triggered, this listener is removed and then invoked.
@@ -653,9 +745,9 @@ myEE.emit('foo');
 
 ##### eventName
 
-The name of the event.
+`string` \| `symbol`
 
-`string` | `symbol`
+The name of the event.
 
 ##### listener
 
@@ -681,7 +773,7 @@ v0.3.0
 
 > **prependListener**\<`E`\>(`eventName`, `listener`): `this`
 
-Defined in: node\_modules/@types/node/events.d.ts:311
+Defined in: node\_modules/@types/node/events.d.ts:275
 
 Adds the `listener` function to the _beginning_ of the listeners array for the
 event named `eventName`. No checks are made to see if the `listener` has
@@ -707,9 +799,9 @@ Returns a reference to the `EventEmitter`, so that calls can be chained.
 
 ##### eventName
 
-The name of the event.
+`string` \| `symbol`
 
-`string` | `symbol`
+The name of the event.
 
 ##### listener
 
@@ -735,7 +827,7 @@ v6.0.0
 
 > **prependOnceListener**\<`E`\>(`eventName`, `listener`): `this`
 
-Defined in: node\_modules/@types/node/events.d.ts:328
+Defined in: node\_modules/@types/node/events.d.ts:292
 
 Adds a **one-time** `listener` function for the event named `eventName` to the
 _beginning_ of the listeners array. The next time `eventName` is triggered, this
@@ -759,9 +851,9 @@ Returns a reference to the `EventEmitter`, so that calls can be chained.
 
 ##### eventName
 
-The name of the event.
+`string` \| `symbol`
 
-`string` | `symbol`
+The name of the event.
 
 ##### listener
 
@@ -787,7 +879,7 @@ v6.0.0
 
 > **rawListeners**\<`E`\>(`eventName`): (...`args`) => `void`[]
 
-Defined in: node\_modules/@types/node/events.d.ts:362
+Defined in: node\_modules/@types/node/events.d.ts:326
 
 Returns a copy of the array of listeners for the event named `eventName`,
 including any wrappers (such as those created by `.once()`).
@@ -827,7 +919,7 @@ emitter.emit('log');
 
 ##### eventName
 
-`string` | `symbol`
+`string` \| `symbol`
 
 #### Returns
 
@@ -847,7 +939,7 @@ v9.4.0
 
 > **removeAllListeners**\<`E`\>(`eventName?`): `this`
 
-Defined in: node\_modules/@types/node/events.d.ts:374
+Defined in: node\_modules/@types/node/events.d.ts:338
 
 Removes all listeners, or those of the specified `eventName`.
 
@@ -867,7 +959,7 @@ Returns a reference to the `EventEmitter`, so that calls can be chained.
 
 ##### eventName?
 
-`string` | `symbol`
+`string` \| `symbol`
 
 #### Returns
 
@@ -887,7 +979,7 @@ v0.1.26
 
 > **removeListener**\<`E`\>(`eventName`, `listener`): `this`
 
-Defined in: node\_modules/@types/node/events.d.ts:461
+Defined in: node\_modules/@types/node/events.d.ts:425
 
 Removes the specified `listener` from the listener array for the event named
 `eventName`.
@@ -983,7 +1075,7 @@ Returns a reference to the `EventEmitter`, so that calls can be chained.
 
 ##### eventName
 
-`string` | `symbol`
+`string` \| `symbol`
 
 ##### listener
 
@@ -1005,11 +1097,11 @@ v0.1.26
 
 ### search()
 
-> **search**(`query`, `requester`, `source?`): `Promise`\<[`SearchResponse`](../type-aliases/SearchResponse.md)\>
+> **search**(`query`, `_requester`, `source?`): `Promise`\<[`SearchResponse`](../type-aliases/SearchResponse.md)\>
 
-Defined in: [src/Rythra.ts:113](https://github.com/ekretos/Rythra/blob/97bb66158cadfed295d503388eb818d9992b5725/src/Rythra.ts#L113)
+Defined in: [packages/core/src/Rythra.ts:132](https://github.com/ekretos/Rythra/blob/a364f23696345c8ee22bece2228759c31953118f/packages/core/src/Rythra.ts#L132)
 
-Searches for tracks using the Lavalink REST API.
+Searches Lavalink for a track, playlist or search result.
 
 #### Parameters
 
@@ -1017,29 +1109,17 @@ Searches for tracks using the Lavalink REST API.
 
 `string`
 
-The search query or track identifier.
-
-##### requester
+##### \_requester
 
 `unknown`
-
-The ID of the user who requested the search.
 
 ##### source?
 
 [`SearchPlatform`](../type-aliases/SearchPlatform.md)
 
-The search platform to use (e.g., 'youtube', 'soundcloud').
-
 #### Returns
 
 `Promise`\<[`SearchResponse`](../type-aliases/SearchResponse.md)\>
-
-A promise that resolves to the search response.
-
-#### Throws
-
-Error if no nodes are available.
 
 ***
 
@@ -1047,7 +1127,7 @@ Error if no nodes are available.
 
 > **setMaxListeners**(`n`): `this`
 
-Defined in: node\_modules/@types/node/events.d.ts:472
+Defined in: node\_modules/@types/node/events.d.ts:436
 
 By default `EventEmitter`s will print a warning if more than `10` listeners are
 added for a particular event. This is a useful default that helps finding
@@ -1081,17 +1161,15 @@ v0.3.5
 
 > **voiceServerUpdate**(`data`): `Promise`\<`void`\>
 
-Defined in: [src/Rythra.ts:153](https://github.com/ekretos/Rythra/blob/97bb66158cadfed295d503388eb818d9992b5725/src/Rythra.ts#L153)
+Defined in: [packages/core/src/Rythra.ts:154](https://github.com/ekretos/Rythra/blob/a364f23696345c8ee22bece2228759c31953118f/packages/core/src/Rythra.ts#L154)
 
-Handles voice server updates from the Discord gateway.
+Forwards a Discord voice server update to Lavalink.
 
 #### Parameters
 
 ##### data
 
 [`VoiceServerUpdate`](../interfaces/VoiceServerUpdate.md)
-
-The voice server update data.
 
 #### Returns
 
@@ -1103,17 +1181,15 @@ The voice server update data.
 
 > **voiceStateUpdate**(`data`): `void`
 
-Defined in: [src/Rythra.ts:141](https://github.com/ekretos/Rythra/blob/97bb66158cadfed295d503388eb818d9992b5725/src/Rythra.ts#L141)
+Defined in: [packages/core/src/Rythra.ts:147](https://github.com/ekretos/Rythra/blob/a364f23696345c8ee22bece2228759c31953118f/packages/core/src/Rythra.ts#L147)
 
-Handles voice state updates from the Discord gateway.
+Updates the stored Discord voice state for a guild player.
 
 #### Parameters
 
 ##### data
 
 [`VoiceStateUpdate`](../interfaces/VoiceStateUpdate.md)
-
-The voice state update data.
 
 #### Returns
 

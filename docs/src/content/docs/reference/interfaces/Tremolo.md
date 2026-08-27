@@ -3,24 +3,26 @@ title: Tremolo
 description: API Reference for Tremolo
 ---
 
-[**Rythra Documentation v0.0.2**](../README.md)
+[**Rythra Documentation v0.1.0**](../README.md)
 
 ***
 
-Defined in: [src/Types.ts:174](https://github.com/ekretos/Rythra/blob/97bb66158cadfed295d503388eb818d9992b5725/src/Types.ts#L174)
+Defined in: [packages/core/src/Types.ts:46](https://github.com/ekretos/Rythra/blob/a364f23696345c8ee22bece2228759c31953118f/packages/core/src/Types.ts#L46)
+
+Tremolo filter.
 
 ## Properties
 
 ### depth?
 
-> `optional` **depth**: `number`
+> `optional` **depth?**: `number`
 
-Defined in: [src/Types.ts:176](https://github.com/ekretos/Rythra/blob/97bb66158cadfed295d503388eb818d9992b5725/src/Types.ts#L176)
+Defined in: [packages/core/src/Types.ts:46](https://github.com/ekretos/Rythra/blob/a364f23696345c8ee22bece2228759c31953118f/packages/core/src/Types.ts#L46)
 
 ***
 
 ### frequency?
 
-> `optional` **frequency**: `number`
+> `optional` **frequency?**: `number`
 
-Defined in: [src/Types.ts:175](https://github.com/ekretos/Rythra/blob/97bb66158cadfed295d503388eb818d9992b5725/src/Types.ts#L175)
+Defined in: [packages/core/src/Types.ts:46](https://github.com/ekretos/Rythra/blob/a364f23696345c8ee22bece2228759c31953118f/packages/core/src/Types.ts#L46)

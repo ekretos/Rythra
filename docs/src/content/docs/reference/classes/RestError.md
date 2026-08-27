@@ -3,11 +3,13 @@ title: RestError
 description: API Reference for RestError
 ---
 
-[**Rythra Documentation v0.0.2**](../README.md)
+[**Rythra Documentation v0.1.0**](../README.md)
 
 ***
 
-Defined in: [src/Rest.ts:17](https://github.com/ekretos/Rythra/blob/97bb66158cadfed295d503388eb818d9992b5725/src/Rest.ts#L17)
+Defined in: [packages/core/src/Rest.ts:5](https://github.com/ekretos/Rythra/blob/a364f23696345c8ee22bece2228759c31953118f/packages/core/src/Rest.ts#L5)
+
+Error returned when a Lavalink REST request fails.
 
 ## Extends
 
@@ -19,7 +21,9 @@ Defined in: [src/Rest.ts:17](https://github.com/ekretos/Rythra/blob/97bb66158cad
 
 > **new RestError**(`data`): `RestError`
 
-Defined in: [src/Rest.ts:24](https://github.com/ekretos/Rythra/blob/97bb66158cadfed295d503388eb818d9992b5725/src/Rest.ts#L24)
+Defined in: [packages/core/src/Rest.ts:12](https://github.com/ekretos/Rythra/blob/a364f23696345c8ee22bece2228759c31953118f/packages/core/src/Rest.ts#L12)
+
+Creates a structured Lavalink REST error.
 
 #### Parameters
 
@@ -39,7 +43,7 @@ Defined in: [src/Rest.ts:24](https://github.com/ekretos/Rythra/blob/97bb66158cad
 
 ### cause?
 
-> `optional` **cause**: `unknown`
+> `optional` **cause?**: `unknown`
 
 Defined in: node\_modules/typescript/lib/lib.es2022.error.d.ts:26
 
@@ -55,7 +59,9 @@ The cause of the error.
 
 > `readonly` **error**: `string`
 
-Defined in: [src/Rest.ts:20](https://github.com/ekretos/Rythra/blob/97bb66158cadfed295d503388eb818d9992b5725/src/Rest.ts#L20)
+Defined in: [packages/core/src/Rest.ts:8](https://github.com/ekretos/Rythra/blob/a364f23696345c8ee22bece2228759c31953118f/packages/core/src/Rest.ts#L8)
+
+Lavalink error category.
 
 ***
 
@@ -87,13 +93,15 @@ Defined in: node\_modules/typescript/lib/lib.es5.d.ts:1076
 
 > `readonly` **path**: `string`
 
-Defined in: [src/Rest.ts:21](https://github.com/ekretos/Rythra/blob/97bb66158cadfed295d503388eb818d9992b5725/src/Rest.ts#L21)
+Defined in: [packages/core/src/Rest.ts:9](https://github.com/ekretos/Rythra/blob/a364f23696345c8ee22bece2228759c31953118f/packages/core/src/Rest.ts#L9)
+
+API path that produced the error.
 
 ***
 
 ### stack?
 
-> `optional` **stack**: `string`
+> `optional` **stack?**: `string`
 
 Defined in: node\_modules/typescript/lib/lib.es5.d.ts:1078
 
@@ -107,7 +115,9 @@ Defined in: node\_modules/typescript/lib/lib.es5.d.ts:1078
 
 > `readonly` **status**: `number`
 
-Defined in: [src/Rest.ts:19](https://github.com/ekretos/Rythra/blob/97bb66158cadfed295d503388eb818d9992b5725/src/Rest.ts#L19)
+Defined in: [packages/core/src/Rest.ts:7](https://github.com/ekretos/Rythra/blob/a364f23696345c8ee22bece2228759c31953118f/packages/core/src/Rest.ts#L7)
+
+HTTP status code returned by Lavalink.
 
 ***
 
@@ -115,15 +125,19 @@ Defined in: [src/Rest.ts:19](https://github.com/ekretos/Rythra/blob/97bb66158cad
 
 > `readonly` **timestamp**: `number`
 
-Defined in: [src/Rest.ts:18](https://github.com/ekretos/Rythra/blob/97bb66158cadfed295d503388eb818d9992b5725/src/Rest.ts#L18)
+Defined in: [packages/core/src/Rest.ts:6](https://github.com/ekretos/Rythra/blob/a364f23696345c8ee22bece2228759c31953118f/packages/core/src/Rest.ts#L6)
+
+Timestamp reported by Lavalink.
 
 ***
 
 ### trace?
 
-> `readonly` `optional` **trace**: `string`
+> `readonly` `optional` **trace?**: `string`
 
-Defined in: [src/Rest.ts:22](https://github.com/ekretos/Rythra/blob/97bb66158cadfed295d503388eb818d9992b5725/src/Rest.ts#L22)
+Defined in: [packages/core/src/Rest.ts:10](https://github.com/ekretos/Rythra/blob/a364f23696345c8ee22bece2228759c31953118f/packages/core/src/Rest.ts#L10)
+
+Optional server-side stack trace.
 
 ***
 
@@ -223,7 +237,7 @@ a();
 
 > `static` **captureStackTrace**(`targetObject`, `constructorOpt?`): `void`
 
-Defined in: node\_modules/bun-types/globals.d.ts:1042
+Defined in: node\_modules/bun-types/globals.d.ts:1062
 
 Create .stack property on a target object
 
@@ -249,51 +263,27 @@ Create .stack property on a target object
 
 ### isError()
 
-#### Call Signature
-
-> `static` **isError**(`error`): `error is Error`
-
-Defined in: node\_modules/typescript/lib/lib.esnext.error.d.ts:23
-
-Indicates whether the argument provided is a built-in Error instance or not.
-
-##### Parameters
-
-###### error
-
-`unknown`
-
-##### Returns
-
-`error is Error`
-
-##### Inherited from
-
-`Error.isError`
-
-#### Call Signature
-
 > `static` **isError**(`value`): `value is Error`
 
-Defined in: node\_modules/bun-types/globals.d.ts:1037
+Defined in: node\_modules/bun-types/globals.d.ts:1057
 
 Check if a value is an instance of Error
 
-##### Parameters
+#### Parameters
 
-###### value
+##### value
 
 `unknown`
 
 The value to check
 
-##### Returns
+#### Returns
 
 `value is Error`
 
 True if the value is an instance of Error, false otherwise
 
-##### Inherited from
+#### Inherited from
 
 `Error.isError`
 

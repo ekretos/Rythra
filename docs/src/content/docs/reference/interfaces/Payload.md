@@ -3,11 +3,13 @@ title: Payload
 description: API Reference for Payload
 ---
 
-[**Rythra Documentation v0.0.2**](../README.md)
+[**Rythra Documentation v0.1.0**](../README.md)
 
 ***
 
-Defined in: [src/Types.ts:99](https://github.com/ekretos/Rythra/blob/97bb66158cadfed295d503388eb818d9992b5725/src/Types.ts#L99)
+Defined in: [packages/core/src/Types.ts:36](https://github.com/ekretos/Rythra/blob/a364f23696345c8ee22bece2228759c31953118f/packages/core/src/Types.ts#L36)
+
+Discord gateway packet.
 
 ## Properties
 
@@ -15,7 +17,7 @@ Defined in: [src/Types.ts:99](https://github.com/ekretos/Rythra/blob/97bb66158ca
 
 > **d**: `object`
 
-Defined in: [src/Types.ts:102](https://github.com/ekretos/Rythra/blob/97bb66158cadfed295d503388eb818d9992b5725/src/Types.ts#L102)
+Defined in: [packages/core/src/Types.ts:36](https://github.com/ekretos/Rythra/blob/a364f23696345c8ee22bece2228759c31953118f/packages/core/src/Types.ts#L36)
 
 #### channel\_id
 
@@ -39,6 +41,4 @@ Defined in: [src/Types.ts:102](https://github.com/ekretos/Rythra/blob/97bb66158c
 
 > **op**: `number`
 
-Defined in: [src/Types.ts:101](https://github.com/ekretos/Rythra/blob/97bb66158cadfed295d503388eb818d9992b5725/src/Types.ts#L101)
-
-The OP code
+Defined in: [packages/core/src/Types.ts:36](https://github.com/ekretos/Rythra/blob/a364f23696345c8ee22bece2228759c31953118f/packages/core/src/Types.ts#L36)

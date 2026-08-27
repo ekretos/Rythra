@@ -3,40 +3,42 @@ title: Karaoke
 description: API Reference for Karaoke
 ---
 
-[**Rythra Documentation v0.0.2**](../README.md)
+[**Rythra Documentation v0.1.0**](../README.md)
 
 ***
 
-Defined in: [src/Types.ts:161](https://github.com/ekretos/Rythra/blob/97bb66158cadfed295d503388eb818d9992b5725/src/Types.ts#L161)
+Defined in: [packages/core/src/Types.ts:44](https://github.com/ekretos/Rythra/blob/a364f23696345c8ee22bece2228759c31953118f/packages/core/src/Types.ts#L44)
+
+Karaoke filter.
 
 ## Properties
 
 ### filterBand?
 
-> `optional` **filterBand**: `number`
+> `optional` **filterBand?**: `number`
 
-Defined in: [src/Types.ts:164](https://github.com/ekretos/Rythra/blob/97bb66158cadfed295d503388eb818d9992b5725/src/Types.ts#L164)
+Defined in: [packages/core/src/Types.ts:44](https://github.com/ekretos/Rythra/blob/a364f23696345c8ee22bece2228759c31953118f/packages/core/src/Types.ts#L44)
 
 ***
 
 ### filterWidth?
 
-> `optional` **filterWidth**: `number`
+> `optional` **filterWidth?**: `number`
 
-Defined in: [src/Types.ts:165](https://github.com/ekretos/Rythra/blob/97bb66158cadfed295d503388eb818d9992b5725/src/Types.ts#L165)
+Defined in: [packages/core/src/Types.ts:44](https://github.com/ekretos/Rythra/blob/a364f23696345c8ee22bece2228759c31953118f/packages/core/src/Types.ts#L44)
 
 ***
 
 ### level?
 
-> `optional` **level**: `number`
+> `optional` **level?**: `number`
 
-Defined in: [src/Types.ts:162](https://github.com/ekretos/Rythra/blob/97bb66158cadfed295d503388eb818d9992b5725/src/Types.ts#L162)
+Defined in: [packages/core/src/Types.ts:44](https://github.com/ekretos/Rythra/blob/a364f23696345c8ee22bece2228759c31953118f/packages/core/src/Types.ts#L44)
 
 ***
 
 ### monoLevel?
 
-> `optional` **monoLevel**: `number`
+> `optional` **monoLevel?**: `number`
 
-Defined in: [src/Types.ts:163](https://github.com/ekretos/Rythra/blob/97bb66158cadfed295d503388eb818d9992b5725/src/Types.ts#L163)
+Defined in: [packages/core/src/Types.ts:44](https://github.com/ekretos/Rythra/blob/a364f23696345c8ee22bece2228759c31953118f/packages/core/src/Types.ts#L44)

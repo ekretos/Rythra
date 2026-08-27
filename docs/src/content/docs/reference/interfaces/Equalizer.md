@@ -3,11 +3,13 @@ title: Equalizer
 description: API Reference for Equalizer
 ---
 
-[**Rythra Documentation v0.0.2**](../README.md)
+[**Rythra Documentation v0.1.0**](../README.md)
 
 ***
 
-Defined in: [src/Types.ts:156](https://github.com/ekretos/Rythra/blob/97bb66158cadfed295d503388eb818d9992b5725/src/Types.ts#L156)
+Defined in: [packages/core/src/Types.ts:43](https://github.com/ekretos/Rythra/blob/a364f23696345c8ee22bece2228759c31953118f/packages/core/src/Types.ts#L43)
+
+Equalizer filter.
 
 ## Properties
 
@@ -15,7 +17,7 @@ Defined in: [src/Types.ts:156](https://github.com/ekretos/Rythra/blob/97bb66158c
 
 > **band**: `number`
 
-Defined in: [src/Types.ts:157](https://github.com/ekretos/Rythra/blob/97bb66158cadfed295d503388eb818d9992b5725/src/Types.ts#L157)
+Defined in: [packages/core/src/Types.ts:43](https://github.com/ekretos/Rythra/blob/a364f23696345c8ee22bece2228759c31953118f/packages/core/src/Types.ts#L43)
 
 ***
 
@@ -23,4 +25,4 @@ Defined in: [src/Types.ts:157](https://github.com/ekretos/Rythra/blob/97bb66158c
 
 > **gain**: `number`
 
-Defined in: [src/Types.ts:158](https://github.com/ekretos/Rythra/blob/97bb66158cadfed295d503388eb818d9992b5725/src/Types.ts#L158)
+Defined in: [packages/core/src/Types.ts:43](https://github.com/ekretos/Rythra/blob/a364f23696345c8ee22bece2228759c31953118f/packages/core/src/Types.ts#L43)

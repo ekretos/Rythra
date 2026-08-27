@@ -3,64 +3,53 @@ title: Connector
 description: API Reference for Connector
 ---
 
-[**Rythra Documentation v0.0.2**](../README.md)
+[**Rythra Documentation v0.1.0**](../README.md)
 
 ***
 
-Defined in: [src/index.ts:36](https://github.com/ekretos/Rythra/blob/97bb66158cadfed295d503388eb818d9992b5725/src/index.ts#L36)
+Defined in: [packages/core/src/Connector.ts:10](https://github.com/ekretos/Rythra/blob/a364f23696345c8ee22bece2228759c31953118f/packages/core/src/Connector.ts#L10)
 
-The Connector class with static references to its implementations.
-Use this as the primary way to access library-specific connectors.
+Abstract class representing a connector to a Discord library.
 
-## Example
+## Remarks
 
-```typescript
-const connector = new Connector.DiscordJS(client);
-```
+Connectors keep Discord gateway concerns outside the Rythra playback core.
 
-## Extends
+## Type Parameters
 
-- `Connector`
+### T
+
+`T` = `unknown`
 
 ## Constructors
 
 ### Constructor
 
-> **new Connector**(`client`): `Connector`
+> **new Connector**\<`T`\>(`client`): `Connector`\<`T`\>
 
-Defined in: [src/Connector.ts:17](https://github.com/ekretos/Rythra/blob/97bb66158cadfed295d503388eb818d9992b5725/src/Connector.ts#L17)
+Defined in: [packages/core/src/Connector.ts:17](https://github.com/ekretos/Rythra/blob/a364f23696345c8ee22bece2228759c31953118f/packages/core/src/Connector.ts#L17)
 
-Creates a new Connector instance.
+Creates a connector around a Discord library client.
 
 #### Parameters
 
 ##### client
 
-`unknown`
-
-The Discord library client.
+`T`
 
 #### Returns
 
-`Connector`
-
-#### Inherited from
-
-`BaseConnector.constructor`
+`Connector`\<`T`\>
 
 ## Properties
 
 ### client
 
-> `readonly` **client**: `unknown`
+> `readonly` **client**: `T`
 
-Defined in: [src/Connector.ts:11](https://github.com/ekretos/Rythra/blob/97bb66158cadfed295d503388eb818d9992b5725/src/Connector.ts#L11)
+Defined in: [packages/core/src/Connector.ts:14](https://github.com/ekretos/Rythra/blob/a364f23696345c8ee22bece2228759c31953118f/packages/core/src/Connector.ts#L14)
 
 The Discord library client.
-
-#### Inherited from
-
-`BaseConnector.client`
 
 ***
 
@@ -68,53 +57,9 @@ The Discord library client.
 
 > **manager**: [`Rythra`](Rythra.md) \| `null` = `null`
 
-Defined in: [src/Connector.ts:9](https://github.com/ekretos/Rythra/blob/97bb66158cadfed295d503388eb818d9992b5725/src/Connector.ts#L9)
+Defined in: [packages/core/src/Connector.ts:12](https://github.com/ekretos/Rythra/blob/a364f23696345c8ee22bece2228759c31953118f/packages/core/src/Connector.ts#L12)
 
 The Rythra manager instance.
-
-#### Inherited from
-
-`BaseConnector.manager`
-
-***
-
-### DiscordJS
-
-> `static` **DiscordJS**: *typeof* [`DiscordJS`](DiscordJS.md)
-
-Defined in: [src/index.ts:38](https://github.com/ekretos/Rythra/blob/97bb66158cadfed295d503388eb818d9992b5725/src/index.ts#L38)
-
-Static reference to the DiscordJS connector.
-
-***
-
-### Eris
-
-> `static` **Eris**: *typeof* [`Eris`](Eris.md)
-
-Defined in: [src/index.ts:40](https://github.com/ekretos/Rythra/blob/97bb66158cadfed295d503388eb818d9992b5725/src/index.ts#L40)
-
-Static reference to the Eris connector.
-
-***
-
-### OceanicJS
-
-> `static` **OceanicJS**: *typeof* [`OceanicJS`](OceanicJS.md)
-
-Defined in: [src/index.ts:42](https://github.com/ekretos/Rythra/blob/97bb66158cadfed295d503388eb818d9992b5725/src/index.ts#L42)
-
-Static reference to the OceanicJS connector.
-
-***
-
-### Seyfert
-
-> `static` **Seyfert**: *typeof* [`Seyfert`](Seyfert.md)
-
-Defined in: [src/index.ts:44](https://github.com/ekretos/Rythra/blob/97bb66158cadfed295d503388eb818d9992b5725/src/index.ts#L44)
-
-Static reference to the Seyfert connector.
 
 ## Methods
 
@@ -122,7 +67,7 @@ Static reference to the Seyfert connector.
 
 > `abstract` **getId**(): `string` \| `null`
 
-Defined in: [src/Connector.ts:46](https://github.com/ekretos/Rythra/blob/97bb66158cadfed295d503388eb818d9992b5725/src/Connector.ts#L46)
+Defined in: [packages/core/src/Connector.ts:29](https://github.com/ekretos/Rythra/blob/a364f23696345c8ee22bece2228759c31953118f/packages/core/src/Connector.ts#L29)
 
 Gets the client ID from the Discord client.
 
@@ -130,19 +75,13 @@ Gets the client ID from the Discord client.
 
 `string` \| `null`
 
-The client ID, or null if it cannot be determined.
-
-#### Inherited from
-
-`BaseConnector.getId`
-
 ***
 
 ### listen()
 
 > `abstract` **listen**(): `void`
 
-Defined in: [src/Connector.ts:40](https://github.com/ekretos/Rythra/blob/97bb66158cadfed295d503388eb818d9992b5725/src/Connector.ts#L40)
+Defined in: [packages/core/src/Connector.ts:26](https://github.com/ekretos/Rythra/blob/a364f23696345c8ee22bece2228759c31953118f/packages/core/src/Connector.ts#L26)
 
 Starts listening for gateway events.
 
@@ -150,17 +89,13 @@ Starts listening for gateway events.
 
 `void`
 
-#### Inherited from
-
-`BaseConnector.listen`
-
 ***
 
 ### sendPacket()
 
 > `abstract` **sendPacket**(`shardId`, `payload`, `important`): `void`
 
-Defined in: [src/Connector.ts:35](https://github.com/ekretos/Rythra/blob/97bb66158cadfed295d503388eb818d9992b5725/src/Connector.ts#L35)
+Defined in: [packages/core/src/Connector.ts:23](https://github.com/ekretos/Rythra/blob/a364f23696345c8ee22bece2228759c31953118f/packages/core/src/Connector.ts#L23)
 
 Sends a packet to the Discord gateway.
 
@@ -170,27 +105,17 @@ Sends a packet to the Discord gateway.
 
 `number`
 
-The ID of the shard to send the packet on.
-
 ##### payload
 
 [`GatewayPacket`](../interfaces/GatewayPacket.md)
-
-The payload to send.
 
 ##### important
 
 `boolean`
 
-Whether the packet is important.
-
 #### Returns
 
 `void`
-
-#### Inherited from
-
-`BaseConnector.sendPacket`
 
 ***
 
@@ -198,7 +123,7 @@ Whether the packet is important.
 
 > **setManager**(`manager`): `void`
 
-Defined in: [src/Connector.ts:25](https://github.com/ekretos/Rythra/blob/97bb66158cadfed295d503388eb818d9992b5725/src/Connector.ts#L25)
+Defined in: [packages/core/src/Connector.ts:20](https://github.com/ekretos/Rythra/blob/a364f23696345c8ee22bece2228759c31953118f/packages/core/src/Connector.ts#L20)
 
 Sets the Rythra manager for this connector.
 
@@ -208,12 +133,6 @@ Sets the Rythra manager for this connector.
 
 [`Rythra`](Rythra.md)
 
-The Rythra manager instance.
-
 #### Returns
 
 `void`
-
-#### Inherited from
-
-`BaseConnector.setManager`

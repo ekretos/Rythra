@@ -3,11 +3,13 @@ title: VoiceStateUpdate
 description: API Reference for VoiceStateUpdate
 ---
 
-[**Rythra Documentation v0.0.2**](../README.md)
+[**Rythra Documentation v0.1.0**](../README.md)
 
 ***
 
-Defined in: [src/Types.ts:366](https://github.com/ekretos/Rythra/blob/97bb66158cadfed295d503388eb818d9992b5725/src/Types.ts#L366)
+Defined in: [packages/core/src/Types.ts:66](https://github.com/ekretos/Rythra/blob/a364f23696345c8ee22bece2228759c31953118f/packages/core/src/Types.ts#L66)
+
+Discord voice state update.
 
 ## Properties
 
@@ -15,7 +17,7 @@ Defined in: [src/Types.ts:366](https://github.com/ekretos/Rythra/blob/97bb66158c
 
 > **channel\_id**: `string` \| `null`
 
-Defined in: [src/Types.ts:369](https://github.com/ekretos/Rythra/blob/97bb66158cadfed295d503388eb818d9992b5725/src/Types.ts#L369)
+Defined in: [packages/core/src/Types.ts:66](https://github.com/ekretos/Rythra/blob/a364f23696345c8ee22bece2228759c31953118f/packages/core/src/Types.ts#L66)
 
 ***
 
@@ -23,7 +25,7 @@ Defined in: [src/Types.ts:369](https://github.com/ekretos/Rythra/blob/97bb66158c
 
 > **guild\_id**: `string`
 
-Defined in: [src/Types.ts:367](https://github.com/ekretos/Rythra/blob/97bb66158cadfed295d503388eb818d9992b5725/src/Types.ts#L367)
+Defined in: [packages/core/src/Types.ts:66](https://github.com/ekretos/Rythra/blob/a364f23696345c8ee22bece2228759c31953118f/packages/core/src/Types.ts#L66)
 
 ***
 
@@ -31,4 +33,4 @@ Defined in: [src/Types.ts:367](https://github.com/ekretos/Rythra/blob/97bb66158c
 
 > **session\_id**: `string`
 
-Defined in: [src/Types.ts:368](https://github.com/ekretos/Rythra/blob/97bb66158cadfed295d503388eb818d9992b5725/src/Types.ts#L368)
+Defined in: [packages/core/src/Types.ts:66](https://github.com/ekretos/Rythra/blob/a364f23696345c8ee22bece2228759c31953118f/packages/core/src/Types.ts#L66)

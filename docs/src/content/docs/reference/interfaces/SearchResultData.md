@@ -3,11 +3,13 @@ title: SearchResultData
 description: API Reference for SearchResultData
 ---
 
-[**Rythra Documentation v0.0.2**](../README.md)
+[**Rythra Documentation v0.1.0**](../README.md)
 
 ***
 
-Defined in: [src/Types.ts:85](https://github.com/ekretos/Rythra/blob/97bb66158cadfed295d503388eb818d9992b5725/src/Types.ts#L85)
+Defined in: [packages/core/src/Types.ts:32](https://github.com/ekretos/Rythra/blob/a364f23696345c8ee22bece2228759c31953118f/packages/core/src/Types.ts#L32)
+
+Search result data.
 
 ## Properties
 
@@ -15,4 +17,4 @@ Defined in: [src/Types.ts:85](https://github.com/ekretos/Rythra/blob/97bb66158ca
 
 > **tracks**: [`Track`](Track.md)[]
 
-Defined in: [src/Types.ts:86](https://github.com/ekretos/Rythra/blob/97bb66158cadfed295d503388eb818d9992b5725/src/Types.ts#L86)
+Defined in: [packages/core/src/Types.ts:32](https://github.com/ekretos/Rythra/blob/a364f23696345c8ee22bece2228759c31953118f/packages/core/src/Types.ts#L32)

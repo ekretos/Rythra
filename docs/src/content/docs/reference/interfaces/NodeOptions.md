@@ -3,11 +3,13 @@ title: NodeOptions
 description: API Reference for NodeOptions
 ---
 
-[**Rythra Documentation v0.0.2**](../README.md)
+[**Rythra Documentation v0.1.0**](../README.md)
 
 ***
 
-Defined in: [src/Types.ts:110](https://github.com/ekretos/Rythra/blob/97bb66158cadfed295d503388eb818d9992b5725/src/Types.ts#L110)
+Defined in: [packages/core/src/Types.ts:38](https://github.com/ekretos/Rythra/blob/a364f23696345c8ee22bece2228759c31953118f/packages/core/src/Types.ts#L38)
+
+Lavalink node configuration.
 
 ## Properties
 
@@ -15,76 +17,84 @@ Defined in: [src/Types.ts:110](https://github.com/ekretos/Rythra/blob/97bb66158c
 
 > **host**: `string`
 
-Defined in: [src/Types.ts:112](https://github.com/ekretos/Rythra/blob/97bb66158cadfed295d503388eb818d9992b5725/src/Types.ts#L112)
-
-The host of the node.
+Defined in: [packages/core/src/Types.ts:38](https://github.com/ekretos/Rythra/blob/a364f23696345c8ee22bece2228759c31953118f/packages/core/src/Types.ts#L38)
 
 ***
 
 ### identifier?
 
-> `optional` **identifier**: `string`
+> `optional` **identifier?**: `string`
 
-Defined in: [src/Types.ts:122](https://github.com/ekretos/Rythra/blob/97bb66158cadfed295d503388eb818d9992b5725/src/Types.ts#L122)
+Defined in: [packages/core/src/Types.ts:38](https://github.com/ekretos/Rythra/blob/a364f23696345c8ee22bece2228759c31953118f/packages/core/src/Types.ts#L38)
 
-The identifier of the node.
+***
+
+### lavalinkVersion?
+
+> `optional` **lavalinkVersion?**: [`LavalinkApiVersionMode`](../type-aliases/LavalinkApiVersionMode.md)
+
+Defined in: [packages/core/src/Types.ts:38](https://github.com/ekretos/Rythra/blob/a364f23696345c8ee22bece2228759c31953118f/packages/core/src/Types.ts#L38)
+
+***
+
+### maxRetryInterval?
+
+> `optional` **maxRetryInterval?**: `number`
+
+Defined in: [packages/core/src/Types.ts:38](https://github.com/ekretos/Rythra/blob/a364f23696345c8ee22bece2228759c31953118f/packages/core/src/Types.ts#L38)
 
 ***
 
 ### password?
 
-> `optional` **password**: `string`
+> `optional` **password?**: `string`
 
-Defined in: [src/Types.ts:116](https://github.com/ekretos/Rythra/blob/97bb66158cadfed295d503388eb818d9992b5725/src/Types.ts#L116)
-
-The password of the node.
+Defined in: [packages/core/src/Types.ts:38](https://github.com/ekretos/Rythra/blob/a364f23696345c8ee22bece2228759c31953118f/packages/core/src/Types.ts#L38)
 
 ***
 
 ### port?
 
-> `optional` **port**: `number`
+> `optional` **port?**: `number`
 
-Defined in: [src/Types.ts:114](https://github.com/ekretos/Rythra/blob/97bb66158cadfed295d503388eb818d9992b5725/src/Types.ts#L114)
-
-The port of the node.
+Defined in: [packages/core/src/Types.ts:38](https://github.com/ekretos/Rythra/blob/a364f23696345c8ee22bece2228759c31953118f/packages/core/src/Types.ts#L38)
 
 ***
 
 ### rejectUnauthorized?
 
-> `optional` **rejectUnauthorized**: `boolean`
+> `optional` **rejectUnauthorized?**: `boolean`
 
-Defined in: [src/Types.ts:120](https://github.com/ekretos/Rythra/blob/97bb66158cadfed295d503388eb818d9992b5725/src/Types.ts#L120)
-
-Whether to reject unauthorized certificates.
+Defined in: [packages/core/src/Types.ts:38](https://github.com/ekretos/Rythra/blob/a364f23696345c8ee22bece2228759c31953118f/packages/core/src/Types.ts#L38)
 
 ***
 
 ### retryAmount?
 
-> `optional` **retryAmount**: `number`
+> `optional` **retryAmount?**: `number`
 
-Defined in: [src/Types.ts:126](https://github.com/ekretos/Rythra/blob/97bb66158cadfed295d503388eb818d9992b5725/src/Types.ts#L126)
-
-The retry limit for reconnection.
+Defined in: [packages/core/src/Types.ts:38](https://github.com/ekretos/Rythra/blob/a364f23696345c8ee22bece2228759c31953118f/packages/core/src/Types.ts#L38)
 
 ***
 
 ### retryInterval?
 
-> `optional` **retryInterval**: `number`
+> `optional` **retryInterval?**: `number`
 
-Defined in: [src/Types.ts:124](https://github.com/ekretos/Rythra/blob/97bb66158cadfed295d503388eb818d9992b5725/src/Types.ts#L124)
+Defined in: [packages/core/src/Types.ts:38](https://github.com/ekretos/Rythra/blob/a364f23696345c8ee22bece2228759c31953118f/packages/core/src/Types.ts#L38)
 
-The retry interval for reconnection.
+***
+
+### retryJitter?
+
+> `optional` **retryJitter?**: `number`
+
+Defined in: [packages/core/src/Types.ts:38](https://github.com/ekretos/Rythra/blob/a364f23696345c8ee22bece2228759c31953118f/packages/core/src/Types.ts#L38)
 
 ***
 
 ### secure?
 
-> `optional` **secure**: `boolean`
+> `optional` **secure?**: `boolean`
 
-Defined in: [src/Types.ts:118](https://github.com/ekretos/Rythra/blob/97bb66158cadfed295d503388eb818d9992b5725/src/Types.ts#L118)
-
-Whether to use secure connection.
+Defined in: [packages/core/src/Types.ts:38](https://github.com/ekretos/Rythra/blob/a364f23696345c8ee22bece2228759c31953118f/packages/core/src/Types.ts#L38)

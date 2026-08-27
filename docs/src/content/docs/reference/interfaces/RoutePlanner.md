@@ -3,11 +3,13 @@ title: RoutePlanner
 description: API Reference for RoutePlanner
 ---
 
-[**Rythra Documentation v0.0.2**](../README.md)
+[**Rythra Documentation v0.1.0**](../README.md)
 
 ***
 
-Defined in: [src/Types.ts:296](https://github.com/ekretos/Rythra/blob/97bb66158cadfed295d503388eb818d9992b5725/src/Types.ts#L296)
+Defined in: [packages/core/src/Types.ts:58](https://github.com/ekretos/Rythra/blob/a364f23696345c8ee22bece2228759c31953118f/packages/core/src/Types.ts#L58)
+
+Route planner status.
 
 ## Properties
 
@@ -15,7 +17,7 @@ Defined in: [src/Types.ts:296](https://github.com/ekretos/Rythra/blob/97bb66158c
 
 > **class**: `string` \| `null`
 
-Defined in: [src/Types.ts:297](https://github.com/ekretos/Rythra/blob/97bb66158cadfed295d503388eb818d9992b5725/src/Types.ts#L297)
+Defined in: [packages/core/src/Types.ts:58](https://github.com/ekretos/Rythra/blob/a364f23696345c8ee22bece2228759c31953118f/packages/core/src/Types.ts#L58)
 
 ***
 
@@ -23,4 +25,4 @@ Defined in: [src/Types.ts:297](https://github.com/ekretos/Rythra/blob/97bb66158c
 
 > **details**: `Record`\<`string`, `unknown`\> \| `null`
 
-Defined in: [src/Types.ts:298](https://github.com/ekretos/Rythra/blob/97bb66158cadfed295d503388eb818d9992b5725/src/Types.ts#L298)
+Defined in: [packages/core/src/Types.ts:58](https://github.com/ekretos/Rythra/blob/a364f23696345c8ee22bece2228759c31953118f/packages/core/src/Types.ts#L58)

@@ -9,8 +9,14 @@
   "types": "./dist/index.d.ts",
   "exports": {
     ".": {
-      "import": { "types": "./dist/index.d.mts", "default": "./dist/index.mjs" },
-      "require": { "types": "./dist/index.d.ts", "default": "./dist/index.js" }
+      "import": {
+        "types": "./dist/index.d.mts",
+        "default": "./dist/index.mjs"
+      },
+      "require": {
+        "types": "./dist/index.d.ts",
+        "default": "./dist/index.js"
+      }
     }
   },
   "type": "module",
@@ -37,17 +43,19 @@
     "@rythra/core": "workspace:*",
     "@rythra/connector-discordjs": "workspace:*"
   },
-  "peerDependencies": { "typescript": ">=5 <8" },
+  "peerDependencies": {
+    "typescript": ">=5 <8"
+  },
   "devDependencies": {
     "@eslint/js": "^10.0.1",
     "@types/bun": "^1.4.0",
-    "discord.js": "^14.27.0",
     "@types/node": "^26.4.0",
     "@types/ws": "^8.18.1",
+    "discord.js": "^14.27.0",
     "eslint": "^10.9.1",
     "prettier": "^3.9.6",
     "typedoc-plugin-markdown": "^4.13.0",
-    "typescript": "^7.0.2",
+    "typescript": "5.8.2",
     "typescript-eslint": "^8.68.0"
   }
 }

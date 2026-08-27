@@ -3,11 +3,13 @@ title: Track
 description: API Reference for Track
 ---
 
-[**Rythra Documentation v0.0.2**](../README.md)
+[**Rythra Documentation v0.1.0**](../README.md)
 
 ***
 
-Defined in: [src/Types.ts:67](https://github.com/ekretos/Rythra/blob/97bb66158cadfed295d503388eb818d9992b5725/src/Types.ts#L67)
+Defined in: [packages/core/src/Types.ts:29](https://github.com/ekretos/Rythra/blob/a364f23696345c8ee22bece2228759c31953118f/packages/core/src/Types.ts#L29)
+
+A Lavalink encoded track.
 
 ## Properties
 
@@ -15,7 +17,7 @@ Defined in: [src/Types.ts:67](https://github.com/ekretos/Rythra/blob/97bb66158ca
 
 > **encoded**: `string`
 
-Defined in: [src/Types.ts:68](https://github.com/ekretos/Rythra/blob/97bb66158cadfed295d503388eb818d9992b5725/src/Types.ts#L68)
+Defined in: [packages/core/src/Types.ts:29](https://github.com/ekretos/Rythra/blob/a364f23696345c8ee22bece2228759c31953118f/packages/core/src/Types.ts#L29)
 
 ***
 
@@ -23,7 +25,7 @@ Defined in: [src/Types.ts:68](https://github.com/ekretos/Rythra/blob/97bb66158ca
 
 > **info**: [`TrackInfo`](TrackInfo.md)
 
-Defined in: [src/Types.ts:69](https://github.com/ekretos/Rythra/blob/97bb66158cadfed295d503388eb818d9992b5725/src/Types.ts#L69)
+Defined in: [packages/core/src/Types.ts:29](https://github.com/ekretos/Rythra/blob/a364f23696345c8ee22bece2228759c31953118f/packages/core/src/Types.ts#L29)
 
 ***
 
@@ -31,7 +33,7 @@ Defined in: [src/Types.ts:69](https://github.com/ekretos/Rythra/blob/97bb66158ca
 
 > **pluginInfo**: `Record`\<`string`, `unknown`\>
 
-Defined in: [src/Types.ts:70](https://github.com/ekretos/Rythra/blob/97bb66158cadfed295d503388eb818d9992b5725/src/Types.ts#L70)
+Defined in: [packages/core/src/Types.ts:29](https://github.com/ekretos/Rythra/blob/a364f23696345c8ee22bece2228759c31953118f/packages/core/src/Types.ts#L29)
 
 ***
 
@@ -39,4 +41,4 @@ Defined in: [src/Types.ts:70](https://github.com/ekretos/Rythra/blob/97bb66158ca
 
 > **userData**: `Record`\<`string`, `unknown`\>
 
-Defined in: [src/Types.ts:71](https://github.com/ekretos/Rythra/blob/97bb66158cadfed295d503388eb818d9992b5725/src/Types.ts#L71)
+Defined in: [packages/core/src/Types.ts:29](https://github.com/ekretos/Rythra/blob/a364f23696345c8ee22bece2228759c31953118f/packages/core/src/Types.ts#L29)

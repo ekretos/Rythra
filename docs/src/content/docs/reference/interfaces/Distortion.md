@@ -3,88 +3,90 @@ title: Distortion
 description: API Reference for Distortion
 ---
 
-[**Rythra Documentation v0.0.2**](../README.md)
+[**Rythra Documentation v0.1.0**](../README.md)
 
 ***
 
-Defined in: [src/Types.ts:188](https://github.com/ekretos/Rythra/blob/97bb66158cadfed295d503388eb818d9992b5725/src/Types.ts#L188)
+Defined in: [packages/core/src/Types.ts:49](https://github.com/ekretos/Rythra/blob/a364f23696345c8ee22bece2228759c31953118f/packages/core/src/Types.ts#L49)
+
+Distortion filter.
 
 ## Properties
 
 ### cos2Offset?
 
-> `optional` **cos2Offset**: `number`
+> `optional` **cos2Offset?**: `number`
 
-Defined in: [src/Types.ts:195](https://github.com/ekretos/Rythra/blob/97bb66158cadfed295d503388eb818d9992b5725/src/Types.ts#L195)
+Defined in: [packages/core/src/Types.ts:49](https://github.com/ekretos/Rythra/blob/a364f23696345c8ee22bece2228759c31953118f/packages/core/src/Types.ts#L49)
 
 ***
 
 ### cos2Scale?
 
-> `optional` **cos2Scale**: `number`
+> `optional` **cos2Scale?**: `number`
 
-Defined in: [src/Types.ts:196](https://github.com/ekretos/Rythra/blob/97bb66158cadfed295d503388eb818d9992b5725/src/Types.ts#L196)
+Defined in: [packages/core/src/Types.ts:49](https://github.com/ekretos/Rythra/blob/a364f23696345c8ee22bece2228759c31953118f/packages/core/src/Types.ts#L49)
 
 ***
 
 ### cosOffset?
 
-> `optional` **cosOffset**: `number`
+> `optional` **cosOffset?**: `number`
 
-Defined in: [src/Types.ts:191](https://github.com/ekretos/Rythra/blob/97bb66158cadfed295d503388eb818d9992b5725/src/Types.ts#L191)
+Defined in: [packages/core/src/Types.ts:49](https://github.com/ekretos/Rythra/blob/a364f23696345c8ee22bece2228759c31953118f/packages/core/src/Types.ts#L49)
 
 ***
 
 ### cosScale?
 
-> `optional` **cosScale**: `number`
+> `optional` **cosScale?**: `number`
 
-Defined in: [src/Types.ts:192](https://github.com/ekretos/Rythra/blob/97bb66158cadfed295d503388eb818d9992b5725/src/Types.ts#L192)
+Defined in: [packages/core/src/Types.ts:49](https://github.com/ekretos/Rythra/blob/a364f23696345c8ee22bece2228759c31953118f/packages/core/src/Types.ts#L49)
 
 ***
 
 ### sinOffset?
 
-> `optional` **sinOffset**: `number`
+> `optional` **sinOffset?**: `number`
 
-Defined in: [src/Types.ts:189](https://github.com/ekretos/Rythra/blob/97bb66158cadfed295d503388eb818d9992b5725/src/Types.ts#L189)
+Defined in: [packages/core/src/Types.ts:49](https://github.com/ekretos/Rythra/blob/a364f23696345c8ee22bece2228759c31953118f/packages/core/src/Types.ts#L49)
 
 ***
 
 ### sinScale?
 
-> `optional` **sinScale**: `number`
+> `optional` **sinScale?**: `number`
 
-Defined in: [src/Types.ts:190](https://github.com/ekretos/Rythra/blob/97bb66158cadfed295d503388eb818d9992b5725/src/Types.ts#L190)
+Defined in: [packages/core/src/Types.ts:49](https://github.com/ekretos/Rythra/blob/a364f23696345c8ee22bece2228759c31953118f/packages/core/src/Types.ts#L49)
 
 ***
 
 ### tan2Offset?
 
-> `optional` **tan2Offset**: `number`
+> `optional` **tan2Offset?**: `number`
 
-Defined in: [src/Types.ts:197](https://github.com/ekretos/Rythra/blob/97bb66158cadfed295d503388eb818d9992b5725/src/Types.ts#L197)
+Defined in: [packages/core/src/Types.ts:49](https://github.com/ekretos/Rythra/blob/a364f23696345c8ee22bece2228759c31953118f/packages/core/src/Types.ts#L49)
 
 ***
 
 ### tan2Scale?
 
-> `optional` **tan2Scale**: `number`
+> `optional` **tan2Scale?**: `number`
 
-Defined in: [src/Types.ts:198](https://github.com/ekretos/Rythra/blob/97bb66158cadfed295d503388eb818d9992b5725/src/Types.ts#L198)
+Defined in: [packages/core/src/Types.ts:49](https://github.com/ekretos/Rythra/blob/a364f23696345c8ee22bece2228759c31953118f/packages/core/src/Types.ts#L49)
 
 ***
 
 ### tanOffset?
 
-> `optional` **tanOffset**: `number`
+> `optional` **tanOffset?**: `number`
 
-Defined in: [src/Types.ts:193](https://github.com/ekretos/Rythra/blob/97bb66158cadfed295d503388eb818d9992b5725/src/Types.ts#L193)
+Defined in: [packages/core/src/Types.ts:49](https://github.com/ekretos/Rythra/blob/a364f23696345c8ee22bece2228759c31953118f/packages/core/src/Types.ts#L49)
 
 ***
 
 ### tanScale?
 
-> `optional` **tanScale**: `number`
+> `optional` **tanScale?**: `number`
 
-Defined in: [src/Types.ts:194](https://github.com/ekretos/Rythra/blob/97bb66158cadfed295d503388eb818d9992b5725/src/Types.ts#L194)
+Defined in: [packages/core/src/Types.ts:49](https://github.com/ekretos/Rythra/blob/a364f23696345c8ee22bece2228759c31953118f/packages/core/src/Types.ts#L49)

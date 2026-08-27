@@ -3,13 +3,18 @@ title: Queue
 description: API Reference for Queue
 ---
 
-[**Rythra Documentation v0.0.2**](../README.md)
+[**Rythra Documentation v0.1.0**](../README.md)
 
 ***
 
-Defined in: [src/Queue.ts:7](https://github.com/ekretos/Rythra/blob/97bb66158cadfed295d503388eb818d9992b5725/src/Queue.ts#L7)
+Defined in: [packages/core/src/Queue.ts:12](https://github.com/ekretos/Rythra/blob/a364f23696345c8ee22bece2228759c31953118f/packages/core/src/Queue.ts#L12)
 
-A queue of tracks to be played.
+Ordered collection of tracks waiting for playback.
+
+## Remarks
+
+Queue extends the native array API while providing Rythra-specific state
+for the current track and playback history.
 
 ## Extends
 
@@ -17,7 +22,7 @@ A queue of tracks to be played.
 
 ## Indexable
 
-\[`n`: `number`\]: [`Track`](../interfaces/Track.md)
+> \[`n`: `number`\]: [`Track`](../interfaces/Track.md)
 
 ## Constructors
 
@@ -25,7 +30,7 @@ A queue of tracks to be played.
 
 > **new Queue**(`arrayLength`): `Queue`
 
-Defined in: node\_modules/typescript/lib/lib.es5.d.ts:1515
+Defined in: node\_modules/typescript/lib/lib.es5.d.ts:1508
 
 #### Parameters
 
@@ -45,7 +50,7 @@ Defined in: node\_modules/typescript/lib/lib.es5.d.ts:1515
 
 > **new Queue**(...`items`): `Queue`
 
-Defined in: node\_modules/typescript/lib/lib.es5.d.ts:1516
+Defined in: node\_modules/typescript/lib/lib.es5.d.ts:1509
 
 #### Parameters
 
@@ -78,172 +83,172 @@ when they will be absent when used in a 'with' statement.
 
 #### \[iterator\]?
 
-> `optional` **\[iterator\]**: `boolean`
+> `optional` **\[iterator\]?**: `boolean`
 
 #### \[unscopables\]?
 
-> `readonly` `optional` **\[unscopables\]**: `boolean`
+> `readonly` `optional` **\[unscopables\]?**: `boolean`
 
 Is an object whose properties have the value 'true'
 when they will be absent when used in a 'with' statement.
 
 #### at?
 
-> `optional` **at**: `boolean`
+> `optional` **at?**: `boolean`
 
 #### concat?
 
-> `optional` **concat**: `boolean`
+> `optional` **concat?**: `boolean`
 
 #### copyWithin?
 
-> `optional` **copyWithin**: `boolean`
+> `optional` **copyWithin?**: `boolean`
 
 #### entries?
 
-> `optional` **entries**: `boolean`
+> `optional` **entries?**: `boolean`
 
 #### every?
 
-> `optional` **every**: `boolean`
+> `optional` **every?**: `boolean`
 
 #### fill?
 
-> `optional` **fill**: `boolean`
+> `optional` **fill?**: `boolean`
 
 #### filter?
 
-> `optional` **filter**: `boolean`
+> `optional` **filter?**: `boolean`
 
 #### find?
 
-> `optional` **find**: `boolean`
+> `optional` **find?**: `boolean`
 
 #### findIndex?
 
-> `optional` **findIndex**: `boolean`
+> `optional` **findIndex?**: `boolean`
 
 #### findLast?
 
-> `optional` **findLast**: `boolean`
+> `optional` **findLast?**: `boolean`
 
 #### findLastIndex?
 
-> `optional` **findLastIndex**: `boolean`
+> `optional` **findLastIndex?**: `boolean`
 
 #### flat?
 
-> `optional` **flat**: `boolean`
+> `optional` **flat?**: `boolean`
 
 #### flatMap?
 
-> `optional` **flatMap**: `boolean`
+> `optional` **flatMap?**: `boolean`
 
 #### forEach?
 
-> `optional` **forEach**: `boolean`
+> `optional` **forEach?**: `boolean`
 
 #### includes?
 
-> `optional` **includes**: `boolean`
+> `optional` **includes?**: `boolean`
 
 #### indexOf?
 
-> `optional` **indexOf**: `boolean`
+> `optional` **indexOf?**: `boolean`
 
 #### join?
 
-> `optional` **join**: `boolean`
+> `optional` **join?**: `boolean`
 
 #### keys?
 
-> `optional` **keys**: `boolean`
+> `optional` **keys?**: `boolean`
 
 #### lastIndexOf?
 
-> `optional` **lastIndexOf**: `boolean`
+> `optional` **lastIndexOf?**: `boolean`
 
 #### length?
 
-> `optional` **length**: `boolean`
+> `optional` **length?**: `boolean`
 
 Gets or sets the length of the array. This is a number one higher than the highest index in the array.
 
 #### map?
 
-> `optional` **map**: `boolean`
+> `optional` **map?**: `boolean`
 
 #### pop?
 
-> `optional` **pop**: `boolean`
+> `optional` **pop?**: `boolean`
 
 #### push?
 
-> `optional` **push**: `boolean`
+> `optional` **push?**: `boolean`
 
 #### reduce?
 
-> `optional` **reduce**: `boolean`
+> `optional` **reduce?**: `boolean`
 
 #### reduceRight?
 
-> `optional` **reduceRight**: `boolean`
+> `optional` **reduceRight?**: `boolean`
 
 #### reverse?
 
-> `optional` **reverse**: `boolean`
+> `optional` **reverse?**: `boolean`
 
 #### shift?
 
-> `optional` **shift**: `boolean`
+> `optional` **shift?**: `boolean`
 
 #### slice?
 
-> `optional` **slice**: `boolean`
+> `optional` **slice?**: `boolean`
 
 #### some?
 
-> `optional` **some**: `boolean`
+> `optional` **some?**: `boolean`
 
 #### sort?
 
-> `optional` **sort**: `boolean`
+> `optional` **sort?**: `boolean`
 
 #### splice?
 
-> `optional` **splice**: `boolean`
+> `optional` **splice?**: `boolean`
 
 #### toLocaleString?
 
-> `optional` **toLocaleString**: `boolean`
+> `optional` **toLocaleString?**: `boolean`
 
 #### toReversed?
 
-> `optional` **toReversed**: `boolean`
+> `optional` **toReversed?**: `boolean`
 
 #### toSorted?
 
-> `optional` **toSorted**: `boolean`
+> `optional` **toSorted?**: `boolean`
 
 #### toSpliced?
 
-> `optional` **toSpliced**: `boolean`
+> `optional` **toSpliced?**: `boolean`
 
 #### toString?
 
-> `optional` **toString**: `boolean`
+> `optional` **toString?**: `boolean`
 
 #### unshift?
 
-> `optional` **unshift**: `boolean`
+> `optional` **unshift?**: `boolean`
 
 #### values?
 
-> `optional` **values**: `boolean`
+> `optional` **values?**: `boolean`
 
 #### with?
 
-> `optional` **with**: `boolean`
+> `optional` **with?**: `boolean`
 
 #### Inherited from
 
@@ -255,9 +260,9 @@ Gets or sets the length of the array. This is a number one higher than the highe
 
 > **current**: [`Track`](../interfaces/Track.md) \| `null` = `null`
 
-Defined in: [src/Queue.ts:9](https://github.com/ekretos/Rythra/blob/97bb66158cadfed295d503388eb818d9992b5725/src/Queue.ts#L9)
+Defined in: [packages/core/src/Queue.ts:14](https://github.com/ekretos/Rythra/blob/a364f23696345c8ee22bece2228759c31953118f/packages/core/src/Queue.ts#L14)
 
-The currently playing track.
+The track currently selected for playback.
 
 ***
 
@@ -265,7 +270,7 @@ The currently playing track.
 
 > **length**: `number`
 
-Defined in: node\_modules/typescript/lib/lib.es5.d.ts:1329
+Defined in: node\_modules/typescript/lib/lib.es5.d.ts:1326
 
 Gets or sets the length of the array. This is a number one higher than the highest index in the array.
 
@@ -279,9 +284,9 @@ Gets or sets the length of the array. This is a number one higher than the highe
 
 > **previous**: [`Track`](../interfaces/Track.md)[] = `[]`
 
-Defined in: [src/Queue.ts:11](https://github.com/ekretos/Rythra/blob/97bb66158cadfed295d503388eb818d9992b5725/src/Queue.ts#L11)
+Defined in: [packages/core/src/Queue.ts:16](https://github.com/ekretos/Rythra/blob/a364f23696345c8ee22bece2228759c31953118f/packages/core/src/Queue.ts#L16)
 
-An array of previously played tracks.
+Tracks that have already completed or been skipped, newest first.
 
 ***
 
@@ -319,17 +324,15 @@ Iterator
 
 > **add**(`track`): `void`
 
-Defined in: [src/Queue.ts:17](https://github.com/ekretos/Rythra/blob/97bb66158cadfed295d503388eb818d9992b5725/src/Queue.ts#L17)
+Defined in: [packages/core/src/Queue.ts:19](https://github.com/ekretos/Rythra/blob/a364f23696345c8ee22bece2228759c31953118f/packages/core/src/Queue.ts#L19)
 
-Adds tracks to the queue.
+Adds one or more tracks to the end of the queue.
 
 #### Parameters
 
 ##### track
 
-A single track or an array of tracks to add.
-
-[`Track`](../interfaces/Track.md) | [`Track`](../interfaces/Track.md)[]
+[`Track`](../interfaces/Track.md) \| [`Track`](../interfaces/Track.md)[]
 
 #### Returns
 
@@ -367,9 +370,9 @@ The zero-based index of the desired code unit. A negative index will count back 
 
 > **clear**(): `void`
 
-Defined in: [src/Queue.ts:37](https://github.com/ekretos/Rythra/blob/97bb66158cadfed295d503388eb818d9992b5725/src/Queue.ts#L37)
+Defined in: [packages/core/src/Queue.ts:28](https://github.com/ekretos/Rythra/blob/a364f23696345c8ee22bece2228759c31953118f/packages/core/src/Queue.ts#L28)
 
-Clears all tracks from the queue.
+Removes every pending track while preserving current/history state.
 
 #### Returns
 
@@ -383,7 +386,7 @@ Clears all tracks from the queue.
 
 > **concat**(...`items`): [`Track`](../interfaces/Track.md)[]
 
-Defined in: node\_modules/typescript/lib/lib.es5.d.ts:1353
+Defined in: node\_modules/typescript/lib/lib.es5.d.ts:1350
 
 Combines two or more arrays.
 This method returns a new array without modifying any existing arrays.
@@ -408,7 +411,7 @@ Additional arrays and/or items to add to the end of the array.
 
 > **concat**(...`items`): [`Track`](../interfaces/Track.md)[]
 
-Defined in: node\_modules/typescript/lib/lib.es5.d.ts:1359
+Defined in: node\_modules/typescript/lib/lib.es5.d.ts:1356
 
 Combines two or more arrays.
 This method returns a new array without modifying any existing arrays.
@@ -496,7 +499,7 @@ Returns an iterable of key, value pairs for every entry in the array
 
 > **every**\<`S`\>(`predicate`, `thisArg?`): `this is S[]`
 
-Defined in: node\_modules/typescript/lib/lib.es5.d.ts:1440
+Defined in: node\_modules/typescript/lib/lib.es5.d.ts:1433
 
 Determines whether all the members of an array satisfy the specified test.
 
@@ -535,7 +538,7 @@ If thisArg is omitted, undefined is used as the this value.
 
 > **every**(`predicate`, `thisArg?`): `boolean`
 
-Defined in: node\_modules/typescript/lib/lib.es5.d.ts:1449
+Defined in: node\_modules/typescript/lib/lib.es5.d.ts:1442
 
 Determines whether all the members of an array satisfy the specified test.
 
@@ -612,7 +615,7 @@ length+end.
 
 > **filter**\<`S`\>(`predicate`, `thisArg?`): `S`[]
 
-Defined in: node\_modules/typescript/lib/lib.es5.d.ts:1476
+Defined in: node\_modules/typescript/lib/lib.es5.d.ts:1469
 
 Returns the elements of an array that meet the condition specified in a callback function.
 
@@ -648,7 +651,7 @@ An object to which the this keyword can refer in the predicate function. If this
 
 > **filter**(`predicate`, `thisArg?`): [`Track`](../interfaces/Track.md)[]
 
-Defined in: node\_modules/typescript/lib/lib.es5.d.ts:1482
+Defined in: node\_modules/typescript/lib/lib.es5.d.ts:1475
 
 Returns the elements of an array that meet the condition specified in a callback function.
 
@@ -975,7 +978,7 @@ thisArg is omitted, undefined is used as the this value.
 
 > **forEach**(`callbackfn`, `thisArg?`): `void`
 
-Defined in: node\_modules/typescript/lib/lib.es5.d.ts:1464
+Defined in: node\_modules/typescript/lib/lib.es5.d.ts:1457
 
 Performs the specified action for each element in an array.
 
@@ -1039,7 +1042,7 @@ The position in this array at which to begin searching for searchElement.
 
 > **indexOf**(`searchElement`, `fromIndex?`): `number`
 
-Defined in: node\_modules/typescript/lib/lib.es5.d.ts:1425
+Defined in: node\_modules/typescript/lib/lib.es5.d.ts:1418
 
 Returns the index of the first occurrence of a value in an array, or -1 if it is not present.
 
@@ -1071,7 +1074,7 @@ The array index at which to begin the search. If fromIndex is omitted, the searc
 
 > **join**(`separator?`): `string`
 
-Defined in: node\_modules/typescript/lib/lib.es5.d.ts:1364
+Defined in: node\_modules/typescript/lib/lib.es5.d.ts:1361
 
 Adds all the elements of an array into a string, separated by the specified separator string.
 
@@ -1115,7 +1118,7 @@ Returns an iterable of keys in the array
 
 > **lastIndexOf**(`searchElement`, `fromIndex?`): `number`
 
-Defined in: node\_modules/typescript/lib/lib.es5.d.ts:1431
+Defined in: node\_modules/typescript/lib/lib.es5.d.ts:1424
 
 Returns the index of the last occurrence of a specified value in an array, or -1 if it is not present.
 
@@ -1147,7 +1150,7 @@ The array index at which to begin searching backward. If fromIndex is omitted, t
 
 > **map**\<`U`\>(`callbackfn`, `thisArg?`): `U`[]
 
-Defined in: node\_modules/typescript/lib/lib.es5.d.ts:1470
+Defined in: node\_modules/typescript/lib/lib.es5.d.ts:1463
 
 Calls a defined callback function on each element of an array, and returns an array that contains the results.
 
@@ -1185,7 +1188,7 @@ An object to which the this keyword can refer in the callbackfn function. If thi
 
 > **pop**(): [`Track`](../interfaces/Track.md) \| `undefined`
 
-Defined in: node\_modules/typescript/lib/lib.es5.d.ts:1342
+Defined in: node\_modules/typescript/lib/lib.es5.d.ts:1339
 
 Removes the last element from an array and returns it.
 If the array is empty, undefined is returned and the array is not modified.
@@ -1204,7 +1207,7 @@ If the array is empty, undefined is returned and the array is not modified.
 
 > **push**(...`items`): `number`
 
-Defined in: node\_modules/typescript/lib/lib.es5.d.ts:1347
+Defined in: node\_modules/typescript/lib/lib.es5.d.ts:1344
 
 Appends new elements to the end of an array, and returns the new length of the array.
 
@@ -1232,7 +1235,7 @@ New elements to add to the array.
 
 > **reduce**(`callbackfn`): [`Track`](../interfaces/Track.md)
 
-Defined in: node\_modules/typescript/lib/lib.es5.d.ts:1488
+Defined in: node\_modules/typescript/lib/lib.es5.d.ts:1481
 
 Calls the specified callback function for all the elements in an array. The return value of the callback function is the accumulated result, and is provided as an argument in the next call to the callback function.
 
@@ -1256,7 +1259,7 @@ A function that accepts up to four arguments. The reduce method calls the callba
 
 > **reduce**(`callbackfn`, `initialValue`): [`Track`](../interfaces/Track.md)
 
-Defined in: node\_modules/typescript/lib/lib.es5.d.ts:1489
+Defined in: node\_modules/typescript/lib/lib.es5.d.ts:1482
 
 ##### Parameters
 
@@ -1280,7 +1283,7 @@ Defined in: node\_modules/typescript/lib/lib.es5.d.ts:1489
 
 > **reduce**\<`U`\>(`callbackfn`, `initialValue`): `U`
 
-Defined in: node\_modules/typescript/lib/lib.es5.d.ts:1495
+Defined in: node\_modules/typescript/lib/lib.es5.d.ts:1488
 
 Calls the specified callback function for all the elements in an array. The return value of the callback function is the accumulated result, and is provided as an argument in the next call to the callback function.
 
@@ -1320,7 +1323,7 @@ If initialValue is specified, it is used as the initial value to start the accum
 
 > **reduceRight**(`callbackfn`): [`Track`](../interfaces/Track.md)
 
-Defined in: node\_modules/typescript/lib/lib.es5.d.ts:1501
+Defined in: node\_modules/typescript/lib/lib.es5.d.ts:1494
 
 Calls the specified callback function for all the elements in an array, in descending order. The return value of the callback function is the accumulated result, and is provided as an argument in the next call to the callback function.
 
@@ -1344,7 +1347,7 @@ A function that accepts up to four arguments. The reduceRight method calls the c
 
 > **reduceRight**(`callbackfn`, `initialValue`): [`Track`](../interfaces/Track.md)
 
-Defined in: node\_modules/typescript/lib/lib.es5.d.ts:1502
+Defined in: node\_modules/typescript/lib/lib.es5.d.ts:1495
 
 ##### Parameters
 
@@ -1368,7 +1371,7 @@ Defined in: node\_modules/typescript/lib/lib.es5.d.ts:1502
 
 > **reduceRight**\<`U`\>(`callbackfn`, `initialValue`): `U`
 
-Defined in: node\_modules/typescript/lib/lib.es5.d.ts:1508
+Defined in: node\_modules/typescript/lib/lib.es5.d.ts:1501
 
 Calls the specified callback function for all the elements in an array, in descending order. The return value of the callback function is the accumulated result, and is provided as an argument in the next call to the callback function.
 
@@ -1406,9 +1409,9 @@ If initialValue is specified, it is used as the initial value to start the accum
 
 > **remove**(`index`): [`Track`](../interfaces/Track.md) \| `undefined`
 
-Defined in: [src/Queue.ts:30](https://github.com/ekretos/Rythra/blob/97bb66158cadfed295d503388eb818d9992b5725/src/Queue.ts#L30)
+Defined in: [packages/core/src/Queue.ts:25](https://github.com/ekretos/Rythra/blob/a364f23696345c8ee22bece2228759c31953118f/packages/core/src/Queue.ts#L25)
 
-Removes a track from the queue at the specified index.
+Removes a track at a specific queue index.
 
 #### Parameters
 
@@ -1416,13 +1419,9 @@ Removes a track from the queue at the specified index.
 
 `number`
 
-The index of the track to remove.
-
 #### Returns
 
 [`Track`](../interfaces/Track.md) \| `undefined`
-
-The removed track, or undefined if the index is out of bounds.
 
 ***
 
@@ -1430,7 +1429,7 @@ The removed track, or undefined if the index is out of bounds.
 
 > **reverse**(): [`Track`](../interfaces/Track.md)[]
 
-Defined in: node\_modules/typescript/lib/lib.es5.d.ts:1369
+Defined in: node\_modules/typescript/lib/lib.es5.d.ts:1366
 
 Reverses the elements in an array in place.
 This method mutates the array and returns a reference to the same array.
@@ -1449,7 +1448,7 @@ This method mutates the array and returns a reference to the same array.
 
 > **shift**(): [`Track`](../interfaces/Track.md) \| `undefined`
 
-Defined in: node\_modules/typescript/lib/lib.es5.d.ts:1374
+Defined in: node\_modules/typescript/lib/lib.es5.d.ts:1371
 
 Removes the first element from an array and returns it.
 If the array is empty, undefined is returned and the array is not modified.
@@ -1468,9 +1467,9 @@ If the array is empty, undefined is returned and the array is not modified.
 
 > **shuffle**(): `void`
 
-Defined in: [src/Queue.ts:44](https://github.com/ekretos/Rythra/blob/97bb66158cadfed295d503388eb818d9992b5725/src/Queue.ts#L44)
+Defined in: [packages/core/src/Queue.ts:31](https://github.com/ekretos/Rythra/blob/a364f23696345c8ee22bece2228759c31953118f/packages/core/src/Queue.ts#L31)
 
-Randomly shuffles the tracks in the queue.
+Randomly reorders pending tracks using Fisher-Yates shuffling.
 
 #### Returns
 
@@ -1482,7 +1481,7 @@ Randomly shuffles the tracks in the queue.
 
 > **slice**(`start?`, `end?`): [`Track`](../interfaces/Track.md)[]
 
-Defined in: node\_modules/typescript/lib/lib.es5.d.ts:1384
+Defined in: node\_modules/typescript/lib/lib.es5.d.ts:1381
 
 Returns a copy of a section of an array.
 For both start and end, a negative index can be used to indicate an offset from the end of the array.
@@ -1518,7 +1517,7 @@ If end is undefined, then the slice extends to the end of the array.
 
 > **some**(`predicate`, `thisArg?`): `boolean`
 
-Defined in: node\_modules/typescript/lib/lib.es5.d.ts:1458
+Defined in: node\_modules/typescript/lib/lib.es5.d.ts:1451
 
 Determines whether the specified callback function returns true for any element of an array.
 
@@ -1553,7 +1552,7 @@ If thisArg is omitted, undefined is used as the this value.
 
 > **sort**(`compareFn?`): `this`
 
-Defined in: node\_modules/typescript/lib/lib.es5.d.ts:1395
+Defined in: node\_modules/typescript/lib/lib.es5.d.ts:1392
 
 Sorts an array in place.
 This method mutates the array and returns a reference to the same array.
@@ -1587,7 +1586,7 @@ value otherwise. If omitted, the elements are sorted in ascending, UTF-16 code u
 
 > **splice**(`start`, `deleteCount?`): [`Track`](../interfaces/Track.md)[]
 
-Defined in: node\_modules/typescript/lib/lib.es5.d.ts:1404
+Defined in: node\_modules/typescript/lib/lib.es5.d.ts:1399
 
 Removes elements from an array and, if necessary, inserts new elements in their place, returning the deleted elements.
 
@@ -1603,9 +1602,7 @@ The zero-based location in the array from which to start removing elements.
 
 `number`
 
-The number of elements to remove. Omitting this argument will remove all elements from the start
-paramater location to end of the array. If value of this argument is either a negative number, zero, undefined, or a type
-that cannot be converted to an integer, the function will evaluate the argument as zero and not remove any elements.
+The number of elements to remove.
 
 ##### Returns
 
@@ -1621,7 +1618,7 @@ An array containing the elements that were deleted.
 
 > **splice**(`start`, `deleteCount`, ...`items`): [`Track`](../interfaces/Track.md)[]
 
-Defined in: node\_modules/typescript/lib/lib.es5.d.ts:1414
+Defined in: node\_modules/typescript/lib/lib.es5.d.ts:1407
 
 Removes elements from an array and, if necessary, inserts new elements in their place, returning the deleted elements.
 
@@ -1637,9 +1634,7 @@ The zero-based location in the array from which to start removing elements.
 
 `number`
 
-The number of elements to remove. If value of this argument is either a negative number, zero,
-undefined, or a type that cannot be converted to an integer, the function will evaluate the argument as zero and
-not remove any elements.
+The number of elements to remove.
 
 ###### items
 
@@ -1665,7 +1660,7 @@ An array containing the elements that were deleted.
 
 > **toLocaleString**(): `string`
 
-Defined in: node\_modules/typescript/lib/lib.es5.d.ts:1337
+Defined in: node\_modules/typescript/lib/lib.es5.d.ts:1334
 
 Returns a string representation of an array. The elements are converted to string using their toLocaleString methods.
 
@@ -1687,7 +1682,7 @@ Defined in: node\_modules/typescript/lib/lib.es2015.core.d.ts:64
 
 ###### locales
 
-`string` | `string`[]
+`string` \| `string`[]
 
 ###### options?
 
@@ -1830,7 +1825,7 @@ A copy of the original array with the remaining elements.
 
 > **toString**(): `string`
 
-Defined in: node\_modules/typescript/lib/lib.es5.d.ts:1333
+Defined in: node\_modules/typescript/lib/lib.es5.d.ts:1330
 
 Returns a string representation of an array.
 
@@ -1848,7 +1843,7 @@ Returns a string representation of an array.
 
 > **unshift**(...`items`): `number`
 
-Defined in: node\_modules/typescript/lib/lib.es5.d.ts:1419
+Defined in: node\_modules/typescript/lib/lib.es5.d.ts:1412
 
 Inserts new elements at the start of an array, and returns the new length of the array.
 
@@ -2021,9 +2016,9 @@ Creates an array from an iterable object.
 
 ###### iterable
 
-An iterable object to convert to an array.
+`Iterable`\<`T`, `any`, `any`\> \| `ArrayLike`\<`T`\>
 
-`Iterable`\<`T`, `any`, `any`\> | `ArrayLike`\<`T`\>
+An iterable object to convert to an array.
 
 ##### Returns
 
@@ -2055,9 +2050,9 @@ Creates an array from an iterable object.
 
 ###### iterable
 
-An iterable object to convert to an array.
+`Iterable`\<`T`, `any`, `any`\> \| `ArrayLike`\<`T`\>
 
-`Iterable`\<`T`, `any`, `any`\> | `ArrayLike`\<`T`\>
+An iterable object to convert to an array.
 
 ###### mapfn
 
@@ -2101,9 +2096,9 @@ Creates an array from an async iterator or iterable object.
 
 ###### iterableOrArrayLike
 
-An async iterator or array-like object to convert to an array.
+`AsyncIterable`\<`T`, `any`, `any`\> \| `Iterable`\<`T` \| `PromiseLike`\<`T`\>, `any`, `any`\> \| `ArrayLike`\<`T` \| `PromiseLike`\<`T`\>\>
 
-`AsyncIterable`\<`T`, `any`, `any`\> | `Iterable`\<`T` \| `PromiseLike`\<`T`\>, `any`, `any`\> | `ArrayLike`\<`T` \| `PromiseLike`\<`T`\>\>
+An async iterator or array-like object to convert to an array.
 
 ##### Returns
 
@@ -2135,9 +2130,9 @@ Creates an array from an async iterator or iterable object.
 
 ###### iterableOrArrayLike
 
-An async iterator or array-like object to convert to an array.
+`AsyncIterable`\<`T`, `any`, `any`\> \| `Iterable`\<`T`, `any`, `any`\> \| `ArrayLike`\<`T`\>
 
-`AsyncIterable`\<`T`, `any`, `any`\> | `Iterable`\<`T`, `any`, `any`\> | `ArrayLike`\<`T`\>
+An async iterator or array-like object to convert to an array.
 
 ###### mapFn
 
@@ -2161,7 +2156,7 @@ Value of 'this' used when executing mapfn.
 
 > `static` **fromAsync**\<`T`\>(`arrayLike`): `Promise`\<`Awaited`\<`T`\>[]\>
 
-Defined in: node\_modules/bun-types/globals.d.ts:1092
+Defined in: node\_modules/bun-types/globals.d.ts:1112
 
 Create an array from an iterable or async iterable object.
 Values from the iterable are awaited.
@@ -2182,15 +2177,15 @@ await Array.fromAsync((async function*() { yield 1 })()); // [1]
 
 ###### arrayLike
 
-The iterable or async iterable to convert to an array.
+`AsyncIterable`\<`T`, `any`, `any`\> \| `Iterable`\<`T`, `any`, `any`\> \| `ArrayLike`\<`T`\>
 
-`AsyncIterable`\<`T`, `any`, `any`\> | `Iterable`\<`T`, `any`, `any`\> | `ArrayLike`\<`T`\>
+The iterable or async iterable to convert to an array.
 
 ##### Returns
 
 `Promise`\<`Awaited`\<`T`\>[]\>
 
-A Promise whose fulfillment is a new Array instance containing the values from the iterator.
+A Promise that resolves with a new Array containing the awaited values
 
 ##### Inherited from
 
@@ -2200,7 +2195,7 @@ A Promise whose fulfillment is a new Array instance containing the values from t
 
 > `static` **fromAsync**\<`T`, `U`\>(`arrayLike`, `mapFn?`, `thisArg?`): `Promise`\<`Awaited`\<`U`\>[]\>
 
-Defined in: node\_modules/bun-types/globals.d.ts:1111
+Defined in: node\_modules/bun-types/globals.d.ts:1131
 
 Create an array from an iterable or async iterable object.
 Values from the iterable are awaited. Results of the map function are also awaited.
@@ -2227,9 +2222,9 @@ await Array.fromAsync([1], (n) => Promise.resolve(n + 1)); // [2]
 
 ###### arrayLike
 
-The iterable or async iterable to convert to an array.
+`AsyncIterable`\<`T`, `any`, `any`\> \| `Iterable`\<`T`, `any`, `any`\> \| `ArrayLike`\<`T`\>
 
-`AsyncIterable`\<`T`, `any`, `any`\> | `Iterable`\<`T`, `any`, `any`\> | `ArrayLike`\<`T`\>
+The iterable or async iterable to convert to an array.
 
 ###### mapFn?
 
@@ -2247,7 +2242,7 @@ The `this` to which `mapFn` is bound.
 
 `Promise`\<`Awaited`\<`U`\>[]\>
 
-A Promise whose fulfillment is a new Array instance containing the values from the iterator.
+A Promise that resolves with a new Array containing the awaited values
 
 ##### Inherited from
 
@@ -2259,7 +2254,7 @@ A Promise whose fulfillment is a new Array instance containing the values from t
 
 > `static` **isArray**(`arg`): `arg is any[]`
 
-Defined in: node\_modules/typescript/lib/lib.es5.d.ts:1520
+Defined in: node\_modules/typescript/lib/lib.es5.d.ts:1513
 
 #### Parameters
 

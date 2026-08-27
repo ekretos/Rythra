@@ -3,32 +3,34 @@ title: GatewayPacket
 description: API Reference for GatewayPacket
 ---
 
-[**Rythra Documentation v0.0.2**](../README.md)
+[**Rythra Documentation v0.1.0**](../README.md)
 
 ***
 
-Defined in: [src/Types.ts:354](https://github.com/ekretos/Rythra/blob/97bb66158cadfed295d503388eb818d9992b5725/src/Types.ts#L354)
+Defined in: [packages/core/src/Types.ts:64](https://github.com/ekretos/Rythra/blob/a364f23696345c8ee22bece2228759c31953118f/packages/core/src/Types.ts#L64)
+
+Generic Discord gateway packet.
 
 ## Properties
 
 ### d?
 
-> `optional` **d**: `unknown`
+> `optional` **d?**: `unknown`
 
-Defined in: [src/Types.ts:356](https://github.com/ekretos/Rythra/blob/97bb66158cadfed295d503388eb818d9992b5725/src/Types.ts#L356)
+Defined in: [packages/core/src/Types.ts:64](https://github.com/ekretos/Rythra/blob/a364f23696345c8ee22bece2228759c31953118f/packages/core/src/Types.ts#L64)
 
 ***
 
 ### op?
 
-> `optional` **op**: `number`
+> `optional` **op?**: `number`
 
-Defined in: [src/Types.ts:357](https://github.com/ekretos/Rythra/blob/97bb66158cadfed295d503388eb818d9992b5725/src/Types.ts#L357)
+Defined in: [packages/core/src/Types.ts:64](https://github.com/ekretos/Rythra/blob/a364f23696345c8ee22bece2228759c31953118f/packages/core/src/Types.ts#L64)
 
 ***
 
 ### t?
 
-> `optional` **t**: `string`
+> `optional` **t?**: `string`
 
-Defined in: [src/Types.ts:355](https://github.com/ekretos/Rythra/blob/97bb66158cadfed295d503388eb818d9992b5725/src/Types.ts#L355)
+Defined in: [packages/core/src/Types.ts:64](https://github.com/ekretos/Rythra/blob/a364f23696345c8ee22bece2228759c31953118f/packages/core/src/Types.ts#L64)
