@@ -3,24 +3,54 @@ import { Node } from './Node';
 import { Queue } from './Queue';
 import type { PlayerOptions, Track, VoiceStateUpdate } from './Types';
 
+/** Payload shared by Lavalink track lifecycle events. */
 interface TrackEventPayload {
+    /** Decoded track information when supplied by Lavalink. */
     track?: Track | null;
+    /** Encoded track identifier when supplied by Lavalink. */
     encodedTrack?: string | null;
+    /** Lavalink end reason, when applicable. */
     reason?: string;
+    /** Exception information for failed playback. */
     exception?: unknown;
 }
 
+/**
+ * Manages audio playback for a single Discord guild.
+ *
+ * @remarks
+ * A player owns its queue and delegates playback state to its assigned
+ * Lavalink node. Player events are emitted both for local actions and for
+ * events received from Lavalink.
+ *
+ * @extends EventEmitter
+ */
 export class RythraPlayer extends EventEmitter {
+    /** The Lavalink node currently assigned to this player. */
     public readonly node: Node;
+    /** The Discord guild ID associated with this player. */
     public readonly guild: string;
+    /** The Discord voice channel ID currently used by the player. */
     public voiceChannel: string;
+    /** The Discord text channel ID associated with player interactions. */
     public textChannel: string;
+    /** Whether a track is currently considered active. */
     public playing = false;
+    /** Whether playback is currently paused. */
     public paused = false;
+    /** Current player volume, from 0 to 1000. */
     public volume = 100;
+    /** Latest Discord voice state received for this guild. */
     public voiceState: Partial<VoiceStateUpdate> = {};
+    /** Queue containing upcoming and previously played tracks. */
     public readonly queue: Queue = new Queue();
 
+    /**
+     * Creates a guild player.
+     *
+     * @param node Lavalink node used for playback.
+     * @param options Guild and Discord channel configuration.
+     */
     constructor(node: Node, options: PlayerOptions) {
         super();
         this.node = node;
@@ -62,6 +92,13 @@ export class RythraPlayer extends EventEmitter {
         this.on('playerUpdate', (data: unknown) => this.emit('update', data));
     }
 
+    /**
+     * Starts playback of a track or the next queued track.
+     *
+     * @param track Optional encoded track string or complete track object to queue.
+     * @param options Additional Lavalink player options to send with the update.
+     * @returns A promise that resolves after the player update is sent.
+     */
     public async play(track?: string | Track, options?: Record<string, unknown>): Promise<void> {
         if (track) this.queue.add(typeof track === 'string' ? ({ encoded: track } as Track) : track);
         if (!this.queue.current && this.queue.length > 0) this.queue.current = this.queue.shift() ?? null;
@@ -79,6 +116,11 @@ export class RythraPlayer extends EventEmitter {
         this.emit('start', this.queue.current);
     }
 
+    /**
+     * Stops the current playback without clearing the queue.
+     *
+     * @returns A promise that resolves after Lavalink acknowledges the update.
+     */
     public async stop(): Promise<void> {
         await this.node.rest.updatePlayer({
             guildId: this.guild,
@@ -88,6 +130,11 @@ export class RythraPlayer extends EventEmitter {
         this.emit('stop');
     }
 
+    /**
+     * Skips the current track and advances to the next queued track.
+     *
+     * @returns A promise that resolves after the next playback action completes.
+     */
     public async skip(): Promise<void> {
         this.emit('trackSkip', this.queue.current);
         if (this.queue.current) this.queue.previous.unshift(this.queue.current);
@@ -96,12 +143,25 @@ export class RythraPlayer extends EventEmitter {
         else await this.stop();
     }
 
+    /**
+     * Pauses or resumes playback.
+     *
+     * @param pause Whether playback should be paused.
+     * @returns A promise that resolves after Lavalink acknowledges the update.
+     */
     public async pause(pause: boolean): Promise<void> {
         await this.node.rest.updatePlayer({ guildId: this.guild, playerOptions: { paused: pause } });
         this.paused = pause;
         this.emit('pause', pause);
     }
 
+    /**
+     * Changes the Lavalink player volume.
+     *
+     * @param volume Volume from 0 to 1000.
+     * @returns A promise that resolves after Lavalink acknowledges the update.
+     * @throws {RangeError} If the volume is outside the supported range.
+     */
     public async setVolume(volume: number): Promise<void> {
         if (!Number.isFinite(volume) || volume < 0 || volume > 1000) {
             throw new RangeError('Volume must be between 0 and 1000.');
@@ -111,6 +171,11 @@ export class RythraPlayer extends EventEmitter {
         this.emit('volume', volume);
     }
 
+    /**
+     * Requests a Discord voice connection for this guild through the configured connector.
+     *
+     * @param options Optional voice channel and self-mute/deaf overrides.
+     */
     public connect(options?: { voiceChannel?: string; selfMute?: boolean; selfDeaf?: boolean }): void {
         this.voiceChannel = options?.voiceChannel ?? this.voiceChannel;
         this.node.manager.options.connector.sendPacket(
