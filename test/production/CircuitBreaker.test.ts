@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'bun:test';
-import { CircuitBreaker } from '../../src/reliability/CircuitBreaker';
+import { CircuitBreaker } from '../../packages/core/src/reliability/CircuitBreaker';
 
 describe('CircuitBreaker', () => {
     it('opens after the configured failure threshold', () => {
