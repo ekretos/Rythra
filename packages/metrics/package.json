@@ -1,0 +1,7 @@
+{
+  "name": "@rythra/metrics",
+  "version": "0.0.2",
+  "type": "module",
+  "description": "Observability integrations for Rythra",
+  "files": ["dist"]
+}
