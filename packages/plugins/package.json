@@ -1,0 +1,7 @@
+{
+  "name": "@rythra/plugins",
+  "version": "0.0.2",
+  "type": "module",
+  "description": "Plugin contracts and extension helpers for Rythra",
+  "files": ["dist"]
+}
