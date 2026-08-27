@@ -5,11 +5,26 @@ import { Rest } from './Rest';
 import { getLavalinkApiPath, getLavalinkApiVersion, type LavalinkApiVersion } from './protocol/LavalinkProtocol';
 import WebSocket from 'ws';
 
+/**
+ * Represents a single Lavalink node connection managed by Rythra.
+ *
+ * @remarks
+ * A node owns both the Lavalink REST client and WebSocket connection. It is
+ * also responsible for API-version detection, session resumption and retrying
+ * interrupted connections.
+ *
+ * @extends EventEmitter
+ */
 export class Node extends EventEmitter {
+    /** The Rythra manager that owns this node. */
     public readonly manager: Rythra;
+    /** The configuration used to connect to Lavalink. */
     public readonly options: NodeOptions;
+    /** The version-aware REST client for this node. */
     public readonly rest: Rest;
+    /** The active Lavalink WebSocket, or `null` when disconnected. */
     public ws: WebSocket | null = null;
+    /** The most recently received Lavalink statistics payload. */
     public stats: Stats = {
         players: 0,
         playingPlayers: 0,
@@ -17,13 +32,26 @@ export class Node extends EventEmitter {
         memory: { free: 0, used: 0, allocated: 0, reservable: 0 },
         cpu: { cores: 0, systemLoad: 0, lavalinkLoad: 0 },
     };
+    /** The Lavalink session ID used for session resumption. */
     public sessionId: string | null = null;
+    /** Whether the node currently has an open WebSocket connection. */
     public connected = false;
+    /** The Lavalink API generation selected for this node. */
     public apiVersion: LavalinkApiVersion | null = null;
+
+    /** Timer used for a pending reconnect attempt. */
     private reconnectTimer: ReturnType<typeof setTimeout> | null = null;
+    /** Number of reconnect attempts made since the last successful connection. */
     private reconnectAttempts = 0;
+    /** Prevents automatic reconnecting after an explicit disconnect. */
     private manuallyDisconnected = false;
 
+    /**
+     * Creates a Lavalink node.
+     *
+     * @param manager The Rythra manager that owns the node.
+     * @param options Node connection and protocol configuration.
+     */
     constructor(manager: Rythra, options: NodeOptions) {
         super();
         this.manager = manager;
@@ -37,6 +65,13 @@ export class Node extends EventEmitter {
         this.rest = new Rest(this);
     }
 
+    /**
+     * Gets the base REST API URL for the selected Lavalink generation.
+     *
+     * @remarks
+     * The URL is evaluated dynamically so automatic protocol detection can
+     * select the correct generation before the first REST request.
+     */
     public get restUrl(): string {
         const protocol = this.options.secure ? 'https' : 'http';
         const port = this.options.port ? `:${this.options.port}` : '';
@@ -44,6 +79,7 @@ export class Node extends EventEmitter {
         return `${protocol}://${this.options.host}${port}${getLavalinkApiPath(apiVersion)}`;
     }
 
+    /** The WebSocket URL for the selected Lavalink generation. */
     private get websocketUrl(): string {
         const protocol = this.options.secure ? 'wss' : 'ws';
         const port = this.options.port ? `:${this.options.port}` : '';
@@ -51,6 +87,12 @@ export class Node extends EventEmitter {
         return `${protocol}://${this.options.host}${port}${getLavalinkApiPath(apiVersion)}/websocket`;
     }
 
+    /**
+     * Detects the Lavalink server API generation when automatic detection is enabled.
+     *
+     * @returns A promise that resolves once the API generation has been selected.
+     * @throws {Error} If the version endpoint cannot be reached or the version is unsupported.
+     */
     private async detectVersion(): Promise<void> {
         if (this.apiVersion) return;
 
@@ -69,6 +111,13 @@ export class Node extends EventEmitter {
         this.emit('version', this.apiVersion, version);
     }
 
+    /**
+     * Opens a WebSocket connection to Lavalink.
+     *
+     * @remarks
+     * The node detects its API generation first when configured with `auto`.
+     * Existing session IDs are sent to allow Lavalink session resumption.
+     */
     public async connect(): Promise<void> {
         this.manuallyDisconnected = false;
         if (this.connected || this.ws) return;
@@ -134,6 +183,9 @@ export class Node extends EventEmitter {
         };
     }
 
+    /**
+     * Schedules a reconnect attempt while respecting the configured retry limit.
+     */
     private scheduleReconnect(): void {
         if (this.manuallyDisconnected || this.reconnectTimer) return;
 
@@ -151,6 +203,9 @@ export class Node extends EventEmitter {
         }, delay);
     }
 
+    /**
+     * Permanently closes the current connection and disables automatic reconnects.
+     */
     public disconnect(): void {
         this.manuallyDisconnected = true;
         if (this.reconnectTimer) {
