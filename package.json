@@ -28,16 +28,14 @@
     }
   },
   "type": "module",
-  "files": [
-    "dist"
-  ],
+  "files": ["dist"],
   "scripts": {
     "build": "bun run build:packages && bun run build:facade && bun run build:docs",
-    "build:packages": "bun run --filter '@rythra/*' build",
+    "build:packages": "bun run --filter @rythra/core build && bun run --filter @rythra/protocol build && bun run --filter @rythra/persistence build && bun run --filter @rythra/metrics build && bun run --filter @rythra/plugins build && bun run --filter @rythra/types build && bun run --filter @rythra/connector-discordjs build",
     "build:facade": "tsup index.ts --format esm,cjs --dts --out-dir dist",
     "build:docs": "typedoc && node scripts/postprocess-docs.js",
     "typecheck": "bun x tsc --noEmit",
-    "test": "bun run test",
+    "test": "bun test",
     "test:file": "bun --watch run example/bot.ts",
     "lint": "eslint .",
     "format": "prettier --write .",
@@ -49,9 +47,7 @@
     "@rythra/core": "workspace:*",
     "@rythra/connector-discordjs": "workspace:*"
   },
-  "peerDependencies": {
-    "typescript": ">=5 <8"
-  },
+  "peerDependencies": {"typescript": ">=5 <8"},
   "devDependencies": {
     "@eslint/js": "^10.0.1",
     "@types/bun": "^1.4.0",
