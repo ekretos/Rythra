@@ -1,0 +1,27 @@
+name: Packages
+
+on:
+  push:
+    branches: [main, 'feat/**']
+  pull_request:
+
+jobs:
+  packages:
+    name: Package checks
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: latest
+      - run: bun install --frozen-lockfile
+      - name: Validate package boundaries
+        run: bun run check:boundaries
+      - name: Validate package versions
+        run: bun run check:versions
+      - name: Detect circular dependencies
+        run: node scripts/check-circular-dependencies.mjs
+      - name: Build workspace
+        run: bun run build
+      - name: Run tests
+        run: bun test
