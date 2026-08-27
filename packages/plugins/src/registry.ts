@@ -1,8 +1,5 @@
 /**
  * Metadata describing a community-installable Rythra plugin.
- *
- * Keeping metadata separate from runtime code lets tooling build catalogs,
- * compatibility reports, and discovery UIs without loading plugin modules.
  */
 export interface PluginManifest {
     /** Package name published by the plugin author. */
@@ -25,21 +22,28 @@ export interface PluginEntry {
     readonly load: () => Promise<unknown>;
 }
 
-/**
- * In-memory registry suitable for applications, tooling, and tests.
- *
- * The registry deliberately stores lazy loaders instead of instantiated
- * plugins, preventing discovery from creating runtime side effects.
- */
+/** In-memory registry suitable for applications, tooling, and tests. */
 export class PluginRegistry {
     private readonly entries = new Map<string, PluginEntry>();
 
     /** Register a plugin manifest and lazy loader. */
     public register(entry: PluginEntry): void {
-        if (this.entries.has(entry.manifest.name)) {
-            throw new Error(`Plugin is already registered: ${entry.manifest.name}`);
+        const manifest: PluginManifest = Object.freeze({
+            ...entry.manifest,
+            lavalink: Object.freeze([...entry.manifest.lavalink]),
+            runtimes: entry.manifest.runtimes
+                ? Object.freeze([...entry.manifest.runtimes])
+                : undefined,
+        });
+
+        if (this.entries.has(manifest.name)) {
+            throw new Error("Plugin is already registered: " + manifest.name);
         }
-        this.entries.set(entry.manifest.name, entry);
+
+        this.entries.set(manifest.name, {
+            manifest,
+            load: entry.load,
+        });
     }
 
     /** Return metadata for every registered plugin. */
@@ -55,7 +59,7 @@ export class PluginRegistry {
     /** Load a previously registered plugin on demand. */
     public async load(name: string): Promise<unknown> {
         const entry = this.entries.get(name);
-        if (!entry) throw new Error(`Plugin is not registered: ${name}`);
+        if (!entry) throw new Error("Plugin is not registered: " + name);
         return entry.load();
     }
 }
