@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'bun:test';
-import { Health } from '../../src/health/Health';
+import { Health } from '../../packages/core/src/health/Health';
 
 describe('Health', () => {
     it('reports local node and player health', () => {
