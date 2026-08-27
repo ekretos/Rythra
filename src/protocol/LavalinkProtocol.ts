@@ -1,22 +1,36 @@
-/** Supported Lavalink API generations. */
+/**
+ * Supported Lavalink API generations.
+ *
+ * @remarks
+ * Rythra keeps protocol generation handling behind a small boundary so the
+ * public manager and player APIs do not need to know about Lavalink changes.
+ */
 export type LavalinkApiVersion = 4 | 5;
 
-/** How Rythra should determine the Lavalink API generation. */
+/**
+ * Controls how Rythra selects a Lavalink API generation.
+ *
+ * @remarks
+ * `auto` asks the node for its server version before opening the WebSocket.
+ */
 export type LavalinkApiVersionMode = LavalinkApiVersion | 'auto';
 
 /**
  * Resolves the HTTP/WebSocket API prefix for a Lavalink generation.
- * Keeping this in one place makes future protocol changes isolated from
- * Player, Node and REST code.
+ *
+ * @param version The Lavalink API generation.
+ * @returns The API path prefix used by REST and WebSocket endpoints.
  */
 export function getLavalinkApiPath(version: LavalinkApiVersion): string {
     return `/v${version}`;
 }
 
 /**
- * Parses a Lavalink semantic version and returns its supported API major.
- * Unknown future versions are intentionally rejected until their protocol
- * behavior has been explicitly implemented.
+ * Converts a Lavalink semantic server version into a supported API generation.
+ *
+ * @param semver The Lavalink server version, such as `4.2.2`.
+ * @returns The supported Lavalink API generation.
+ * @throws {Error} If the server version is not supported by Rythra.
  */
 export function getLavalinkApiVersion(semver: string): LavalinkApiVersion {
     const major = Number.parseInt(semver.split('.')[0] ?? '', 10);
