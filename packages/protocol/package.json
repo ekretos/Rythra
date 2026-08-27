@@ -1,0 +1,7 @@
+{
+  "name": "@rythra/protocol",
+  "version": "0.0.2",
+  "type": "module",
+  "description": "Versioned Lavalink protocol contracts for Rythra",
+  "files": ["dist"]
+}
