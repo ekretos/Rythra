@@ -1,59 +1,36 @@
 import type { Track } from './Types';
+import { MemoryQueueStore, type QueueStore } from './QueueStore';
 
-/**
- * Ordered collection of tracks waiting for playback.
- *
- * @remarks
- * Queue extends the native array API while providing Rythra-specific state
- * for the current track and playback history.
- *
- * @extends Array<Track>
- */
-export class Queue extends Array<Track> {
-    /** The track currently selected for playback. */
+/** Queue facade backed by a pluggable {@link QueueStore}. */
+export class Queue implements Iterable<Track> {
+    /** Storage implementation used by this queue. */
+    public readonly store: QueueStore;
+    /** The currently playing track. */
     public current: Track | null = null;
-    /** Tracks that have already completed or been skipped, newest first. */
+    /** Previously played tracks, newest first. */
     public previous: Track[] = [];
 
-    /**
-     * Adds one or more tracks to the end of the queue.
-     *
-     * @param track Track or tracks to append.
-     */
-    public add(track: Track | Track[]): void {
-        if (Array.isArray(track)) this.push(...track);
-        else this.push(track);
-    }
+    /** Creates a queue using the supplied store or an in-memory store. */
+    constructor(store: QueueStore = new MemoryQueueStore()) { this.store = store; }
+    /** Number of pending tracks. */
+    public get length(): number { return this.store.size; }
+    /** Adds one or more tracks. */
+    public add(track: Track | Track[]): void | Promise<void> { return this.store.add(track); }
+    /** Removes and returns the next pending track. */
+    public shift(): Track | undefined | Promise<Track | undefined> { return this.store.shift(); }
+    /** Removes a pending track by index. */
+    public remove(index: number): Track | undefined | Promise<Track | undefined> { return this.store.remove(index); }
+    /** Returns a pending track by index. */
+    public get(index: number): Track | undefined | Promise<Track | undefined> { return this.store.get(index); }
+    /** Returns all pending tracks. */
+    public toArray(): Track[] | Promise<Track[]> { return this.store.all(); }
+    /** Removes all pending tracks. */
+    public clear(): void | Promise<void> { return this.store.clear(); }
+    /** Shuffles all pending tracks. */
+    public shuffle(): void | Promise<void> { return this.store.shuffle(); }
 
-    /**
-     * Removes a track at a specific queue index.
-     *
-     * @param index Zero-based index of the track to remove.
-     * @returns The removed track, or `undefined` when no track exists at the index.
-     */
-    public remove(index: number): Track | undefined {
-        return this.splice(index, 1)[0];
-    }
-
-    /**
-     * Removes every pending track from the queue.
-     *
-     * @remarks
-     * The current track and playback history are intentionally preserved.
-     */
-    public clear(): void {
-        this.length = 0;
-    }
-
-    /**
-     * Randomly reorders all pending tracks using Fisher-Yates shuffling.
-     */
-    public shuffle(): void {
-        for (let i = this.length - 1; i > 0; i--) {
-            const j = Math.floor(Math.random() * (i + 1));
-            const temp = this[i] as Track;
-            this[i] = this[j] as Track;
-            this[j] = temp;
-        }
+    /** Iterates synchronously when the built-in memory store is used. */
+    public *[Symbol.iterator](): Iterator<Track> {
+        if (this.store instanceof MemoryQueueStore) yield* this.store.all();
     }
 }

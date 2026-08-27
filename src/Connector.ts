@@ -1,47 +1,34 @@
 import { Rythra } from './Rythra';
 import type { GatewayPacket } from './Types';
+import type { DaveCapabilities } from './voice/DAVE';
 
 /**
- * Abstract class representing a connector to a Discord library.
+ * Abstract adapter between Rythra and a Discord library.
+ *
+ * @typeParam T Underlying Discord library client type.
  */
 export abstract class Connector<T = unknown> {
-    /** The Rythra manager instance. */
+    /** Rythra manager instance assigned to this connector. */
     public manager: Rythra | null = null;
-    /** The Discord library client. */
+    /** Underlying Discord library client. */
     public readonly client: T;
 
-    /**
-     * Creates a new Connector instance.
-     * @param client The Discord library client.
-     */
-    constructor(client: T) {
-        this.client = client;
-    }
-
-    /**
-     * Sets the Rythra manager for this connector.
-     * @param manager The Rythra manager instance.
-     */
-    public setManager(manager: Rythra): void {
-        this.manager = manager;
-    }
-
-    /**
-     * Sends a packet to the Discord gateway.
-     * @param shardId The ID of the shard to send the packet on.
-     * @param payload The payload to send.
-     * @param important Whether the packet is important.
-     */
+    /** Creates a connector around a Discord client. */
+    constructor(client: T) { this.client = client; }
+    /** Assigns the Rythra manager. */
+    public setManager(manager: Rythra): void { this.manager = manager; }
+    /** Sends a raw gateway packet. */
     public abstract sendPacket(shardId: number, payload: GatewayPacket, important: boolean): void;
-
-    /**
-     * Starts listening for gateway events.
-     */
+    /** Starts listening for voice gateway events. */
     public abstract listen(): void;
-
-    /**
-     * Gets the client ID from the Discord client.
-     * @returns The client ID, or null if it cannot be determined.
-     */
+    /** Returns the Discord bot user ID when available. */
     public abstract getId(): string | null;
+    /**
+     * Returns DAVE capability information.
+     *
+     * @remarks
+     * DAVE cryptography belongs to the Discord voice implementation. Rythra
+     * only exposes the capability boundary and never implements cryptography.
+     */
+    public getDAVECapabilities(): DaveCapabilities { return { supported: false }; }
 }

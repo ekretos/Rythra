@@ -1,66 +1,47 @@
-/**
- * Public Rythra API.
- *
- * @packageDocumentation
- */
-
-export * from './Rythra';
-export * from './Node';
-export * from './Player';
-export * from './Queue';
-export * from './Rest';
-export * from './Types';
-export * from './protocol/LavalinkProtocol';
-
+import { Rythra } from './Rythra';
 import { Connector as BaseConnector } from './Connector';
 import { DiscordJS } from './connectors/DiscordJS';
 import { Eris } from './connectors/Eris';
 import { OceanicJS } from './connectors/OceanicJS';
 import { Seyfert } from './connectors/Seyfert';
+import type { GatewayPacket } from './Types';
+
+/** Public Rythra package entry point. */
+export * from './Rythra';
+export * from './Node';
+export * from './Player';
+export * from './Queue';
+export * from './QueueStore';
+export * from './Rest';
+export * from './Types';
+export * from './Metrics';
+export * from './Persistence';
+export * from './Plugin';
+export * from './Filters';
+export * from './Validation';
+export * from './voice/DAVE';
+export * from './protocol/LavalinkProtocol';
+
+/** Built-in Discord library connectors. */
+export const Connectors = { DiscordJS, Eris, OceanicJS, Seyfert };
 
 /**
- * Built-in Discord library connectors grouped for convenient access.
+ * Base connector with convenient access to built-in adapters.
  *
- * @example
- * ```typescript
- * const connector = new Connectors.DiscordJS(client);
- * ```
- */
-export const Connectors = {
-    /** Connector implementation for discord.js. */
-    DiscordJS,
-    /** Connector implementation for Eris. */
-    Eris,
-    /** Connector implementation for Oceanic.js. */
-    OceanicJS,
-    /** Connector implementation for Seyfert. */
-    Seyfert,
-};
-
-/**
- * Base connector class with static references to Rythra's built-in connectors.
- *
- * @example
- * ```typescript
- * const connector = new Connector.DiscordJS(client);
- * ```
+ * @remarks
+ * DAVE is deliberately delegated to the underlying Discord voice stack.
+ * Implementations can expose `getDAVECapabilities()` when supported.
  */
 export abstract class Connector extends BaseConnector {
-    /** Connector implementation for discord.js. */
-    public static DiscordJS = DiscordJS;
-    /** Connector implementation for Eris. */
-    public static Eris = Eris;
-    /** Connector implementation for Oceanic.js. */
-    public static OceanicJS = OceanicJS;
-    /** Connector implementation for Seyfert. */
-    public static Seyfert = Seyfert;
+    /** discord.js connector. */ public static DiscordJS = DiscordJS;
+    /** Eris connector. */ public static Eris = Eris;
+    /** Oceanic.js connector. */ public static OceanicJS = OceanicJS;
+    /** Seyfert connector. */ public static Seyfert = Seyfert;
+    /** Returns DAVE capability information for this connector. */
+    public getDAVECapabilities() { return { supported: false as const }; }
 }
 
-/** Re-exported discord.js connector. */
-export { DiscordJS };
-/** Re-exported Eris connector. */
-export { Eris };
-/** Re-exported Oceanic.js connector. */
-export { OceanicJS };
-/** Re-exported Seyfert connector. */
-export { Seyfert };
+/** Re-exported discord.js connector. */ export { DiscordJS };
+/** Re-exported Eris connector. */ export { Eris };
+/** Re-exported Oceanic.js connector. */ export { OceanicJS };
+/** Re-exported Seyfert connector. */ export { Seyfert };
