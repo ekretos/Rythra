@@ -11,6 +11,9 @@ export * from './Queue';
 export * from './Rest';
 export * from './Types';
 export * from './protocol/LavalinkProtocol';
+export * from './errors/RythraError';
+export * from './health/Health';
+export * from './reliability/CircuitBreaker';
 
 import { Connector as BaseConnector } from './Connector';
 import { DiscordJS } from './connectors/DiscordJS';
