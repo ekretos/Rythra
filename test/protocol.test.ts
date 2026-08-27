@@ -1,5 +1,5 @@
 import { describe, expect, test } from 'bun:test';
-import { getLavalinkApiPath, getLavalinkApiVersion } from '../src/protocol/LavalinkProtocol';
+import { getLavalinkApiPath, getLavalinkApiVersion } from '../packages/core/src/protocol/LavalinkProtocol';
 
 describe('Lavalink protocol versioning', () => {
     test('supports Lavalink v4', () => {
