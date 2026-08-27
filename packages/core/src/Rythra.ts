@@ -55,7 +55,7 @@ export class Rythra extends EventEmitter implements IRythra {
         super();
         this.validateOptions(options);
         this.options = options;
-        this.version = options.version || '0.0.2';
+        this.version = options.version || '0.2.0';
         this.options.connector.setManager(this);
         this.options.connector.listen();
         this.healthMonitor = new Health(this);

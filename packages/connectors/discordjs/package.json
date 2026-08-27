@@ -1,12 +1,12 @@
 {
   "name": "@rythra/connector-discordjs",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "type": "module",
   "private": false,
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "peerDependencies": {
-    "@rythra/core": "^0.1.0",
+    "@rythra/core": "^0.2.0",
     "discord.js": ">=14"
   },
   "exports": {
@@ -15,8 +15,13 @@
       "import": "./dist/index.js"
     }
   },
-  "files": ["dist"],
+  "files": [
+    "dist"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
   "scripts": {
-    "build": "rm -rf dist && tsc"
+    "build": "tsc"
   }
 }

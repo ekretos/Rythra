@@ -3,11 +3,11 @@ title: TrackInfo
 description: API Reference for TrackInfo
 ---
 
-[**Rythra Documentation v0.1.0**](../README.md)
+[**Rythra Documentation v0.2.0**](../README.md)
 
 ***
 
-Defined in: [packages/core/src/Types.ts:28](https://github.com/ekretos/Rythra/blob/a364f23696345c8ee22bece2228759c31953118f/packages/core/src/Types.ts#L28)
+Defined in: [packages/core/src/Types.ts:28](https://github.com/ekretos/Rythra/blob/f7f92181524349d3a52cccb7d61140eaeab9e974/packages/core/src/Types.ts#L28)
 
 Metadata describing a resolved audio track.
 
@@ -17,7 +17,7 @@ Metadata describing a resolved audio track.
 
 > `optional` **artworkUrl?**: `string`
 
-Defined in: [packages/core/src/Types.ts:28](https://github.com/ekretos/Rythra/blob/a364f23696345c8ee22bece2228759c31953118f/packages/core/src/Types.ts#L28)
+Defined in: [packages/core/src/Types.ts:28](https://github.com/ekretos/Rythra/blob/f7f92181524349d3a52cccb7d61140eaeab9e974/packages/core/src/Types.ts#L28)
 
 ***
 
@@ -25,7 +25,7 @@ Defined in: [packages/core/src/Types.ts:28](https://github.com/ekretos/Rythra/bl
 
 > **author**: `string`
 
-Defined in: [packages/core/src/Types.ts:28](https://github.com/ekretos/Rythra/blob/a364f23696345c8ee22bece2228759c31953118f/packages/core/src/Types.ts#L28)
+Defined in: [packages/core/src/Types.ts:28](https://github.com/ekretos/Rythra/blob/f7f92181524349d3a52cccb7d61140eaeab9e974/packages/core/src/Types.ts#L28)
 
 ***
 
@@ -33,7 +33,7 @@ Defined in: [packages/core/src/Types.ts:28](https://github.com/ekretos/Rythra/bl
 
 > **identifier**: `string`
 
-Defined in: [packages/core/src/Types.ts:28](https://github.com/ekretos/Rythra/blob/a364f23696345c8ee22bece2228759c31953118f/packages/core/src/Types.ts#L28)
+Defined in: [packages/core/src/Types.ts:28](https://github.com/ekretos/Rythra/blob/f7f92181524349d3a52cccb7d61140eaeab9e974/packages/core/src/Types.ts#L28)
 
 ***
 
@@ -41,7 +41,7 @@ Defined in: [packages/core/src/Types.ts:28](https://github.com/ekretos/Rythra/bl
 
 > `optional` **isrc?**: `string`
 
-Defined in: [packages/core/src/Types.ts:28](https://github.com/ekretos/Rythra/blob/a364f23696345c8ee22bece2228759c31953118f/packages/core/src/Types.ts#L28)
+Defined in: [packages/core/src/Types.ts:28](https://github.com/ekretos/Rythra/blob/f7f92181524349d3a52cccb7d61140eaeab9e974/packages/core/src/Types.ts#L28)
 
 ***
 
@@ -49,7 +49,7 @@ Defined in: [packages/core/src/Types.ts:28](https://github.com/ekretos/Rythra/bl
 
 > **isSeekable**: `boolean`
 
-Defined in: [packages/core/src/Types.ts:28](https://github.com/ekretos/Rythra/blob/a364f23696345c8ee22bece2228759c31953118f/packages/core/src/Types.ts#L28)
+Defined in: [packages/core/src/Types.ts:28](https://github.com/ekretos/Rythra/blob/f7f92181524349d3a52cccb7d61140eaeab9e974/packages/core/src/Types.ts#L28)
 
 ***
 
@@ -57,7 +57,7 @@ Defined in: [packages/core/src/Types.ts:28](https://github.com/ekretos/Rythra/bl
 
 > **isStream**: `boolean`
 
-Defined in: [packages/core/src/Types.ts:28](https://github.com/ekretos/Rythra/blob/a364f23696345c8ee22bece2228759c31953118f/packages/core/src/Types.ts#L28)
+Defined in: [packages/core/src/Types.ts:28](https://github.com/ekretos/Rythra/blob/f7f92181524349d3a52cccb7d61140eaeab9e974/packages/core/src/Types.ts#L28)
 
 ***
 
@@ -65,7 +65,7 @@ Defined in: [packages/core/src/Types.ts:28](https://github.com/ekretos/Rythra/bl
 
 > **length**: `number`
 
-Defined in: [packages/core/src/Types.ts:28](https://github.com/ekretos/Rythra/blob/a364f23696345c8ee22bece2228759c31953118f/packages/core/src/Types.ts#L28)
+Defined in: [packages/core/src/Types.ts:28](https://github.com/ekretos/Rythra/blob/f7f92181524349d3a52cccb7d61140eaeab9e974/packages/core/src/Types.ts#L28)
 
 ***
 
@@ -73,7 +73,7 @@ Defined in: [packages/core/src/Types.ts:28](https://github.com/ekretos/Rythra/bl
 
 > **position**: `number`
 
-Defined in: [packages/core/src/Types.ts:28](https://github.com/ekretos/Rythra/blob/a364f23696345c8ee22bece2228759c31953118f/packages/core/src/Types.ts#L28)
+Defined in: [packages/core/src/Types.ts:28](https://github.com/ekretos/Rythra/blob/f7f92181524349d3a52cccb7d61140eaeab9e974/packages/core/src/Types.ts#L28)
 
 ***
 
@@ -81,7 +81,7 @@ Defined in: [packages/core/src/Types.ts:28](https://github.com/ekretos/Rythra/bl
 
 > **sourceName**: `string`
 
-Defined in: [packages/core/src/Types.ts:28](https://github.com/ekretos/Rythra/blob/a364f23696345c8ee22bece2228759c31953118f/packages/core/src/Types.ts#L28)
+Defined in: [packages/core/src/Types.ts:28](https://github.com/ekretos/Rythra/blob/f7f92181524349d3a52cccb7d61140eaeab9e974/packages/core/src/Types.ts#L28)
 
 ***
 
@@ -89,7 +89,7 @@ Defined in: [packages/core/src/Types.ts:28](https://github.com/ekretos/Rythra/bl
 
 > **title**: `string`
 
-Defined in: [packages/core/src/Types.ts:28](https://github.com/ekretos/Rythra/blob/a364f23696345c8ee22bece2228759c31953118f/packages/core/src/Types.ts#L28)
+Defined in: [packages/core/src/Types.ts:28](https://github.com/ekretos/Rythra/blob/f7f92181524349d3a52cccb7d61140eaeab9e974/packages/core/src/Types.ts#L28)
 
 ***
 
@@ -97,4 +97,4 @@ Defined in: [packages/core/src/Types.ts:28](https://github.com/ekretos/Rythra/bl
 
 > `optional` **uri?**: `string`
 
-Defined in: [packages/core/src/Types.ts:28](https://github.com/ekretos/Rythra/blob/a364f23696345c8ee22bece2228759c31953118f/packages/core/src/Types.ts#L28)
+Defined in: [packages/core/src/Types.ts:28](https://github.com/ekretos/Rythra/blob/f7f92181524349d3a52cccb7d61140eaeab9e974/packages/core/src/Types.ts#L28)

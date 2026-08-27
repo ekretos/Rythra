@@ -1,1 +1,27 @@
-{"name":"@rythra/connector-seyfert","version":"0.1.0","type":"module","private":false,"peerDependencies":{"@rythra/core":"^0.1.0","seyfert":">=0"},"exports":{".":{"types":"./dist/index.d.ts","import":"./dist/index.js"}},"types":"./dist/index.d.ts"}
+{
+  "name": "@rythra/connector-seyfert",
+  "version": "0.2.0",
+  "type": "module",
+  "private": false,
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "peerDependencies": {
+    "@rythra/core": "^0.2.0",
+    "seyfert": ">=0"
+  },
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "build": "tsc"
+  }
+}

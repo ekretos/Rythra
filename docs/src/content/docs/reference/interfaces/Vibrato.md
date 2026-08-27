@@ -3,11 +3,11 @@ title: Vibrato
 description: API Reference for Vibrato
 ---
 
-[**Rythra Documentation v0.1.0**](../README.md)
+[**Rythra Documentation v0.2.0**](../README.md)
 
 ***
 
-Defined in: [packages/core/src/Types.ts:47](https://github.com/ekretos/Rythra/blob/a364f23696345c8ee22bece2228759c31953118f/packages/core/src/Types.ts#L47)
+Defined in: [packages/core/src/Types.ts:47](https://github.com/ekretos/Rythra/blob/f7f92181524349d3a52cccb7d61140eaeab9e974/packages/core/src/Types.ts#L47)
 
 Vibrato filter.
 
@@ -17,7 +17,7 @@ Vibrato filter.
 
 > `optional` **depth?**: `number`
 
-Defined in: [packages/core/src/Types.ts:47](https://github.com/ekretos/Rythra/blob/a364f23696345c8ee22bece2228759c31953118f/packages/core/src/Types.ts#L47)
+Defined in: [packages/core/src/Types.ts:47](https://github.com/ekretos/Rythra/blob/f7f92181524349d3a52cccb7d61140eaeab9e974/packages/core/src/Types.ts#L47)
 
 ***
 
@@ -25,4 +25,4 @@ Defined in: [packages/core/src/Types.ts:47](https://github.com/ekretos/Rythra/bl
 
 > `optional` **frequency?**: `number`
 
-Defined in: [packages/core/src/Types.ts:47](https://github.com/ekretos/Rythra/blob/a364f23696345c8ee22bece2228759c31953118f/packages/core/src/Types.ts#L47)
+Defined in: [packages/core/src/Types.ts:47](https://github.com/ekretos/Rythra/blob/f7f92181524349d3a52cccb7d61140eaeab9e974/packages/core/src/Types.ts#L47)

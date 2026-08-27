@@ -3,11 +3,11 @@ title: PlayerState
 description: API Reference for PlayerState
 ---
 
-[**Rythra Documentation v0.1.0**](../README.md)
+[**Rythra Documentation v0.2.0**](../README.md)
 
 ***
 
-Defined in: [packages/core/src/Types.ts:53](https://github.com/ekretos/Rythra/blob/a364f23696345c8ee22bece2228759c31953118f/packages/core/src/Types.ts#L53)
+Defined in: [packages/core/src/Types.ts:53](https://github.com/ekretos/Rythra/blob/f7f92181524349d3a52cccb7d61140eaeab9e974/packages/core/src/Types.ts#L53)
 
 Runtime player state.
 
@@ -17,7 +17,7 @@ Runtime player state.
 
 > **connected**: `boolean`
 
-Defined in: [packages/core/src/Types.ts:53](https://github.com/ekretos/Rythra/blob/a364f23696345c8ee22bece2228759c31953118f/packages/core/src/Types.ts#L53)
+Defined in: [packages/core/src/Types.ts:53](https://github.com/ekretos/Rythra/blob/f7f92181524349d3a52cccb7d61140eaeab9e974/packages/core/src/Types.ts#L53)
 
 ***
 
@@ -25,7 +25,7 @@ Defined in: [packages/core/src/Types.ts:53](https://github.com/ekretos/Rythra/bl
 
 > **ping**: `number`
 
-Defined in: [packages/core/src/Types.ts:53](https://github.com/ekretos/Rythra/blob/a364f23696345c8ee22bece2228759c31953118f/packages/core/src/Types.ts#L53)
+Defined in: [packages/core/src/Types.ts:53](https://github.com/ekretos/Rythra/blob/f7f92181524349d3a52cccb7d61140eaeab9e974/packages/core/src/Types.ts#L53)
 
 ***
 
@@ -33,7 +33,7 @@ Defined in: [packages/core/src/Types.ts:53](https://github.com/ekretos/Rythra/bl
 
 > **position**: `number`
 
-Defined in: [packages/core/src/Types.ts:53](https://github.com/ekretos/Rythra/blob/a364f23696345c8ee22bece2228759c31953118f/packages/core/src/Types.ts#L53)
+Defined in: [packages/core/src/Types.ts:53](https://github.com/ekretos/Rythra/blob/f7f92181524349d3a52cccb7d61140eaeab9e974/packages/core/src/Types.ts#L53)
 
 ***
 
@@ -41,4 +41,4 @@ Defined in: [packages/core/src/Types.ts:53](https://github.com/ekretos/Rythra/bl
 
 > **time**: `number`
 
-Defined in: [packages/core/src/Types.ts:53](https://github.com/ekretos/Rythra/blob/a364f23696345c8ee22bece2228759c31953118f/packages/core/src/Types.ts#L53)
+Defined in: [packages/core/src/Types.ts:53](https://github.com/ekretos/Rythra/blob/f7f92181524349d3a52cccb7d61140eaeab9e974/packages/core/src/Types.ts#L53)

@@ -1,7 +1,10 @@
 {
   "name": "@rythra/types",
-  "version": "0.0.2",
+  "version": "0.2.0",
   "type": "module",
   "description": "Shared public contracts for Rythra",
-  "files": ["dist"]
+  "files": ["src"],
+  "publishConfig": {
+    "access": "public"
+  }
 }

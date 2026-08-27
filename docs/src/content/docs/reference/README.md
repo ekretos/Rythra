@@ -3,7 +3,7 @@ title: README
 description: API Reference for README
 ---
 
-**Rythra Documentation v0.1.0**
+**Rythra Documentation v0.2.0**
 
 ***
 

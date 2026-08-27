@@ -3,11 +3,11 @@ title: SessionInfo
 description: API Reference for SessionInfo
 ---
 
-[**Rythra Documentation v0.1.0**](../README.md)
+[**Rythra Documentation v0.2.0**](../README.md)
 
 ***
 
-Defined in: [packages/core/src/Types.ts:56](https://github.com/ekretos/Rythra/blob/a364f23696345c8ee22bece2228759c31953118f/packages/core/src/Types.ts#L56)
+Defined in: [packages/core/src/Types.ts:56](https://github.com/ekretos/Rythra/blob/f7f92181524349d3a52cccb7d61140eaeab9e974/packages/core/src/Types.ts#L56)
 
 Lavalink session settings.
 
@@ -17,7 +17,7 @@ Lavalink session settings.
 
 > **resuming**: `boolean`
 
-Defined in: [packages/core/src/Types.ts:56](https://github.com/ekretos/Rythra/blob/a364f23696345c8ee22bece2228759c31953118f/packages/core/src/Types.ts#L56)
+Defined in: [packages/core/src/Types.ts:56](https://github.com/ekretos/Rythra/blob/f7f92181524349d3a52cccb7d61140eaeab9e974/packages/core/src/Types.ts#L56)
 
 ***
 
@@ -25,4 +25,4 @@ Defined in: [packages/core/src/Types.ts:56](https://github.com/ekretos/Rythra/bl
 
 > **timeout**: `number`
 
-Defined in: [packages/core/src/Types.ts:56](https://github.com/ekretos/Rythra/blob/a364f23696345c8ee22bece2228759c31953118f/packages/core/src/Types.ts#L56)
+Defined in: [packages/core/src/Types.ts:56](https://github.com/ekretos/Rythra/blob/f7f92181524349d3a52cccb7d61140eaeab9e974/packages/core/src/Types.ts#L56)

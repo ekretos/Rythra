@@ -3,11 +3,11 @@ title: RestError
 description: API Reference for RestError
 ---
 
-[**Rythra Documentation v0.1.0**](../README.md)
+[**Rythra Documentation v0.2.0**](../README.md)
 
 ***
 
-Defined in: [packages/core/src/Rest.ts:5](https://github.com/ekretos/Rythra/blob/a364f23696345c8ee22bece2228759c31953118f/packages/core/src/Rest.ts#L5)
+Defined in: [packages/core/src/Rest.ts:5](https://github.com/ekretos/Rythra/blob/f7f92181524349d3a52cccb7d61140eaeab9e974/packages/core/src/Rest.ts#L5)
 
 Error returned when a Lavalink REST request fails.
 
@@ -21,7 +21,7 @@ Error returned when a Lavalink REST request fails.
 
 > **new RestError**(`data`): `RestError`
 
-Defined in: [packages/core/src/Rest.ts:12](https://github.com/ekretos/Rythra/blob/a364f23696345c8ee22bece2228759c31953118f/packages/core/src/Rest.ts#L12)
+Defined in: [packages/core/src/Rest.ts:12](https://github.com/ekretos/Rythra/blob/f7f92181524349d3a52cccb7d61140eaeab9e974/packages/core/src/Rest.ts#L12)
 
 Creates a structured Lavalink REST error.
 
@@ -59,7 +59,7 @@ The cause of the error.
 
 > `readonly` **error**: `string`
 
-Defined in: [packages/core/src/Rest.ts:8](https://github.com/ekretos/Rythra/blob/a364f23696345c8ee22bece2228759c31953118f/packages/core/src/Rest.ts#L8)
+Defined in: [packages/core/src/Rest.ts:8](https://github.com/ekretos/Rythra/blob/f7f92181524349d3a52cccb7d61140eaeab9e974/packages/core/src/Rest.ts#L8)
 
 Lavalink error category.
 
@@ -93,7 +93,7 @@ Defined in: node\_modules/typescript/lib/lib.es5.d.ts:1076
 
 > `readonly` **path**: `string`
 
-Defined in: [packages/core/src/Rest.ts:9](https://github.com/ekretos/Rythra/blob/a364f23696345c8ee22bece2228759c31953118f/packages/core/src/Rest.ts#L9)
+Defined in: [packages/core/src/Rest.ts:9](https://github.com/ekretos/Rythra/blob/f7f92181524349d3a52cccb7d61140eaeab9e974/packages/core/src/Rest.ts#L9)
 
 API path that produced the error.
 
@@ -115,7 +115,7 @@ Defined in: node\_modules/typescript/lib/lib.es5.d.ts:1078
 
 > `readonly` **status**: `number`
 
-Defined in: [packages/core/src/Rest.ts:7](https://github.com/ekretos/Rythra/blob/a364f23696345c8ee22bece2228759c31953118f/packages/core/src/Rest.ts#L7)
+Defined in: [packages/core/src/Rest.ts:7](https://github.com/ekretos/Rythra/blob/f7f92181524349d3a52cccb7d61140eaeab9e974/packages/core/src/Rest.ts#L7)
 
 HTTP status code returned by Lavalink.
 
@@ -125,7 +125,7 @@ HTTP status code returned by Lavalink.
 
 > `readonly` **timestamp**: `number`
 
-Defined in: [packages/core/src/Rest.ts:6](https://github.com/ekretos/Rythra/blob/a364f23696345c8ee22bece2228759c31953118f/packages/core/src/Rest.ts#L6)
+Defined in: [packages/core/src/Rest.ts:6](https://github.com/ekretos/Rythra/blob/f7f92181524349d3a52cccb7d61140eaeab9e974/packages/core/src/Rest.ts#L6)
 
 Timestamp reported by Lavalink.
 
@@ -135,7 +135,7 @@ Timestamp reported by Lavalink.
 
 > `readonly` `optional` **trace?**: `string`
 
-Defined in: [packages/core/src/Rest.ts:10](https://github.com/ekretos/Rythra/blob/a364f23696345c8ee22bece2228759c31953118f/packages/core/src/Rest.ts#L10)
+Defined in: [packages/core/src/Rest.ts:10](https://github.com/ekretos/Rythra/blob/f7f92181524349d3a52cccb7d61140eaeab9e974/packages/core/src/Rest.ts#L10)
 
 Optional server-side stack trace.
 

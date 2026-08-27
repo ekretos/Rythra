@@ -1,8 +1,9 @@
 /** Rythra standalone Lavalink client example with the Discord.js connector. */
 import { Client, GatewayIntentBits } from 'discord.js';
 import type { Message, TextChannel } from 'discord.js';
-import { Rythra, Node, RythraPlayer, DiscordJS } from 'rythra';
-import type { Track, SearchResponse } from 'rythra';
+import { Rythra, Node, RythraPlayer } from '@rythra/core';
+import type { Track, SearchResponse } from '@rythra/core';
+import { DiscordJS } from '@rythra/connector-discordjs';
 
 const TOKEN = process.env.BOT_TOKEN;
 if (!TOKEN) throw new Error('BOT_TOKEN is required.');

@@ -3,11 +3,11 @@ title: PlayerOptions
 description: API Reference for PlayerOptions
 ---
 
-[**Rythra Documentation v0.1.0**](../README.md)
+[**Rythra Documentation v0.2.0**](../README.md)
 
 ***
 
-Defined in: [packages/core/src/Types.ts:39](https://github.com/ekretos/Rythra/blob/a364f23696345c8ee22bece2228759c31953118f/packages/core/src/Types.ts#L39)
+Defined in: [packages/core/src/Types.ts:39](https://github.com/ekretos/Rythra/blob/f7f92181524349d3a52cccb7d61140eaeab9e974/packages/core/src/Types.ts#L39)
 
 Guild player configuration.
 
@@ -17,7 +17,7 @@ Guild player configuration.
 
 > **guild**: `string`
 
-Defined in: [packages/core/src/Types.ts:39](https://github.com/ekretos/Rythra/blob/a364f23696345c8ee22bece2228759c31953118f/packages/core/src/Types.ts#L39)
+Defined in: [packages/core/src/Types.ts:39](https://github.com/ekretos/Rythra/blob/f7f92181524349d3a52cccb7d61140eaeab9e974/packages/core/src/Types.ts#L39)
 
 ***
 
@@ -25,7 +25,7 @@ Defined in: [packages/core/src/Types.ts:39](https://github.com/ekretos/Rythra/bl
 
 > `optional` **selfDeaf?**: `boolean`
 
-Defined in: [packages/core/src/Types.ts:39](https://github.com/ekretos/Rythra/blob/a364f23696345c8ee22bece2228759c31953118f/packages/core/src/Types.ts#L39)
+Defined in: [packages/core/src/Types.ts:39](https://github.com/ekretos/Rythra/blob/f7f92181524349d3a52cccb7d61140eaeab9e974/packages/core/src/Types.ts#L39)
 
 ***
 
@@ -33,7 +33,7 @@ Defined in: [packages/core/src/Types.ts:39](https://github.com/ekretos/Rythra/bl
 
 > `optional` **selfMute?**: `boolean`
 
-Defined in: [packages/core/src/Types.ts:39](https://github.com/ekretos/Rythra/blob/a364f23696345c8ee22bece2228759c31953118f/packages/core/src/Types.ts#L39)
+Defined in: [packages/core/src/Types.ts:39](https://github.com/ekretos/Rythra/blob/f7f92181524349d3a52cccb7d61140eaeab9e974/packages/core/src/Types.ts#L39)
 
 ***
 
@@ -41,7 +41,7 @@ Defined in: [packages/core/src/Types.ts:39](https://github.com/ekretos/Rythra/bl
 
 > **textChannel**: `string`
 
-Defined in: [packages/core/src/Types.ts:39](https://github.com/ekretos/Rythra/blob/a364f23696345c8ee22bece2228759c31953118f/packages/core/src/Types.ts#L39)
+Defined in: [packages/core/src/Types.ts:39](https://github.com/ekretos/Rythra/blob/f7f92181524349d3a52cccb7d61140eaeab9e974/packages/core/src/Types.ts#L39)
 
 ***
 
@@ -49,4 +49,4 @@ Defined in: [packages/core/src/Types.ts:39](https://github.com/ekretos/Rythra/bl
 
 > **voiceChannel**: `string`
 
-Defined in: [packages/core/src/Types.ts:39](https://github.com/ekretos/Rythra/blob/a364f23696345c8ee22bece2228759c31953118f/packages/core/src/Types.ts#L39)
+Defined in: [packages/core/src/Types.ts:39](https://github.com/ekretos/Rythra/blob/f7f92181524349d3a52cccb7d61140eaeab9e974/packages/core/src/Types.ts#L39)

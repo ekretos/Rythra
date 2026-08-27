@@ -1,35 +1,65 @@
 {
   "name": "rythra",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "private": false,
   "description": "A modular, framework-agnostic Lavalink client for modern TypeScript runtimes.",
-  "workspaces": ["packages/*", "packages/connectors/*"],
+  "workspaces": [
+    "packages/*",
+    "packages/connectors/*"
+  ],
   "main": "./dist/index.js",
-  "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
   "exports": {
     ".": {
-      "import": {
-        "types": "./dist/index.d.mts",
-        "default": "./dist/index.mjs"
-      },
-      "require": {
-        "types": "./dist/index.d.ts",
-        "default": "./dist/index.js"
-      }
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    },
+    "./connectors/discordjs": {
+      "types": "./dist/connectors/discordjs/index.d.ts",
+      "import": "./dist/connectors/discordjs/index.js"
+    },
+    "./connectors/eris": {
+      "types": "./dist/connectors/eris/index.d.ts",
+      "import": "./dist/connectors/eris/index.js"
+    },
+    "./connectors/oceanic": {
+      "types": "./dist/connectors/oceanic/index.d.ts",
+      "import": "./dist/connectors/oceanic/index.js"
+    },
+    "./connectors/seyfert": {
+      "types": "./dist/connectors/seyfert/index.d.ts",
+      "import": "./dist/connectors/seyfert/index.js"
+    },
+    "./core": {
+      "types": "./dist/core/index.d.ts",
+      "import": "./dist/core/index.js"
+    },
+    "./protocol": {
+      "types": "./dist/protocol/index.d.ts",
+      "import": "./dist/protocol/index.js"
+    },
+    "./plugins": {
+      "types": "./dist/plugins/index.d.ts",
+      "import": "./dist/plugins/index.js"
     }
   },
   "type": "module",
-  "files": ["dist"],
+  "files": [
+    "dist"
+  ],
   "scripts": {
-    "build": "bun run build:packages && bun run build:facade && bun run build:docs",
-    "build:packages": "bun run build:core && bun run build:protocol && bun run build:plugins && bun run build:connector-discordjs",
+    "build": "bun run build:packages && bun run build:facade && node scripts/sync-dist.mjs && bun run build:docs",
+    "build:packages": "bun run build:core && bun run build:protocol && bun run build:plugins && bun run build:connector-discordjs && bun run build:connector-eris && bun run build:connector-oceanic && bun run build:connector-seyfert",
     "build:core": "bun --filter @rythra/core build",
     "build:protocol": "bun --filter @rythra/protocol build",
     "build:plugins": "bun --filter @rythra/plugins build",
     "build:connector-discordjs": "bun --filter @rythra/connector-discordjs build",
+    "build:connector-eris": "bun --filter @rythra/connector-eris build",
+    "build:connector-oceanic": "bun --filter @rythra/connector-oceanic build",
+    "build:connector-seyfert": "bun --filter @rythra/connector-seyfert build",
     "build:facade": "tsc --project tsconfig.facade.json",
     "build:docs": "typedoc && node scripts/postprocess-docs.js",
+    "publish:all": "node scripts/publish-all.mjs",
     "typecheck": "bun x tsc --noEmit",
     "test": "bun test",
     "test:file": "bun --watch run example/bot.ts",

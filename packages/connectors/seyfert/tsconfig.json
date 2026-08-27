@@ -1,7 +1,7 @@
 {
   "extends": "../../../tsconfig.json",
   "compilerOptions": {
-    "outDir": "../../../dist/connectors/discordjs",
+    "outDir": "../../../dist/connectors/seyfert",
     "rootDir": "src",
     "noEmit": false,
     "declaration": true,

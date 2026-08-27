@@ -3,11 +3,11 @@ title: FinalFetchOptions
 description: API Reference for FinalFetchOptions
 ---
 
-[**Rythra Documentation v0.1.0**](../README.md)
+[**Rythra Documentation v0.2.0**](../README.md)
 
 ***
 
-Defined in: [packages/core/src/Types.ts:62](https://github.com/ekretos/Rythra/blob/a364f23696345c8ee22bece2228759c31953118f/packages/core/src/Types.ts#L62)
+Defined in: [packages/core/src/Types.ts:62](https://github.com/ekretos/Rythra/blob/f7f92181524349d3a52cccb7d61140eaeab9e974/packages/core/src/Types.ts#L62)
 
 Final native fetch options.
 
@@ -17,7 +17,7 @@ Final native fetch options.
 
 > `optional` **body?**: `string`
 
-Defined in: [packages/core/src/Types.ts:62](https://github.com/ekretos/Rythra/blob/a364f23696345c8ee22bece2228759c31953118f/packages/core/src/Types.ts#L62)
+Defined in: [packages/core/src/Types.ts:62](https://github.com/ekretos/Rythra/blob/f7f92181524349d3a52cccb7d61140eaeab9e974/packages/core/src/Types.ts#L62)
 
 ***
 
@@ -25,7 +25,7 @@ Defined in: [packages/core/src/Types.ts:62](https://github.com/ekretos/Rythra/bl
 
 > **headers**: `Record`\<`string`, `string`\>
 
-Defined in: [packages/core/src/Types.ts:62](https://github.com/ekretos/Rythra/blob/a364f23696345c8ee22bece2228759c31953118f/packages/core/src/Types.ts#L62)
+Defined in: [packages/core/src/Types.ts:62](https://github.com/ekretos/Rythra/blob/f7f92181524349d3a52cccb7d61140eaeab9e974/packages/core/src/Types.ts#L62)
 
 ***
 
@@ -33,7 +33,7 @@ Defined in: [packages/core/src/Types.ts:62](https://github.com/ekretos/Rythra/bl
 
 > **method**: `string`
 
-Defined in: [packages/core/src/Types.ts:62](https://github.com/ekretos/Rythra/blob/a364f23696345c8ee22bece2228759c31953118f/packages/core/src/Types.ts#L62)
+Defined in: [packages/core/src/Types.ts:62](https://github.com/ekretos/Rythra/blob/f7f92181524349d3a52cccb7d61140eaeab9e974/packages/core/src/Types.ts#L62)
 
 ***
 
@@ -41,4 +41,4 @@ Defined in: [packages/core/src/Types.ts:62](https://github.com/ekretos/Rythra/bl
 
 > **signal**: `AbortSignal`
 
-Defined in: [packages/core/src/Types.ts:62](https://github.com/ekretos/Rythra/blob/a364f23696345c8ee22bece2228759c31953118f/packages/core/src/Types.ts#L62)
+Defined in: [packages/core/src/Types.ts:62](https://github.com/ekretos/Rythra/blob/f7f92181524349d3a52cccb7d61140eaeab9e974/packages/core/src/Types.ts#L62)

@@ -1,6 +1,6 @@
 {
   "name": "@rythra/core",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "type": "module",
   "description": "Framework-agnostic Rythra Lavalink runtime",
   "main": "./dist/index.js",
@@ -11,8 +11,13 @@
       "import": "./dist/index.js"
     }
   },
-  "files": ["dist"],
+  "files": [
+    "dist"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
   "scripts": {
-    "build": "rm -rf dist && tsc"
+    "build": "tsc"
   }
 }
