@@ -17,13 +17,12 @@
   },
   "type": "module",
   "version": "0.0.2",
-  "files": [
-    "dist"
-  ],
+  "files": ["dist"],
   "scripts": {
     "build": "bun run build:ts && bun run build:docs",
     "build:ts": "tsup && bun x tsc -p tsconfig.dist.json",
     "build:docs": "typedoc && node scripts/postprocess-docs.js",
+    "test": "bun test",
     "lint": "eslint .",
     "format": "prettier --write .",
     "prepare": "bun run build:ts"

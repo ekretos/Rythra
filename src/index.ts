@@ -1,9 +1,16 @@
+/**
+ * Public Rythra API.
+ *
+ * @packageDocumentation
+ */
+
 export * from './Rythra';
 export * from './Node';
 export * from './Player';
 export * from './Queue';
 export * from './Rest';
 export * from './Types';
+export * from './protocol/LavalinkProtocol';
 
 import { Connector as BaseConnector } from './Connector';
 import { DiscordJS } from './connectors/DiscordJS';
@@ -12,36 +19,48 @@ import { OceanicJS } from './connectors/OceanicJS';
 import { Seyfert } from './connectors/Seyfert';
 
 /**
- * Grouped connectors for easier access.
+ * Built-in Discord library connectors grouped for convenient access.
+ *
+ * @example
+ * ```typescript
+ * const connector = new Connectors.DiscordJS(client);
+ * ```
  */
 export const Connectors = {
-    /** Connector for discord.js */
+    /** Connector implementation for discord.js. */
     DiscordJS,
-    /** Connector for Eris */
+    /** Connector implementation for Eris. */
     Eris,
-    /** Connector for Oceanic.js */
+    /** Connector implementation for Oceanic.js. */
     OceanicJS,
-    /** Connector for Seyfert */
+    /** Connector implementation for Seyfert. */
     Seyfert,
 };
 
 /**
- * The Connector class with static references to its implementations.
- * Use this as the primary way to access library-specific connectors.
+ * Base connector class with static references to Rythra's built-in connectors.
+ *
  * @example
  * ```typescript
  * const connector = new Connector.DiscordJS(client);
  * ```
  */
 export abstract class Connector extends BaseConnector {
-    /** Static reference to the DiscordJS connector. */
+    /** Connector implementation for discord.js. */
     public static DiscordJS = DiscordJS;
-    /** Static reference to the Eris connector. */
+    /** Connector implementation for Eris. */
     public static Eris = Eris;
-    /** Static reference to the OceanicJS connector. */
+    /** Connector implementation for Oceanic.js. */
     public static OceanicJS = OceanicJS;
-    /** Static reference to the Seyfert connector. */
+    /** Connector implementation for Seyfert. */
     public static Seyfert = Seyfert;
 }
 
-export { DiscordJS, Eris, OceanicJS, Seyfert };
+/** Re-exported discord.js connector. */
+export { DiscordJS };
+/** Re-exported Eris connector. */
+export { Eris };
+/** Re-exported Oceanic.js connector. */
+export { OceanicJS };
+/** Re-exported Seyfert connector. */
+export { Seyfert };

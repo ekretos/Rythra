@@ -9,9 +9,13 @@ A lightweight, powerful, and modular Lavalink wrapper for multi-library Discord 
 
 - **Modular Architecture**: Separate concerns with dedicated classes for `Player`, `Queue`, `Node`, and `Rest`.
 - **Multi-Library Support**: Native connectors for **Discord.js**, **Eris**, **OceanicJS**, and **Seyfert**.
-- **Lavalink v4 Ready**: Fully compatible with the latest Lavalink features, including RESTful voice updates and advanced session management.
+- **Version-Aware Protocol**: Lavalink API generation is isolated from the core player/manager API, with explicit v4/v5 selection and automatic server-version detection.
+- **Lavalink v4 Ready**: RESTful player control, voice updates, session management, filters, and modern event handling.
+- **v5-Ready Architecture**: The protocol layer accepts Lavalink v5 so the core API does not need a rewrite when the v5 server protocol is released.
 - **Built-in Queue**: A robust, zero-dependency queue system included out of the box.
 - **Developer Friendly**: Clean API, full TypeScript support, and helpful error handling with `RestError`.
+
+> **Lavalink v5 note:** The upstream Lavalink project currently publishes v4.2.x as its latest stable server release. Rythra therefore does not claim unverified v5 server compatibility; instead, the protocol boundary is implemented now so v5-specific endpoint/handshake changes can be added without breaking the public API.
 
 ---
 
@@ -35,12 +39,11 @@ const client = new Client({
     intents: [GatewayIntentBits.Guilds, GatewayIntentBits.GuildVoiceStates, GatewayIntentBits.GuildMessages, GatewayIntentBits.MessageContent],
 });
 
-// Create the connector
 const connector = new Connector.DiscordJS(client);
 
-// Initialize Rythra
 const rythra = new Rythra({
     connector,
+    lavalinkVersion: 'auto',
     nodes: [
         {
             host: 'localhost',
@@ -49,45 +52,37 @@ const rythra = new Rythra({
             secure: false,
         },
     ],
-    autoPlay: true, // Automatically play the next song in queue
+    autoPlay: true,
 });
 
-client.on('ready', () => {
+client.on('ready', async () => {
     console.log(`Logged in as ${client.user.tag}`);
-    rythra.connect();
-});
-
-// Simple play command example
-client.on('messageCreate', async (message) => {
-    if (message.content.startsWith('!play')) {
-        const query = message.content.split(' ').slice(1).join(' ');
-        const voiceChannel = message.member?.voice.channel;
-
-        if (!voiceChannel || !query) return;
-
-        const result = await rythra.search(query, message.author.id);
-        const player = rythra.createPlayer({
-            guild: message.guild.id,
-            voiceChannel: voiceChannel.id,
-            textChannel: message.channel.id,
-        });
-
-        player.connect();
-        player.queue.add(result.data.tracks[0] || result.data[0]);
-
-        if (!player.playing) await player.play();
-        message.reply(`Added to queue: **${player.queue.current.info.title}**`);
-    }
+    await rythra.connect();
 });
 
 client.login('YOUR_BOT_TOKEN');
 ```
 
+### Selecting a Lavalink generation
+
+```typescript
+const rythra = new Rythra({
+    connector,
+    lavalinkVersion: 'auto', // 4 | 5 | auto
+    nodes: [
+        { host: 'node-v4.example.com', lavalinkVersion: 4 },
+        { host: 'node-v5.example.com', lavalinkVersion: 5 },
+    ],
+});
+```
+
+`auto` reads the server version from `/version` before opening the versioned WebSocket connection. Unsupported future major versions are rejected instead of being silently treated as v4.
+
 ---
 
 ## 🔌 Supported Libraries
 
-Rythra abstracts library interactions through a clean static API on the `Connector` class:
+Rythra abstracts library interactions through the `Connector` class:
 
 - **Discord.js**: `new Connector.DiscordJS(client)`
 - **Eris**: `new Connector.Eris(client)`
@@ -98,36 +93,24 @@ Rythra abstracts library interactions through a clean static API on the `Connect
 
 ## 🏗️ Architecture
 
-### `Rythra` (Manager)
+```text
+Rythra
+├── Core
+│   ├── Player
+│   ├── Queue
+│   ├── Node
+│   └── Rest
+├── Protocol
+│   ├── Lavalink v4
+│   └── Lavalink v5 boundary
+└── Connectors
+    ├── Discord.js
+    ├── Eris
+    ├── OceanicJS
+    └── Seyfert
+```
 
-The central orchestrator for nodes and players.
-
-- `search(query, requester, source?)`: Robust search across YouTube, SoundCloud, Spotify, etc.
-- `createPlayer(options)`: Get or create a guild-specific player.
-- `nodes`: Access and manage Lavalink nodes.
-
-### `RythraPlayer`
-
-Handles playback for a single guild.
-
-- `play()`, `stop()`, `pause()`, `skip()`
-- `setVolume(volume)`
-- `queue`: Access the built-in `Queue` instance.
-
-### `Queue`
-
-A powerful array-based queue.
-
-- `add(track)`: Supports single tracks or arrays (playlists).
-- `shuffle()`, `clear()`, `shift()`
-- `current`, `previous`: Track history and current state.
-
-### `Rest`
-
-Direct access to the Lavalink REST API.
-
-- Comprehensive support for sessions, players, stats, and route planners.
-- Handles Lavalink v4 requirements (like `sessionId`).
+The public player API remains independent from Lavalink API generation. Version-specific behavior belongs in the protocol/node/REST layer.
 
 ---
 
@@ -136,11 +119,20 @@ Direct access to the Lavalink REST API.
 ```typescript
 const rythra = new Rythra({
     connector: new Connector.DiscordJS(client),
-    autoPlay: true, // Auto-advance queue
+    lavalinkVersion: 'auto',
+    autoPlay: true,
     defaultSearchPlatform: 'youtube',
     userAgent: 'MyBot/1.0',
-    restTimeout: 15, // Seconds
+    restTimeout: 15,
 });
+```
+
+---
+
+## 🧪 Testing
+
+```bash
+bun test
 ```
 
 ---

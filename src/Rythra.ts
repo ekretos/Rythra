@@ -13,36 +13,25 @@ import type {
 } from './Types';
 
 /**
- * The main manager class for nodes and players.
+ * The main Rythra manager responsible for nodes, players and gateway events.
+ *
  * @extends EventEmitter
  * @implements IRythra
  */
 export class Rythra extends EventEmitter implements IRythra {
-    /**
-     * A map of nodes currently managed by this instance.
-     * The key is the node identifier or host.
-     */
+    /** All Lavalink nodes currently managed by this instance. */
     public readonly nodes: Map<string, Node> = new Map();
-
-    /**
-     * A map of players currently managed by this instance.
-     * The key is the guild ID.
-     */
+    /** All guild players currently managed by this instance. */
     public readonly players: Map<string, RythraPlayer> = new Map();
-
-    /**
-     * The options used to initialize this instance.
-     */
+    /** Configuration used to initialize the manager. */
     public readonly options: RythraOptions;
-
-    /**
-     * The version of the Rythra library.
-     */
+    /** The version string reported as the Rythra client name. */
     public readonly version: string;
 
     /**
-     * Creates a new Rythra instance.
-     * @param options The options for the Rythra manager.
+     * Creates a new Rythra manager.
+     *
+     * @param options Manager, connector and Lavalink node configuration.
      */
     constructor(options: RythraOptions) {
         super();
@@ -51,37 +40,59 @@ export class Rythra extends EventEmitter implements IRythra {
         this.options.connector.setManager(this);
         this.options.connector.listen();
 
-        if (this.options.nodes) {
-            for (const node of this.options.nodes) {
-                this.createNode(node);
-            }
-        }
+        for (const node of options.nodes ?? []) this.createNode(node);
     }
 
     /**
-     * Creates a new node and adds it to the manager.
-     * @param options The options for the new node.
+     * Creates and registers a Lavalink node.
+     *
+     * @param options Configuration for the new node.
      * @returns The newly created node.
      */
     public createNode(options: NodeOptions): Node {
         const node = new Node(this, options);
         this.nodes.set(options.identifier || options.host, node);
         node.on('error', (err) => this.emit('nodeError', node, err));
+        node.on('version', (version, serverVersion) => this.emit('nodeVersion', node, version, serverVersion));
+        node.on('ready', (data) => this.emit('nodeReady', node, data));
+        node.on('disconnect', () => this.emit('nodeDisconnect', node));
+        node.on('reconnectFailed', () => this.emit('nodeReconnectFailed', node));
         this.emit('nodeCreate', node);
         return node;
     }
 
     /**
-     * Gets or creates a player for a specific guild.
-     * @param options The options for the player.
+     * Selects the healthiest available node using player load as the primary metric.
+     *
+     * @returns The preferred node, or `undefined` when no nodes exist.
+     */
+    public getBestNode(): Node | undefined {
+        const nodes = Array.from(this.nodes.values());
+        if (!nodes.length) return undefined;
+
+        const connected = nodes.filter((node) => node.connected);
+        const candidates = connected.length ? connected : nodes;
+
+        return candidates.reduce((best, node) => {
+            if (!best) return node;
+            if (node.stats.players < best.stats.players) return node;
+            if (node.stats.players === best.stats.players && node.stats.playingPlayers < best.stats.playingPlayers) return node;
+            return best;
+        }, undefined as Node | undefined);
+    }
+
+    /**
+     * Gets an existing guild player or creates one on the best available node.
+     *
+     * @param options Guild, voice and text channel configuration.
      * @returns The existing or newly created player.
-     * @throws Error if no nodes are available.
+     * @throws {Error} If no Lavalink nodes are configured.
      */
     public createPlayer(options: PlayerOptions): RythraPlayer {
         const existing = this.players.get(options.guild);
         if (existing) return existing;
 
-        const node = Array.from(this.nodes.values())[0]; // Simple selection for now
+        const node = this.getBestNode();
         if (!node) throw new Error('No nodes available.');
 
         const player = new RythraPlayer(node, options);
@@ -91,27 +102,30 @@ export class Rythra extends EventEmitter implements IRythra {
     }
 
     /**
-     * Destroys a player and stops its playback.
-     * @param guild The guild ID of the player to destroy.
+     * Destroys a guild player and removes it from the manager.
+     *
+     * @param guild The guild ID whose player should be destroyed.
      */
     public destroyPlayer(guild: string): void {
         const player = this.players.get(guild);
         if (player) {
             player.stop();
             this.players.delete(guild);
+            this.emit('playerDestroy', player);
         }
     }
 
     /**
-     * Searches for tracks using the Lavalink REST API.
-     * @param query The search query or track identifier.
-     * @param requester The ID of the user who requested the search.
-     * @param source The search platform to use (e.g., 'youtube', 'soundcloud').
-     * @returns A promise that resolves to the search response.
-     * @throws Error if no nodes are available.
+     * Searches Lavalink for a track, playlist or search result.
+     *
+     * @param query Search query or direct track identifier.
+     * @param _requester Requester identifier retained for API compatibility.
+     * @param source Optional search platform override.
+     * @returns The Lavalink search response.
+     * @throws {Error} If no Lavalink node is available.
      */
-    public async search(query: string, requester: unknown, source?: SearchPlatform): Promise<SearchResponse> {
-        const node = Array.from(this.nodes.values())[0];
+    public async search(query: string, _requester: unknown, source?: SearchPlatform): Promise<SearchResponse> {
+        const node = this.getBestNode();
         if (!node) throw new Error('No nodes available.');
 
         const sources: Record<string, string> = {
@@ -125,55 +139,59 @@ export class Rythra extends EventEmitter implements IRythra {
 
         let identifier = query;
         const isUrl = /^https?:\/\//.test(query);
-
         if (!isUrl && !Object.values(sources).some((s) => query.startsWith(`${s}:`))) {
             const platform = (source || this.options.defaultSearchPlatform || 'youtube') as string;
             identifier = `${sources[platform] || platform}:${query}`;
         }
 
-        return await node.rest.search(identifier);
+        return node.rest.search(identifier);
     }
 
     /**
-     * Handles voice state updates from the Discord gateway.
-     * @param data The voice state update data.
+     * Updates the stored Discord voice state for a guild player.
+     *
+     * @param data Discord voice state update payload.
      */
     public voiceStateUpdate(data: VoiceStateUpdate): void {
         if (!data.guild_id) return;
         const player = this.players.get(data.guild_id);
-        if (player) {
-            player.voiceState = { ...player.voiceState, ...data };
-        }
+        if (player) player.voiceState = { ...player.voiceState, ...data };
     }
 
     /**
-     * Handles voice server updates from the Discord gateway.
-     * @param data The voice server update data.
+     * Forwards a Discord voice server update to Lavalink.
+     *
+     * @param data Discord voice server update payload.
+     * @returns A promise that resolves when the voice state has been sent to Lavalink.
+     * @throws {Error} If the player's Discord voice session is incomplete.
      */
     public async voiceServerUpdate(data: VoiceServerUpdate): Promise<void> {
         const player = this.players.get(data.guild_id);
-        if (player) {
-            await player.node.rest.updatePlayer({
-                guildId: data.guild_id,
-                playerOptions: {
-                    voice: {
-                        token: data.token,
-                        endpoint: data.endpoint,
-                        sessionId: player.voiceState.session_id!,
-                        channelId: player.voiceState.channel_id!,
-                    },
-                },
-            });
+        if (!player) return;
+
+        if (!player.voiceState.session_id || !player.voiceState.channel_id) {
+            throw new Error(`Missing Discord voice state for guild ${data.guild_id}`);
         }
+
+        await player.node.rest.updatePlayer({
+            guildId: data.guild_id,
+            playerOptions: {
+                voice: {
+                    token: data.token,
+                    endpoint: data.endpoint,
+                    sessionId: player.voiceState.session_id,
+                    channelId: player.voiceState.channel_id,
+                },
+            },
+        });
     }
 
     /**
-     * Connects to all configured Lavalink nodes.
+     * Connects all configured Lavalink nodes concurrently.
+     *
+     * @returns A promise that resolves after all connection attempts have started/completed.
      */
-    public connect(): void {
-        // Connect to all nodes
-        for (const node of this.nodes.values()) {
-            node.connect();
-        }
+    public async connect(): Promise<void> {
+        await Promise.all(Array.from(this.nodes.values(), (node) => node.connect()));
     }
 }
