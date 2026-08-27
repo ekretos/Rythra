@@ -1,7 +1,7 @@
 {
   "name": "rythra",
   "version": "0.1.0",
-  "private": true,
+  "private": false,
   "description": "A modular, framework-agnostic Lavalink client for modern TypeScript runtimes.",
   "workspaces": [
     "packages/core",
@@ -24,8 +24,9 @@
   "type": "module",
   "files": ["dist"],
   "scripts": {
-    "build": "bun run build:packages && bun run build:docs",
+    "build": "bun run build:packages && bun run build:facade && bun run build:docs",
     "build:packages": "bun run --filter '@rythra/*' build",
+    "build:facade": "tsup index.ts --format esm,cjs --dts --out-dir dist",
     "build:docs": "typedoc && node scripts/postprocess-docs.js",
     "typecheck": "bun x tsc --noEmit",
     "test": "bun test",
@@ -35,11 +36,17 @@
     "check:versions": "node scripts/check-package-versions.mjs",
     "check:packages": "bun run check:boundaries && bun run check:versions"
   },
-  "dependencies": {},
+  "dependencies": {
+    "@rythra/core": "workspace:*",
+    "@rythra/connector-discordjs": "workspace:*"
+  },
   "peerDependencies": { "typescript": ">=5 <8" },
   "devDependencies": {
     "@eslint/js": "^10.0.1",
     "@types/bun": "latest",
+    "discord.js": ">=14",
+    "@types/node": "latest",
+    "@types/ws": "latest",
     "eslint": "^10.8.1",
     "prettier": "^3.9.6",
     "tsup": "^8.5.1",
