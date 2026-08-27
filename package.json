@@ -1,46 +1,52 @@
 {
   "name": "rythra",
+  "version": "0.0.2",
+  "private": true,
+  "description": "A modular, framework-agnostic Lavalink client for modern TypeScript runtimes.",
+  "workspaces": [
+    "packages/core",
+    "packages/connectors/*",
+    "packages/protocol",
+    "packages/persistence",
+    "packages/metrics",
+    "packages/plugins",
+    "packages/types"
+  ],
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
   "exports": {
     ".": {
-      "import": {
-        "types": "./dist/index.d.mts",
-        "default": "./dist/index.mjs"
-      },
-      "require": {
-        "types": "./dist/index.d.ts",
-        "default": "./dist/index.js"
-      }
+      "import": { "types": "./dist/index.d.mts", "default": "./dist/index.mjs" },
+      "require": { "types": "./dist/index.d.ts", "default": "./dist/index.js" }
     }
   },
   "type": "module",
-  "version": "0.0.2",
   "files": ["dist"],
   "scripts": {
     "build": "bun run build:ts && bun run build:docs",
     "build:ts": "tsup && bun x tsc -p tsconfig.dist.json",
     "build:docs": "typedoc && node scripts/postprocess-docs.js",
+    "typecheck": "bun x tsc --noEmit",
     "test": "bun test",
     "lint": "eslint .",
     "format": "prettier --write .",
+    "check:boundaries": "node scripts/check-workspace-boundaries.mjs",
+    "check:versions": "node scripts/check-package-versions.mjs",
+    "check:packages": "bun run check:boundaries && bun run check:versions",
     "prepare": "bun run build:ts"
   },
-  "dependencies": {
-    "@types/bun": "latest",
-    "discord.js": "^14.25.1"
-  },
-  "peerDependencies": {
-    "typescript": "^5"
-  },
+  "dependencies": {},
+  "peerDependencies": { "typescript": ">=5 <8" },
   "devDependencies": {
     "@eslint/js": "^10.0.1",
-    "eslint": "^10.0.3",
+    "@types/bun": "latest",
+    "eslint": "^10.8.1",
     "eslint-config-prettier": "^10.1.8",
-    "prettier": "^3.8.1",
+    "prettier": "^3.9.6",
     "tsup": "^8.5.1",
     "typedoc-plugin-markdown": "^4.12.0",
-    "typescript-eslint": "^8.56.1"
+    "typescript": "^7.0.2",
+    "typescript-eslint": "^8.67.0"
   }
 }

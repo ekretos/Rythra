@@ -1,0 +1,7 @@
+{
+  "name": "@rythra/persistence",
+  "version": "0.0.2",
+  "type": "module",
+  "description": "Persistence contracts and adapters for Rythra",
+  "files": ["dist"]
+}

@@ -1,0 +1,7 @@
+{
+  "name": "@rythra/connectors",
+  "version": "0.0.2",
+  "type": "module",
+  "description": "Discord-library connector contracts for Rythra",
+  "files": ["dist"]
+}
