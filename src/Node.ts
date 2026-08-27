@@ -27,10 +27,13 @@ export class Node extends EventEmitter {
     constructor(manager: Rythra, options: NodeOptions) {
         super();
         this.manager = manager;
-        this.options = options;
-        this.apiVersion = options.lavalinkVersion === 'auto' || options.lavalinkVersion === undefined
+        this.options = {
+            ...options,
+            lavalinkVersion: options.lavalinkVersion ?? manager.options.lavalinkVersion,
+        };
+        this.apiVersion = this.options.lavalinkVersion === 'auto' || this.options.lavalinkVersion === undefined
             ? null
-            : options.lavalinkVersion;
+            : this.options.lavalinkVersion;
         this.rest = new Rest(this);
     }
 
@@ -48,7 +51,6 @@ export class Node extends EventEmitter {
         return `${protocol}://${this.options.host}${port}${getLavalinkApiPath(apiVersion)}/websocket`;
     }
 
-    /** Detects the Lavalink server generation using the unversioned /version endpoint. */
     private async detectVersion(): Promise<void> {
         if (this.apiVersion) return;
 
@@ -60,9 +62,7 @@ export class Node extends EventEmitter {
             signal: AbortSignal.timeout((this.manager.options.restTimeout || 10) * 1000),
         });
 
-        if (!response.ok) {
-            throw new Error(`Unable to detect Lavalink version (${response.status})`);
-        }
+        if (!response.ok) throw new Error(`Unable to detect Lavalink version (${response.status})`);
 
         const version = (await response.text()).trim();
         this.apiVersion = getLavalinkApiVersion(version);
@@ -160,6 +160,5 @@ export class Node extends EventEmitter {
         this.connected = false;
         this.ws?.close();
         this.ws = null;
-        this.emit('disconnect');
     }
 }
