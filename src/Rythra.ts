@@ -12,12 +12,27 @@ import type {
     VoiceServerUpdate,
 } from './Types';
 
+/**
+ * The main Rythra manager responsible for nodes, players and gateway events.
+ *
+ * @extends EventEmitter
+ * @implements IRythra
+ */
 export class Rythra extends EventEmitter implements IRythra {
+    /** All Lavalink nodes currently managed by this instance. */
     public readonly nodes: Map<string, Node> = new Map();
+    /** All guild players currently managed by this instance. */
     public readonly players: Map<string, RythraPlayer> = new Map();
+    /** Configuration used to initialize the manager. */
     public readonly options: RythraOptions;
+    /** The version string reported as the Rythra client name. */
     public readonly version: string;
 
+    /**
+     * Creates a new Rythra manager.
+     *
+     * @param options Manager, connector and Lavalink node configuration.
+     */
     constructor(options: RythraOptions) {
         super();
         this.options = options;
@@ -28,6 +43,12 @@ export class Rythra extends EventEmitter implements IRythra {
         for (const node of options.nodes ?? []) this.createNode(node);
     }
 
+    /**
+     * Creates and registers a Lavalink node.
+     *
+     * @param options Configuration for the new node.
+     * @returns The newly created node.
+     */
     public createNode(options: NodeOptions): Node {
         const node = new Node(this, options);
         this.nodes.set(options.identifier || options.host, node);
@@ -40,7 +61,11 @@ export class Rythra extends EventEmitter implements IRythra {
         return node;
     }
 
-    /** Returns the healthiest currently connected node with the lowest player load. */
+    /**
+     * Selects the healthiest available node using player load as the primary metric.
+     *
+     * @returns The preferred node, or `undefined` when no nodes exist.
+     */
     public getBestNode(): Node | undefined {
         const nodes = Array.from(this.nodes.values());
         if (!nodes.length) return undefined;
@@ -56,6 +81,13 @@ export class Rythra extends EventEmitter implements IRythra {
         }, undefined as Node | undefined);
     }
 
+    /**
+     * Gets an existing guild player or creates one on the best available node.
+     *
+     * @param options Guild, voice and text channel configuration.
+     * @returns The existing or newly created player.
+     * @throws {Error} If no Lavalink nodes are configured.
+     */
     public createPlayer(options: PlayerOptions): RythraPlayer {
         const existing = this.players.get(options.guild);
         if (existing) return existing;
@@ -69,6 +101,11 @@ export class Rythra extends EventEmitter implements IRythra {
         return player;
     }
 
+    /**
+     * Destroys a guild player and removes it from the manager.
+     *
+     * @param guild The guild ID whose player should be destroyed.
+     */
     public destroyPlayer(guild: string): void {
         const player = this.players.get(guild);
         if (player) {
@@ -78,6 +115,15 @@ export class Rythra extends EventEmitter implements IRythra {
         }
     }
 
+    /**
+     * Searches Lavalink for a track, playlist or search result.
+     *
+     * @param query Search query or direct track identifier.
+     * @param _requester Requester identifier retained for API compatibility.
+     * @param source Optional search platform override.
+     * @returns The Lavalink search response.
+     * @throws {Error} If no Lavalink node is available.
+     */
     public async search(query: string, _requester: unknown, source?: SearchPlatform): Promise<SearchResponse> {
         const node = this.getBestNode();
         if (!node) throw new Error('No nodes available.');
@@ -101,12 +147,24 @@ export class Rythra extends EventEmitter implements IRythra {
         return node.rest.search(identifier);
     }
 
+    /**
+     * Updates the stored Discord voice state for a guild player.
+     *
+     * @param data Discord voice state update payload.
+     */
     public voiceStateUpdate(data: VoiceStateUpdate): void {
         if (!data.guild_id) return;
         const player = this.players.get(data.guild_id);
         if (player) player.voiceState = { ...player.voiceState, ...data };
     }
 
+    /**
+     * Forwards a Discord voice server update to Lavalink.
+     *
+     * @param data Discord voice server update payload.
+     * @returns A promise that resolves when the voice state has been sent to Lavalink.
+     * @throws {Error} If the player's Discord voice session is incomplete.
+     */
     public async voiceServerUpdate(data: VoiceServerUpdate): Promise<void> {
         const player = this.players.get(data.guild_id);
         if (!player) return;
@@ -128,6 +186,11 @@ export class Rythra extends EventEmitter implements IRythra {
         });
     }
 
+    /**
+     * Connects all configured Lavalink nodes concurrently.
+     *
+     * @returns A promise that resolves after all connection attempts have started/completed.
+     */
     public async connect(): Promise<void> {
         await Promise.all(Array.from(this.nodes.values(), (node) => node.connect()));
     }
