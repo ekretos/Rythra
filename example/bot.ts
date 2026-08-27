@@ -1,19 +1,25 @@
 /**
- * Rythra standalone Lavalink client example with a Discord.js adapter.
+ * Rythra standalone Lavalink client example with the Discord.js connector.
  *
  * Run with:
  *   bun run example/bot.ts
  *
- * This example keeps Discord UX in the example application while Rythra
- * remains responsible for Lavalink nodes, players, queues and playback.
+ * Discord-specific behavior stays in the example application while Rythra
+ * remains responsible for Lavalink nodes, players, queues, and playback.
  */
 
-import { Client, GatewayIntentBits, Message, TextChannel } from 'discord.js';
-import { Rythra, Connector, Node, RythraPlayer } from 'rythra';
-import type { Track, SearchResponse } from 'rythra';
+import { Client, GatewayIntentBits } from 'discord.js';
+import type { Message, TextChannel } from 'discord.js';
+import { Rythra, Node, RythraPlayer } from '@rythra/core';
+import type { Track, SearchResponse } from '@rythra/core';
+import { DiscordJS } from '@rythra/connector-discordjs';
 
 /** Discord bot token. Set BOT_TOKEN in the environment. */
-const TOKEN = process.env.BOT_TOKEN || 'YOUR_BOT_TOKEN';
+const TOKEN = process.env.BOT_TOKEN;
+
+if (!TOKEN) {
+    throw new Error('BOT_TOKEN is required.');
+}
 
 const client = new Client({
     intents: [
@@ -24,8 +30,8 @@ const client = new Client({
     ],
 });
 
-/** Discord.js adapter used to bridge Discord voice state with Rythra. */
-const connector = new Connector.DiscordJS(client);
+/** Discord.js connector used to bridge Discord gateway voice state with Rythra. */
+const connector = new DiscordJS(client);
 
 /**
  * Rythra manager.
@@ -63,7 +69,9 @@ rythra.on('nodeCreate', (node: Node) => {
 
 /** Attach application-level feedback to each newly created player. */
 rythra.on('playerCreate', (player: RythraPlayer) => {
-    player.on('trackStart', (track: Track) => {
+    player.on('trackStart', (track: Track | null | undefined) => {
+        if (!track) return;
+
         const channel = client.channels.cache.get(player.textChannel) as TextChannel | undefined;
         if (channel) void channel.send(`Now playing: **${track.info.title}**`);
     });
