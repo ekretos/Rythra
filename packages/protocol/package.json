@@ -3,5 +3,24 @@
   "version": "0.1.0",
   "type": "module",
   "description": "Versioned Lavalink protocol contracts for Rythra",
-  "files": ["dist"]
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    },
+    "./v4": {
+      "types": "./dist/v4/index.d.ts",
+      "import": "./dist/v4/index.js"
+    },
+    "./v5": {
+      "types": "./dist/v5/index.d.ts",
+      "import": "./dist/v5/index.js"
+    }
+  },
+  "files": ["dist"],
+  "scripts": {
+    "build": "rm -rf dist && tsc"
+  }
 }
