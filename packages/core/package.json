@@ -1,6 +1,6 @@
 {
   "name": "@rythra/core",
-  "version": "0.0.2",
+  "version": "0.1.0",
   "type": "module",
   "description": "Framework-agnostic Rythra Lavalink runtime",
   "exports": { ".": { "types": "./dist/index.d.ts", "import": "./dist/index.js" } },
