@@ -1,14 +1,12 @@
 import { defineConfig } from 'tsup';
 
+/** Shared tsup defaults. Package build scripts provide their own entry/output. */
 export default defineConfig({
-    entry: ['src/**/*.ts'],
-    format: ['cjs', 'esm'],
-    dts: false,
+    format: ['esm'],
     bundle: false,
     splitting: false,
     sourcemap: true,
     clean: true,
-    outDir: 'dist',
     target: 'esnext',
     minify: false,
     keepNames: true,
