@@ -10,9 +10,8 @@
 
 import { Client, GatewayIntentBits } from 'discord.js';
 import type { Message, TextChannel } from 'discord.js';
-import { Rythra, Node, RythraPlayer } from '@rythra/core';
-import type { Track, SearchResponse } from '@rythra/core';
-import { DiscordJS } from '@rythra/connector-discordjs';
+import { Rythra, Node, RythraPlayer, DiscordJS } from 'rythra';
+import type { Track, SearchResponse } from 'rythra';
 
 /** Discord bot token. Set BOT_TOKEN in the environment. */
 const TOKEN = process.env.BOT_TOKEN;
