@@ -29,6 +29,8 @@ export class Node extends EventEmitter {
     /** Timer used for a pending reconnect attempt. */ private reconnectTimer: ReturnType<typeof setTimeout> | null = null;
     /** Number of reconnect attempts made since the last successful connection. */ private reconnectAttempts = 0;
     /** Prevents automatic reconnecting after an explicit disconnect. */ private manuallyDisconnected = false;
+    /** Promise resolver for an in-flight connection attempt. */ private connectResolve: (() => void) | null = null;
+    /** Promise rejecter for an in-flight connection attempt. */ private connectReject: ((error: Error) => void) | null = null;
 
     /** Creates a Lavalink node. */
     constructor(manager: Rythra, options: NodeOptions) {
@@ -66,28 +68,84 @@ export class Node extends EventEmitter {
         this.emit('version', this.apiVersion);
     }
 
-    /** Opens a WebSocket connection to Lavalink, reusing an existing session when possible. */
+    /**
+     * Opens a Lavalink WebSocket and resolves only after Lavalink confirms the
+     * connection. Automatic reconnects remain enabled after a failed attempt.
+     *
+     * @throws {Error} When the initial connection cannot be established.
+     */
     public async connect(): Promise<void> {
         this.manuallyDisconnected = false;
-        if (this.connected || this.ws || !this.circuit.canRequest()) return;
+        if (this.connected) return;
+        if (this.ws) {
+            return new Promise<void>((resolve, reject) => {
+                const onConnect = () => { cleanup(); resolve(); };
+                const onError = (error: Error) => { cleanup(); reject(error); };
+                const cleanup = () => { this.off('connect', onConnect); this.off('error', onError); };
+                this.once('connect', onConnect);
+                this.once('error', onError);
+            });
+        }
+        if (!this.circuit.canRequest()) throw new Error(`Lavalink node ${this.options.identifier ?? this.options.host} is unavailable (circuit breaker open).`);
+
         try {
             await this.detectVersion();
             const headers: Record<string, string> = { Authorization: this.options.password || 'youshallnotpass', 'Client-Name': `${this.manager.options.clientName || 'Rythra'}/${this.manager.version}`, 'User-Id': this.manager.options.clientId || this.manager.options.connector.getId() || '' };
             if (this.sessionId) headers['Session-Id'] = this.sessionId;
-            this.ws = new WebSocket(this.websocketUrl, { headers, rejectUnauthorized: this.options.rejectUnauthorized ?? true } as WebSocket.ClientOptions);
-            this.ws.onopen = () => { this.connected = true; this.reconnectAttempts = 0; this.circuit.success(); this.emit('connect'); };
-            this.ws.onmessage = (event: WebSocket.MessageEvent) => {
-                try {
-                    const data = JSON.parse(event.data.toString());
-                    if (data.op === 'ready') { this.sessionId = data.sessionId; this.emit('ready', data); }
-                    else if (data.op === 'stats') { this.stats = data; this.emit('stats', data); }
-                    else if (data.op === 'playerUpdate') { const player = this.manager.players.get(data.guildId); if (player) player.emit('playerUpdate', data); }
-                    else if (data.op === 'event') { const player = this.manager.players.get(data.guildId); if (player) player.emit(data.type, data); this.emit('event', data); }
-                } catch (error) { this.emit('error', error); }
-            };
-            this.ws.onclose = () => { this.ws = null; this.connected = false; this.circuit.failure(); this.emit('disconnect'); if (!this.manuallyDisconnected) this.scheduleReconnect(); };
-            this.ws.onerror = (err: WebSocket.ErrorEvent) => this.emit('error', err);
-        } catch (error) { this.ws = null; this.connected = false; this.circuit.failure(); this.emit('error', error); this.scheduleReconnect(); }
+            await new Promise<void>((resolve, reject) => {
+                this.connectResolve = resolve;
+                this.connectReject = reject;
+                this.ws = new WebSocket(this.websocketUrl, { headers, rejectUnauthorized: this.options.rejectUnauthorized ?? true } as WebSocket.ClientOptions);
+                this.ws.onopen = () => {
+                    this.connected = true;
+                    this.reconnectAttempts = 0;
+                    this.circuit.success();
+                    this.emit('connect');
+                    this.connectResolve?.();
+                    this.connectResolve = null;
+                    this.connectReject = null;
+                };
+                this.ws.onmessage = (event: WebSocket.MessageEvent) => {
+                    try {
+                        const data = JSON.parse(event.data.toString());
+                        if (data.op === 'ready') { this.sessionId = data.sessionId; this.emit('ready', data); }
+                        else if (data.op === 'stats') { this.stats = data; this.emit('stats', data); }
+                        else if (data.op === 'playerUpdate') { const player = this.manager.players.get(data.guildId); if (player) player.emit('playerUpdate', data); }
+                        else if (data.op === 'event') { const player = this.manager.players.get(data.guildId); if (player) player.emit(data.type, data); this.emit('event', data); }
+                    } catch (error) { this.emit('error', error); }
+                };
+                this.ws.onclose = () => {
+                    const wasConnecting = !this.connected;
+                    this.ws = null;
+                    this.connected = false;
+                    this.circuit.failure();
+                    if (wasConnecting) {
+                        const error = new Error(`Unable to connect to Lavalink node ${this.options.identifier ?? this.options.host}.`);
+                        this.connectReject?.(error);
+                        this.connectResolve = null;
+                        this.connectReject = null;
+                    }
+                    this.emit('disconnect');
+                    if (!this.manuallyDisconnected) this.scheduleReconnect();
+                };
+                this.ws.onerror = (err: WebSocket.ErrorEvent) => {
+                    const error = new Error(err.message || `Unable to connect to Lavalink node ${this.options.identifier ?? this.options.host}.`);
+                    this.emit('error', err);
+                    if (!this.connected) {
+                        this.connectReject?.(error);
+                        this.connectResolve = null;
+                        this.connectReject = null;
+                    }
+                };
+            });
+        } catch (error) {
+            this.ws = null;
+            this.connected = false;
+            this.circuit.failure();
+            this.emit('error', error);
+            this.scheduleReconnect();
+            throw error instanceof Error ? error : new Error(String(error));
+        }
     }
 
     /** Schedules a bounded exponential reconnect with optional jitter. */
@@ -102,7 +160,7 @@ export class Node extends EventEmitter {
         const jitter = Math.min(1, Math.max(0, this.options.retryJitter ?? 0.2));
         const factor = 1 + ((Math.random() * 2 - 1) * jitter);
         const delay = Math.max(0, Math.round(exponential * factor));
-        this.reconnectTimer = setTimeout(() => { this.reconnectTimer = null; void this.connect(); }, delay);
+        this.reconnectTimer = setTimeout(() => { this.reconnectTimer = null; void this.connect().catch(() => undefined); }, delay);
     }
 
     /** Permanently closes the current connection and disables automatic reconnects. */
