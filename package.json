@@ -1,22 +1,27 @@
 {
   "name": "rythra",
+  "version": "0.0.2",
+  "private": true,
+  "description": "A modular, framework-agnostic Lavalink client for modern TypeScript runtimes.",
+  "workspaces": [
+    "packages/core",
+    "packages/connectors/*",
+    "packages/protocol",
+    "packages/persistence",
+    "packages/metrics",
+    "packages/plugins",
+    "packages/types"
+  ],
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
   "exports": {
     ".": {
-      "import": {
-        "types": "./dist/index.d.mts",
-        "default": "./dist/index.mjs"
-      },
-      "require": {
-        "types": "./dist/index.d.ts",
-        "default": "./dist/index.js"
-      }
+      "import": { "types": "./dist/index.d.mts", "default": "./dist/index.mjs" },
+      "require": { "types": "./dist/index.d.ts", "default": "./dist/index.js" }
     }
   },
   "type": "module",
-  "version": "0.0.2",
   "files": ["dist"],
   "scripts": {
     "build": "bun run build:ts && bun run build:docs",
@@ -27,15 +32,11 @@
     "format": "prettier --write .",
     "prepare": "bun run build:ts"
   },
-  "dependencies": {
-    "@types/bun": "latest",
-    "discord.js": "^14.25.1"
-  },
-  "peerDependencies": {
-    "typescript": "^5"
-  },
+  "dependencies": {},
+  "peerDependencies": { "typescript": "^5" },
   "devDependencies": {
     "@eslint/js": "^10.0.1",
+    "@types/bun": "latest",
     "eslint": "^10.0.3",
     "eslint-config-prettier": "^10.1.8",
     "prettier": "^3.8.1",
