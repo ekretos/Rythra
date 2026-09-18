@@ -90,7 +90,10 @@ out
 # Nuxt.js build / generate output
 .nuxt
 dist
-docs
+
+# Astro docs site build output
+docs/dist
+docs/.astro
 
 # Gatsby files
 .cache/

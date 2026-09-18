@@ -7,7 +7,7 @@ description: API Reference for Rotation
 
 ***
 
-Defined in: [packages/core/src/Types.ts:48](https://github.com/ekretos/Rythra/blob/6f3cdb5f756fe86d62209c0aacb9051c0a349611/packages/core/src/Types.ts#L48)
+Defined in: [packages/core/src/Types.ts:48](https://github.com/ekretos/Rythra/blob/af6fc848e5960dfe585224bf31c43fac8682cc38/packages/core/src/Types.ts#L48)
 
 Rotation filter.
 
@@ -17,4 +17,4 @@ Rotation filter.
 
 > `optional` **rotationHz?**: `number`
 
-Defined in: [packages/core/src/Types.ts:48](https://github.com/ekretos/Rythra/blob/6f3cdb5f756fe86d62209c0aacb9051c0a349611/packages/core/src/Types.ts#L48)
+Defined in: [packages/core/src/Types.ts:48](https://github.com/ekretos/Rythra/blob/af6fc848e5960dfe585224bf31c43fac8682cc38/packages/core/src/Types.ts#L48)

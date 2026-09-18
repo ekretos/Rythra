@@ -13,7 +13,8 @@ A lightweight, powerful, and modular Lavalink client for modern TypeScript & Jav
 - 🔌 **Multi-Library Connectors**: Native support for **Discord.js**, **Eris**, **Oceanic.js**, and **Seyfert**.
 - ⚡ **Version-Aware Protocol**: Built-in support for **Lavalink v4** and forward-compatible **Lavalink v5** architecture with auto-version discovery.
 - 📜 **Zero-Dependency Queue**: High-performance built-in queue system with loop, shuffle, and custom store support.
-- 🛡️ **Reliability & Resilience**: Built-in circuit breaker, health monitoring snapshots, and automatic failover.
+- 🛡️ **Reliability & Resilience**: Built-in circuit breaker, explicit node state machine, health monitoring snapshots, and automatic failover.
+- 🧱 **Layered Runtime**: Kernel registries, node runtime, swappable transports, and protocol adapters — each layer replaceable on its own.
 - 🎯 **Full TypeScript Support**: Comprehensive type definitions, strict error classes (`RythraError`, `RestError`), and autocomplete out of the box.
 
 ---
@@ -217,6 +218,34 @@ const rythra = new Rythra({
 });
 ```
 
+A node resolves a protocol adapter once (from `lavalinkVersion`, or from `GET /version` when set to `'auto'`) and the runtime never branches on the Lavalink generation afterwards:
+
+```typescript
+import { resolveProtocol, resolveProtocolFromServerVersion } from 'rythra';
+
+resolveProtocol(4).restUrl('http://localhost:2333');     // http://localhost:2333/v4
+resolveProtocol(5).websocketUrl('ws://localhost:2333');  // ws://localhost:2333/v5/websocket
+resolveProtocolFromServerVersion('5.0.0').capabilities;  // { sessionResume, filters, dave }
+```
+
+---
+
+## 🧭 Runtime Architecture
+
+```text
+Rythra (manager)
+├── kernel/Registry        # NodeRegistry / PlayerRegistry: typed Map subclasses with domain lookups
+├── node/Node              # Node runtime: lifecycle, stats, reconnect policy, circuit breaker
+│   ├── node/NodeState     # disconnected → connecting → ready → degraded → draining
+│   ├── transport/         # SocketTransport (ws) and RestTransport (fetch) behind interfaces
+│   └── protocol/          # v4 / v5 adapters: paths, handshake, capabilities, message decoding
+└── player/Player          # Per-guild playback, voice state, and queue
+```
+
+- `node.connected` is derived from the state machine; every change emits `state` on the node and `nodeState` on the manager.
+- `rythra.nodes` / `rythra.players` are registries: `nodes.connected()`, `nodes.available()`, `players.playing()`.
+- `Rest` accepts any `RestTransport`, so the REST surface can be driven without a live Lavalink server.
+
 ---
 
 ## 🏗️ Monorepo Structure
@@ -224,7 +253,7 @@ const rythra = new Rythra({
 ```text
 Rythra
 ├── packages/
-│   ├── core                     # @rythra/core: Main runtime, player, queue, health, node
+│   ├── core                     # @rythra/core: kernel, node runtime, transports, protocol, player, queue
 │   ├── protocol                 # @rythra/protocol: Lavalink v4/v5 protocol definitions
 │   ├── plugins                  # @rythra/plugins: Extensible plugin registry
 │   └── connectors/

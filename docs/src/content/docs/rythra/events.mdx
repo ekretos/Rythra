@@ -138,3 +138,44 @@ player.on("trackSkip", (track) => {
 ### Common Event Data
 
 Many player events provide the current `track` and additional metadata about the event.
+
+## Node Lifecycle
+
+Nodes expose an explicit lifecycle state rather than a single boolean. Every change emits `state` on the node and `nodeState` on the manager, and `node.connected` is `true` only while the node is `ready`.
+
+```
+disconnected → connecting → ready
+                   ↓          ↓
+                degraded ←────┘
+                   ↓
+             (reconnect) → connecting
+```
+
+| State | Meaning |
+| --- | --- |
+| `disconnected` | Idle: no socket and no pending reconnect. |
+| `connecting` | Detecting the Lavalink generation and opening the socket. |
+| `ready` | Handshake accepted; the node accepts players. |
+| `degraded` | The socket dropped and a reconnect is scheduled. |
+| `draining` | An explicit `disconnect()` is in progress. |
+
+```typescript
+rythra.on("nodeState", (node, state, previous) => {
+    console.log(`${node.label}: ${previous} -> ${state}`);
+});
+```
+
+### Manager Event Reference
+
+| Event | Arguments | Emitted when |
+| --- | --- | --- |
+| `nodeCreate` | `node` | A node is registered. |
+| `nodeReady` | `node`, `payload` | Lavalink sent the `ready` opcode. |
+| `nodeVersion` | `node`, `apiVersion`, `serverVersion` | The Lavalink generation was detected. |
+| `nodeState` | `node`, `state`, `previous` | The node lifecycle state changed. |
+| `nodeDisconnect` | `node` | The node socket closed. |
+| `nodeReconnectFailed` | `node` | Reconnect attempts were exhausted. |
+| `nodeError` | `node`, `error` | The node reported a transport or decode error. |
+| `playerCreate` | `player` | A guild player was created. |
+| `playerDestroy` | `player` | A guild player was destroyed. |
+| `destroy` | – | The manager finished shutting down. |
