@@ -16,12 +16,13 @@ import type {
 } from './Types';
 
 /**
- * The main Rythra manager responsible for nodes, players and gateway events.
+ * The main Rythra runtime.
  *
  * @remarks
- * The manager is intentionally framework-agnostic. Discord-specific gateway
- * operations are delegated to the configured connector while Lavalink state
- * remains owned by Rythra.
+ * Rythra is deliberately an orchestration layer: registries own runtime
+ * entities, Node owns node lifecycle, Player owns player state, transports own
+ * I/O, and protocol adapters own Lavalink-version details. The public manager
+ * API remains stable while those responsibilities stay isolated internally.
  *
  * @extends EventEmitter
  * @implements IRythra
@@ -29,156 +30,316 @@ import type {
 export class Rythra extends EventEmitter implements IRythra {
     /** All Lavalink nodes currently managed by this instance. */
     public readonly nodes: NodeRegistry = new NodeRegistry();
+
     /** All guild players currently managed by this instance. */
     public readonly players: PlayerRegistry = new PlayerRegistry();
-    /** Configuration used to initialize the manager. */
+
+    /** Configuration used to initialize the runtime. */
     public readonly options: RythraOptions;
+
     /** The version string reported as the Rythra client name. */
     public readonly version: string;
-    /** Timestamp at which this manager was created. */
+
+    /** Timestamp at which this runtime was created. */
     public readonly startedAt = Date.now();
+
     /** Number of reconnect attempts observed across managed nodes. */
     public reconnects = 0;
-    /** Number of player migrations performed by this manager. */
+
+    /** Number of player migrations performed by this runtime. */
     public migrations = 0;
+
     /** Local health collector for operational integrations. */
     public readonly healthMonitor: Health;
-    /** Whether the manager has begun shutting down. */
+
+    /** Whether the runtime has begun shutting down. */
     public shuttingDown = false;
 
     /**
-     * Creates a new Rythra manager.
+     * Creates a new Rythra runtime.
      *
-     * @param options Manager, connector and Lavalink node configuration.
+     * @param options Runtime, connector and Lavalink node configuration.
      * @throws {ConfigurationError} If the connector or node configuration is invalid.
      */
     constructor(options: RythraOptions) {
         super();
         this.validateOptions(options);
+
         this.options = options;
         this.version = options.version || '0.2.0';
         this.options.connector.setManager(this);
         this.options.connector.listen();
         this.healthMonitor = new Health(this);
+
         for (const node of options.nodes ?? []) this.createNode(node);
     }
 
-    /** Validates manager configuration before any network resources are created. */
+    /** Validates runtime configuration before network resources are created. */
     private validateOptions(options: RythraOptions): void {
-        if (!options || typeof options !== 'object') throw new ConfigurationError('Rythra options are required.');
-        if (!options.connector || typeof options.connector.listen !== 'function') throw new ConfigurationError('A valid connector instance is required.');
+        if (!options || typeof options !== 'object') {
+            throw new ConfigurationError('Rythra options are required.');
+        }
+
+        if (!options.connector || typeof options.connector.listen !== 'function') {
+            throw new ConfigurationError('A valid connector instance is required.');
+        }
+
         for (const node of options.nodes ?? []) {
-            if (!node.host?.trim()) throw new ConfigurationError('Every Lavalink node requires a host.');
-            if (node.port !== undefined && (!Number.isInteger(node.port) || node.port < 1 || node.port > 65535)) throw new ConfigurationError(`Invalid Lavalink port: ${node.port}`);
-            if (node.retryAmount !== undefined && (!Number.isInteger(node.retryAmount) || node.retryAmount < 0)) throw new ConfigurationError(`Invalid retryAmount: ${node.retryAmount}`);
-            if (node.retryInterval !== undefined && (!Number.isFinite(node.retryInterval) || node.retryInterval < 0)) throw new ConfigurationError(`Invalid retryInterval: ${node.retryInterval}`);
-            if (node.lavalinkVersion !== undefined && node.lavalinkVersion !== 'auto' && node.lavalinkVersion !== 4 && node.lavalinkVersion !== 5) throw new ConfigurationError(`Unsupported Lavalink API version: ${String(node.lavalinkVersion)}`);
+            if (!node.host?.trim()) {
+                throw new ConfigurationError('Every Lavalink node requires a host.');
+            }
+
+            if (
+                node.port !== undefined &&
+                (!Number.isInteger(node.port) || node.port < 1 || node.port > 65535)
+            ) {
+                throw new ConfigurationError(`Invalid Lavalink port: ${node.port}`);
+            }
+
+            if (
+                node.retryAmount !== undefined &&
+                (!Number.isInteger(node.retryAmount) || node.retryAmount < 0)
+            ) {
+                throw new ConfigurationError(`Invalid retryAmount: ${node.retryAmount}`);
+            }
+
+            if (
+                node.retryInterval !== undefined &&
+                (!Number.isFinite(node.retryInterval) || node.retryInterval < 0)
+            ) {
+                throw new ConfigurationError(`Invalid retryInterval: ${node.retryInterval}`);
+            }
+
+            if (
+                node.lavalinkVersion !== undefined &&
+                node.lavalinkVersion !== 'auto' &&
+                node.lavalinkVersion !== 4 &&
+                node.lavalinkVersion !== 5
+            ) {
+                throw new ConfigurationError(
+                    `Unsupported Lavalink API version: ${String(node.lavalinkVersion)}`,
+                );
+            }
         }
     }
 
-    /** Creates and registers a Lavalink node. */
+    /**
+     * Registers a node with the runtime.
+     *
+     * @remarks
+     * Event forwarding is centralized here so Node remains independent from
+     * manager-level lifecycle semantics.
+     */
     public createNode(options: NodeOptions): Node {
         this.validateOptions({ ...this.options, nodes: [options] });
-        const node = new Node(this, options);
+
         const identifier = options.identifier || `${options.host}:${options.port ?? 2333}`;
-        if (this.nodes.has(identifier)) throw new ConfigurationError(`A node with identifier "${identifier}" already exists.`);
+        if (this.nodes.has(identifier)) {
+            throw new ConfigurationError(
+                `A node with identifier "${identifier}" already exists.`,
+            );
+        }
+
+        const node = new Node(this, options);
         this.nodes.set(identifier, node);
-        node.on('error', (err) => this.emit('nodeError', node, err));
-        node.on('version', (version, serverVersion) => this.emit('nodeVersion', node, version, serverVersion));
-        node.on('ready', (data) => this.emit('nodeReady', node, data));
-        node.on('disconnect', () => { this.reconnects++; this.emit('nodeDisconnect', node); });
-        node.on('reconnectFailed', () => this.emit('nodeReconnectFailed', node));
-        node.on('state', (state, previous) => this.emit('nodeState', node, state, previous));
+        this.bindNode(node);
+
         this.emit('nodeCreate', node);
         return node;
     }
 
-    /** Selects the healthiest available node using connection state and player load. */
-    public getBestNode(): Node | undefined {
-        if (this.shuttingDown) return undefined;
-        const candidates = this.nodes.available();
-        if (!candidates.length) return undefined;
-        return candidates.reduce((best, node) => {
-            if (!best) return node;
-            if (node.stats.players < best.stats.players) return node;
-            if (node.stats.players === best.stats.players && node.stats.playingPlayers < best.stats.playingPlayers) return node;
-            return best;
-        }, undefined as Node | undefined);
+    /** Binds node lifecycle events to the runtime event surface. */
+    private bindNode(node: Node): void {
+        node.on('error', (err) => this.emit('nodeError', node, err));
+        node.on('version', (version, serverVersion) =>
+            this.emit('nodeVersion', node, version, serverVersion),
+        );
+        node.on('ready', (data) => this.emit('nodeReady', node, data));
+        node.on('connect', () => this.emit('nodeConnect', node));
+        node.on('disconnect', () => {
+            this.reconnects++;
+            this.emit('nodeDisconnect', node);
+        });
+        node.on('reconnectFailed', () => this.emit('nodeReconnectFailed', node));
+        node.on('state', (state, previous) =>
+            this.emit('nodeState', node, state, previous),
+        );
+        node.on('stats', (stats) => this.emit('nodeStats', node, stats));
+        node.on('event', (event) => this.emit('nodeEvent', node, event));
     }
 
-    /** Gets an existing guild player or creates one on the best available node. */
+    /**
+     * Selects the least-loaded ready node.
+     *
+     * @remarks
+     * Selection is intentionally kept as a small default policy. A dedicated
+     * node-selection policy can replace this later without changing the public
+     * player API.
+     */
+    public getBestNode(): Node | undefined {
+        if (this.shuttingDown) return undefined;
+
+        const candidates = this.nodes.connected();
+        if (!candidates.length) return undefined;
+
+        return candidates.reduce<Node | undefined>((best, node) => {
+            if (!best) return node;
+
+            if (node.stats.players < best.stats.players) return node;
+            if (
+                node.stats.players === best.stats.players &&
+                node.stats.playingPlayers < best.stats.playingPlayers
+            ) {
+                return node;
+            }
+
+            return best;
+        }, undefined);
+    }
+
+    /** Gets an existing guild player or creates one on a ready node. */
     public createPlayer(options: PlayerOptions): RythraPlayer {
-        if (!options.guild?.trim()) throw new ConfigurationError('Player guild ID is required.');
-        if (!options.voiceChannel?.trim()) throw new ConfigurationError('Player voice channel ID is required.');
+        if (!options.guild?.trim()) {
+            throw new ConfigurationError('Player guild ID is required.');
+        }
+
+        if (!options.voiceChannel?.trim()) {
+            throw new ConfigurationError('Player voice channel ID is required.');
+        }
+
         const existing = this.players.get(options.guild);
         if (existing) return existing;
+
         const node = this.getBestNode();
-        if (!node) throw new Error('No nodes available.');
+        if (!node) throw new Error('No connected Lavalink nodes available.');
+
         const player = new RythraPlayer(node, options);
         this.players.set(options.guild, player);
         this.emit('playerCreate', player);
         return player;
     }
 
-    /** Destroys a guild player and removes it from the manager. */
+    /** Destroys a guild player and removes it from the runtime. */
     public async destroyPlayer(guild: string): Promise<void> {
         const player = this.players.get(guild);
         if (!player) return;
+
         await player.stop();
         this.players.delete(guild);
         this.emit('playerDestroy', player);
     }
 
     /** Searches Lavalink for a track, playlist or search result. */
-    public async search(query: string, _requester: unknown, source?: SearchPlatform): Promise<SearchResponse> {
-        if (!query?.trim()) throw new ConfigurationError('Search query cannot be empty.');
+    public async search(
+        query: string,
+        _requester: unknown,
+        source?: SearchPlatform,
+    ): Promise<SearchResponse> {
+        if (!query?.trim()) {
+            throw new ConfigurationError('Search query cannot be empty.');
+        }
+
         const node = this.getBestNode();
-        if (!node) throw new Error('No nodes available.');
-        const sources: Record<string, string> = { youtube: 'ytsearch', 'youtube music': 'ytmsearch', soundcloud: 'scsearch', deezer: 'dzsearch', spotify: 'spsearch', yandex: 'ymsearch' };
+        if (!node) throw new Error('No connected Lavalink nodes available.');
+
+        const sources: Record<string, string> = {
+            youtube: 'ytsearch',
+            'youtube music': 'ytmsearch',
+            soundcloud: 'scsearch',
+            deezer: 'dzsearch',
+            spotify: 'spsearch',
+            yandex: 'ymsearch',
+        };
+
         let identifier = query;
-        const isUrl = /^https?:\/\//.test(query);
-        if (!isUrl && !Object.values(sources).some((s) => query.startsWith(`${s}:`))) {
+        const isUrl = /^https?:\\/\\//.test(query);
+
+        if (
+            !isUrl &&
+            !Object.values(sources).some((prefix) => query.startsWith(`${prefix}:`))
+        ) {
             const platform = (source || this.options.defaultSearchPlatform || 'youtube') as string;
             identifier = `${sources[platform] || platform}:${query}`;
         }
+
         return node.rest.search(identifier);
     }
 
     /** Updates the stored Discord voice state for a guild player. */
     public voiceStateUpdate(data: VoiceStateUpdate): void {
         if (!data.guild_id) return;
+
         const player = this.players.get(data.guild_id);
-        if (player) player.voiceState = { ...player.voiceState, ...data };
+        if (player) {
+            player.voiceState = { ...player.voiceState, ...data };
+        }
     }
 
     /** Forwards a Discord voice server update to Lavalink. */
     public async voiceServerUpdate(data: VoiceServerUpdate): Promise<void> {
         const player = this.players.get(data.guild_id);
         if (!player) return;
-        if (!player.voiceState.session_id || !player.voiceState.channel_id) throw new ConfigurationError(`Missing Discord voice state for guild ${data.guild_id}`);
-        await player.node.rest.updatePlayer({ guildId: data.guild_id, playerOptions: { voice: { token: data.token, endpoint: data.endpoint, sessionId: player.voiceState.session_id, channelId: player.voiceState.channel_id } } });
+
+        if (!player.voiceState.session_id || !player.voiceState.channel_id) {
+            throw new ConfigurationError(
+                `Missing Discord voice state for guild ${data.guild_id}`,
+            );
+        }
+
+        await player.node.rest.updatePlayer({
+            guildId: data.guild_id,
+            playerOptions: {
+                voice: {
+                    token: data.token,
+                    endpoint: data.endpoint,
+                    sessionId: player.voiceState.session_id,
+                    channelId: player.voiceState.channel_id,
+                },
+            },
+        });
     }
 
-    /** Returns the current local health snapshot without performing network I/O. */
-    public health(): HealthSnapshot { return this.healthMonitor.snapshot(); }
+    /** Returns the current local health snapshot without network I/O. */
+    public health(): HealthSnapshot {
+        return this.healthMonitor.snapshot();
+    }
 
     /** Gracefully shuts down Rythra and all managed Lavalink nodes. */
     public async destroy(timeout = 10_000): Promise<void> {
         if (this.shuttingDown) return;
+
         this.shuttingDown = true;
+
         const shutdown = async (): Promise<void> => {
-            await Promise.allSettled(Array.from(this.players.keys(), (guild) => this.destroyPlayer(guild)));
+            await Promise.allSettled(
+                Array.from(this.players.keys(), (guild) => this.destroyPlayer(guild)),
+            );
+
             for (const node of this.nodes.values()) node.disconnect();
+
+            this.players.clear();
             this.nodes.clear();
+
             this.emit('destroy');
             this.removeAllListeners();
         };
-        await Promise.race([shutdown(), new Promise<void>((resolve) => setTimeout(resolve, Math.max(0, timeout)))]);
+
+        await Promise.race([
+            shutdown(),
+            new Promise<void>((resolve) =>
+                setTimeout(resolve, Math.max(0, timeout)),
+            ),
+        ]);
     }
 
     /** Connects all configured Lavalink nodes concurrently. */
     public async connect(): Promise<void> {
-        if (this.shuttingDown) throw new Error('Rythra is shutting down.');
-        await Promise.all(Array.from(this.nodes.values(), (node) => node.connect()));
+        if (this.shuttingDown) {
+            throw new Error('Rythra is shutting down.');
+        }
+
+        await Promise.all(
+            Array.from(this.nodes.values(), (node) => node.connect()),
+        );
     }
 }
