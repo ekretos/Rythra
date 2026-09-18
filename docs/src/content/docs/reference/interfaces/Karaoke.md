@@ -7,7 +7,7 @@ description: API Reference for Karaoke
 
 ***
 
-Defined in: [packages/core/src/Types.ts:44](https://github.com/ekretos/Rythra/blob/af6fc848e5960dfe585224bf31c43fac8682cc38/packages/core/src/Types.ts#L44)
+Defined in: [packages/core/src/Types.ts:44](https://github.com/ekretos/Rythra/blob/6c930d7e9f0c1ef34b406255dcc9686af3cb2be2/packages/core/src/Types.ts#L44)
 
 Karaoke filter.
 
@@ -17,7 +17,7 @@ Karaoke filter.
 
 > `optional` **filterBand?**: `number`
 
-Defined in: [packages/core/src/Types.ts:44](https://github.com/ekretos/Rythra/blob/af6fc848e5960dfe585224bf31c43fac8682cc38/packages/core/src/Types.ts#L44)
+Defined in: [packages/core/src/Types.ts:44](https://github.com/ekretos/Rythra/blob/6c930d7e9f0c1ef34b406255dcc9686af3cb2be2/packages/core/src/Types.ts#L44)
 
 ***
 
@@ -25,7 +25,7 @@ Defined in: [packages/core/src/Types.ts:44](https://github.com/ekretos/Rythra/bl
 
 > `optional` **filterWidth?**: `number`
 
-Defined in: [packages/core/src/Types.ts:44](https://github.com/ekretos/Rythra/blob/af6fc848e5960dfe585224bf31c43fac8682cc38/packages/core/src/Types.ts#L44)
+Defined in: [packages/core/src/Types.ts:44](https://github.com/ekretos/Rythra/blob/6c930d7e9f0c1ef34b406255dcc9686af3cb2be2/packages/core/src/Types.ts#L44)
 
 ***
 
@@ -33,7 +33,7 @@ Defined in: [packages/core/src/Types.ts:44](https://github.com/ekretos/Rythra/bl
 
 > `optional` **level?**: `number`
 
-Defined in: [packages/core/src/Types.ts:44](https://github.com/ekretos/Rythra/blob/af6fc848e5960dfe585224bf31c43fac8682cc38/packages/core/src/Types.ts#L44)
+Defined in: [packages/core/src/Types.ts:44](https://github.com/ekretos/Rythra/blob/6c930d7e9f0c1ef34b406255dcc9686af3cb2be2/packages/core/src/Types.ts#L44)
 
 ***
 
@@ -41,4 +41,4 @@ Defined in: [packages/core/src/Types.ts:44](https://github.com/ekretos/Rythra/bl
 
 > `optional` **monoLevel?**: `number`
 
-Defined in: [packages/core/src/Types.ts:44](https://github.com/ekretos/Rythra/blob/af6fc848e5960dfe585224bf31c43fac8682cc38/packages/core/src/Types.ts#L44)
+Defined in: [packages/core/src/Types.ts:44](https://github.com/ekretos/Rythra/blob/6c930d7e9f0c1ef34b406255dcc9686af3cb2be2/packages/core/src/Types.ts#L44)

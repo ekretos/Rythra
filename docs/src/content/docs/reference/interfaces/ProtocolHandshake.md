@@ -7,7 +7,7 @@ description: API Reference for ProtocolHandshake
 
 ***
 
-Defined in: [packages/core/src/protocol/ProtocolAdapter.ts:11](https://github.com/ekretos/Rythra/blob/af6fc848e5960dfe585224bf31c43fac8682cc38/packages/core/src/protocol/ProtocolAdapter.ts#L11)
+Defined in: [packages/core/src/protocol/ProtocolAdapter.ts:11](https://github.com/ekretos/Rythra/blob/6c930d7e9f0c1ef34b406255dcc9686af3cb2be2/packages/core/src/protocol/ProtocolAdapter.ts#L11)
 
 Values required to build a Lavalink WebSocket handshake.
 
@@ -17,7 +17,7 @@ Values required to build a Lavalink WebSocket handshake.
 
 > **clientName**: `string`
 
-Defined in: [packages/core/src/protocol/ProtocolAdapter.ts:13](https://github.com/ekretos/Rythra/blob/af6fc848e5960dfe585224bf31c43fac8682cc38/packages/core/src/protocol/ProtocolAdapter.ts#L13)
+Defined in: [packages/core/src/protocol/ProtocolAdapter.ts:13](https://github.com/ekretos/Rythra/blob/6c930d7e9f0c1ef34b406255dcc9686af3cb2be2/packages/core/src/protocol/ProtocolAdapter.ts#L13)
 
 Client name reported to Lavalink.
 
@@ -27,7 +27,7 @@ Client name reported to Lavalink.
 
 > **password**: `string`
 
-Defined in: [packages/core/src/protocol/ProtocolAdapter.ts:12](https://github.com/ekretos/Rythra/blob/af6fc848e5960dfe585224bf31c43fac8682cc38/packages/core/src/protocol/ProtocolAdapter.ts#L12)
+Defined in: [packages/core/src/protocol/ProtocolAdapter.ts:12](https://github.com/ekretos/Rythra/blob/6c930d7e9f0c1ef34b406255dcc9686af3cb2be2/packages/core/src/protocol/ProtocolAdapter.ts#L12)
 
 Node password.
 
@@ -37,7 +37,7 @@ Node password.
 
 > `optional` **sessionId?**: `string` \| `null`
 
-Defined in: [packages/core/src/protocol/ProtocolAdapter.ts:15](https://github.com/ekretos/Rythra/blob/af6fc848e5960dfe585224bf31c43fac8682cc38/packages/core/src/protocol/ProtocolAdapter.ts#L15)
+Defined in: [packages/core/src/protocol/ProtocolAdapter.ts:15](https://github.com/ekretos/Rythra/blob/6c930d7e9f0c1ef34b406255dcc9686af3cb2be2/packages/core/src/protocol/ProtocolAdapter.ts#L15)
 
 Previous session ID to resume, when available.
 
@@ -47,6 +47,6 @@ Previous session ID to resume, when available.
 
 > **userId**: `string`
 
-Defined in: [packages/core/src/protocol/ProtocolAdapter.ts:14](https://github.com/ekretos/Rythra/blob/af6fc848e5960dfe585224bf31c43fac8682cc38/packages/core/src/protocol/ProtocolAdapter.ts#L14)
+Defined in: [packages/core/src/protocol/ProtocolAdapter.ts:14](https://github.com/ekretos/Rythra/blob/6c930d7e9f0c1ef34b406255dcc9686af3cb2be2/packages/core/src/protocol/ProtocolAdapter.ts#L14)
 
 Discord user ID owning the session.

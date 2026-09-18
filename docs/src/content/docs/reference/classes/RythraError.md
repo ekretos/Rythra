@@ -7,7 +7,7 @@ description: API Reference for RythraError
 
 ***
 
-Defined in: [packages/core/src/errors/RythraError.ts:5](https://github.com/ekretos/Rythra/blob/af6fc848e5960dfe585224bf31c43fac8682cc38/packages/core/src/errors/RythraError.ts#L5)
+Defined in: [packages/core/src/errors/RythraError.ts:5](https://github.com/ekretos/Rythra/blob/6c930d7e9f0c1ef34b406255dcc9686af3cb2be2/packages/core/src/errors/RythraError.ts#L5)
 
 Base error type for all Rythra failures.
 
@@ -28,7 +28,7 @@ Base error type for all Rythra failures.
 
 > **new RythraError**(`message`, `code`, `options?`): `RythraError`
 
-Defined in: [packages/core/src/errors/RythraError.ts:10](https://github.com/ekretos/Rythra/blob/af6fc848e5960dfe585224bf31c43fac8682cc38/packages/core/src/errors/RythraError.ts#L10)
+Defined in: [packages/core/src/errors/RythraError.ts:10](https://github.com/ekretos/Rythra/blob/6c930d7e9f0c1ef34b406255dcc9686af3cb2be2/packages/core/src/errors/RythraError.ts#L10)
 
 Creates a structured Rythra error.
 
@@ -66,7 +66,7 @@ Creates a structured Rythra error.
 
 > `readonly` `optional` **cause?**: `unknown`
 
-Defined in: [packages/core/src/errors/RythraError.ts:7](https://github.com/ekretos/Rythra/blob/af6fc848e5960dfe585224bf31c43fac8682cc38/packages/core/src/errors/RythraError.ts#L7)
+Defined in: [packages/core/src/errors/RythraError.ts:7](https://github.com/ekretos/Rythra/blob/6c930d7e9f0c1ef34b406255dcc9686af3cb2be2/packages/core/src/errors/RythraError.ts#L7)
 
 Optional originating error.
 
@@ -80,7 +80,7 @@ Optional originating error.
 
 > `readonly` **code**: [`RythraErrorCode`](../type-aliases/RythraErrorCode.md)
 
-Defined in: [packages/core/src/errors/RythraError.ts:6](https://github.com/ekretos/Rythra/blob/af6fc848e5960dfe585224bf31c43fac8682cc38/packages/core/src/errors/RythraError.ts#L6)
+Defined in: [packages/core/src/errors/RythraError.ts:6](https://github.com/ekretos/Rythra/blob/6c930d7e9f0c1ef34b406255dcc9686af3cb2be2/packages/core/src/errors/RythraError.ts#L6)
 
 Stable machine-readable error code.
 
@@ -90,7 +90,7 @@ Stable machine-readable error code.
 
 > `readonly` **context**: `Readonly`\<`Record`\<`string`, `unknown`\>\>
 
-Defined in: [packages/core/src/errors/RythraError.ts:8](https://github.com/ekretos/Rythra/blob/af6fc848e5960dfe585224bf31c43fac8682cc38/packages/core/src/errors/RythraError.ts#L8)
+Defined in: [packages/core/src/errors/RythraError.ts:8](https://github.com/ekretos/Rythra/blob/6c930d7e9f0c1ef34b406255dcc9686af3cb2be2/packages/core/src/errors/RythraError.ts#L8)
 
 Additional structured diagnostic context.
 

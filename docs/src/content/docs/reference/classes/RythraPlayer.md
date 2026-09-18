@@ -7,7 +7,7 @@ description: API Reference for RythraPlayer
 
 ***
 
-Defined in: [packages/core/src/player/Player.ts:16](https://github.com/ekretos/Rythra/blob/af6fc848e5960dfe585224bf31c43fac8682cc38/packages/core/src/player/Player.ts#L16)
+Defined in: [packages/core/src/player/Player.ts:16](https://github.com/ekretos/Rythra/blob/6c930d7e9f0c1ef34b406255dcc9686af3cb2be2/packages/core/src/player/Player.ts#L16)
 
 ## Extends
 
@@ -19,7 +19,7 @@ Defined in: [packages/core/src/player/Player.ts:16](https://github.com/ekretos/R
 
 > **new RythraPlayer**(`node`, `options`): `RythraPlayer`
 
-Defined in: [packages/core/src/player/Player.ts:33](https://github.com/ekretos/Rythra/blob/af6fc848e5960dfe585224bf31c43fac8682cc38/packages/core/src/player/Player.ts#L33)
+Defined in: [packages/core/src/player/Player.ts:33](https://github.com/ekretos/Rythra/blob/6c930d7e9f0c1ef34b406255dcc9686af3cb2be2/packages/core/src/player/Player.ts#L33)
 
 #### Parameters
 
@@ -45,7 +45,7 @@ Defined in: [packages/core/src/player/Player.ts:33](https://github.com/ekretos/R
 
 > `readonly` **data**: `Map`\<`string`, `unknown`\>
 
-Defined in: [packages/core/src/player/Player.ts:26](https://github.com/ekretos/Rythra/blob/af6fc848e5960dfe585224bf31c43fac8682cc38/packages/core/src/player/Player.ts#L26)
+Defined in: [packages/core/src/player/Player.ts:26](https://github.com/ekretos/Rythra/blob/6c930d7e9f0c1ef34b406255dcc9686af3cb2be2/packages/core/src/player/Player.ts#L26)
 
 ***
 
@@ -53,7 +53,7 @@ Defined in: [packages/core/src/player/Player.ts:26](https://github.com/ekretos/R
 
 > `readonly` **guild**: `string`
 
-Defined in: [packages/core/src/player/Player.ts:18](https://github.com/ekretos/Rythra/blob/af6fc848e5960dfe585224bf31c43fac8682cc38/packages/core/src/player/Player.ts#L18)
+Defined in: [packages/core/src/player/Player.ts:18](https://github.com/ekretos/Rythra/blob/6c930d7e9f0c1ef34b406255dcc9686af3cb2be2/packages/core/src/player/Player.ts#L18)
 
 ***
 
@@ -61,7 +61,7 @@ Defined in: [packages/core/src/player/Player.ts:18](https://github.com/ekretos/R
 
 > **loop**: `LoopMode` = `'none'`
 
-Defined in: [packages/core/src/player/Player.ts:24](https://github.com/ekretos/Rythra/blob/af6fc848e5960dfe585224bf31c43fac8682cc38/packages/core/src/player/Player.ts#L24)
+Defined in: [packages/core/src/player/Player.ts:24](https://github.com/ekretos/Rythra/blob/6c930d7e9f0c1ef34b406255dcc9686af3cb2be2/packages/core/src/player/Player.ts#L24)
 
 ***
 
@@ -69,7 +69,7 @@ Defined in: [packages/core/src/player/Player.ts:24](https://github.com/ekretos/R
 
 > `readonly` **node**: [`Node`](Node.md)
 
-Defined in: [packages/core/src/player/Player.ts:17](https://github.com/ekretos/Rythra/blob/af6fc848e5960dfe585224bf31c43fac8682cc38/packages/core/src/player/Player.ts#L17)
+Defined in: [packages/core/src/player/Player.ts:17](https://github.com/ekretos/Rythra/blob/6c930d7e9f0c1ef34b406255dcc9686af3cb2be2/packages/core/src/player/Player.ts#L17)
 
 ***
 
@@ -77,7 +77,7 @@ Defined in: [packages/core/src/player/Player.ts:17](https://github.com/ekretos/R
 
 > **paused**: `boolean` = `false`
 
-Defined in: [packages/core/src/player/Player.ts:22](https://github.com/ekretos/Rythra/blob/af6fc848e5960dfe585224bf31c43fac8682cc38/packages/core/src/player/Player.ts#L22)
+Defined in: [packages/core/src/player/Player.ts:22](https://github.com/ekretos/Rythra/blob/6c930d7e9f0c1ef34b406255dcc9686af3cb2be2/packages/core/src/player/Player.ts#L22)
 
 ***
 
@@ -85,7 +85,7 @@ Defined in: [packages/core/src/player/Player.ts:22](https://github.com/ekretos/R
 
 > **playing**: `boolean` = `false`
 
-Defined in: [packages/core/src/player/Player.ts:21](https://github.com/ekretos/Rythra/blob/af6fc848e5960dfe585224bf31c43fac8682cc38/packages/core/src/player/Player.ts#L21)
+Defined in: [packages/core/src/player/Player.ts:21](https://github.com/ekretos/Rythra/blob/6c930d7e9f0c1ef34b406255dcc9686af3cb2be2/packages/core/src/player/Player.ts#L21)
 
 ***
 
@@ -93,7 +93,7 @@ Defined in: [packages/core/src/player/Player.ts:21](https://github.com/ekretos/R
 
 > `readonly` **queue**: [`Queue`](Queue.md)
 
-Defined in: [packages/core/src/player/Player.ts:27](https://github.com/ekretos/Rythra/blob/af6fc848e5960dfe585224bf31c43fac8682cc38/packages/core/src/player/Player.ts#L27)
+Defined in: [packages/core/src/player/Player.ts:27](https://github.com/ekretos/Rythra/blob/6c930d7e9f0c1ef34b406255dcc9686af3cb2be2/packages/core/src/player/Player.ts#L27)
 
 ***
 
@@ -101,7 +101,7 @@ Defined in: [packages/core/src/player/Player.ts:27](https://github.com/ekretos/R
 
 > **textChannel**: `string`
 
-Defined in: [packages/core/src/player/Player.ts:20](https://github.com/ekretos/Rythra/blob/af6fc848e5960dfe585224bf31c43fac8682cc38/packages/core/src/player/Player.ts#L20)
+Defined in: [packages/core/src/player/Player.ts:20](https://github.com/ekretos/Rythra/blob/6c930d7e9f0c1ef34b406255dcc9686af3cb2be2/packages/core/src/player/Player.ts#L20)
 
 ***
 
@@ -109,7 +109,7 @@ Defined in: [packages/core/src/player/Player.ts:20](https://github.com/ekretos/R
 
 > **voiceChannel**: `string`
 
-Defined in: [packages/core/src/player/Player.ts:19](https://github.com/ekretos/Rythra/blob/af6fc848e5960dfe585224bf31c43fac8682cc38/packages/core/src/player/Player.ts#L19)
+Defined in: [packages/core/src/player/Player.ts:19](https://github.com/ekretos/Rythra/blob/6c930d7e9f0c1ef34b406255dcc9686af3cb2be2/packages/core/src/player/Player.ts#L19)
 
 ***
 
@@ -117,7 +117,7 @@ Defined in: [packages/core/src/player/Player.ts:19](https://github.com/ekretos/R
 
 > **voiceState**: `Partial`\<[`VoiceStateUpdate`](../interfaces/VoiceStateUpdate.md)\> = `{}`
 
-Defined in: [packages/core/src/player/Player.ts:25](https://github.com/ekretos/Rythra/blob/af6fc848e5960dfe585224bf31c43fac8682cc38/packages/core/src/player/Player.ts#L25)
+Defined in: [packages/core/src/player/Player.ts:25](https://github.com/ekretos/Rythra/blob/6c930d7e9f0c1ef34b406255dcc9686af3cb2be2/packages/core/src/player/Player.ts#L25)
 
 ***
 
@@ -125,7 +125,7 @@ Defined in: [packages/core/src/player/Player.ts:25](https://github.com/ekretos/R
 
 > **volume**: `number` = `100`
 
-Defined in: [packages/core/src/player/Player.ts:23](https://github.com/ekretos/Rythra/blob/af6fc848e5960dfe585224bf31c43fac8682cc38/packages/core/src/player/Player.ts#L23)
+Defined in: [packages/core/src/player/Player.ts:23](https://github.com/ekretos/Rythra/blob/6c930d7e9f0c1ef34b406255dcc9686af3cb2be2/packages/core/src/player/Player.ts#L23)
 
 ## Accessors
 
@@ -135,7 +135,7 @@ Defined in: [packages/core/src/player/Player.ts:23](https://github.com/ekretos/R
 
 > **get** **guildId**(): `string`
 
-Defined in: [packages/core/src/player/Player.ts:29](https://github.com/ekretos/Rythra/blob/af6fc848e5960dfe585224bf31c43fac8682cc38/packages/core/src/player/Player.ts#L29)
+Defined in: [packages/core/src/player/Player.ts:29](https://github.com/ekretos/Rythra/blob/6c930d7e9f0c1ef34b406255dcc9686af3cb2be2/packages/core/src/player/Player.ts#L29)
 
 ##### Returns
 
@@ -149,7 +149,7 @@ Defined in: [packages/core/src/player/Player.ts:29](https://github.com/ekretos/R
 
 > **get** **textId**(): `string`
 
-Defined in: [packages/core/src/player/Player.ts:31](https://github.com/ekretos/Rythra/blob/af6fc848e5960dfe585224bf31c43fac8682cc38/packages/core/src/player/Player.ts#L31)
+Defined in: [packages/core/src/player/Player.ts:31](https://github.com/ekretos/Rythra/blob/6c930d7e9f0c1ef34b406255dcc9686af3cb2be2/packages/core/src/player/Player.ts#L31)
 
 ##### Returns
 
@@ -163,7 +163,7 @@ Defined in: [packages/core/src/player/Player.ts:31](https://github.com/ekretos/R
 
 > **get** **voiceId**(): `string`
 
-Defined in: [packages/core/src/player/Player.ts:30](https://github.com/ekretos/Rythra/blob/af6fc848e5960dfe585224bf31c43fac8682cc38/packages/core/src/player/Player.ts#L30)
+Defined in: [packages/core/src/player/Player.ts:30](https://github.com/ekretos/Rythra/blob/6c930d7e9f0c1ef34b406255dcc9686af3cb2be2/packages/core/src/player/Player.ts#L30)
 
 ##### Returns
 
@@ -272,7 +272,7 @@ v0.1.26
 
 > **connect**(`options?`): `void`
 
-Defined in: [packages/core/src/player/Player.ts:140](https://github.com/ekretos/Rythra/blob/af6fc848e5960dfe585224bf31c43fac8682cc38/packages/core/src/player/Player.ts#L140)
+Defined in: [packages/core/src/player/Player.ts:140](https://github.com/ekretos/Rythra/blob/6c930d7e9f0c1ef34b406255dcc9686af3cb2be2/packages/core/src/player/Player.ts#L140)
 
 #### Parameters
 
@@ -300,7 +300,7 @@ Defined in: [packages/core/src/player/Player.ts:140](https://github.com/ekretos/
 
 > **destroy**(): `Promise`\<`void`\>
 
-Defined in: [packages/core/src/player/Player.ts:105](https://github.com/ekretos/Rythra/blob/af6fc848e5960dfe585224bf31c43fac8682cc38/packages/core/src/player/Player.ts#L105)
+Defined in: [packages/core/src/player/Player.ts:105](https://github.com/ekretos/Rythra/blob/6c930d7e9f0c1ef34b406255dcc9686af3cb2be2/packages/core/src/player/Player.ts#L105)
 
 #### Returns
 
@@ -707,7 +707,7 @@ v0.3.0
 
 > **pause**(`pause`): `Promise`\<`void`\>
 
-Defined in: [packages/core/src/player/Player.ts:115](https://github.com/ekretos/Rythra/blob/af6fc848e5960dfe585224bf31c43fac8682cc38/packages/core/src/player/Player.ts#L115)
+Defined in: [packages/core/src/player/Player.ts:115](https://github.com/ekretos/Rythra/blob/6c930d7e9f0c1ef34b406255dcc9686af3cb2be2/packages/core/src/player/Player.ts#L115)
 
 #### Parameters
 
@@ -725,7 +725,7 @@ Defined in: [packages/core/src/player/Player.ts:115](https://github.com/ekretos/
 
 > **play**(`track?`, `options?`): `Promise`\<`void`\>
 
-Defined in: [packages/core/src/player/Player.ts:90](https://github.com/ekretos/Rythra/blob/af6fc848e5960dfe585224bf31c43fac8682cc38/packages/core/src/player/Player.ts#L90)
+Defined in: [packages/core/src/player/Player.ts:90](https://github.com/ekretos/Rythra/blob/6c930d7e9f0c1ef34b406255dcc9686af3cb2be2/packages/core/src/player/Player.ts#L90)
 
 #### Parameters
 
@@ -1073,7 +1073,7 @@ v0.1.26
 
 > **search**(`query`, `options?`): `Promise`\<`any`\>
 
-Defined in: [packages/core/src/player/Player.ts:80](https://github.com/ekretos/Rythra/blob/af6fc848e5960dfe585224bf31c43fac8682cc38/packages/core/src/player/Player.ts#L80)
+Defined in: [packages/core/src/player/Player.ts:80](https://github.com/ekretos/Rythra/blob/6c930d7e9f0c1ef34b406255dcc9686af3cb2be2/packages/core/src/player/Player.ts#L80)
 
 #### Parameters
 
@@ -1101,7 +1101,7 @@ Defined in: [packages/core/src/player/Player.ts:80](https://github.com/ekretos/R
 
 > **seek**(`position`): `Promise`\<`void`\>
 
-Defined in: [packages/core/src/player/Player.ts:134](https://github.com/ekretos/Rythra/blob/af6fc848e5960dfe585224bf31c43fac8682cc38/packages/core/src/player/Player.ts#L134)
+Defined in: [packages/core/src/player/Player.ts:134](https://github.com/ekretos/Rythra/blob/6c930d7e9f0c1ef34b406255dcc9686af3cb2be2/packages/core/src/player/Player.ts#L134)
 
 #### Parameters
 
@@ -1119,7 +1119,7 @@ Defined in: [packages/core/src/player/Player.ts:134](https://github.com/ekretos/
 
 > **setLoop**(`mode`): `Promise`\<`void`\>
 
-Defined in: [packages/core/src/player/Player.ts:128](https://github.com/ekretos/Rythra/blob/af6fc848e5960dfe585224bf31c43fac8682cc38/packages/core/src/player/Player.ts#L128)
+Defined in: [packages/core/src/player/Player.ts:128](https://github.com/ekretos/Rythra/blob/6c930d7e9f0c1ef34b406255dcc9686af3cb2be2/packages/core/src/player/Player.ts#L128)
 
 #### Parameters
 
@@ -1171,7 +1171,7 @@ v0.3.5
 
 > **setVolume**(`volume`): `Promise`\<`void`\>
 
-Defined in: [packages/core/src/player/Player.ts:121](https://github.com/ekretos/Rythra/blob/af6fc848e5960dfe585224bf31c43fac8682cc38/packages/core/src/player/Player.ts#L121)
+Defined in: [packages/core/src/player/Player.ts:121](https://github.com/ekretos/Rythra/blob/6c930d7e9f0c1ef34b406255dcc9686af3cb2be2/packages/core/src/player/Player.ts#L121)
 
 #### Parameters
 
@@ -1189,7 +1189,7 @@ Defined in: [packages/core/src/player/Player.ts:121](https://github.com/ekretos/
 
 > **skip**(): `Promise`\<`void`\>
 
-Defined in: [packages/core/src/player/Player.ts:107](https://github.com/ekretos/Rythra/blob/af6fc848e5960dfe585224bf31c43fac8682cc38/packages/core/src/player/Player.ts#L107)
+Defined in: [packages/core/src/player/Player.ts:107](https://github.com/ekretos/Rythra/blob/6c930d7e9f0c1ef34b406255dcc9686af3cb2be2/packages/core/src/player/Player.ts#L107)
 
 #### Returns
 
@@ -1201,7 +1201,7 @@ Defined in: [packages/core/src/player/Player.ts:107](https://github.com/ekretos/
 
 > **stop**(): `Promise`\<`void`\>
 
-Defined in: [packages/core/src/player/Player.ts:99](https://github.com/ekretos/Rythra/blob/af6fc848e5960dfe585224bf31c43fac8682cc38/packages/core/src/player/Player.ts#L99)
+Defined in: [packages/core/src/player/Player.ts:99](https://github.com/ekretos/Rythra/blob/6c930d7e9f0c1ef34b406255dcc9686af3cb2be2/packages/core/src/player/Player.ts#L99)
 
 #### Returns
 

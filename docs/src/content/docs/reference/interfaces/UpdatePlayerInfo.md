@@ -7,7 +7,7 @@ description: API Reference for UpdatePlayerInfo
 
 ***
 
-Defined in: [packages/core/src/Types.ts:55](https://github.com/ekretos/Rythra/blob/af6fc848e5960dfe585224bf31c43fac8682cc38/packages/core/src/Types.ts#L55)
+Defined in: [packages/core/src/Types.ts:55](https://github.com/ekretos/Rythra/blob/6c930d7e9f0c1ef34b406255dcc9686af3cb2be2/packages/core/src/Types.ts#L55)
 
 Player update request.
 
@@ -17,7 +17,7 @@ Player update request.
 
 > **guildId**: `string`
 
-Defined in: [packages/core/src/Types.ts:55](https://github.com/ekretos/Rythra/blob/af6fc848e5960dfe585224bf31c43fac8682cc38/packages/core/src/Types.ts#L55)
+Defined in: [packages/core/src/Types.ts:55](https://github.com/ekretos/Rythra/blob/6c930d7e9f0c1ef34b406255dcc9686af3cb2be2/packages/core/src/Types.ts#L55)
 
 ***
 
@@ -25,7 +25,7 @@ Defined in: [packages/core/src/Types.ts:55](https://github.com/ekretos/Rythra/bl
 
 > `optional` **noReplace?**: `boolean`
 
-Defined in: [packages/core/src/Types.ts:55](https://github.com/ekretos/Rythra/blob/af6fc848e5960dfe585224bf31c43fac8682cc38/packages/core/src/Types.ts#L55)
+Defined in: [packages/core/src/Types.ts:55](https://github.com/ekretos/Rythra/blob/6c930d7e9f0c1ef34b406255dcc9686af3cb2be2/packages/core/src/Types.ts#L55)
 
 ***
 
@@ -33,7 +33,7 @@ Defined in: [packages/core/src/Types.ts:55](https://github.com/ekretos/Rythra/bl
 
 > **playerOptions**: `object`
 
-Defined in: [packages/core/src/Types.ts:55](https://github.com/ekretos/Rythra/blob/af6fc848e5960dfe585224bf31c43fac8682cc38/packages/core/src/Types.ts#L55)
+Defined in: [packages/core/src/Types.ts:55](https://github.com/ekretos/Rythra/blob/6c930d7e9f0c1ef34b406255dcc9686af3cb2be2/packages/core/src/Types.ts#L55)
 
 #### filters?
 

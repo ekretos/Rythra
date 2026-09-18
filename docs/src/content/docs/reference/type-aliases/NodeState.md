@@ -9,6 +9,6 @@ description: API Reference for NodeState
 
 > **NodeState** = `"disconnected"` \| `"connecting"` \| `"ready"` \| `"degraded"` \| `"draining"`
 
-Defined in: [packages/core/src/node/NodeState.ts:2](https://github.com/ekretos/Rythra/blob/af6fc848e5960dfe585224bf31c43fac8682cc38/packages/core/src/node/NodeState.ts#L2)
+Defined in: [packages/core/src/node/NodeState.ts:2](https://github.com/ekretos/Rythra/blob/6c930d7e9f0c1ef34b406255dcc9686af3cb2be2/packages/core/src/node/NodeState.ts#L2)
 
 Lifecycle states of a Lavalink node runtime.

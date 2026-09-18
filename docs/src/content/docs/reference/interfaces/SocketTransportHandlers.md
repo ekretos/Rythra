@@ -7,7 +7,7 @@ description: API Reference for SocketTransportHandlers
 
 ***
 
-Defined in: [packages/core/src/transport/Transport.ts:18](https://github.com/ekretos/Rythra/blob/af6fc848e5960dfe585224bf31c43fac8682cc38/packages/core/src/transport/Transport.ts#L18)
+Defined in: [packages/core/src/transport/Transport.ts:18](https://github.com/ekretos/Rythra/blob/6c930d7e9f0c1ef34b406255dcc9686af3cb2be2/packages/core/src/transport/Transport.ts#L18)
 
 Callbacks a socket transport reports back to its owning node runtime.
 
@@ -17,7 +17,7 @@ Callbacks a socket transport reports back to its owning node runtime.
 
 > **onClose**(`openedBefore`): `void`
 
-Defined in: [packages/core/src/transport/Transport.ts:21](https://github.com/ekretos/Rythra/blob/af6fc848e5960dfe585224bf31c43fac8682cc38/packages/core/src/transport/Transport.ts#L21)
+Defined in: [packages/core/src/transport/Transport.ts:21](https://github.com/ekretos/Rythra/blob/6c930d7e9f0c1ef34b406255dcc9686af3cb2be2/packages/core/src/transport/Transport.ts#L21)
 
 Invoked once the socket closes, with `openedBefore` describing whether it ever opened.
 
@@ -37,7 +37,7 @@ Invoked once the socket closes, with `openedBefore` describing whether it ever o
 
 > **onError**(`error`): `void`
 
-Defined in: [packages/core/src/transport/Transport.ts:22](https://github.com/ekretos/Rythra/blob/af6fc848e5960dfe585224bf31c43fac8682cc38/packages/core/src/transport/Transport.ts#L22)
+Defined in: [packages/core/src/transport/Transport.ts:22](https://github.com/ekretos/Rythra/blob/6c930d7e9f0c1ef34b406255dcc9686af3cb2be2/packages/core/src/transport/Transport.ts#L22)
 
 Invoked for transport or decoding errors.
 
@@ -57,7 +57,7 @@ Invoked for transport or decoding errors.
 
 > **onMessage**(`message`): `void`
 
-Defined in: [packages/core/src/transport/Transport.ts:20](https://github.com/ekretos/Rythra/blob/af6fc848e5960dfe585224bf31c43fac8682cc38/packages/core/src/transport/Transport.ts#L20)
+Defined in: [packages/core/src/transport/Transport.ts:20](https://github.com/ekretos/Rythra/blob/6c930d7e9f0c1ef34b406255dcc9686af3cb2be2/packages/core/src/transport/Transport.ts#L20)
 
 Invoked for every decoded server message.
 
@@ -77,7 +77,7 @@ Invoked for every decoded server message.
 
 > **onOpen**(): `void`
 
-Defined in: [packages/core/src/transport/Transport.ts:19](https://github.com/ekretos/Rythra/blob/af6fc848e5960dfe585224bf31c43fac8682cc38/packages/core/src/transport/Transport.ts#L19)
+Defined in: [packages/core/src/transport/Transport.ts:19](https://github.com/ekretos/Rythra/blob/6c930d7e9f0c1ef34b406255dcc9686af3cb2be2/packages/core/src/transport/Transport.ts#L19)
 
 Invoked once the socket is open.
 

@@ -7,7 +7,7 @@ description: API Reference for TransportRequest
 
 ***
 
-Defined in: [packages/core/src/transport/Transport.ts:2](https://github.com/ekretos/Rythra/blob/af6fc848e5960dfe585224bf31c43fac8682cc38/packages/core/src/transport/Transport.ts#L2)
+Defined in: [packages/core/src/transport/Transport.ts:2](https://github.com/ekretos/Rythra/blob/6c930d7e9f0c1ef34b406255dcc9686af3cb2be2/packages/core/src/transport/Transport.ts#L2)
 
 Description of a single Lavalink REST request, independent of the HTTP client.
 
@@ -17,7 +17,7 @@ Description of a single Lavalink REST request, independent of the HTTP client.
 
 > `optional` **body?**: `unknown`
 
-Defined in: [packages/core/src/transport/Transport.ts:7](https://github.com/ekretos/Rythra/blob/af6fc848e5960dfe585224bf31c43fac8682cc38/packages/core/src/transport/Transport.ts#L7)
+Defined in: [packages/core/src/transport/Transport.ts:7](https://github.com/ekretos/Rythra/blob/6c930d7e9f0c1ef34b406255dcc9686af3cb2be2/packages/core/src/transport/Transport.ts#L7)
 
 JSON request body.
 
@@ -27,7 +27,7 @@ JSON request body.
 
 > `optional` **headers?**: `Record`\<`string`, `string`\>
 
-Defined in: [packages/core/src/transport/Transport.ts:6](https://github.com/ekretos/Rythra/blob/af6fc848e5960dfe585224bf31c43fac8682cc38/packages/core/src/transport/Transport.ts#L6)
+Defined in: [packages/core/src/transport/Transport.ts:6](https://github.com/ekretos/Rythra/blob/6c930d7e9f0c1ef34b406255dcc9686af3cb2be2/packages/core/src/transport/Transport.ts#L6)
 
 Request headers.
 
@@ -37,7 +37,7 @@ Request headers.
 
 > `optional` **method?**: `string`
 
-Defined in: [packages/core/src/transport/Transport.ts:4](https://github.com/ekretos/Rythra/blob/af6fc848e5960dfe585224bf31c43fac8682cc38/packages/core/src/transport/Transport.ts#L4)
+Defined in: [packages/core/src/transport/Transport.ts:4](https://github.com/ekretos/Rythra/blob/6c930d7e9f0c1ef34b406255dcc9686af3cb2be2/packages/core/src/transport/Transport.ts#L4)
 
 HTTP method, defaulting to `GET`.
 
@@ -47,7 +47,7 @@ HTTP method, defaulting to `GET`.
 
 > `optional` **params?**: `Record`\<`string`, `string`\>
 
-Defined in: [packages/core/src/transport/Transport.ts:5](https://github.com/ekretos/Rythra/blob/af6fc848e5960dfe585224bf31c43fac8682cc38/packages/core/src/transport/Transport.ts#L5)
+Defined in: [packages/core/src/transport/Transport.ts:5](https://github.com/ekretos/Rythra/blob/6c930d7e9f0c1ef34b406255dcc9686af3cb2be2/packages/core/src/transport/Transport.ts#L5)
 
 Query string parameters.
 
@@ -57,7 +57,7 @@ Query string parameters.
 
 > `optional` **timeout?**: `number`
 
-Defined in: [packages/core/src/transport/Transport.ts:8](https://github.com/ekretos/Rythra/blob/af6fc848e5960dfe585224bf31c43fac8682cc38/packages/core/src/transport/Transport.ts#L8)
+Defined in: [packages/core/src/transport/Transport.ts:8](https://github.com/ekretos/Rythra/blob/6c930d7e9f0c1ef34b406255dcc9686af3cb2be2/packages/core/src/transport/Transport.ts#L8)
 
 Request timeout in milliseconds.
 
@@ -67,6 +67,6 @@ Request timeout in milliseconds.
 
 > **url**: `string`
 
-Defined in: [packages/core/src/transport/Transport.ts:3](https://github.com/ekretos/Rythra/blob/af6fc848e5960dfe585224bf31c43fac8682cc38/packages/core/src/transport/Transport.ts#L3)
+Defined in: [packages/core/src/transport/Transport.ts:3](https://github.com/ekretos/Rythra/blob/6c930d7e9f0c1ef34b406255dcc9686af3cb2be2/packages/core/src/transport/Transport.ts#L3)
 
 Absolute request URL.

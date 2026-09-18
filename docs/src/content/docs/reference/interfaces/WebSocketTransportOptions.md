@@ -7,7 +7,7 @@ description: API Reference for WebSocketTransportOptions
 
 ***
 
-Defined in: [packages/core/src/transport/WebSocketTransport.ts:5](https://github.com/ekretos/Rythra/blob/af6fc848e5960dfe585224bf31c43fac8682cc38/packages/core/src/transport/WebSocketTransport.ts#L5)
+Defined in: [packages/core/src/transport/WebSocketTransport.ts:5](https://github.com/ekretos/Rythra/blob/6c930d7e9f0c1ef34b406255dcc9686af3cb2be2/packages/core/src/transport/WebSocketTransport.ts#L5)
 
 Connection details resolved lazily for every socket attempt.
 
@@ -17,7 +17,7 @@ Connection details resolved lazily for every socket attempt.
 
 > `optional` **rejectUnauthorized?**: `boolean`
 
-Defined in: [packages/core/src/transport/WebSocketTransport.ts:8](https://github.com/ekretos/Rythra/blob/af6fc848e5960dfe585224bf31c43fac8682cc38/packages/core/src/transport/WebSocketTransport.ts#L8)
+Defined in: [packages/core/src/transport/WebSocketTransport.ts:8](https://github.com/ekretos/Rythra/blob/6c930d7e9f0c1ef34b406255dcc9686af3cb2be2/packages/core/src/transport/WebSocketTransport.ts#L8)
 
 Whether TLS certificates must be validated.
 
@@ -27,7 +27,7 @@ Whether TLS certificates must be validated.
 
 > **headers**(): `Record`\<`string`, `string`\>
 
-Defined in: [packages/core/src/transport/WebSocketTransport.ts:7](https://github.com/ekretos/Rythra/blob/af6fc848e5960dfe585224bf31c43fac8682cc38/packages/core/src/transport/WebSocketTransport.ts#L7)
+Defined in: [packages/core/src/transport/WebSocketTransport.ts:7](https://github.com/ekretos/Rythra/blob/6c930d7e9f0c1ef34b406255dcc9686af3cb2be2/packages/core/src/transport/WebSocketTransport.ts#L7)
 
 Resolves the handshake headers for the next attempt.
 
@@ -41,7 +41,7 @@ Resolves the handshake headers for the next attempt.
 
 > **url**(): `string`
 
-Defined in: [packages/core/src/transport/WebSocketTransport.ts:6](https://github.com/ekretos/Rythra/blob/af6fc848e5960dfe585224bf31c43fac8682cc38/packages/core/src/transport/WebSocketTransport.ts#L6)
+Defined in: [packages/core/src/transport/WebSocketTransport.ts:6](https://github.com/ekretos/Rythra/blob/6c930d7e9f0c1ef34b406255dcc9686af3cb2be2/packages/core/src/transport/WebSocketTransport.ts#L6)
 
 Resolves the WebSocket URL for the next attempt.
 

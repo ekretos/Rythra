@@ -7,7 +7,7 @@ description: API Reference for PlayerRegistry
 
 ***
 
-Defined in: [packages/core/src/kernel/Registry.ts:29](https://github.com/ekretos/Rythra/blob/af6fc848e5960dfe585224bf31c43fac8682cc38/packages/core/src/kernel/Registry.ts#L29)
+Defined in: [packages/core/src/kernel/Registry.ts:29](https://github.com/ekretos/Rythra/blob/6c930d7e9f0c1ef34b406255dcc9686af3cb2be2/packages/core/src/kernel/Registry.ts#L29)
 
 Registry of guild players managed by a Rythra runtime.
 
@@ -179,7 +179,7 @@ Returns an iterable of key, value pairs for every entry in the map.
 
 > **filter**(`predicate`): [`RythraPlayer`](RythraPlayer.md)[]
 
-Defined in: [packages/core/src/kernel/Registry.ts:17](https://github.com/ekretos/Rythra/blob/af6fc848e5960dfe585224bf31c43fac8682cc38/packages/core/src/kernel/Registry.ts#L17)
+Defined in: [packages/core/src/kernel/Registry.ts:17](https://github.com/ekretos/Rythra/blob/6c930d7e9f0c1ef34b406255dcc9686af3cb2be2/packages/core/src/kernel/Registry.ts#L17)
 
 Returns the registered entries matching a predicate.
 
@@ -299,7 +299,7 @@ Returns an iterable of keys in the map
 
 > **list**(): [`RythraPlayer`](RythraPlayer.md)[]
 
-Defined in: [packages/core/src/kernel/Registry.ts:15](https://github.com/ekretos/Rythra/blob/af6fc848e5960dfe585224bf31c43fac8682cc38/packages/core/src/kernel/Registry.ts#L15)
+Defined in: [packages/core/src/kernel/Registry.ts:15](https://github.com/ekretos/Rythra/blob/6c930d7e9f0c1ef34b406255dcc9686af3cb2be2/packages/core/src/kernel/Registry.ts#L15)
 
 Returns every registered entry.
 
@@ -317,7 +317,7 @@ Returns every registered entry.
 
 > **playing**(): [`RythraPlayer`](RythraPlayer.md)[]
 
-Defined in: [packages/core/src/kernel/Registry.ts:31](https://github.com/ekretos/Rythra/blob/af6fc848e5960dfe585224bf31c43fac8682cc38/packages/core/src/kernel/Registry.ts#L31)
+Defined in: [packages/core/src/kernel/Registry.ts:31](https://github.com/ekretos/Rythra/blob/6c930d7e9f0c1ef34b406255dcc9686af3cb2be2/packages/core/src/kernel/Registry.ts#L31)
 
 Returns the players that currently have a track playing.
 

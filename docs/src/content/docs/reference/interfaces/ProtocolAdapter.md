@@ -7,7 +7,7 @@ description: API Reference for ProtocolAdapter
 
 ***
 
-Defined in: [packages/core/src/protocol/ProtocolAdapter.ts:34](https://github.com/ekretos/Rythra/blob/af6fc848e5960dfe585224bf31c43fac8682cc38/packages/core/src/protocol/ProtocolAdapter.ts#L34)
+Defined in: [packages/core/src/protocol/ProtocolAdapter.ts:34](https://github.com/ekretos/Rythra/blob/6c930d7e9f0c1ef34b406255dcc9686af3cb2be2/packages/core/src/protocol/ProtocolAdapter.ts#L34)
 
 Version boundary between Rythra core and the Lavalink wire protocol.
 
@@ -23,7 +23,7 @@ new generation means adding an adapter, not editing the node runtime.
 
 > `readonly` **apiPath**: `string`
 
-Defined in: [packages/core/src/protocol/ProtocolAdapter.ts:36](https://github.com/ekretos/Rythra/blob/af6fc848e5960dfe585224bf31c43fac8682cc38/packages/core/src/protocol/ProtocolAdapter.ts#L36)
+Defined in: [packages/core/src/protocol/ProtocolAdapter.ts:36](https://github.com/ekretos/Rythra/blob/6c930d7e9f0c1ef34b406255dcc9686af3cb2be2/packages/core/src/protocol/ProtocolAdapter.ts#L36)
 
 The HTTP/WebSocket path prefix for this generation.
 
@@ -33,7 +33,7 @@ The HTTP/WebSocket path prefix for this generation.
 
 > `readonly` **capabilities**: [`ProtocolCapabilities`](ProtocolCapabilities.md)
 
-Defined in: [packages/core/src/protocol/ProtocolAdapter.ts:37](https://github.com/ekretos/Rythra/blob/af6fc848e5960dfe585224bf31c43fac8682cc38/packages/core/src/protocol/ProtocolAdapter.ts#L37)
+Defined in: [packages/core/src/protocol/ProtocolAdapter.ts:37](https://github.com/ekretos/Rythra/blob/6c930d7e9f0c1ef34b406255dcc9686af3cb2be2/packages/core/src/protocol/ProtocolAdapter.ts#L37)
 
 Capabilities advertised by this generation.
 
@@ -43,7 +43,7 @@ Capabilities advertised by this generation.
 
 > `readonly` **version**: [`LavalinkApiVersion`](../type-aliases/LavalinkApiVersion.md)
 
-Defined in: [packages/core/src/protocol/ProtocolAdapter.ts:35](https://github.com/ekretos/Rythra/blob/af6fc848e5960dfe585224bf31c43fac8682cc38/packages/core/src/protocol/ProtocolAdapter.ts#L35)
+Defined in: [packages/core/src/protocol/ProtocolAdapter.ts:35](https://github.com/ekretos/Rythra/blob/6c930d7e9f0c1ef34b406255dcc9686af3cb2be2/packages/core/src/protocol/ProtocolAdapter.ts#L35)
 
 The Lavalink API generation implemented by this adapter.
 
@@ -53,7 +53,7 @@ The Lavalink API generation implemented by this adapter.
 
 > **decode**(`payload`): [`LavalinkServerMessage`](LavalinkServerMessage.md) \| `undefined`
 
-Defined in: [packages/core/src/protocol/ProtocolAdapter.ts:41](https://github.com/ekretos/Rythra/blob/af6fc848e5960dfe585224bf31c43fac8682cc38/packages/core/src/protocol/ProtocolAdapter.ts#L41)
+Defined in: [packages/core/src/protocol/ProtocolAdapter.ts:41](https://github.com/ekretos/Rythra/blob/6c930d7e9f0c1ef34b406255dcc9686af3cb2be2/packages/core/src/protocol/ProtocolAdapter.ts#L41)
 
 Normalizes a raw server payload into a decoded message.
 
@@ -73,7 +73,7 @@ Normalizes a raw server payload into a decoded message.
 
 > **handshakeHeaders**(`handshake`): `Record`\<`string`, `string`\>
 
-Defined in: [packages/core/src/protocol/ProtocolAdapter.ts:40](https://github.com/ekretos/Rythra/blob/af6fc848e5960dfe585224bf31c43fac8682cc38/packages/core/src/protocol/ProtocolAdapter.ts#L40)
+Defined in: [packages/core/src/protocol/ProtocolAdapter.ts:40](https://github.com/ekretos/Rythra/blob/6c930d7e9f0c1ef34b406255dcc9686af3cb2be2/packages/core/src/protocol/ProtocolAdapter.ts#L40)
 
 Builds the WebSocket handshake headers.
 
@@ -93,7 +93,7 @@ Builds the WebSocket handshake headers.
 
 > **restUrl**(`origin`): `string`
 
-Defined in: [packages/core/src/protocol/ProtocolAdapter.ts:38](https://github.com/ekretos/Rythra/blob/af6fc848e5960dfe585224bf31c43fac8682cc38/packages/core/src/protocol/ProtocolAdapter.ts#L38)
+Defined in: [packages/core/src/protocol/ProtocolAdapter.ts:38](https://github.com/ekretos/Rythra/blob/6c930d7e9f0c1ef34b406255dcc9686af3cb2be2/packages/core/src/protocol/ProtocolAdapter.ts#L38)
 
 Builds the REST base URL for an origin such as `https://localhost:2333`.
 
@@ -113,7 +113,7 @@ Builds the REST base URL for an origin such as `https://localhost:2333`.
 
 > **websocketUrl**(`origin`): `string`
 
-Defined in: [packages/core/src/protocol/ProtocolAdapter.ts:39](https://github.com/ekretos/Rythra/blob/af6fc848e5960dfe585224bf31c43fac8682cc38/packages/core/src/protocol/ProtocolAdapter.ts#L39)
+Defined in: [packages/core/src/protocol/ProtocolAdapter.ts:39](https://github.com/ekretos/Rythra/blob/6c930d7e9f0c1ef34b406255dcc9686af3cb2be2/packages/core/src/protocol/ProtocolAdapter.ts#L39)
 
 Builds the WebSocket URL for an origin such as `ws://localhost:2333`.
 

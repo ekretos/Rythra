@@ -7,7 +7,7 @@ description: API Reference for Versions
 
 ***
 
-Defined in: [packages/core/src/Types.ts:41](https://github.com/ekretos/Rythra/blob/af6fc848e5960dfe585224bf31c43fac8682cc38/packages/core/src/Types.ts#L41)
+Defined in: [packages/core/src/Types.ts:41](https://github.com/ekretos/Rythra/blob/6c930d7e9f0c1ef34b406255dcc9686af3cb2be2/packages/core/src/Types.ts#L41)
 
 Lavalink versions represented by Rythra.
 
@@ -17,4 +17,4 @@ Lavalink versions represented by Rythra.
 
 > **REST\_VERSION**: `4`
 
-Defined in: [packages/core/src/Types.ts:41](https://github.com/ekretos/Rythra/blob/af6fc848e5960dfe585224bf31c43fac8682cc38/packages/core/src/Types.ts#L41)
+Defined in: [packages/core/src/Types.ts:41](https://github.com/ekretos/Rythra/blob/6c930d7e9f0c1ef34b406255dcc9686af3cb2be2/packages/core/src/Types.ts#L41)

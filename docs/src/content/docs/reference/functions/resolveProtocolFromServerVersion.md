@@ -9,7 +9,7 @@ description: API Reference for resolveProtocolFromServerVersion
 
 > **resolveProtocolFromServerVersion**(`semver`): [`ProtocolAdapter`](../interfaces/ProtocolAdapter.md)
 
-Defined in: [packages/core/src/protocol/ProtocolAdapter.ts:78](https://github.com/ekretos/Rythra/blob/af6fc848e5960dfe585224bf31c43fac8682cc38/packages/core/src/protocol/ProtocolAdapter.ts#L78)
+Defined in: [packages/core/src/protocol/ProtocolAdapter.ts:78](https://github.com/ekretos/Rythra/blob/6c930d7e9f0c1ef34b406255dcc9686af3cb2be2/packages/core/src/protocol/ProtocolAdapter.ts#L78)
 
 Resolves the adapter implementing a Lavalink server semantic version.
 

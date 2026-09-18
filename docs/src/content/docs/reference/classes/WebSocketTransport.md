@@ -7,7 +7,7 @@ description: API Reference for WebSocketTransport
 
 ***
 
-Defined in: [packages/core/src/transport/WebSocketTransport.ts:12](https://github.com/ekretos/Rythra/blob/af6fc848e5960dfe585224bf31c43fac8682cc38/packages/core/src/transport/WebSocketTransport.ts#L12)
+Defined in: [packages/core/src/transport/WebSocketTransport.ts:12](https://github.com/ekretos/Rythra/blob/6c930d7e9f0c1ef34b406255dcc9686af3cb2be2/packages/core/src/transport/WebSocketTransport.ts#L12)
 
 Lavalink socket transport implemented with the `ws` client.
 
@@ -21,7 +21,7 @@ Lavalink socket transport implemented with the `ws` client.
 
 > **new WebSocketTransport**(`options`, `handlers`): `WebSocketTransport`
 
-Defined in: [packages/core/src/transport/WebSocketTransport.ts:19](https://github.com/ekretos/Rythra/blob/af6fc848e5960dfe585224bf31c43fac8682cc38/packages/core/src/transport/WebSocketTransport.ts#L19)
+Defined in: [packages/core/src/transport/WebSocketTransport.ts:19](https://github.com/ekretos/Rythra/blob/6c930d7e9f0c1ef34b406255dcc9686af3cb2be2/packages/core/src/transport/WebSocketTransport.ts#L19)
 
 Creates a socket transport.
 
@@ -45,7 +45,7 @@ Creates a socket transport.
 
 > **socket**: `WebSocket` \| `null` = `null`
 
-Defined in: [packages/core/src/transport/WebSocketTransport.ts:13](https://github.com/ekretos/Rythra/blob/af6fc848e5960dfe585224bf31c43fac8682cc38/packages/core/src/transport/WebSocketTransport.ts#L13)
+Defined in: [packages/core/src/transport/WebSocketTransport.ts:13](https://github.com/ekretos/Rythra/blob/6c930d7e9f0c1ef34b406255dcc9686af3cb2be2/packages/core/src/transport/WebSocketTransport.ts#L13)
 
 The active socket, or `null` when closed.
 
@@ -57,7 +57,7 @@ The active socket, or `null` when closed.
 
 > **get** **connected**(): `boolean`
 
-Defined in: [packages/core/src/transport/WebSocketTransport.ts:22](https://github.com/ekretos/Rythra/blob/af6fc848e5960dfe585224bf31c43fac8682cc38/packages/core/src/transport/WebSocketTransport.ts#L22)
+Defined in: [packages/core/src/transport/WebSocketTransport.ts:22](https://github.com/ekretos/Rythra/blob/6c930d7e9f0c1ef34b406255dcc9686af3cb2be2/packages/core/src/transport/WebSocketTransport.ts#L22)
 
 Whether the socket is currently open.
 
@@ -77,7 +77,7 @@ Whether the socket is currently open.
 
 > **connect**(): `Promise`\<`void`\>
 
-Defined in: [packages/core/src/transport/WebSocketTransport.ts:25](https://github.com/ekretos/Rythra/blob/af6fc848e5960dfe585224bf31c43fac8682cc38/packages/core/src/transport/WebSocketTransport.ts#L25)
+Defined in: [packages/core/src/transport/WebSocketTransport.ts:25](https://github.com/ekretos/Rythra/blob/6c930d7e9f0c1ef34b406255dcc9686af3cb2be2/packages/core/src/transport/WebSocketTransport.ts#L25)
 
 Opens the socket and resolves once Lavalink accepts the handshake.
 
@@ -95,7 +95,7 @@ Opens the socket and resolves once Lavalink accepts the handshake.
 
 > **disconnect**(): `void`
 
-Defined in: [packages/core/src/transport/WebSocketTransport.ts:59](https://github.com/ekretos/Rythra/blob/af6fc848e5960dfe585224bf31c43fac8682cc38/packages/core/src/transport/WebSocketTransport.ts#L59)
+Defined in: [packages/core/src/transport/WebSocketTransport.ts:59](https://github.com/ekretos/Rythra/blob/6c930d7e9f0c1ef34b406255dcc9686af3cb2be2/packages/core/src/transport/WebSocketTransport.ts#L59)
 
 Closes the socket without reconnecting.
 
@@ -113,7 +113,7 @@ Closes the socket without reconnecting.
 
 > **send**(`payload`): `void`
 
-Defined in: [packages/core/src/transport/WebSocketTransport.ts:67](https://github.com/ekretos/Rythra/blob/af6fc848e5960dfe585224bf31c43fac8682cc38/packages/core/src/transport/WebSocketTransport.ts#L67)
+Defined in: [packages/core/src/transport/WebSocketTransport.ts:67](https://github.com/ekretos/Rythra/blob/6c930d7e9f0c1ef34b406255dcc9686af3cb2be2/packages/core/src/transport/WebSocketTransport.ts#L67)
 
 Sends a payload over the socket.
 

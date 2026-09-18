@@ -7,7 +7,7 @@ description: API Reference for SocketTransport
 
 ***
 
-Defined in: [packages/core/src/transport/Transport.ts:26](https://github.com/ekretos/Rythra/blob/af6fc848e5960dfe585224bf31c43fac8682cc38/packages/core/src/transport/Transport.ts#L26)
+Defined in: [packages/core/src/transport/Transport.ts:26](https://github.com/ekretos/Rythra/blob/6c930d7e9f0c1ef34b406255dcc9686af3cb2be2/packages/core/src/transport/Transport.ts#L26)
 
 Bidirectional transport used by a node runtime to talk to Lavalink.
 
@@ -17,7 +17,7 @@ Bidirectional transport used by a node runtime to talk to Lavalink.
 
 > `readonly` **connected**: `boolean`
 
-Defined in: [packages/core/src/transport/Transport.ts:27](https://github.com/ekretos/Rythra/blob/af6fc848e5960dfe585224bf31c43fac8682cc38/packages/core/src/transport/Transport.ts#L27)
+Defined in: [packages/core/src/transport/Transport.ts:27](https://github.com/ekretos/Rythra/blob/6c930d7e9f0c1ef34b406255dcc9686af3cb2be2/packages/core/src/transport/Transport.ts#L27)
 
 Whether the socket is currently open.
 
@@ -27,7 +27,7 @@ Whether the socket is currently open.
 
 > **connect**(): `Promise`\<`void`\>
 
-Defined in: [packages/core/src/transport/Transport.ts:28](https://github.com/ekretos/Rythra/blob/af6fc848e5960dfe585224bf31c43fac8682cc38/packages/core/src/transport/Transport.ts#L28)
+Defined in: [packages/core/src/transport/Transport.ts:28](https://github.com/ekretos/Rythra/blob/6c930d7e9f0c1ef34b406255dcc9686af3cb2be2/packages/core/src/transport/Transport.ts#L28)
 
 Opens the socket and resolves once it is usable.
 
@@ -41,7 +41,7 @@ Opens the socket and resolves once it is usable.
 
 > **disconnect**(): `void`
 
-Defined in: [packages/core/src/transport/Transport.ts:29](https://github.com/ekretos/Rythra/blob/af6fc848e5960dfe585224bf31c43fac8682cc38/packages/core/src/transport/Transport.ts#L29)
+Defined in: [packages/core/src/transport/Transport.ts:29](https://github.com/ekretos/Rythra/blob/6c930d7e9f0c1ef34b406255dcc9686af3cb2be2/packages/core/src/transport/Transport.ts#L29)
 
 Closes the socket without reconnecting.
 
@@ -55,7 +55,7 @@ Closes the socket without reconnecting.
 
 > **send**(`payload`): `void`
 
-Defined in: [packages/core/src/transport/Transport.ts:30](https://github.com/ekretos/Rythra/blob/af6fc848e5960dfe585224bf31c43fac8682cc38/packages/core/src/transport/Transport.ts#L30)
+Defined in: [packages/core/src/transport/Transport.ts:30](https://github.com/ekretos/Rythra/blob/6c930d7e9f0c1ef34b406255dcc9686af3cb2be2/packages/core/src/transport/Transport.ts#L30)
 
 Sends a payload over the socket.
 

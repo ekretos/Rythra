@@ -170,12 +170,15 @@ rythra.on("nodeState", (node, state, previous) => {
 | Event | Arguments | Emitted when |
 | --- | --- | --- |
 | `nodeCreate` | `node` | A node is registered. |
+| `nodeConnect` | `node` | The WebSocket handshake was accepted. |
 | `nodeReady` | `node`, `payload` | Lavalink sent the `ready` opcode. |
 | `nodeVersion` | `node`, `apiVersion`, `serverVersion` | The Lavalink generation was detected. |
 | `nodeState` | `node`, `state`, `previous` | The node lifecycle state changed. |
 | `nodeDisconnect` | `node` | The node socket closed. |
 | `nodeReconnectFailed` | `node` | Reconnect attempts were exhausted. |
 | `nodeError` | `node`, `error` | The node reported a transport or decode error. |
+| `nodeStats` | `node`, `stats` | Lavalink sent a `stats` payload. |
+| `nodeEvent` | `node`, `event` | Lavalink sent a player event. |
 | `playerCreate` | `player` | A guild player was created. |
 | `playerDestroy` | `player` | A guild player was destroyed. |
 | `destroy` | – | The manager finished shutting down. |

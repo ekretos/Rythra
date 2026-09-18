@@ -7,7 +7,7 @@ description: API Reference for VoiceStateUpdate
 
 ***
 
-Defined in: [packages/core/src/Types.ts:66](https://github.com/ekretos/Rythra/blob/af6fc848e5960dfe585224bf31c43fac8682cc38/packages/core/src/Types.ts#L66)
+Defined in: [packages/core/src/Types.ts:66](https://github.com/ekretos/Rythra/blob/6c930d7e9f0c1ef34b406255dcc9686af3cb2be2/packages/core/src/Types.ts#L66)
 
 Discord voice state update.
 
@@ -17,7 +17,7 @@ Discord voice state update.
 
 > **channel\_id**: `string` \| `null`
 
-Defined in: [packages/core/src/Types.ts:66](https://github.com/ekretos/Rythra/blob/af6fc848e5960dfe585224bf31c43fac8682cc38/packages/core/src/Types.ts#L66)
+Defined in: [packages/core/src/Types.ts:66](https://github.com/ekretos/Rythra/blob/6c930d7e9f0c1ef34b406255dcc9686af3cb2be2/packages/core/src/Types.ts#L66)
 
 ***
 
@@ -25,7 +25,7 @@ Defined in: [packages/core/src/Types.ts:66](https://github.com/ekretos/Rythra/bl
 
 > **guild\_id**: `string`
 
-Defined in: [packages/core/src/Types.ts:66](https://github.com/ekretos/Rythra/blob/af6fc848e5960dfe585224bf31c43fac8682cc38/packages/core/src/Types.ts#L66)
+Defined in: [packages/core/src/Types.ts:66](https://github.com/ekretos/Rythra/blob/6c930d7e9f0c1ef34b406255dcc9686af3cb2be2/packages/core/src/Types.ts#L66)
 
 ***
 
@@ -33,4 +33,4 @@ Defined in: [packages/core/src/Types.ts:66](https://github.com/ekretos/Rythra/bl
 
 > **session\_id**: `string`
 
-Defined in: [packages/core/src/Types.ts:66](https://github.com/ekretos/Rythra/blob/af6fc848e5960dfe585224bf31c43fac8682cc38/packages/core/src/Types.ts#L66)
+Defined in: [packages/core/src/Types.ts:66](https://github.com/ekretos/Rythra/blob/6c930d7e9f0c1ef34b406255dcc9686af3cb2be2/packages/core/src/Types.ts#L66)

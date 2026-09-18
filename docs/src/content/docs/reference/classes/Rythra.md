@@ -7,15 +7,16 @@ description: API Reference for Rythra
 
 ***
 
-Defined in: [packages/core/src/Rythra.ts:29](https://github.com/ekretos/Rythra/blob/af6fc848e5960dfe585224bf31c43fac8682cc38/packages/core/src/Rythra.ts#L29)
+Defined in: [packages/core/src/Rythra.ts:30](https://github.com/ekretos/Rythra/blob/6c930d7e9f0c1ef34b406255dcc9686af3cb2be2/packages/core/src/Rythra.ts#L30)
 
-The main Rythra manager responsible for nodes, players and gateway events.
+The main Rythra runtime.
 
 ## Remarks
 
-The manager is intentionally framework-agnostic. Discord-specific gateway
-operations are delegated to the configured connector while Lavalink state
-remains owned by Rythra.
+Rythra is deliberately an orchestration layer: registries own runtime
+entities, Node owns node lifecycle, Player owns player state, transports own
+I/O, and protocol adapters own Lavalink-version details. The public manager
+API remains stable while those responsibilities stay isolated internally.
 
 ## Implements
 
@@ -35,9 +36,9 @@ IRythra
 
 > **new Rythra**(`options`): `Rythra`
 
-Defined in: [packages/core/src/Rythra.ts:55](https://github.com/ekretos/Rythra/blob/af6fc848e5960dfe585224bf31c43fac8682cc38/packages/core/src/Rythra.ts#L55)
+Defined in: [packages/core/src/Rythra.ts:64](https://github.com/ekretos/Rythra/blob/6c930d7e9f0c1ef34b406255dcc9686af3cb2be2/packages/core/src/Rythra.ts#L64)
 
-Creates a new Rythra manager.
+Creates a new Rythra runtime.
 
 #### Parameters
 
@@ -45,7 +46,7 @@ Creates a new Rythra manager.
 
 [`RythraOptions`](../interfaces/RythraOptions.md)
 
-Manager, connector and Lavalink node configuration.
+Runtime, connector and Lavalink node configuration.
 
 #### Returns
 
@@ -65,7 +66,7 @@ If the connector or node configuration is invalid.
 
 > `readonly` **healthMonitor**: [`Health`](Health.md)
 
-Defined in: [packages/core/src/Rythra.ts:45](https://github.com/ekretos/Rythra/blob/af6fc848e5960dfe585224bf31c43fac8682cc38/packages/core/src/Rythra.ts#L45)
+Defined in: [packages/core/src/Rythra.ts:53](https://github.com/ekretos/Rythra/blob/6c930d7e9f0c1ef34b406255dcc9686af3cb2be2/packages/core/src/Rythra.ts#L53)
 
 Local health collector for operational integrations.
 
@@ -75,9 +76,9 @@ Local health collector for operational integrations.
 
 > **migrations**: `number` = `0`
 
-Defined in: [packages/core/src/Rythra.ts:43](https://github.com/ekretos/Rythra/blob/af6fc848e5960dfe585224bf31c43fac8682cc38/packages/core/src/Rythra.ts#L43)
+Defined in: [packages/core/src/Rythra.ts:50](https://github.com/ekretos/Rythra/blob/6c930d7e9f0c1ef34b406255dcc9686af3cb2be2/packages/core/src/Rythra.ts#L50)
 
-Number of player migrations performed by this manager.
+Number of player migrations performed by this runtime.
 
 ***
 
@@ -85,7 +86,7 @@ Number of player migrations performed by this manager.
 
 > `readonly` **nodes**: [`NodeRegistry`](NodeRegistry.md)
 
-Defined in: [packages/core/src/Rythra.ts:31](https://github.com/ekretos/Rythra/blob/af6fc848e5960dfe585224bf31c43fac8682cc38/packages/core/src/Rythra.ts#L31)
+Defined in: [packages/core/src/Rythra.ts:32](https://github.com/ekretos/Rythra/blob/6c930d7e9f0c1ef34b406255dcc9686af3cb2be2/packages/core/src/Rythra.ts#L32)
 
 All Lavalink nodes currently managed by this instance.
 
@@ -95,9 +96,9 @@ All Lavalink nodes currently managed by this instance.
 
 > `readonly` **options**: [`RythraOptions`](../interfaces/RythraOptions.md)
 
-Defined in: [packages/core/src/Rythra.ts:35](https://github.com/ekretos/Rythra/blob/af6fc848e5960dfe585224bf31c43fac8682cc38/packages/core/src/Rythra.ts#L35)
+Defined in: [packages/core/src/Rythra.ts:38](https://github.com/ekretos/Rythra/blob/6c930d7e9f0c1ef34b406255dcc9686af3cb2be2/packages/core/src/Rythra.ts#L38)
 
-Configuration used to initialize the manager.
+Configuration used to initialize the runtime.
 
 ***
 
@@ -105,7 +106,7 @@ Configuration used to initialize the manager.
 
 > `readonly` **players**: [`PlayerRegistry`](PlayerRegistry.md)
 
-Defined in: [packages/core/src/Rythra.ts:33](https://github.com/ekretos/Rythra/blob/af6fc848e5960dfe585224bf31c43fac8682cc38/packages/core/src/Rythra.ts#L33)
+Defined in: [packages/core/src/Rythra.ts:35](https://github.com/ekretos/Rythra/blob/6c930d7e9f0c1ef34b406255dcc9686af3cb2be2/packages/core/src/Rythra.ts#L35)
 
 All guild players currently managed by this instance.
 
@@ -115,7 +116,7 @@ All guild players currently managed by this instance.
 
 > **reconnects**: `number` = `0`
 
-Defined in: [packages/core/src/Rythra.ts:41](https://github.com/ekretos/Rythra/blob/af6fc848e5960dfe585224bf31c43fac8682cc38/packages/core/src/Rythra.ts#L41)
+Defined in: [packages/core/src/Rythra.ts:47](https://github.com/ekretos/Rythra/blob/6c930d7e9f0c1ef34b406255dcc9686af3cb2be2/packages/core/src/Rythra.ts#L47)
 
 Number of reconnect attempts observed across managed nodes.
 
@@ -125,9 +126,9 @@ Number of reconnect attempts observed across managed nodes.
 
 > **shuttingDown**: `boolean` = `false`
 
-Defined in: [packages/core/src/Rythra.ts:47](https://github.com/ekretos/Rythra/blob/af6fc848e5960dfe585224bf31c43fac8682cc38/packages/core/src/Rythra.ts#L47)
+Defined in: [packages/core/src/Rythra.ts:56](https://github.com/ekretos/Rythra/blob/6c930d7e9f0c1ef34b406255dcc9686af3cb2be2/packages/core/src/Rythra.ts#L56)
 
-Whether the manager has begun shutting down.
+Whether the runtime has begun shutting down.
 
 ***
 
@@ -135,9 +136,9 @@ Whether the manager has begun shutting down.
 
 > `readonly` **startedAt**: `number`
 
-Defined in: [packages/core/src/Rythra.ts:39](https://github.com/ekretos/Rythra/blob/af6fc848e5960dfe585224bf31c43fac8682cc38/packages/core/src/Rythra.ts#L39)
+Defined in: [packages/core/src/Rythra.ts:44](https://github.com/ekretos/Rythra/blob/6c930d7e9f0c1ef34b406255dcc9686af3cb2be2/packages/core/src/Rythra.ts#L44)
 
-Timestamp at which this manager was created.
+Timestamp at which this runtime was created.
 
 ***
 
@@ -145,7 +146,7 @@ Timestamp at which this manager was created.
 
 > `readonly` **version**: `string`
 
-Defined in: [packages/core/src/Rythra.ts:37](https://github.com/ekretos/Rythra/blob/af6fc848e5960dfe585224bf31c43fac8682cc38/packages/core/src/Rythra.ts#L37)
+Defined in: [packages/core/src/Rythra.ts:41](https://github.com/ekretos/Rythra/blob/6c930d7e9f0c1ef34b406255dcc9686af3cb2be2/packages/core/src/Rythra.ts#L41)
 
 The version string reported as the Rythra client name.
 
@@ -252,7 +253,7 @@ v0.1.26
 
 > **connect**(): `Promise`\<`void`\>
 
-Defined in: [packages/core/src/Rythra.ts:180](https://github.com/ekretos/Rythra/blob/af6fc848e5960dfe585224bf31c43fac8682cc38/packages/core/src/Rythra.ts#L180)
+Defined in: [packages/core/src/Rythra.ts:336](https://github.com/ekretos/Rythra/blob/6c930d7e9f0c1ef34b406255dcc9686af3cb2be2/packages/core/src/Rythra.ts#L336)
 
 Connects all configured Lavalink nodes concurrently.
 
@@ -266,9 +267,9 @@ Connects all configured Lavalink nodes concurrently.
 
 > **createNode**(`options`): [`Node`](Node.md)
 
-Defined in: [packages/core/src/Rythra.ts:80](https://github.com/ekretos/Rythra/blob/af6fc848e5960dfe585224bf31c43fac8682cc38/packages/core/src/Rythra.ts#L80)
+Defined in: [packages/core/src/Rythra.ts:133](https://github.com/ekretos/Rythra/blob/6c930d7e9f0c1ef34b406255dcc9686af3cb2be2/packages/core/src/Rythra.ts#L133)
 
-Creates and registers a Lavalink node.
+Registers a node with the runtime.
 
 #### Parameters
 
@@ -280,15 +281,20 @@ Creates and registers a Lavalink node.
 
 [`Node`](Node.md)
 
+#### Remarks
+
+Event forwarding is centralized here so Node remains independent from
+manager-level lifecycle semantics.
+
 ***
 
 ### createPlayer()
 
 > **createPlayer**(`options`): [`RythraPlayer`](RythraPlayer.md)
 
-Defined in: [packages/core/src/Rythra.ts:110](https://github.com/ekretos/Rythra/blob/af6fc848e5960dfe585224bf31c43fac8682cc38/packages/core/src/Rythra.ts#L110)
+Defined in: [packages/core/src/Rythra.ts:201](https://github.com/ekretos/Rythra/blob/6c930d7e9f0c1ef34b406255dcc9686af3cb2be2/packages/core/src/Rythra.ts#L201)
 
-Gets an existing guild player or creates one on the best available node.
+Gets an existing guild player or creates one on a ready node.
 
 #### Parameters
 
@@ -306,7 +312,7 @@ Gets an existing guild player or creates one on the best available node.
 
 > **destroy**(`timeout?`): `Promise`\<`void`\>
 
-Defined in: [packages/core/src/Rythra.ts:166](https://github.com/ekretos/Rythra/blob/af6fc848e5960dfe585224bf31c43fac8682cc38/packages/core/src/Rythra.ts#L166)
+Defined in: [packages/core/src/Rythra.ts:308](https://github.com/ekretos/Rythra/blob/6c930d7e9f0c1ef34b406255dcc9686af3cb2be2/packages/core/src/Rythra.ts#L308)
 
 Gracefully shuts down Rythra and all managed Lavalink nodes.
 
@@ -326,9 +332,9 @@ Gracefully shuts down Rythra and all managed Lavalink nodes.
 
 > **destroyPlayer**(`guild`): `Promise`\<`void`\>
 
-Defined in: [packages/core/src/Rythra.ts:124](https://github.com/ekretos/Rythra/blob/af6fc848e5960dfe585224bf31c43fac8682cc38/packages/core/src/Rythra.ts#L124)
+Defined in: [packages/core/src/Rythra.ts:223](https://github.com/ekretos/Rythra/blob/6c930d7e9f0c1ef34b406255dcc9686af3cb2be2/packages/core/src/Rythra.ts#L223)
 
-Destroys a guild player and removes it from the manager.
+Destroys a guild player and removes it from the runtime.
 
 #### Parameters
 
@@ -458,13 +464,19 @@ v6.0.0
 
 > **getBestNode**(): [`Node`](Node.md) \| `undefined`
 
-Defined in: [packages/core/src/Rythra.ts:97](https://github.com/ekretos/Rythra/blob/af6fc848e5960dfe585224bf31c43fac8682cc38/packages/core/src/Rythra.ts#L97)
+Defined in: [packages/core/src/Rythra.ts:179](https://github.com/ekretos/Rythra/blob/6c930d7e9f0c1ef34b406255dcc9686af3cb2be2/packages/core/src/Rythra.ts#L179)
 
-Selects the healthiest available node using connection state and player load.
+Selects the least-loaded ready node.
 
 #### Returns
 
 [`Node`](Node.md) \| `undefined`
+
+#### Remarks
+
+Selection is intentionally kept as a small default policy. A dedicated
+node-selection policy can replace this later without changing the public
+player API.
 
 ***
 
@@ -496,9 +508,9 @@ v1.0.0
 
 > **health**(): [`HealthSnapshot`](../interfaces/HealthSnapshot.md)
 
-Defined in: [packages/core/src/Rythra.ts:163](https://github.com/ekretos/Rythra/blob/af6fc848e5960dfe585224bf31c43fac8682cc38/packages/core/src/Rythra.ts#L163)
+Defined in: [packages/core/src/Rythra.ts:303](https://github.com/ekretos/Rythra/blob/6c930d7e9f0c1ef34b406255dcc9686af3cb2be2/packages/core/src/Rythra.ts#L303)
 
-Returns the current local health snapshot without performing network I/O.
+Returns the current local health snapshot without network I/O.
 
 #### Returns
 
@@ -1099,7 +1111,7 @@ v0.1.26
 
 > **search**(`query`, `_requester`, `source?`): `Promise`\<[`SearchResponse`](../type-aliases/SearchResponse.md)\>
 
-Defined in: [packages/core/src/Rythra.ts:133](https://github.com/ekretos/Rythra/blob/af6fc848e5960dfe585224bf31c43fac8682cc38/packages/core/src/Rythra.ts#L133)
+Defined in: [packages/core/src/Rythra.ts:233](https://github.com/ekretos/Rythra/blob/6c930d7e9f0c1ef34b406255dcc9686af3cb2be2/packages/core/src/Rythra.ts#L233)
 
 Searches Lavalink for a track, playlist or search result.
 
@@ -1161,7 +1173,7 @@ v0.3.5
 
 > **voiceServerUpdate**(`data`): `Promise`\<`void`\>
 
-Defined in: [packages/core/src/Rythra.ts:155](https://github.com/ekretos/Rythra/blob/af6fc848e5960dfe585224bf31c43fac8682cc38/packages/core/src/Rythra.ts#L155)
+Defined in: [packages/core/src/Rythra.ts:279](https://github.com/ekretos/Rythra/blob/6c930d7e9f0c1ef34b406255dcc9686af3cb2be2/packages/core/src/Rythra.ts#L279)
 
 Forwards a Discord voice server update to Lavalink.
 
@@ -1181,7 +1193,7 @@ Forwards a Discord voice server update to Lavalink.
 
 > **voiceStateUpdate**(`data`): `void`
 
-Defined in: [packages/core/src/Rythra.ts:148](https://github.com/ekretos/Rythra/blob/af6fc848e5960dfe585224bf31c43fac8682cc38/packages/core/src/Rythra.ts#L148)
+Defined in: [packages/core/src/Rythra.ts:269](https://github.com/ekretos/Rythra/blob/6c930d7e9f0c1ef34b406255dcc9686af3cb2be2/packages/core/src/Rythra.ts#L269)
 
 Updates the stored Discord voice state for a guild player.
 
