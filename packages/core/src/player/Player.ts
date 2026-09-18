@@ -1,7 +1,7 @@
 import { EventEmitter } from 'node:events';
-import { Node } from './Node';
-import { Queue } from './Queue';
-import type { PlayerOptions, Track, VoiceStateUpdate } from './Types';
+import { Node } from '../node/Node';
+import { Queue } from '../Queue';
+import type { PlayerOptions, Track, VoiceStateUpdate } from '../Types';
 
 interface TrackEventPayload {
     track?: Track | null;

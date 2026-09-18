@@ -1,6 +1,6 @@
 /** Public configuration and data types used throughout Rythra. */
 import { Connector } from './Connector';
-import type { Node } from './Node';
+import type { Node } from './node/Node';
 import type { LavalinkApiVersionMode } from './protocol/LavalinkProtocol';
 
 /** Configuration used to create a Rythra manager. */
