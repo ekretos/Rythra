@@ -7,7 +7,7 @@ description: API Reference for LowPass
 
 ***
 
-Defined in: [packages/core/src/Types.ts:51](https://github.com/ekretos/Rythra/blob/6f3cdb5f756fe86d62209c0aacb9051c0a349611/packages/core/src/Types.ts#L51)
+Defined in: [packages/core/src/Types.ts:51](https://github.com/ekretos/Rythra/blob/6c930d7e9f0c1ef34b406255dcc9686af3cb2be2/packages/core/src/Types.ts#L51)
 
 Low-pass filter.
 
@@ -17,4 +17,4 @@ Low-pass filter.
 
 > `optional` **smoothing?**: `number`
 
-Defined in: [packages/core/src/Types.ts:51](https://github.com/ekretos/Rythra/blob/6f3cdb5f756fe86d62209c0aacb9051c0a349611/packages/core/src/Types.ts#L51)
+Defined in: [packages/core/src/Types.ts:51](https://github.com/ekretos/Rythra/blob/6c930d7e9f0c1ef34b406255dcc9686af3cb2be2/packages/core/src/Types.ts#L51)

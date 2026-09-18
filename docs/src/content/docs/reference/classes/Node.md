@@ -7,15 +7,15 @@ description: API Reference for Node
 
 ***
 
-Defined in: [packages/core/src/Node.ts:19](https://github.com/ekretos/Rythra/blob/6f3cdb5f756fe86d62209c0aacb9051c0a349611/packages/core/src/Node.ts#L19)
+Defined in: [packages/core/src/node/Node.ts:22](https://github.com/ekretos/Rythra/blob/6c930d7e9f0c1ef34b406255dcc9686af3cb2be2/packages/core/src/node/Node.ts#L22)
 
-Represents a single Lavalink node connection managed by Rythra.
+Runtime for a single Lavalink node.
 
 ## Remarks
 
-A node owns both the Lavalink REST client and WebSocket connection. It is
-also responsible for API-version detection, session resumption, bounded
-exponential reconnects and circuit-breaking repeated failures.
+The runtime owns node state, statistics and reconnect policy. Wire concerns
+are delegated: the socket lives in a [WebSocketTransport](WebSocketTransport.md) and every
+version-specific detail lives behind a [ProtocolAdapter](../interfaces/ProtocolAdapter.md).
 
 ## Extends
 
@@ -27,7 +27,7 @@ exponential reconnects and circuit-breaking repeated failures.
 
 > **new Node**(`manager`, `options`): `Node`
 
-Defined in: [packages/core/src/Node.ts:36](https://github.com/ekretos/Rythra/blob/6f3cdb5f756fe86d62209c0aacb9051c0a349611/packages/core/src/Node.ts#L36)
+Defined in: [packages/core/src/node/Node.ts:38](https://github.com/ekretos/Rythra/blob/6c930d7e9f0c1ef34b406255dcc9686af3cb2be2/packages/core/src/node/Node.ts#L38)
 
 Creates a Lavalink node.
 
@@ -55,7 +55,7 @@ Creates a Lavalink node.
 
 > **apiVersion**: [`LavalinkApiVersion`](../type-aliases/LavalinkApiVersion.md) \| `null` = `null`
 
-Defined in: [packages/core/src/Node.ts:28](https://github.com/ekretos/Rythra/blob/6f3cdb5f756fe86d62209c0aacb9051c0a349611/packages/core/src/Node.ts#L28)
+Defined in: [packages/core/src/node/Node.ts:29](https://github.com/ekretos/Rythra/blob/6c930d7e9f0c1ef34b406255dcc9686af3cb2be2/packages/core/src/node/Node.ts#L29)
 
 The Lavalink API generation selected for this node.
 
@@ -65,19 +65,9 @@ The Lavalink API generation selected for this node.
 
 > `readonly` **circuit**: [`CircuitBreaker`](CircuitBreaker.md)
 
-Defined in: [packages/core/src/Node.ts:23](https://github.com/ekretos/Rythra/blob/6f3cdb5f756fe86d62209c0aacb9051c0a349611/packages/core/src/Node.ts#L23)
+Defined in: [packages/core/src/node/Node.ts:26](https://github.com/ekretos/Rythra/blob/6c930d7e9f0c1ef34b406255dcc9686af3cb2be2/packages/core/src/node/Node.ts#L26)
 
 Circuit breaker protecting this node from repeated connection attempts.
-
-***
-
-### connected
-
-> **connected**: `boolean` = `false`
-
-Defined in: [packages/core/src/Node.ts:27](https://github.com/ekretos/Rythra/blob/6f3cdb5f756fe86d62209c0aacb9051c0a349611/packages/core/src/Node.ts#L27)
-
-Whether the node currently has an open WebSocket connection.
 
 ***
 
@@ -85,7 +75,7 @@ Whether the node currently has an open WebSocket connection.
 
 > `readonly` **manager**: [`Rythra`](Rythra.md)
 
-Defined in: [packages/core/src/Node.ts:20](https://github.com/ekretos/Rythra/blob/6f3cdb5f756fe86d62209c0aacb9051c0a349611/packages/core/src/Node.ts#L20)
+Defined in: [packages/core/src/node/Node.ts:23](https://github.com/ekretos/Rythra/blob/6c930d7e9f0c1ef34b406255dcc9686af3cb2be2/packages/core/src/node/Node.ts#L23)
 
 The Rythra manager that owns this node.
 
@@ -95,9 +85,19 @@ The Rythra manager that owns this node.
 
 > `readonly` **options**: [`NodeOptions`](../interfaces/NodeOptions.md)
 
-Defined in: [packages/core/src/Node.ts:21](https://github.com/ekretos/Rythra/blob/6f3cdb5f756fe86d62209c0aacb9051c0a349611/packages/core/src/Node.ts#L21)
+Defined in: [packages/core/src/node/Node.ts:24](https://github.com/ekretos/Rythra/blob/6c930d7e9f0c1ef34b406255dcc9686af3cb2be2/packages/core/src/node/Node.ts#L24)
 
 The configuration used to connect to Lavalink.
+
+***
+
+### protocol
+
+> **protocol**: [`ProtocolAdapter`](../interfaces/ProtocolAdapter.md) \| `null` = `null`
+
+Defined in: [packages/core/src/node/Node.ts:30](https://github.com/ekretos/Rythra/blob/6c930d7e9f0c1ef34b406255dcc9686af3cb2be2/packages/core/src/node/Node.ts#L30)
+
+The protocol adapter selected for this node, or `null` until detection completes.
 
 ***
 
@@ -105,7 +105,7 @@ The configuration used to connect to Lavalink.
 
 > `readonly` **rest**: [`Rest`](Rest.md)
 
-Defined in: [packages/core/src/Node.ts:22](https://github.com/ekretos/Rythra/blob/6f3cdb5f756fe86d62209c0aacb9051c0a349611/packages/core/src/Node.ts#L22)
+Defined in: [packages/core/src/node/Node.ts:25](https://github.com/ekretos/Rythra/blob/6c930d7e9f0c1ef34b406255dcc9686af3cb2be2/packages/core/src/node/Node.ts#L25)
 
 The version-aware REST client for this node.
 
@@ -115,7 +115,7 @@ The version-aware REST client for this node.
 
 > **sessionId**: `string` \| `null` = `null`
 
-Defined in: [packages/core/src/Node.ts:26](https://github.com/ekretos/Rythra/blob/6f3cdb5f756fe86d62209c0aacb9051c0a349611/packages/core/src/Node.ts#L26)
+Defined in: [packages/core/src/node/Node.ts:28](https://github.com/ekretos/Rythra/blob/6c930d7e9f0c1ef34b406255dcc9686af3cb2be2/packages/core/src/node/Node.ts#L28)
 
 The Lavalink session ID used for session resumption.
 
@@ -125,21 +125,43 @@ The Lavalink session ID used for session resumption.
 
 > **stats**: [`Stats`](../interfaces/Stats.md)
 
-Defined in: [packages/core/src/Node.ts:25](https://github.com/ekretos/Rythra/blob/6f3cdb5f756fe86d62209c0aacb9051c0a349611/packages/core/src/Node.ts#L25)
+Defined in: [packages/core/src/node/Node.ts:27](https://github.com/ekretos/Rythra/blob/6c930d7e9f0c1ef34b406255dcc9686af3cb2be2/packages/core/src/node/Node.ts#L27)
 
 The most recently received Lavalink statistics payload.
 
+## Accessors
+
+### connected
+
+#### Get Signature
+
+> **get** **connected**(): `boolean`
+
+Defined in: [packages/core/src/node/Node.ts:52](https://github.com/ekretos/Rythra/blob/6c930d7e9f0c1ef34b406255dcc9686af3cb2be2/packages/core/src/node/Node.ts#L52)
+
+Whether the node currently has an open WebSocket connection.
+
+##### Returns
+
+`boolean`
+
 ***
 
-### ws
+### label
 
-> **ws**: `WebSocket` \| `null` = `null`
+#### Get Signature
 
-Defined in: [packages/core/src/Node.ts:24](https://github.com/ekretos/Rythra/blob/6f3cdb5f756fe86d62209c0aacb9051c0a349611/packages/core/src/Node.ts#L24)
+> **get** **label**(): `string`
 
-The active Lavalink WebSocket, or `null` when disconnected.
+Defined in: [packages/core/src/node/Node.ts:58](https://github.com/ekretos/Rythra/blob/6c930d7e9f0c1ef34b406255dcc9686af3cb2be2/packages/core/src/node/Node.ts#L58)
 
-## Accessors
+Human-readable identifier used in logs and errors.
+
+##### Returns
+
+`string`
+
+***
 
 ### restUrl
 
@@ -147,13 +169,45 @@ The active Lavalink WebSocket, or `null` when disconnected.
 
 > **get** **restUrl**(): `string`
 
-Defined in: [packages/core/src/Node.ts:45](https://github.com/ekretos/Rythra/blob/6f3cdb5f756fe86d62209c0aacb9051c0a349611/packages/core/src/Node.ts#L45)
+Defined in: [packages/core/src/node/Node.ts:70](https://github.com/ekretos/Rythra/blob/6c930d7e9f0c1ef34b406255dcc9686af3cb2be2/packages/core/src/node/Node.ts#L70)
 
-Gets the base REST API URL for the selected Lavalink generation.
+The version-aware base URL used for REST requests.
 
 ##### Returns
 
 `string`
+
+***
+
+### state
+
+#### Get Signature
+
+> **get** **state**(): [`NodeState`](../type-aliases/NodeState.md)
+
+Defined in: [packages/core/src/node/Node.ts:49](https://github.com/ekretos/Rythra/blob/6c930d7e9f0c1ef34b406255dcc9686af3cb2be2/packages/core/src/node/Node.ts#L49)
+
+The current lifecycle state of this node.
+
+##### Returns
+
+[`NodeState`](../type-aliases/NodeState.md)
+
+***
+
+### ws
+
+#### Get Signature
+
+> **get** **ws**(): `WebSocket` \| `null`
+
+Defined in: [packages/core/src/node/Node.ts:55](https://github.com/ekretos/Rythra/blob/6c930d7e9f0c1ef34b406255dcc9686af3cb2be2/packages/core/src/node/Node.ts#L55)
+
+The active Lavalink WebSocket, or `null` when disconnected.
+
+##### Returns
+
+`WebSocket` \| `null`
 
 ## Methods
 
@@ -161,7 +215,7 @@ Gets the base REST API URL for the selected Lavalink generation.
 
 > `optional` **\[captureRejectionSymbol\]**(`error`, `event`, ...`args`): `void`
 
-Defined in: node\_modules/@types/node/events.d.ts:87
+Defined in: node\_modules/.bun/@types+node@26.6.1/node\_modules/@types/node/events.d.ts:87
 
 The `Symbol.for('nodejs.rejection')` method is called in case a
 promise rejection happens when emitting an event and
@@ -220,7 +274,7 @@ v13.4.0, v12.16.0
 
 > **addListener**\<`E`\>(`eventName`, `listener`): `this`
 
-Defined in: node\_modules/@types/node/events.d.ts:92
+Defined in: node\_modules/.bun/@types+node@26.6.1/node\_modules/@types/node/events.d.ts:92
 
 Alias for `emitter.on(eventName, listener)`.
 
@@ -258,18 +312,13 @@ v0.1.26
 
 > **connect**(): `Promise`\<`void`\>
 
-Defined in: [packages/core/src/Node.ts:77](https://github.com/ekretos/Rythra/blob/6f3cdb5f756fe86d62209c0aacb9051c0a349611/packages/core/src/Node.ts#L77)
+Defined in: [packages/core/src/node/Node.ts:84](https://github.com/ekretos/Rythra/blob/6c930d7e9f0c1ef34b406255dcc9686af3cb2be2/packages/core/src/node/Node.ts#L84)
 
-Opens a Lavalink WebSocket and resolves only after Lavalink confirms the
-connection. Automatic reconnects remain enabled after a failed attempt.
+Connects the node, resolving once Lavalink accepts the WebSocket handshake.
 
 #### Returns
 
 `Promise`\<`void`\>
-
-#### Throws
-
-When the initial connection cannot be established.
 
 ***
 
@@ -277,9 +326,9 @@ When the initial connection cannot be established.
 
 > **disconnect**(): `void`
 
-Defined in: [packages/core/src/Node.ts:167](https://github.com/ekretos/Rythra/blob/6f3cdb5f756fe86d62209c0aacb9051c0a349611/packages/core/src/Node.ts#L167)
+Defined in: [packages/core/src/node/Node.ts:195](https://github.com/ekretos/Rythra/blob/6c930d7e9f0c1ef34b406255dcc9686af3cb2be2/packages/core/src/node/Node.ts#L195)
 
-Permanently closes the current connection and disables automatic reconnects.
+Disconnects the node and cancels any pending reconnect.
 
 #### Returns
 
@@ -291,7 +340,7 @@ Permanently closes the current connection and disables automatic reconnects.
 
 > **emit**\<`E`\>(`eventName`, ...`args`): `boolean`
 
-Defined in: node\_modules/@types/node/events.d.ts:134
+Defined in: node\_modules/.bun/@types+node@26.6.1/node\_modules/@types/node/events.d.ts:134
 
 Synchronously calls each of the listeners registered for the event named
 `eventName`, in the order they were registered, passing the supplied arguments
@@ -366,7 +415,7 @@ v0.1.26
 
 > **eventNames**(): (`string` \| `symbol`)[]
 
-Defined in: node\_modules/@types/node/events.d.ts:154
+Defined in: node\_modules/.bun/@types+node@26.6.1/node\_modules/@types/node/events.d.ts:154
 
 Returns an array listing the events for which the emitter has registered
 listeners.
@@ -403,7 +452,7 @@ v6.0.0
 
 > **getMaxListeners**(): `number`
 
-Defined in: node\_modules/@types/node/events.d.ts:161
+Defined in: node\_modules/.bun/@types+node@26.6.1/node\_modules/@types/node/events.d.ts:161
 
 Returns the current max listener value for the `EventEmitter` which is either
 set by `emitter.setMaxListeners(n)` or defaults to
@@ -427,7 +476,7 @@ v1.0.0
 
 > **listenerCount**\<`E`\>(`eventName`, `listener?`): `number`
 
-Defined in: node\_modules/@types/node/events.d.ts:170
+Defined in: node\_modules/.bun/@types+node@26.6.1/node\_modules/@types/node/events.d.ts:170
 
 Returns the number of listeners listening for the event named `eventName`.
 If `listener` is provided, it will return how many times the listener is found
@@ -471,7 +520,7 @@ v3.2.0
 
 > **listeners**\<`E`\>(`eventName`): (...`args`) => `void`[]
 
-Defined in: node\_modules/@types/node/events.d.ts:186
+Defined in: node\_modules/.bun/@types+node@26.6.1/node\_modules/@types/node/events.d.ts:186
 
 Returns a copy of the array of listeners for the event named `eventName`.
 
@@ -513,7 +562,7 @@ v0.1.26
 
 > **off**\<`E`\>(`eventName`, `listener`): `this`
 
-Defined in: node\_modules/@types/node/events.d.ts:191
+Defined in: node\_modules/.bun/@types+node@26.6.1/node\_modules/@types/node/events.d.ts:191
 
 Alias for `emitter.removeListener()`.
 
@@ -551,7 +600,7 @@ v10.0.0
 
 > **on**\<`E`\>(`eventName`, `listener`): `this`
 
-Defined in: node\_modules/@types/node/events.d.ts:225
+Defined in: node\_modules/.bun/@types+node@26.6.1/node\_modules/@types/node/events.d.ts:225
 
 Adds the `listener` function to the end of the listeners array for the
 event named `eventName`. No checks are made to see if the `listener` has
@@ -620,7 +669,7 @@ v0.1.101
 
 > **once**\<`E`\>(`eventName`, `listener`): `this`
 
-Defined in: node\_modules/@types/node/events.d.ts:256
+Defined in: node\_modules/.bun/@types+node@26.6.1/node\_modules/@types/node/events.d.ts:256
 
 Adds a **one-time** `listener` function for the event named `eventName`. The
 next time `eventName` is triggered, this listener is removed and then invoked.
@@ -686,7 +735,7 @@ v0.3.0
 
 > **prependListener**\<`E`\>(`eventName`, `listener`): `this`
 
-Defined in: node\_modules/@types/node/events.d.ts:275
+Defined in: node\_modules/.bun/@types+node@26.6.1/node\_modules/@types/node/events.d.ts:275
 
 Adds the `listener` function to the _beginning_ of the listeners array for the
 event named `eventName`. No checks are made to see if the `listener` has
@@ -740,7 +789,7 @@ v6.0.0
 
 > **prependOnceListener**\<`E`\>(`eventName`, `listener`): `this`
 
-Defined in: node\_modules/@types/node/events.d.ts:292
+Defined in: node\_modules/.bun/@types+node@26.6.1/node\_modules/@types/node/events.d.ts:292
 
 Adds a **one-time** `listener` function for the event named `eventName` to the
 _beginning_ of the listeners array. The next time `eventName` is triggered, this
@@ -792,7 +841,7 @@ v6.0.0
 
 > **rawListeners**\<`E`\>(`eventName`): (...`args`) => `void`[]
 
-Defined in: node\_modules/@types/node/events.d.ts:326
+Defined in: node\_modules/.bun/@types+node@26.6.1/node\_modules/@types/node/events.d.ts:326
 
 Returns a copy of the array of listeners for the event named `eventName`,
 including any wrappers (such as those created by `.once()`).
@@ -852,7 +901,7 @@ v9.4.0
 
 > **removeAllListeners**\<`E`\>(`eventName?`): `this`
 
-Defined in: node\_modules/@types/node/events.d.ts:338
+Defined in: node\_modules/.bun/@types+node@26.6.1/node\_modules/@types/node/events.d.ts:338
 
 Removes all listeners, or those of the specified `eventName`.
 
@@ -892,7 +941,7 @@ v0.1.26
 
 > **removeListener**\<`E`\>(`eventName`, `listener`): `this`
 
-Defined in: node\_modules/@types/node/events.d.ts:425
+Defined in: node\_modules/.bun/@types+node@26.6.1/node\_modules/@types/node/events.d.ts:425
 
 Removes the specified `listener` from the listener array for the event named
 `eventName`.
@@ -1012,7 +1061,7 @@ v0.1.26
 
 > **setMaxListeners**(`n`): `this`
 
-Defined in: node\_modules/@types/node/events.d.ts:436
+Defined in: node\_modules/.bun/@types+node@26.6.1/node\_modules/@types/node/events.d.ts:436
 
 By default `EventEmitter`s will print a warning if more than `10` listeners are
 added for a particular event. This is a useful default that helps finding

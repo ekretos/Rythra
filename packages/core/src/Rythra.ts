@@ -252,7 +252,7 @@ export class Rythra extends EventEmitter implements IRythra {
         };
 
         let identifier = query;
-        const isUrl = /^https?:\\/\\//.test(query);
+        const isUrl = /^https?:\/\//.test(query);
 
         if (
             !isUrl &&

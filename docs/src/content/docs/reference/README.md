@@ -16,17 +16,23 @@ description: API Reference for README
 - [CircuitBreaker](classes/CircuitBreaker.md)
 - [ConfigurationError](classes/ConfigurationError.md)
 - [Connector](classes/Connector.md)
+- [FetchRestTransport](classes/FetchRestTransport.md)
 - [Health](classes/Health.md)
 - [Node](classes/Node.md)
 - [NodeError](classes/NodeError.md)
+- [NodeRegistry](classes/NodeRegistry.md)
+- [NodeStateMachine](classes/NodeStateMachine.md)
 - [PlayerRecoveryError](classes/PlayerRecoveryError.md)
+- [PlayerRegistry](classes/PlayerRegistry.md)
 - [Queue](classes/Queue.md)
+- [Registry](classes/Registry.md)
 - [Rest](classes/Rest.md)
 - [RestError](classes/RestError.md)
 - [Rythra](classes/Rythra.md)
 - [RythraError](classes/RythraError.md)
 - [RythraPlayer](classes/RythraPlayer.md)
 - [ValidationError](classes/ValidationError.md)
+- [WebSocketTransport](classes/WebSocketTransport.md)
 
 ## Interfaces
 
@@ -43,6 +49,7 @@ description: API Reference for README
 - [Karaoke](interfaces/Karaoke.md)
 - [LavalinkPlayer](interfaces/LavalinkPlayer.md)
 - [LavalinkRestError](interfaces/LavalinkRestError.md)
+- [LavalinkServerMessage](interfaces/LavalinkServerMessage.md)
 - [LowPass](interfaces/LowPass.md)
 - [NodeInfo](interfaces/NodeInfo.md)
 - [NodeOptions](interfaces/NodeOptions.md)
@@ -52,20 +59,28 @@ description: API Reference for README
 - [PlaylistData](interfaces/PlaylistData.md)
 - [PlaylistInfo](interfaces/PlaylistInfo.md)
 - [PluginInfo](interfaces/PluginInfo.md)
+- [ProtocolAdapter](interfaces/ProtocolAdapter.md)
+- [ProtocolCapabilities](interfaces/ProtocolCapabilities.md)
+- [ProtocolHandshake](interfaces/ProtocolHandshake.md)
+- [RestTransport](interfaces/RestTransport.md)
 - [Rotation](interfaces/Rotation.md)
 - [RoutePlanner](interfaces/RoutePlanner.md)
 - [RythraOptions](interfaces/RythraOptions.md)
 - [SearchResultData](interfaces/SearchResultData.md)
 - [SessionInfo](interfaces/SessionInfo.md)
+- [SocketTransport](interfaces/SocketTransport.md)
+- [SocketTransportHandlers](interfaces/SocketTransportHandlers.md)
 - [Stats](interfaces/Stats.md)
 - [Timescale](interfaces/Timescale.md)
 - [Track](interfaces/Track.md)
 - [TrackInfo](interfaces/TrackInfo.md)
+- [TransportRequest](interfaces/TransportRequest.md)
 - [Tremolo](interfaces/Tremolo.md)
 - [UpdatePlayerInfo](interfaces/UpdatePlayerInfo.md)
 - [Vibrato](interfaces/Vibrato.md)
 - [VoiceServerUpdate](interfaces/VoiceServerUpdate.md)
 - [VoiceStateUpdate](interfaces/VoiceStateUpdate.md)
+- [WebSocketTransportOptions](interfaces/WebSocketTransportOptions.md)
 
 ## Type Aliases
 
@@ -77,12 +92,22 @@ description: API Reference for README
 - [leastLoadNodeSortType](type-aliases/leastLoadNodeSortType.md)
 - [leastUsedNodeSortType](type-aliases/leastUsedNodeSortType.md)
 - [LoadType](type-aliases/LoadType.md)
+- [NodeState](type-aliases/NodeState.md)
+- [NodeStateListener](type-aliases/NodeStateListener.md)
 - [RythraErrorCode](type-aliases/RythraErrorCode.md)
 - [RythraSearchPlatform](type-aliases/RythraSearchPlatform.md)
 - [SearchPlatform](type-aliases/SearchPlatform.md)
 - [SearchResponse](type-aliases/SearchResponse.md)
 
+## Variables
+
+- [NODE\_STATE\_TRANSITIONS](variables/NODE_STATE_TRANSITIONS.md)
+- [V4\_ADAPTER](variables/V4_ADAPTER.md)
+- [V5\_ADAPTER](variables/V5_ADAPTER.md)
+
 ## Functions
 
 - [getLavalinkApiPath](functions/getLavalinkApiPath.md)
 - [getLavalinkApiVersion](functions/getLavalinkApiVersion.md)
+- [resolveProtocol](functions/resolveProtocol.md)
+- [resolveProtocolFromServerVersion](functions/resolveProtocolFromServerVersion.md)

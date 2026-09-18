@@ -4,6 +4,8 @@ import starlight from '@astrojs/starlight';
 
 // https://astro.build/config
 export default defineConfig({
+	site: 'https://ekretos.github.io',
+	base: '/Rythra',
 	integrations: [
 		starlight({
 			title: 'Rythra Docs',
@@ -20,6 +22,7 @@ export default defineConfig({
 					label: 'Rythra',
 					items: [
 						{ label: 'Getting Started', slug: 'rythra/getting-started' },
+						{ label: 'Architecture', slug: 'rythra/architecture' },
 						{ label: 'Player Control', slug: 'rythra/player' },
 						{ label: 'Event Handling', slug: 'rythra/events' },
 					],
