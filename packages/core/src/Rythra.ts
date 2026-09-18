@@ -1,6 +1,7 @@
 import { EventEmitter } from 'node:events';
-import { Node } from './Node';
-import { RythraPlayer } from './Player';
+import { Node } from './node/Node';
+import { RythraPlayer } from './player/Player';
+import { NodeRegistry, PlayerRegistry } from './kernel/Registry';
 import { Health, type HealthSnapshot } from './health/Health';
 import { ConfigurationError } from './errors/RythraError';
 import type {
@@ -27,9 +28,9 @@ import type {
  */
 export class Rythra extends EventEmitter implements IRythra {
     /** All Lavalink nodes currently managed by this instance. */
-    public readonly nodes: Map<string, Node> = new Map();
+    public readonly nodes: NodeRegistry = new NodeRegistry();
     /** All guild players currently managed by this instance. */
-    public readonly players: Map<string, RythraPlayer> = new Map();
+    public readonly players: PlayerRegistry = new PlayerRegistry();
     /** Configuration used to initialize the manager. */
     public readonly options: RythraOptions;
     /** The version string reported as the Rythra client name. */
@@ -87,16 +88,16 @@ export class Rythra extends EventEmitter implements IRythra {
         node.on('ready', (data) => this.emit('nodeReady', node, data));
         node.on('disconnect', () => { this.reconnects++; this.emit('nodeDisconnect', node); });
         node.on('reconnectFailed', () => this.emit('nodeReconnectFailed', node));
+        node.on('state', (state, previous) => this.emit('nodeState', node, state, previous));
         this.emit('nodeCreate', node);
         return node;
     }
 
     /** Selects the healthiest available node using connection state and player load. */
     public getBestNode(): Node | undefined {
-        const nodes = Array.from(this.nodes.values()).filter((node) => !this.shuttingDown);
-        if (!nodes.length) return undefined;
-        const connected = nodes.filter((node) => node.connected);
-        const candidates = connected.length ? connected : nodes;
+        if (this.shuttingDown) return undefined;
+        const candidates = this.nodes.available();
+        if (!candidates.length) return undefined;
         return candidates.reduce((best, node) => {
             if (!best) return node;
             if (node.stats.players < best.stats.players) return node;

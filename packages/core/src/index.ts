@@ -6,8 +6,10 @@
  * `@rythra/connector-*` packages.
  */
 export * from './Rythra';
-export * from './Node';
-export * from './Player';
+export * from './kernel/Registry';
+export * from './node/Node';
+export * from './node/NodeState';
+export * from './player/Player';
 export * from './Queue';
 export * from './Rest';
 export * from './Connector';
@@ -16,3 +18,7 @@ export * from './errors/RythraError';
 export * from './health/Health';
 export * from './reliability/CircuitBreaker';
 export * from './protocol/LavalinkProtocol';
+export * from './protocol/ProtocolAdapter';
+export * from './transport/Transport';
+export * from './transport/RestTransport';
+export * from './transport/WebSocketTransport';
