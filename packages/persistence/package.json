@@ -3,8 +3,24 @@
   "version": "0.2.0",
   "type": "module",
   "description": "Persistence contracts and adapters for Rythra",
-  "files": ["src"],
+  "files": [
+    "dist"
+  ],
   "publishConfig": {
     "access": "public"
+  },
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "peerDependencies": {
+    "@rythra/core": "^0.2.0"
+  },
+  "scripts": {
+    "build": "tsc"
   }
 }

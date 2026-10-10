@@ -39,3 +39,7 @@ export * from './protocol/ProtocolAdapter';
 export * from './transport/Transport';
 export * from './transport/RestTransport';
 export * from './transport/WebSocketTransport';
+export * from './metrics/Metrics';
+export * from './metrics/MetricsAdapter';
+export * from './persistence/Persistence';
+export * from './persistence/PersistenceAdapter';

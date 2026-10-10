@@ -7,6 +7,8 @@ const mappings = [
   { from: 'dist/core', to: 'packages/core/dist' },
   { from: 'dist/connectors', to: 'packages/connectors/dist' },
   { from: 'dist/protocol', to: 'packages/protocol/dist' },
+  { from: 'dist/metrics', to: 'packages/metrics/dist' },
+  { from: 'dist/persistence', to: 'packages/persistence/dist' },
   { from: 'dist/plugins', to: 'packages/plugins/dist' },
 ];
 

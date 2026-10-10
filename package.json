@@ -53,10 +53,12 @@
   ],
   "scripts": {
     "build": "bun run build:packages && bun run build:facade && node scripts/sync-dist.mjs && bun run build:docs",
-    "build:packages": "bun run build:types && bun run build:core && bun run build:protocol && bun run build:plugins && bun run build:connectors",
+    "build:packages": "bun run build:types && bun run build:core && bun run build:protocol && bun run build:plugins && bun run build:metrics && bun run build:persistence && bun run build:connectors",
     "build:core": "bun --filter @rythra/core build",
     "build:types": "bun --filter @rythra/types build",
     "build:protocol": "bun --filter @rythra/protocol build",
+    "build:metrics": "bun --filter @rythra/metrics build",
+    "build:persistence": "bun --filter @rythra/persistence build",
     "build:plugins": "bun --filter @rythra/plugins build",
     "build:connectors": "bun --filter @rythra/connectors build",
     "build:facade": "tsc --project tsconfig.facade.json",

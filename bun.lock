@@ -44,10 +44,16 @@
     "packages/metrics": {
       "name": "@rythra/metrics",
       "version": "0.2.0",
+      "peerDependencies": {
+        "@rythra/core": "^0.2.0",
+      },
     },
     "packages/persistence": {
       "name": "@rythra/persistence",
       "version": "0.2.0",
+      "peerDependencies": {
+        "@rythra/core": "^0.2.0",
+      },
     },
     "packages/plugins": {
       "name": "@rythra/plugins",

@@ -8,6 +8,8 @@ const packages = [
   'packages/types',
   'packages/protocol',
   'packages/plugins',
+  'packages/metrics',
+  'packages/persistence',
   'packages/connectors',
   '.'
 ];
