@@ -5,10 +5,7 @@ const root = path.resolve(import.meta.dirname, '..');
 
 const mappings = [
   { from: 'dist/core', to: 'packages/core/dist' },
-  { from: 'dist/connectors/discordjs', to: 'packages/connectors/discordjs/dist' },
-  { from: 'dist/connectors/eris', to: 'packages/connectors/eris/dist' },
-  { from: 'dist/connectors/oceanic', to: 'packages/connectors/oceanic/dist' },
-  { from: 'dist/connectors/seyfert', to: 'packages/connectors/seyfert/dist' },
+  { from: 'dist/connectors', to: 'packages/connectors/dist' },
   { from: 'dist/protocol', to: 'packages/protocol/dist' },
   { from: 'dist/plugins', to: 'packages/plugins/dist' },
 ];

@@ -7,10 +7,7 @@ const packages = [
   'packages/core',
   'packages/protocol',
   'packages/plugins',
-  'packages/connectors/discordjs',
-  'packages/connectors/eris',
-  'packages/connectors/oceanic',
-  'packages/connectors/seyfert',
+  'packages/connectors',
   '.'
 ];
 

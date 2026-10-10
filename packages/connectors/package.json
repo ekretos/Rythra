@@ -2,6 +2,22 @@
   "name": "@rythra/connectors",
   "version": "0.2.0",
   "type": "module",
-  "description": "Discord-library connector contracts for Rythra",
-  "files": ["dist"]
+  "private": false,
+  "description": "Discord library connectors (discord.js, Eris, Oceanic.js, Seyfert, Lunibee) for Rythra",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "peerDependencies": {
+    "@rythra/core": "^0.2.0"
+  },
+  "exports": {
+    ".": { "types": "./dist/index.d.ts", "import": "./dist/index.js" },
+    "./discordjs": { "types": "./dist/discordjs.d.ts", "import": "./dist/discordjs.js" },
+    "./eris": { "types": "./dist/eris.d.ts", "import": "./dist/eris.js" },
+    "./oceanic": { "types": "./dist/oceanic.d.ts", "import": "./dist/oceanic.js" },
+    "./seyfert": { "types": "./dist/seyfert.d.ts", "import": "./dist/seyfert.js" },
+    "./lunibee": { "types": "./dist/lunibee.d.ts", "import": "./dist/lunibee.js" }
+  },
+  "files": ["dist"],
+  "publishConfig": { "access": "public" },
+  "scripts": { "build": "tsc" }
 }

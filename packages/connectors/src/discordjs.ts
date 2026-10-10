@@ -1,4 +1,4 @@
-import { Client } from 'discord.js';
+import type { Client } from 'discord.js';
 import { Connector } from '@rythra/core';
 import type { GatewayPacket, VoiceStateUpdate, VoiceServerUpdate } from '@rythra/core';
 

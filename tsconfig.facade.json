@@ -8,7 +8,7 @@
     "declarationMap": true,
     "paths": {
       "@rythra/core": ["./dist/core/index.d.ts"],
-      "@rythra/connector-discordjs": ["./dist/connectors/discordjs/index.d.ts"]
+      "@rythra/connectors": ["./dist/connectors/index.d.ts"]
     }
   },
   "include": ["index.ts"]

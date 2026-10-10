@@ -22,15 +22,9 @@
       "rythra": ["./index.ts"],
       "@rythra/core": ["./packages/core/src/index.ts"],
       "@rythra/core/*": ["./packages/core/src/*"],
-      "@rythra/connector-discordjs": ["./packages/connectors/discordjs/src/index.ts"],
-      "@rythra/connector-discordjs/*": ["./packages/connectors/discordjs/src/*"],
-      "@rythra/connector-eris": ["./packages/connectors/eris/src/index.ts"],
-      "@rythra/connector-eris/*": ["./packages/connectors/eris/src/*"],
-      "@rythra/connector-oceanic": ["./packages/connectors/oceanic/src/index.ts"],
-      "@rythra/connector-oceanic/*": ["./packages/connectors/oceanic/src/*"],
-      "@rythra/connector-seyfert": ["./packages/connectors/seyfert/src/index.ts"],
-      "@rythra/connector-seyfert/*": ["./packages/connectors/seyfert/src/*"],
-      "@rythra/*": ["./packages/*/src/index.ts", "./packages/connectors/*/src/index.ts"]
+      "@rythra/connectors": ["./packages/connectors/src/index.ts"],
+      "@rythra/connectors/*": ["./packages/connectors/src/*.ts"],
+      "@rythra/*": ["./packages/*/src/index.ts"]
     }
   },
   "include": ["index.ts", "packages/**/*.ts", "example/**/*.ts"],
