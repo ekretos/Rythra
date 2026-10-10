@@ -4,8 +4,8 @@ import path from 'node:path';
 const root = path.resolve(import.meta.dirname, '..');
 
 const packages = [
-  'packages/core',
   'packages/types',
+  'packages/core',
   'packages/protocol',
   'packages/plugins',
   'packages/metrics',
@@ -22,7 +22,8 @@ for (const pkg of packages) {
   const pkgDir = path.join(root, pkg);
   console.log(`\n--> Publishing ${pkg}...`);
   try {
-    execSync('npm publish --access public', { cwd: pkgDir, stdio: 'inherit' });
+    // `bun publish` rewrites `workspace:` ranges to real versions; `npm publish` would leave them unresolved.
+    execSync('bun publish --access public', { cwd: pkgDir, stdio: 'inherit' });
     console.log(`✓ Published ${pkg}`);
   } catch (error) {
     console.error(`✗ Failed to publish ${pkg}:`, error.message);

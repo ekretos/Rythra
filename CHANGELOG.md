@@ -27,6 +27,7 @@ Format based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 - `docs/TROUBLESHOOTING.md`.
 
 ### Fixed
+- `publish:all` used `npm publish`, which leaves `workspace:` dependency ranges unresolved, and published `@rythra/core` before `@rythra/types`; it now uses `bun publish` in dependency order.
 - Published packages could not be imported by Node ESM (relative imports lacked `.js` extensions, which only Bun and bundlers tolerate); `@rythra/core` also used `ws` without declaring it as a dependency.
 - Late events from a replaced/closed socket could null the current transport and trigger bogus reconnects; they are now ignored.
 - A failed connect left the node stuck in `connecting` and emitted an unhandled `error` (throwing) when no listener was attached.
