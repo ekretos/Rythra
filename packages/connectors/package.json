@@ -7,17 +7,63 @@
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "peerDependencies": {
-    "@rythra/core": "^0.3.0"
+    "@rythra/core": "^0.3.0",
+    "discord.js": ">=14",
+    "eris": ">=0.17",
+    "oceanic.js": ">=1",
+    "seyfert": ">=3",
+    "lunibee": ">=0.2.4"
   },
   "exports": {
-    ".": { "types": "./dist/index.d.ts", "import": "./dist/index.js" },
-    "./discordjs": { "types": "./dist/discordjs.d.ts", "import": "./dist/discordjs.js" },
-    "./eris": { "types": "./dist/eris.d.ts", "import": "./dist/eris.js" },
-    "./oceanic": { "types": "./dist/oceanic.d.ts", "import": "./dist/oceanic.js" },
-    "./seyfert": { "types": "./dist/seyfert.d.ts", "import": "./dist/seyfert.js" },
-    "./lunibee": { "types": "./dist/lunibee.d.ts", "import": "./dist/lunibee.js" }
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    },
+    "./discordjs": {
+      "types": "./dist/discordjs.d.ts",
+      "import": "./dist/discordjs.js"
+    },
+    "./eris": {
+      "types": "./dist/eris.d.ts",
+      "import": "./dist/eris.js"
+    },
+    "./oceanic": {
+      "types": "./dist/oceanic.d.ts",
+      "import": "./dist/oceanic.js"
+    },
+    "./seyfert": {
+      "types": "./dist/seyfert.d.ts",
+      "import": "./dist/seyfert.js"
+    },
+    "./lunibee": {
+      "types": "./dist/lunibee.d.ts",
+      "import": "./dist/lunibee.js"
+    }
   },
-  "files": ["dist"],
-  "publishConfig": { "access": "public" },
-  "scripts": { "build": "tsc" }
+  "files": [
+    "dist"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "build": "tsc"
+  },
+  "peerDependenciesMeta": {
+    "discord.js": {
+      "optional": true
+    },
+    "eris": {
+      "optional": true
+    },
+    "oceanic.js": {
+      "optional": true
+    },
+    "seyfert": {
+      "optional": true
+    },
+    "lunibee": {
+      "optional": true
+    }
+  }
 }

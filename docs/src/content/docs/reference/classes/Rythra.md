@@ -156,7 +156,7 @@ The version string reported as the Rythra client name.
 
 > **connect**(): `Promise`\<`void`\>
 
-Defined in: [packages/core/src/Rythra.ts:369](https://github.com/ekretos/Rythra/blob/main/packages/core/src/Rythra.ts#L369)
+Defined in: [packages/core/src/Rythra.ts:372](https://github.com/ekretos/Rythra/blob/main/packages/core/src/Rythra.ts#L372)
 
 Connects all configured Lavalink nodes concurrently.
 
@@ -215,7 +215,7 @@ Gets an existing guild player or creates one on a ready node.
 
 > **destroy**(`timeout?`): `Promise`\<`void`\>
 
-Defined in: [packages/core/src/Rythra.ts:334](https://github.com/ekretos/Rythra/blob/main/packages/core/src/Rythra.ts#L334)
+Defined in: [packages/core/src/Rythra.ts:337](https://github.com/ekretos/Rythra/blob/main/packages/core/src/Rythra.ts#L337)
 
 Gracefully shuts down Rythra and all managed Lavalink nodes.
 
@@ -275,7 +275,7 @@ player API.
 
 > **health**(): [`HealthSnapshot`](../interfaces/HealthSnapshot.md)
 
-Defined in: [packages/core/src/Rythra.ts:329](https://github.com/ekretos/Rythra/blob/main/packages/core/src/Rythra.ts#L329)
+Defined in: [packages/core/src/Rythra.ts:332](https://github.com/ekretos/Rythra/blob/main/packages/core/src/Rythra.ts#L332)
 
 Returns the current local health snapshot without network I/O.
 
@@ -289,7 +289,7 @@ Returns the current local health snapshot without network I/O.
 
 > **migratePlayers**(`from`): `Promise`\<`number`\>
 
-Defined in: [packages/core/src/Rythra.ts:310](https://github.com/ekretos/Rythra/blob/main/packages/core/src/Rythra.ts#L310)
+Defined in: [packages/core/src/Rythra.ts:313](https://github.com/ekretos/Rythra/blob/main/packages/core/src/Rythra.ts#L313)
 
 Moves every player bound to `from` onto the best other ready node.
 
@@ -339,7 +339,7 @@ Searches Lavalink for a track, playlist or search result.
 
 > **voiceServerUpdate**(`data`): `Promise`\<`void`\>
 
-Defined in: [packages/core/src/Rythra.ts:272](https://github.com/ekretos/Rythra/blob/main/packages/core/src/Rythra.ts#L272)
+Defined in: [packages/core/src/Rythra.ts:275](https://github.com/ekretos/Rythra/blob/main/packages/core/src/Rythra.ts#L275)
 
 Forwards a Discord voice server update to Lavalink.
 

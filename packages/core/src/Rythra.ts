@@ -261,6 +261,9 @@ export class Rythra extends EventEmitter implements IRythra {
     /** Updates the stored Discord voice state for a guild player. */
     public voiceStateUpdate(data: VoiceStateUpdate): void {
         if (!data.guild_id) return;
+        // Voice states of other members in the guild must not overwrite the bot's own session.
+        const botId = this.options.clientId || this.options.connector.getId();
+        if (data.user_id && botId && data.user_id !== botId) return;
 
         const player = this.players.get(data.guild_id);
         if (player) {

@@ -82,3 +82,13 @@ describe('failover', () => {
         await rythra.destroy(0);
     });
 });
+
+describe('voice state ownership', () => {
+    test("another member's voice state does not overwrite the bot's session", async () => {
+        const { rythra } = make();
+        const player = rythra.createPlayer({ guild: 'g', voiceChannel: 'v', textChannel: 't' });
+        rythra.voiceStateUpdate({ guild_id: 'g', session_id: 'bot-session', channel_id: 'v', user_id: '1' } as never);
+        rythra.voiceStateUpdate({ guild_id: 'g', session_id: 'other', channel_id: 'v', user_id: '999' } as never);
+        expect(player.voiceState.session_id).toBe('bot-session');
+    });
+});

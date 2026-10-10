@@ -28,6 +28,9 @@ Format based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 - `docs/TROUBLESHOOTING.md`.
 
 ### Fixed
+- Another member's voice state in the same guild could overwrite the bot's voice session on a player (`Rythra.voiceStateUpdate` merged every user's state). Updates for other users are now ignored when the connector reports a `user_id`.
+- The Lunibee connector now uses Lunibee's typed `voiceStateUpdate` / `voiceServerUpdate` events and its shard-aware `sendVoiceState` (Lunibee >= 0.3.0; older versions fall back to `ws.send`), and ignores voice server updates with a null endpoint.
+- `@rythra/connectors` declares the Discord libraries as optional peer dependencies.
 - The Lunibee connector's client type rejected a real Lunibee `Client` (its gateway payload requires `s` and `t`); `sendPacket` now sends a complete payload. Verified against `lunibee@0.2.4` with a local fake gateway.
 - `FilePersistenceAdapter` no longer fails permanently on a corrupt JSON file (it is kept as `<file>.corrupt` and the store starts empty) and uses a unique temp file per write.
 - A `connect()` call waiting on an in-flight attempt now rejects when `disconnect()` is called instead of hanging.

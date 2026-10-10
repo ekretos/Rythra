@@ -34,3 +34,11 @@ Defined in: [packages/types/src/index.ts:77](https://github.com/ekretos/Rythra/b
 > **session\_id**: `string`
 
 Defined in: [packages/types/src/index.ts:77](https://github.com/ekretos/Rythra/blob/main/packages/types/src/index.ts#L77)
+
+***
+
+### user\_id?
+
+> `optional` **user\_id?**: `string`
+
+Defined in: [packages/types/src/index.ts:77](https://github.com/ekretos/Rythra/blob/main/packages/types/src/index.ts#L77)
