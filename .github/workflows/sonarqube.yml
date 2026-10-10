@@ -1,0 +1,40 @@
+# SonarQube analysis. Requires repository secrets SONAR_TOKEN and SONAR_HOST_URL,
+# and a project with the key below imported in SonarQube.
+# Docs: https://docs.sonarqube.org/latest/analysis/github-integration/
+
+name: SonarQube analysis
+
+on:
+  push:
+    branches: [ "dev" ]
+  pull_request:
+    branches: [ "dev" ]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pull-requests: read # allows SonarQube to decorate PRs with analysis results
+
+jobs:
+  Analysis:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0 # full history for accurate blame and new-code detection
+
+      - name: Analyze with SonarQube
+        # Pinned to a commit of SonarSource/sonarqube-scan-action (third-party action).
+        uses: SonarSource/sonarqube-scan-action@7295e71c9583053f5bf40e9d4068a0c974603ec8
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # needed to get PR information
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+          SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
+        with:
+          args: >
+            -Dsonar.projectKey=ekretos_Rythra
+            -Dsonar.sources=packages,scripts
+            -Dsonar.tests=test
+            -Dsonar.exclusions=**/node_modules/**,**/dist/**,docs/**,typedocs/**
