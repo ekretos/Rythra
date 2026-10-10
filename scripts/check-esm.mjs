@@ -13,7 +13,5 @@ const entries = [
   "packages/connectors/dist/index.js",
 ];
 
-for (const entry of entries) {
-  await import(pathToFileURL(resolve(root, entry)).href);
-}
+await Promise.all(entries.map((entry) => import(pathToFileURL(resolve(root, entry)).href)));
 console.log(`Loaded ${entries.length} built entry points in Node ESM.`);

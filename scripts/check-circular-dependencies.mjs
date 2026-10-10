@@ -22,8 +22,11 @@ async function walk(dir) {
 await walk(packagesRoot);
 const graph = new Map();
 
-for (const [name, path] of packageByName) {
-  const manifest = JSON.parse(await readFile(resolve(path, "package.json"), "utf8"));
+const manifests = await Promise.all(
+  [...packageByName].map(async ([name, path]) => [name, JSON.parse(await readFile(resolve(path, "package.json"), "utf8"))]),
+);
+
+for (const [name, manifest] of manifests) {
   const deps = new Set([
     ...Object.keys(manifest.dependencies ?? {}),
     ...Object.keys(manifest.devDependencies ?? {}),
