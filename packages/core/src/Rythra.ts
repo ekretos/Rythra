@@ -15,6 +15,11 @@ import type {
     VoiceServerUpdate,
 } from '@rythra/types';
 
+/** Checks that a value is an integer within an inclusive range. */
+function isIntegerInRange(value: number, min: number, max = Infinity): boolean {
+    return Number.isInteger(value) && value >= min && value <= max;
+}
+
 /**
  * The main Rythra runtime.
  *
@@ -84,42 +89,23 @@ export class Rythra extends EventEmitter implements IRythra {
             throw new ConfigurationError('A valid connector instance is required.');
         }
 
-        for (const node of options.nodes ?? []) {
-            if (!node.host?.trim()) {
-                throw new ConfigurationError('Every Lavalink node requires a host.');
-            }
+        for (const node of options.nodes ?? []) this.validateNode(node);
+    }
 
-            if (
-                node.port !== undefined &&
-                (!Number.isInteger(node.port) || node.port < 1 || node.port > 65535)
-            ) {
-                throw new ConfigurationError(`Invalid Lavalink port: ${node.port}`);
-            }
-
-            if (
-                node.retryAmount !== undefined &&
-                (!Number.isInteger(node.retryAmount) || node.retryAmount < 0)
-            ) {
-                throw new ConfigurationError(`Invalid retryAmount: ${node.retryAmount}`);
-            }
-
-            if (
-                node.retryInterval !== undefined &&
-                (!Number.isFinite(node.retryInterval) || node.retryInterval < 0)
-            ) {
-                throw new ConfigurationError(`Invalid retryInterval: ${node.retryInterval}`);
-            }
-
-            if (
-                node.lavalinkVersion !== undefined &&
-                node.lavalinkVersion !== 'auto' &&
-                node.lavalinkVersion !== 4 &&
-                node.lavalinkVersion !== 5
-            ) {
-                throw new ConfigurationError(
-                    `Unsupported Lavalink API version: ${String(node.lavalinkVersion)}`,
-                );
-            }
+    /** Validates one Lavalink node configuration. */
+    private validateNode(node: NodeOptions): void {
+        if (!node.host?.trim()) throw new ConfigurationError('Every Lavalink node requires a host.');
+        if (node.port !== undefined && !isIntegerInRange(node.port, 1, 65535)) {
+            throw new ConfigurationError(`Invalid Lavalink port: ${node.port}`);
+        }
+        if (node.retryAmount !== undefined && !isIntegerInRange(node.retryAmount, 0)) {
+            throw new ConfigurationError(`Invalid retryAmount: ${node.retryAmount}`);
+        }
+        if (node.retryInterval !== undefined && !(Number.isFinite(node.retryInterval) && node.retryInterval >= 0)) {
+            throw new ConfigurationError(`Invalid retryInterval: ${node.retryInterval}`);
+        }
+        if (node.lavalinkVersion !== undefined && !['auto', 4, 5].includes(node.lavalinkVersion)) {
+            throw new ConfigurationError(`Unsupported Lavalink API version: ${String(node.lavalinkVersion)}`);
         }
     }
 
