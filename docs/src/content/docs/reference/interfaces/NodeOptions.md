@@ -7,7 +7,7 @@ description: API Reference for NodeOptions
 
 ***
 
-Defined in: [packages/types/src/index.ts:49](https://github.com/ekretos/Rythra/blob/6d3e11d8b74cbecf36b255d64f946bfb20532192/packages/types/src/index.ts#L49)
+Defined in: [packages/types/src/index.ts:49](https://github.com/ekretos/Rythra/blob/main/packages/types/src/index.ts#L49)
 
 Lavalink node configuration.
 
@@ -17,7 +17,7 @@ Lavalink node configuration.
 
 > **host**: `string`
 
-Defined in: [packages/types/src/index.ts:49](https://github.com/ekretos/Rythra/blob/6d3e11d8b74cbecf36b255d64f946bfb20532192/packages/types/src/index.ts#L49)
+Defined in: [packages/types/src/index.ts:49](https://github.com/ekretos/Rythra/blob/main/packages/types/src/index.ts#L49)
 
 ***
 
@@ -25,7 +25,7 @@ Defined in: [packages/types/src/index.ts:49](https://github.com/ekretos/Rythra/b
 
 > `optional` **identifier?**: `string`
 
-Defined in: [packages/types/src/index.ts:49](https://github.com/ekretos/Rythra/blob/6d3e11d8b74cbecf36b255d64f946bfb20532192/packages/types/src/index.ts#L49)
+Defined in: [packages/types/src/index.ts:49](https://github.com/ekretos/Rythra/blob/main/packages/types/src/index.ts#L49)
 
 ***
 
@@ -33,7 +33,7 @@ Defined in: [packages/types/src/index.ts:49](https://github.com/ekretos/Rythra/b
 
 > `optional` **lavalinkVersion?**: [`LavalinkApiVersionMode`](../type-aliases/LavalinkApiVersionMode.md)
 
-Defined in: [packages/types/src/index.ts:49](https://github.com/ekretos/Rythra/blob/6d3e11d8b74cbecf36b255d64f946bfb20532192/packages/types/src/index.ts#L49)
+Defined in: [packages/types/src/index.ts:49](https://github.com/ekretos/Rythra/blob/main/packages/types/src/index.ts#L49)
 
 ***
 
@@ -41,7 +41,7 @@ Defined in: [packages/types/src/index.ts:49](https://github.com/ekretos/Rythra/b
 
 > `optional` **maxRetryInterval?**: `number`
 
-Defined in: [packages/types/src/index.ts:49](https://github.com/ekretos/Rythra/blob/6d3e11d8b74cbecf36b255d64f946bfb20532192/packages/types/src/index.ts#L49)
+Defined in: [packages/types/src/index.ts:49](https://github.com/ekretos/Rythra/blob/main/packages/types/src/index.ts#L49)
 
 ***
 
@@ -49,7 +49,7 @@ Defined in: [packages/types/src/index.ts:49](https://github.com/ekretos/Rythra/b
 
 > `optional` **password?**: `string`
 
-Defined in: [packages/types/src/index.ts:49](https://github.com/ekretos/Rythra/blob/6d3e11d8b74cbecf36b255d64f946bfb20532192/packages/types/src/index.ts#L49)
+Defined in: [packages/types/src/index.ts:49](https://github.com/ekretos/Rythra/blob/main/packages/types/src/index.ts#L49)
 
 ***
 
@@ -57,7 +57,7 @@ Defined in: [packages/types/src/index.ts:49](https://github.com/ekretos/Rythra/b
 
 > `optional` **port?**: `number`
 
-Defined in: [packages/types/src/index.ts:49](https://github.com/ekretos/Rythra/blob/6d3e11d8b74cbecf36b255d64f946bfb20532192/packages/types/src/index.ts#L49)
+Defined in: [packages/types/src/index.ts:49](https://github.com/ekretos/Rythra/blob/main/packages/types/src/index.ts#L49)
 
 ***
 
@@ -65,7 +65,7 @@ Defined in: [packages/types/src/index.ts:49](https://github.com/ekretos/Rythra/b
 
 > `optional` **rejectUnauthorized?**: `boolean`
 
-Defined in: [packages/types/src/index.ts:49](https://github.com/ekretos/Rythra/blob/6d3e11d8b74cbecf36b255d64f946bfb20532192/packages/types/src/index.ts#L49)
+Defined in: [packages/types/src/index.ts:49](https://github.com/ekretos/Rythra/blob/main/packages/types/src/index.ts#L49)
 
 ***
 
@@ -73,7 +73,7 @@ Defined in: [packages/types/src/index.ts:49](https://github.com/ekretos/Rythra/b
 
 > `optional` **retryAmount?**: `number`
 
-Defined in: [packages/types/src/index.ts:49](https://github.com/ekretos/Rythra/blob/6d3e11d8b74cbecf36b255d64f946bfb20532192/packages/types/src/index.ts#L49)
+Defined in: [packages/types/src/index.ts:49](https://github.com/ekretos/Rythra/blob/main/packages/types/src/index.ts#L49)
 
 ***
 
@@ -81,7 +81,7 @@ Defined in: [packages/types/src/index.ts:49](https://github.com/ekretos/Rythra/b
 
 > `optional` **retryInterval?**: `number`
 
-Defined in: [packages/types/src/index.ts:49](https://github.com/ekretos/Rythra/blob/6d3e11d8b74cbecf36b255d64f946bfb20532192/packages/types/src/index.ts#L49)
+Defined in: [packages/types/src/index.ts:49](https://github.com/ekretos/Rythra/blob/main/packages/types/src/index.ts#L49)
 
 ***
 
@@ -89,7 +89,7 @@ Defined in: [packages/types/src/index.ts:49](https://github.com/ekretos/Rythra/b
 
 > `optional` **retryJitter?**: `number`
 
-Defined in: [packages/types/src/index.ts:49](https://github.com/ekretos/Rythra/blob/6d3e11d8b74cbecf36b255d64f946bfb20532192/packages/types/src/index.ts#L49)
+Defined in: [packages/types/src/index.ts:49](https://github.com/ekretos/Rythra/blob/main/packages/types/src/index.ts#L49)
 
 ***
 
@@ -97,4 +97,4 @@ Defined in: [packages/types/src/index.ts:49](https://github.com/ekretos/Rythra/b
 
 > `optional` **secure?**: `boolean`
 
-Defined in: [packages/types/src/index.ts:49](https://github.com/ekretos/Rythra/blob/6d3e11d8b74cbecf36b255d64f946bfb20532192/packages/types/src/index.ts#L49)
+Defined in: [packages/types/src/index.ts:49](https://github.com/ekretos/Rythra/blob/main/packages/types/src/index.ts#L49)

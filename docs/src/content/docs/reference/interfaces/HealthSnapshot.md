@@ -7,7 +7,7 @@ description: API Reference for HealthSnapshot
 
 ***
 
-Defined in: [packages/core/src/health/Health.ts:2](https://github.com/ekretos/Rythra/blob/6d3e11d8b74cbecf36b255d64f946bfb20532192/packages/core/src/health/Health.ts#L2)
+Defined in: [packages/core/src/health/Health.ts:2](https://github.com/ekretos/Rythra/blob/main/packages/core/src/health/Health.ts#L2)
 
 A point-in-time health snapshot for a Rythra manager.
 
@@ -17,7 +17,7 @@ A point-in-time health snapshot for a Rythra manager.
 
 > **connectedNodes**: `number`
 
-Defined in: [packages/core/src/health/Health.ts:2](https://github.com/ekretos/Rythra/blob/6d3e11d8b74cbecf36b255d64f946bfb20532192/packages/core/src/health/Health.ts#L2)
+Defined in: [packages/core/src/health/Health.ts:2](https://github.com/ekretos/Rythra/blob/main/packages/core/src/health/Health.ts#L2)
 
 ***
 
@@ -25,7 +25,7 @@ Defined in: [packages/core/src/health/Health.ts:2](https://github.com/ekretos/Ry
 
 > **healthy**: `boolean`
 
-Defined in: [packages/core/src/health/Health.ts:2](https://github.com/ekretos/Rythra/blob/6d3e11d8b74cbecf36b255d64f946bfb20532192/packages/core/src/health/Health.ts#L2)
+Defined in: [packages/core/src/health/Health.ts:2](https://github.com/ekretos/Rythra/blob/main/packages/core/src/health/Health.ts#L2)
 
 ***
 
@@ -33,7 +33,7 @@ Defined in: [packages/core/src/health/Health.ts:2](https://github.com/ekretos/Ry
 
 > **migrations**: `number`
 
-Defined in: [packages/core/src/health/Health.ts:2](https://github.com/ekretos/Rythra/blob/6d3e11d8b74cbecf36b255d64f946bfb20532192/packages/core/src/health/Health.ts#L2)
+Defined in: [packages/core/src/health/Health.ts:2](https://github.com/ekretos/Rythra/blob/main/packages/core/src/health/Health.ts#L2)
 
 ***
 
@@ -41,7 +41,7 @@ Defined in: [packages/core/src/health/Health.ts:2](https://github.com/ekretos/Ry
 
 > **nodes**: `number`
 
-Defined in: [packages/core/src/health/Health.ts:2](https://github.com/ekretos/Rythra/blob/6d3e11d8b74cbecf36b255d64f946bfb20532192/packages/core/src/health/Health.ts#L2)
+Defined in: [packages/core/src/health/Health.ts:2](https://github.com/ekretos/Rythra/blob/main/packages/core/src/health/Health.ts#L2)
 
 ***
 
@@ -49,7 +49,7 @@ Defined in: [packages/core/src/health/Health.ts:2](https://github.com/ekretos/Ry
 
 > **players**: `number`
 
-Defined in: [packages/core/src/health/Health.ts:2](https://github.com/ekretos/Rythra/blob/6d3e11d8b74cbecf36b255d64f946bfb20532192/packages/core/src/health/Health.ts#L2)
+Defined in: [packages/core/src/health/Health.ts:2](https://github.com/ekretos/Rythra/blob/main/packages/core/src/health/Health.ts#L2)
 
 ***
 
@@ -57,7 +57,7 @@ Defined in: [packages/core/src/health/Health.ts:2](https://github.com/ekretos/Ry
 
 > **playingPlayers**: `number`
 
-Defined in: [packages/core/src/health/Health.ts:2](https://github.com/ekretos/Rythra/blob/6d3e11d8b74cbecf36b255d64f946bfb20532192/packages/core/src/health/Health.ts#L2)
+Defined in: [packages/core/src/health/Health.ts:2](https://github.com/ekretos/Rythra/blob/main/packages/core/src/health/Health.ts#L2)
 
 ***
 
@@ -65,7 +65,7 @@ Defined in: [packages/core/src/health/Health.ts:2](https://github.com/ekretos/Ry
 
 > **reconnects**: `number`
 
-Defined in: [packages/core/src/health/Health.ts:2](https://github.com/ekretos/Rythra/blob/6d3e11d8b74cbecf36b255d64f946bfb20532192/packages/core/src/health/Health.ts#L2)
+Defined in: [packages/core/src/health/Health.ts:2](https://github.com/ekretos/Rythra/blob/main/packages/core/src/health/Health.ts#L2)
 
 ***
 
@@ -73,4 +73,4 @@ Defined in: [packages/core/src/health/Health.ts:2](https://github.com/ekretos/Ry
 
 > **uptime**: `number`
 
-Defined in: [packages/core/src/health/Health.ts:2](https://github.com/ekretos/Rythra/blob/6d3e11d8b74cbecf36b255d64f946bfb20532192/packages/core/src/health/Health.ts#L2)
+Defined in: [packages/core/src/health/Health.ts:2](https://github.com/ekretos/Rythra/blob/main/packages/core/src/health/Health.ts#L2)

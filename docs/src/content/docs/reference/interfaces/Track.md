@@ -7,7 +7,7 @@ description: API Reference for Track
 
 ***
 
-Defined in: [packages/types/src/index.ts:40](https://github.com/ekretos/Rythra/blob/6d3e11d8b74cbecf36b255d64f946bfb20532192/packages/types/src/index.ts#L40)
+Defined in: [packages/types/src/index.ts:40](https://github.com/ekretos/Rythra/blob/main/packages/types/src/index.ts#L40)
 
 A Lavalink encoded track.
 
@@ -17,7 +17,7 @@ A Lavalink encoded track.
 
 > **encoded**: `string`
 
-Defined in: [packages/types/src/index.ts:40](https://github.com/ekretos/Rythra/blob/6d3e11d8b74cbecf36b255d64f946bfb20532192/packages/types/src/index.ts#L40)
+Defined in: [packages/types/src/index.ts:40](https://github.com/ekretos/Rythra/blob/main/packages/types/src/index.ts#L40)
 
 ***
 
@@ -25,7 +25,7 @@ Defined in: [packages/types/src/index.ts:40](https://github.com/ekretos/Rythra/b
 
 > **info**: [`TrackInfo`](TrackInfo.md)
 
-Defined in: [packages/types/src/index.ts:40](https://github.com/ekretos/Rythra/blob/6d3e11d8b74cbecf36b255d64f946bfb20532192/packages/types/src/index.ts#L40)
+Defined in: [packages/types/src/index.ts:40](https://github.com/ekretos/Rythra/blob/main/packages/types/src/index.ts#L40)
 
 ***
 
@@ -33,7 +33,7 @@ Defined in: [packages/types/src/index.ts:40](https://github.com/ekretos/Rythra/b
 
 > **pluginInfo**: `Record`\<`string`, `unknown`\>
 
-Defined in: [packages/types/src/index.ts:40](https://github.com/ekretos/Rythra/blob/6d3e11d8b74cbecf36b255d64f946bfb20532192/packages/types/src/index.ts#L40)
+Defined in: [packages/types/src/index.ts:40](https://github.com/ekretos/Rythra/blob/main/packages/types/src/index.ts#L40)
 
 ***
 
@@ -41,4 +41,4 @@ Defined in: [packages/types/src/index.ts:40](https://github.com/ekretos/Rythra/b
 
 > **userData**: `Record`\<`string`, `unknown`\>
 
-Defined in: [packages/types/src/index.ts:40](https://github.com/ekretos/Rythra/blob/6d3e11d8b74cbecf36b255d64f946bfb20532192/packages/types/src/index.ts#L40)
+Defined in: [packages/types/src/index.ts:40](https://github.com/ekretos/Rythra/blob/main/packages/types/src/index.ts#L40)

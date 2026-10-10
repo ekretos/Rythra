@@ -7,7 +7,7 @@ description: API Reference for Karaoke
 
 ***
 
-Defined in: [packages/types/src/index.ts:55](https://github.com/ekretos/Rythra/blob/6d3e11d8b74cbecf36b255d64f946bfb20532192/packages/types/src/index.ts#L55)
+Defined in: [packages/types/src/index.ts:55](https://github.com/ekretos/Rythra/blob/main/packages/types/src/index.ts#L55)
 
 Karaoke filter.
 
@@ -17,7 +17,7 @@ Karaoke filter.
 
 > `optional` **filterBand?**: `number`
 
-Defined in: [packages/types/src/index.ts:55](https://github.com/ekretos/Rythra/blob/6d3e11d8b74cbecf36b255d64f946bfb20532192/packages/types/src/index.ts#L55)
+Defined in: [packages/types/src/index.ts:55](https://github.com/ekretos/Rythra/blob/main/packages/types/src/index.ts#L55)
 
 ***
 
@@ -25,7 +25,7 @@ Defined in: [packages/types/src/index.ts:55](https://github.com/ekretos/Rythra/b
 
 > `optional` **filterWidth?**: `number`
 
-Defined in: [packages/types/src/index.ts:55](https://github.com/ekretos/Rythra/blob/6d3e11d8b74cbecf36b255d64f946bfb20532192/packages/types/src/index.ts#L55)
+Defined in: [packages/types/src/index.ts:55](https://github.com/ekretos/Rythra/blob/main/packages/types/src/index.ts#L55)
 
 ***
 
@@ -33,7 +33,7 @@ Defined in: [packages/types/src/index.ts:55](https://github.com/ekretos/Rythra/b
 
 > `optional` **level?**: `number`
 
-Defined in: [packages/types/src/index.ts:55](https://github.com/ekretos/Rythra/blob/6d3e11d8b74cbecf36b255d64f946bfb20532192/packages/types/src/index.ts#L55)
+Defined in: [packages/types/src/index.ts:55](https://github.com/ekretos/Rythra/blob/main/packages/types/src/index.ts#L55)
 
 ***
 
@@ -41,4 +41,4 @@ Defined in: [packages/types/src/index.ts:55](https://github.com/ekretos/Rythra/b
 
 > `optional` **monoLevel?**: `number`
 
-Defined in: [packages/types/src/index.ts:55](https://github.com/ekretos/Rythra/blob/6d3e11d8b74cbecf36b255d64f946bfb20532192/packages/types/src/index.ts#L55)
+Defined in: [packages/types/src/index.ts:55](https://github.com/ekretos/Rythra/blob/main/packages/types/src/index.ts#L55)

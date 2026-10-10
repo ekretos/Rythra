@@ -7,7 +7,7 @@ description: API Reference for VoiceStateUpdate
 
 ***
 
-Defined in: [packages/types/src/index.ts:77](https://github.com/ekretos/Rythra/blob/6d3e11d8b74cbecf36b255d64f946bfb20532192/packages/types/src/index.ts#L77)
+Defined in: [packages/types/src/index.ts:77](https://github.com/ekretos/Rythra/blob/main/packages/types/src/index.ts#L77)
 
 Discord voice state update.
 
@@ -17,7 +17,7 @@ Discord voice state update.
 
 > **channel\_id**: `string` \| `null`
 
-Defined in: [packages/types/src/index.ts:77](https://github.com/ekretos/Rythra/blob/6d3e11d8b74cbecf36b255d64f946bfb20532192/packages/types/src/index.ts#L77)
+Defined in: [packages/types/src/index.ts:77](https://github.com/ekretos/Rythra/blob/main/packages/types/src/index.ts#L77)
 
 ***
 
@@ -25,7 +25,7 @@ Defined in: [packages/types/src/index.ts:77](https://github.com/ekretos/Rythra/b
 
 > **guild\_id**: `string`
 
-Defined in: [packages/types/src/index.ts:77](https://github.com/ekretos/Rythra/blob/6d3e11d8b74cbecf36b255d64f946bfb20532192/packages/types/src/index.ts#L77)
+Defined in: [packages/types/src/index.ts:77](https://github.com/ekretos/Rythra/blob/main/packages/types/src/index.ts#L77)
 
 ***
 
@@ -33,4 +33,4 @@ Defined in: [packages/types/src/index.ts:77](https://github.com/ekretos/Rythra/b
 
 > **session\_id**: `string`
 
-Defined in: [packages/types/src/index.ts:77](https://github.com/ekretos/Rythra/blob/6d3e11d8b74cbecf36b255d64f946bfb20532192/packages/types/src/index.ts#L77)
+Defined in: [packages/types/src/index.ts:77](https://github.com/ekretos/Rythra/blob/main/packages/types/src/index.ts#L77)

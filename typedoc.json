@@ -1,7 +1,11 @@
 {
-    "entryPoints": ["packages/core/src/index.ts"],
+    "entryPoints": [
+        "packages/core/src/index.ts"
+    ],
     "out": "docs/src/content/docs/reference",
-    "plugin": ["typedoc-plugin-markdown"],
+    "plugin": [
+        "typedoc-plugin-markdown"
+    ],
     "hideBreadcrumbs": true,
     "hidePageTitle": true,
     "theme": "default",
@@ -9,6 +13,11 @@
     "includeVersion": true,
     "excludePrivate": true,
     "excludeInternal": true,
-    "exclude": ["example/**", "docs/**"],
-    "readme": "none"
+    "exclude": [
+        "example/**",
+        "docs/**"
+    ],
+    "readme": "none",
+    "gitRevision": "main",
+    "excludeExternals": true
 }

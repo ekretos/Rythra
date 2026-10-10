@@ -7,7 +7,7 @@ description: API Reference for ChannelMix
 
 ***
 
-Defined in: [packages/types/src/index.ts:61](https://github.com/ekretos/Rythra/blob/6d3e11d8b74cbecf36b255d64f946bfb20532192/packages/types/src/index.ts#L61)
+Defined in: [packages/types/src/index.ts:61](https://github.com/ekretos/Rythra/blob/main/packages/types/src/index.ts#L61)
 
 Channel mix filter.
 
@@ -17,7 +17,7 @@ Channel mix filter.
 
 > `optional` **leftToLeft?**: `number`
 
-Defined in: [packages/types/src/index.ts:61](https://github.com/ekretos/Rythra/blob/6d3e11d8b74cbecf36b255d64f946bfb20532192/packages/types/src/index.ts#L61)
+Defined in: [packages/types/src/index.ts:61](https://github.com/ekretos/Rythra/blob/main/packages/types/src/index.ts#L61)
 
 ***
 
@@ -25,7 +25,7 @@ Defined in: [packages/types/src/index.ts:61](https://github.com/ekretos/Rythra/b
 
 > `optional` **leftToRight?**: `number`
 
-Defined in: [packages/types/src/index.ts:61](https://github.com/ekretos/Rythra/blob/6d3e11d8b74cbecf36b255d64f946bfb20532192/packages/types/src/index.ts#L61)
+Defined in: [packages/types/src/index.ts:61](https://github.com/ekretos/Rythra/blob/main/packages/types/src/index.ts#L61)
 
 ***
 
@@ -33,7 +33,7 @@ Defined in: [packages/types/src/index.ts:61](https://github.com/ekretos/Rythra/b
 
 > `optional` **rightToLeft?**: `number`
 
-Defined in: [packages/types/src/index.ts:61](https://github.com/ekretos/Rythra/blob/6d3e11d8b74cbecf36b255d64f946bfb20532192/packages/types/src/index.ts#L61)
+Defined in: [packages/types/src/index.ts:61](https://github.com/ekretos/Rythra/blob/main/packages/types/src/index.ts#L61)
 
 ***
 
@@ -41,4 +41,4 @@ Defined in: [packages/types/src/index.ts:61](https://github.com/ekretos/Rythra/b
 
 > `optional` **rightToRight?**: `number`
 
-Defined in: [packages/types/src/index.ts:61](https://github.com/ekretos/Rythra/blob/6d3e11d8b74cbecf36b255d64f946bfb20532192/packages/types/src/index.ts#L61)
+Defined in: [packages/types/src/index.ts:61](https://github.com/ekretos/Rythra/blob/main/packages/types/src/index.ts#L61)

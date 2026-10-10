@@ -9,7 +9,7 @@ description: API Reference for getLavalinkApiPath
 
 > **getLavalinkApiPath**(`version`): `string`
 
-Defined in: [packages/core/src/protocol/LavalinkProtocol.ts:4](https://github.com/ekretos/Rythra/blob/6d3e11d8b74cbecf36b255d64f946bfb20532192/packages/core/src/protocol/LavalinkProtocol.ts#L4)
+Defined in: [packages/core/src/protocol/LavalinkProtocol.ts:4](https://github.com/ekretos/Rythra/blob/main/packages/core/src/protocol/LavalinkProtocol.ts#L4)
 
 Resolves the HTTP/WebSocket API prefix for a Lavalink generation.
 

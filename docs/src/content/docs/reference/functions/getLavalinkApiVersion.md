@@ -9,7 +9,7 @@ description: API Reference for getLavalinkApiVersion
 
 > **getLavalinkApiVersion**(`semver`): [`LavalinkApiVersion`](../type-aliases/LavalinkApiVersion.md)
 
-Defined in: [packages/core/src/protocol/LavalinkProtocol.ts:6](https://github.com/ekretos/Rythra/blob/6d3e11d8b74cbecf36b255d64f946bfb20532192/packages/core/src/protocol/LavalinkProtocol.ts#L6)
+Defined in: [packages/core/src/protocol/LavalinkProtocol.ts:6](https://github.com/ekretos/Rythra/blob/main/packages/core/src/protocol/LavalinkProtocol.ts#L6)
 
 Converts a Lavalink semantic server version into a supported API generation.
 

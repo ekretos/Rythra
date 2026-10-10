@@ -7,7 +7,7 @@ description: API Reference for NodeInfo
 
 ***
 
-Defined in: [packages/types/src/index.ts:71](https://github.com/ekretos/Rythra/blob/6d3e11d8b74cbecf36b255d64f946bfb20532192/packages/types/src/index.ts#L71)
+Defined in: [packages/types/src/index.ts:71](https://github.com/ekretos/Rythra/blob/main/packages/types/src/index.ts#L71)
 
 Lavalink server information.
 
@@ -17,7 +17,7 @@ Lavalink server information.
 
 > **buildTime**: `number`
 
-Defined in: [packages/types/src/index.ts:71](https://github.com/ekretos/Rythra/blob/6d3e11d8b74cbecf36b255d64f946bfb20532192/packages/types/src/index.ts#L71)
+Defined in: [packages/types/src/index.ts:71](https://github.com/ekretos/Rythra/blob/main/packages/types/src/index.ts#L71)
 
 ***
 
@@ -25,7 +25,7 @@ Defined in: [packages/types/src/index.ts:71](https://github.com/ekretos/Rythra/b
 
 > **filters**: `string`[]
 
-Defined in: [packages/types/src/index.ts:71](https://github.com/ekretos/Rythra/blob/6d3e11d8b74cbecf36b255d64f946bfb20532192/packages/types/src/index.ts#L71)
+Defined in: [packages/types/src/index.ts:71](https://github.com/ekretos/Rythra/blob/main/packages/types/src/index.ts#L71)
 
 ***
 
@@ -33,7 +33,7 @@ Defined in: [packages/types/src/index.ts:71](https://github.com/ekretos/Rythra/b
 
 > **git**: `object`
 
-Defined in: [packages/types/src/index.ts:71](https://github.com/ekretos/Rythra/blob/6d3e11d8b74cbecf36b255d64f946bfb20532192/packages/types/src/index.ts#L71)
+Defined in: [packages/types/src/index.ts:71](https://github.com/ekretos/Rythra/blob/main/packages/types/src/index.ts#L71)
 
 #### branch
 
@@ -53,7 +53,7 @@ Defined in: [packages/types/src/index.ts:71](https://github.com/ekretos/Rythra/b
 
 > **jvm**: `string`
 
-Defined in: [packages/types/src/index.ts:71](https://github.com/ekretos/Rythra/blob/6d3e11d8b74cbecf36b255d64f946bfb20532192/packages/types/src/index.ts#L71)
+Defined in: [packages/types/src/index.ts:71](https://github.com/ekretos/Rythra/blob/main/packages/types/src/index.ts#L71)
 
 ***
 
@@ -61,7 +61,7 @@ Defined in: [packages/types/src/index.ts:71](https://github.com/ekretos/Rythra/b
 
 > **lavaplayer**: `string`
 
-Defined in: [packages/types/src/index.ts:71](https://github.com/ekretos/Rythra/blob/6d3e11d8b74cbecf36b255d64f946bfb20532192/packages/types/src/index.ts#L71)
+Defined in: [packages/types/src/index.ts:71](https://github.com/ekretos/Rythra/blob/main/packages/types/src/index.ts#L71)
 
 ***
 
@@ -69,7 +69,7 @@ Defined in: [packages/types/src/index.ts:71](https://github.com/ekretos/Rythra/b
 
 > **plugins**: [`PluginInfo`](PluginInfo.md)[]
 
-Defined in: [packages/types/src/index.ts:71](https://github.com/ekretos/Rythra/blob/6d3e11d8b74cbecf36b255d64f946bfb20532192/packages/types/src/index.ts#L71)
+Defined in: [packages/types/src/index.ts:71](https://github.com/ekretos/Rythra/blob/main/packages/types/src/index.ts#L71)
 
 ***
 
@@ -77,7 +77,7 @@ Defined in: [packages/types/src/index.ts:71](https://github.com/ekretos/Rythra/b
 
 > **sourceManagers**: `string`[]
 
-Defined in: [packages/types/src/index.ts:71](https://github.com/ekretos/Rythra/blob/6d3e11d8b74cbecf36b255d64f946bfb20532192/packages/types/src/index.ts#L71)
+Defined in: [packages/types/src/index.ts:71](https://github.com/ekretos/Rythra/blob/main/packages/types/src/index.ts#L71)
 
 ***
 
@@ -85,7 +85,7 @@ Defined in: [packages/types/src/index.ts:71](https://github.com/ekretos/Rythra/b
 
 > **version**: `object`
 
-Defined in: [packages/types/src/index.ts:71](https://github.com/ekretos/Rythra/blob/6d3e11d8b74cbecf36b255d64f946bfb20532192/packages/types/src/index.ts#L71)
+Defined in: [packages/types/src/index.ts:71](https://github.com/ekretos/Rythra/blob/main/packages/types/src/index.ts#L71)
 
 #### build
 

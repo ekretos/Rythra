@@ -9,6 +9,6 @@ description: API Reference for LavalinkResponse
 
 > **LavalinkResponse** = [`SearchResponse`](SearchResponse.md)
 
-Defined in: [packages/types/src/index.ts:53](https://github.com/ekretos/Rythra/blob/6d3e11d8b74cbecf36b255d64f946bfb20532192/packages/types/src/index.ts#L53)
+Defined in: [packages/types/src/index.ts:53](https://github.com/ekretos/Rythra/blob/main/packages/types/src/index.ts#L53)
 
 Alias for Lavalink responses.

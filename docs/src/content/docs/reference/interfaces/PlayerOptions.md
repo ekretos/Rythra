@@ -7,7 +7,7 @@ description: API Reference for PlayerOptions
 
 ***
 
-Defined in: [packages/types/src/index.ts:50](https://github.com/ekretos/Rythra/blob/6d3e11d8b74cbecf36b255d64f946bfb20532192/packages/types/src/index.ts#L50)
+Defined in: [packages/types/src/index.ts:50](https://github.com/ekretos/Rythra/blob/main/packages/types/src/index.ts#L50)
 
 Guild player configuration.
 
@@ -17,7 +17,7 @@ Guild player configuration.
 
 > **guild**: `string`
 
-Defined in: [packages/types/src/index.ts:50](https://github.com/ekretos/Rythra/blob/6d3e11d8b74cbecf36b255d64f946bfb20532192/packages/types/src/index.ts#L50)
+Defined in: [packages/types/src/index.ts:50](https://github.com/ekretos/Rythra/blob/main/packages/types/src/index.ts#L50)
 
 ***
 
@@ -25,7 +25,7 @@ Defined in: [packages/types/src/index.ts:50](https://github.com/ekretos/Rythra/b
 
 > `optional` **selfDeaf?**: `boolean`
 
-Defined in: [packages/types/src/index.ts:50](https://github.com/ekretos/Rythra/blob/6d3e11d8b74cbecf36b255d64f946bfb20532192/packages/types/src/index.ts#L50)
+Defined in: [packages/types/src/index.ts:50](https://github.com/ekretos/Rythra/blob/main/packages/types/src/index.ts#L50)
 
 ***
 
@@ -33,7 +33,7 @@ Defined in: [packages/types/src/index.ts:50](https://github.com/ekretos/Rythra/b
 
 > `optional` **selfMute?**: `boolean`
 
-Defined in: [packages/types/src/index.ts:50](https://github.com/ekretos/Rythra/blob/6d3e11d8b74cbecf36b255d64f946bfb20532192/packages/types/src/index.ts#L50)
+Defined in: [packages/types/src/index.ts:50](https://github.com/ekretos/Rythra/blob/main/packages/types/src/index.ts#L50)
 
 ***
 
@@ -41,7 +41,7 @@ Defined in: [packages/types/src/index.ts:50](https://github.com/ekretos/Rythra/b
 
 > **textChannel**: `string`
 
-Defined in: [packages/types/src/index.ts:50](https://github.com/ekretos/Rythra/blob/6d3e11d8b74cbecf36b255d64f946bfb20532192/packages/types/src/index.ts#L50)
+Defined in: [packages/types/src/index.ts:50](https://github.com/ekretos/Rythra/blob/main/packages/types/src/index.ts#L50)
 
 ***
 
@@ -49,4 +49,4 @@ Defined in: [packages/types/src/index.ts:50](https://github.com/ekretos/Rythra/b
 
 > **voiceChannel**: `string`
 
-Defined in: [packages/types/src/index.ts:50](https://github.com/ekretos/Rythra/blob/6d3e11d8b74cbecf36b255d64f946bfb20532192/packages/types/src/index.ts#L50)
+Defined in: [packages/types/src/index.ts:50](https://github.com/ekretos/Rythra/blob/main/packages/types/src/index.ts#L50)
