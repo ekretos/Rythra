@@ -7,7 +7,7 @@ description: API Reference for NodeStateMachine
 
 ***
 
-Defined in: [packages/core/src/node/NodeState.ts:25](https://github.com/ekretos/Rythra/blob/c7739a96c2261c82cc1ff98863eeadbd1fe9a7fe/packages/core/src/node/NodeState.ts#L25)
+Defined in: [packages/core/src/node/NodeState.ts:25](https://github.com/ekretos/Rythra/blob/494517dd89f9fe3e5101c12673c172d6033bc461/packages/core/src/node/NodeState.ts#L25)
 
 Small state machine describing the lifecycle of a Lavalink node.
 
@@ -24,7 +24,7 @@ silently corrupting state.
 
 > **new NodeStateMachine**(`onTransition?`): `NodeStateMachine`
 
-Defined in: [packages/core/src/node/NodeState.ts:30](https://github.com/ekretos/Rythra/blob/c7739a96c2261c82cc1ff98863eeadbd1fe9a7fe/packages/core/src/node/NodeState.ts#L30)
+Defined in: [packages/core/src/node/NodeState.ts:30](https://github.com/ekretos/Rythra/blob/494517dd89f9fe3e5101c12673c172d6033bc461/packages/core/src/node/NodeState.ts#L30)
 
 Creates a state machine, optionally observing every accepted transition.
 
@@ -46,7 +46,7 @@ Creates a state machine, optionally observing every accepted transition.
 
 > **get** **state**(): [`NodeState`](../type-aliases/NodeState.md)
 
-Defined in: [packages/core/src/node/NodeState.ts:33](https://github.com/ekretos/Rythra/blob/c7739a96c2261c82cc1ff98863eeadbd1fe9a7fe/packages/core/src/node/NodeState.ts#L33)
+Defined in: [packages/core/src/node/NodeState.ts:33](https://github.com/ekretos/Rythra/blob/494517dd89f9fe3e5101c12673c172d6033bc461/packages/core/src/node/NodeState.ts#L33)
 
 The current node state.
 
@@ -60,7 +60,7 @@ The current node state.
 
 > **can**(`to`): `boolean`
 
-Defined in: [packages/core/src/node/NodeState.ts:36](https://github.com/ekretos/Rythra/blob/c7739a96c2261c82cc1ff98863eeadbd1fe9a7fe/packages/core/src/node/NodeState.ts#L36)
+Defined in: [packages/core/src/node/NodeState.ts:36](https://github.com/ekretos/Rythra/blob/494517dd89f9fe3e5101c12673c172d6033bc461/packages/core/src/node/NodeState.ts#L36)
 
 Determines whether a transition to the given state is accepted.
 
@@ -80,7 +80,7 @@ Determines whether a transition to the given state is accepted.
 
 > **transition**(`to`): `boolean`
 
-Defined in: [packages/core/src/node/NodeState.ts:44](https://github.com/ekretos/Rythra/blob/c7739a96c2261c82cc1ff98863eeadbd1fe9a7fe/packages/core/src/node/NodeState.ts#L44)
+Defined in: [packages/core/src/node/NodeState.ts:44](https://github.com/ekretos/Rythra/blob/494517dd89f9fe3e5101c12673c172d6033bc461/packages/core/src/node/NodeState.ts#L44)
 
 Moves the machine to a new state.
 

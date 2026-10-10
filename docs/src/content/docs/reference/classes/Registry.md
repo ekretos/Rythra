@@ -7,7 +7,7 @@ description: API Reference for Registry
 
 ***
 
-Defined in: [packages/core/src/kernel/Registry.ts:13](https://github.com/ekretos/Rythra/blob/c7739a96c2261c82cc1ff98863eeadbd1fe9a7fe/packages/core/src/kernel/Registry.ts#L13)
+Defined in: [packages/core/src/kernel/Registry.ts:13](https://github.com/ekretos/Rythra/blob/494517dd89f9fe3e5101c12673c172d6033bc461/packages/core/src/kernel/Registry.ts#L13)
 
 Keyed registry of runtime entities owned by the Rythra kernel.
 
@@ -199,7 +199,7 @@ Returns an iterable of key, value pairs for every entry in the map.
 
 > **filter**(`predicate`): `V`[]
 
-Defined in: [packages/core/src/kernel/Registry.ts:17](https://github.com/ekretos/Rythra/blob/c7739a96c2261c82cc1ff98863eeadbd1fe9a7fe/packages/core/src/kernel/Registry.ts#L17)
+Defined in: [packages/core/src/kernel/Registry.ts:17](https://github.com/ekretos/Rythra/blob/494517dd89f9fe3e5101c12673c172d6033bc461/packages/core/src/kernel/Registry.ts#L17)
 
 Returns the registered entries matching a predicate.
 
@@ -377,7 +377,7 @@ Returns an iterable of keys in the map
 
 > **list**(): `V`[]
 
-Defined in: [packages/core/src/kernel/Registry.ts:15](https://github.com/ekretos/Rythra/blob/c7739a96c2261c82cc1ff98863eeadbd1fe9a7fe/packages/core/src/kernel/Registry.ts#L15)
+Defined in: [packages/core/src/kernel/Registry.ts:15](https://github.com/ekretos/Rythra/blob/494517dd89f9fe3e5101c12673c172d6033bc461/packages/core/src/kernel/Registry.ts#L15)
 
 Returns every registered entry.
 

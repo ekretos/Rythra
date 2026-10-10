@@ -1,6 +1,6 @@
 import type { SearchResponse, LavalinkPlayer, Track, UpdatePlayerInfo, SessionInfo, Stats, RoutePlanner, NodeInfo, FetchOptions, LavalinkResponse } from '@rythra/types';
-import type { RestTransport } from './transport/Transport';
-import { FetchRestTransport } from './transport/RestTransport';
+import type { RestTransport } from './transport/Transport.js';
+import { FetchRestTransport } from './transport/RestTransport.js';
 
 /** Minimal node surface required by the REST client. */
 export interface RestNode {

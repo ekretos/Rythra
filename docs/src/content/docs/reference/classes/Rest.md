@@ -7,7 +7,7 @@ description: API Reference for Rest
 
 ***
 
-Defined in: [packages/core/src/Rest.ts:14](https://github.com/ekretos/Rythra/blob/c7739a96c2261c82cc1ff98863eeadbd1fe9a7fe/packages/core/src/Rest.ts#L14)
+Defined in: [packages/core/src/Rest.ts:14](https://github.com/ekretos/Rythra/blob/494517dd89f9fe3e5101c12673c172d6033bc461/packages/core/src/Rest.ts#L14)
 
 Version-aware wrapper around the Lavalink REST API.
 
@@ -17,7 +17,7 @@ Version-aware wrapper around the Lavalink REST API.
 
 > **new Rest**(`node`, `transport?`): `Rest`
 
-Defined in: [packages/core/src/Rest.ts:19](https://github.com/ekretos/Rythra/blob/c7739a96c2261c82cc1ff98863eeadbd1fe9a7fe/packages/core/src/Rest.ts#L19)
+Defined in: [packages/core/src/Rest.ts:19](https://github.com/ekretos/Rythra/blob/494517dd89f9fe3e5101c12673c172d6033bc461/packages/core/src/Rest.ts#L19)
 
 Creates a REST client for a Lavalink node.
 
@@ -41,7 +41,7 @@ Creates a REST client for a Lavalink node.
 
 > `protected` `readonly` **auth**: `string`
 
-Defined in: [packages/core/src/Rest.ts:16](https://github.com/ekretos/Rythra/blob/c7739a96c2261c82cc1ff98863eeadbd1fe9a7fe/packages/core/src/Rest.ts#L16)
+Defined in: [packages/core/src/Rest.ts:16](https://github.com/ekretos/Rythra/blob/494517dd89f9fe3e5101c12673c172d6033bc461/packages/core/src/Rest.ts#L16)
 
 Password used for Lavalink authorization.
 
@@ -51,7 +51,7 @@ Password used for Lavalink authorization.
 
 > `protected` `readonly` **node**: [`RestNode`](../interfaces/RestNode.md)
 
-Defined in: [packages/core/src/Rest.ts:15](https://github.com/ekretos/Rythra/blob/c7739a96c2261c82cc1ff98863eeadbd1fe9a7fe/packages/core/src/Rest.ts#L15)
+Defined in: [packages/core/src/Rest.ts:15](https://github.com/ekretos/Rythra/blob/494517dd89f9fe3e5101c12673c172d6033bc461/packages/core/src/Rest.ts#L15)
 
 Node that owns this REST client.
 
@@ -61,7 +61,7 @@ Node that owns this REST client.
 
 > `protected` `readonly` **transport**: [`RestTransport`](../interfaces/RestTransport.md)
 
-Defined in: [packages/core/src/Rest.ts:17](https://github.com/ekretos/Rythra/blob/c7739a96c2261c82cc1ff98863eeadbd1fe9a7fe/packages/core/src/Rest.ts#L17)
+Defined in: [packages/core/src/Rest.ts:17](https://github.com/ekretos/Rythra/blob/494517dd89f9fe3e5101c12673c172d6033bc461/packages/core/src/Rest.ts#L17)
 
 Transport used to perform the underlying HTTP requests.
 
@@ -73,7 +73,7 @@ Transport used to perform the underlying HTTP requests.
 
 > **get** `protected` **sessionId**(): `string`
 
-Defined in: [packages/core/src/Rest.ts:22](https://github.com/ekretos/Rythra/blob/c7739a96c2261c82cc1ff98863eeadbd1fe9a7fe/packages/core/src/Rest.ts#L22)
+Defined in: [packages/core/src/Rest.ts:22](https://github.com/ekretos/Rythra/blob/494517dd89f9fe3e5101c12673c172d6033bc461/packages/core/src/Rest.ts#L22)
 
 Gets the active Lavalink session ID.
 
@@ -89,7 +89,7 @@ Gets the active Lavalink session ID.
 
 > **get** `protected` **url**(): `string`
 
-Defined in: [packages/core/src/Rest.ts:20](https://github.com/ekretos/Rythra/blob/c7739a96c2261c82cc1ff98863eeadbd1fe9a7fe/packages/core/src/Rest.ts#L20)
+Defined in: [packages/core/src/Rest.ts:20](https://github.com/ekretos/Rythra/blob/494517dd89f9fe3e5101c12673c172d6033bc461/packages/core/src/Rest.ts#L20)
 
 The version-aware base URL for REST requests.
 
@@ -103,7 +103,7 @@ The version-aware base URL for REST requests.
 
 > **decode**(`track`): `Promise`\<[`Track`](../interfaces/Track.md) \| `undefined`\>
 
-Defined in: [packages/core/src/Rest.ts:35](https://github.com/ekretos/Rythra/blob/c7739a96c2261c82cc1ff98863eeadbd1fe9a7fe/packages/core/src/Rest.ts#L35)
+Defined in: [packages/core/src/Rest.ts:35](https://github.com/ekretos/Rythra/blob/494517dd89f9fe3e5101c12673c172d6033bc461/packages/core/src/Rest.ts#L35)
 
 Decodes an encoded Lavalink track.
 
@@ -123,7 +123,7 @@ Decodes an encoded Lavalink track.
 
 > **destroyPlayer**(`guildId`): `Promise`\<`void`\>
 
-Defined in: [packages/core/src/Rest.ts:43](https://github.com/ekretos/Rythra/blob/c7739a96c2261c82cc1ff98863eeadbd1fe9a7fe/packages/core/src/Rest.ts#L43)
+Defined in: [packages/core/src/Rest.ts:43](https://github.com/ekretos/Rythra/blob/494517dd89f9fe3e5101c12673c172d6033bc461/packages/core/src/Rest.ts#L43)
 
 Destroys a Lavalink player.
 
@@ -143,7 +143,7 @@ Destroys a Lavalink player.
 
 > `protected` **fetch**\<`T`\>(`fetchOptions`): `Promise`\<`T` \| `undefined`\>
 
-Defined in: [packages/core/src/Rest.ts:55](https://github.com/ekretos/Rythra/blob/c7739a96c2261c82cc1ff98863eeadbd1fe9a7fe/packages/core/src/Rest.ts#L55)
+Defined in: [packages/core/src/Rest.ts:55](https://github.com/ekretos/Rythra/blob/494517dd89f9fe3e5101c12673c172d6033bc461/packages/core/src/Rest.ts#L55)
 
 Executes an authenticated request against Lavalink.
 
@@ -169,7 +169,7 @@ Executes an authenticated request against Lavalink.
 
 > **getLavalinkInfo**(): `Promise`\<[`NodeInfo`](../interfaces/NodeInfo.md) \| `undefined`\>
 
-Defined in: [packages/core/src/Rest.ts:53](https://github.com/ekretos/Rythra/blob/c7739a96c2261c82cc1ff98863eeadbd1fe9a7fe/packages/core/src/Rest.ts#L53)
+Defined in: [packages/core/src/Rest.ts:53](https://github.com/ekretos/Rythra/blob/494517dd89f9fe3e5101c12673c172d6033bc461/packages/core/src/Rest.ts#L53)
 
 Gets information about the connected Lavalink server.
 
@@ -183,7 +183,7 @@ Gets information about the connected Lavalink server.
 
 > **getPlayer**(`guildId`): `Promise`\<[`LavalinkPlayer`](../interfaces/LavalinkPlayer.md) \| `undefined`\>
 
-Defined in: [packages/core/src/Rest.ts:39](https://github.com/ekretos/Rythra/blob/c7739a96c2261c82cc1ff98863eeadbd1fe9a7fe/packages/core/src/Rest.ts#L39)
+Defined in: [packages/core/src/Rest.ts:39](https://github.com/ekretos/Rythra/blob/494517dd89f9fe3e5101c12673c172d6033bc461/packages/core/src/Rest.ts#L39)
 
 Gets the Lavalink player for a guild.
 
@@ -203,7 +203,7 @@ Gets the Lavalink player for a guild.
 
 > **getPlayers**(): `Promise`\<[`LavalinkPlayer`](../interfaces/LavalinkPlayer.md)[]\>
 
-Defined in: [packages/core/src/Rest.ts:37](https://github.com/ekretos/Rythra/blob/c7739a96c2261c82cc1ff98863eeadbd1fe9a7fe/packages/core/src/Rest.ts#L37)
+Defined in: [packages/core/src/Rest.ts:37](https://github.com/ekretos/Rythra/blob/494517dd89f9fe3e5101c12673c172d6033bc461/packages/core/src/Rest.ts#L37)
 
 Gets every player belonging to the current Lavalink session.
 
@@ -217,7 +217,7 @@ Gets every player belonging to the current Lavalink session.
 
 > **getRoutePlannerStatus**(): `Promise`\<[`RoutePlanner`](../interfaces/RoutePlanner.md) \| `undefined`\>
 
-Defined in: [packages/core/src/Rest.ts:49](https://github.com/ekretos/Rythra/blob/c7739a96c2261c82cc1ff98863eeadbd1fe9a7fe/packages/core/src/Rest.ts#L49)
+Defined in: [packages/core/src/Rest.ts:49](https://github.com/ekretos/Rythra/blob/494517dd89f9fe3e5101c12673c172d6033bc461/packages/core/src/Rest.ts#L49)
 
 Gets the current route planner status.
 
@@ -231,7 +231,7 @@ Gets the current route planner status.
 
 > **resolve**(`identifier`): `Promise`\<[`SearchResponse`](../type-aliases/SearchResponse.md) \| `undefined`\>
 
-Defined in: [packages/core/src/Rest.ts:24](https://github.com/ekretos/Rythra/blob/c7739a96c2261c82cc1ff98863eeadbd1fe9a7fe/packages/core/src/Rest.ts#L24)
+Defined in: [packages/core/src/Rest.ts:24](https://github.com/ekretos/Rythra/blob/494517dd89f9fe3e5101c12673c172d6033bc461/packages/core/src/Rest.ts#L24)
 
 Resolves a Lavalink identifier or search query.
 
@@ -251,7 +251,7 @@ Resolves a Lavalink identifier or search query.
 
 > **search**(`identifier`): `Promise`\<[`SearchResponse`](../type-aliases/SearchResponse.md)\>
 
-Defined in: [packages/core/src/Rest.ts:26](https://github.com/ekretos/Rythra/blob/c7739a96c2261c82cc1ff98863eeadbd1fe9a7fe/packages/core/src/Rest.ts#L26)
+Defined in: [packages/core/src/Rest.ts:26](https://github.com/ekretos/Rythra/blob/494517dd89f9fe3e5101c12673c172d6033bc461/packages/core/src/Rest.ts#L26)
 
 Searches Lavalink for tracks and normalizes legacy array-shaped search responses.
 
@@ -271,7 +271,7 @@ Searches Lavalink for tracks and normalizes legacy array-shaped search responses
 
 > **stats**(): `Promise`\<[`Stats`](../interfaces/Stats.md) \| `undefined`\>
 
-Defined in: [packages/core/src/Rest.ts:47](https://github.com/ekretos/Rythra/blob/c7739a96c2261c82cc1ff98863eeadbd1fe9a7fe/packages/core/src/Rest.ts#L47)
+Defined in: [packages/core/src/Rest.ts:47](https://github.com/ekretos/Rythra/blob/494517dd89f9fe3e5101c12673c172d6033bc461/packages/core/src/Rest.ts#L47)
 
 Gets current Lavalink statistics.
 
@@ -285,7 +285,7 @@ Gets current Lavalink statistics.
 
 > **unmarkFailedAddress**(`address`): `Promise`\<`void`\>
 
-Defined in: [packages/core/src/Rest.ts:51](https://github.com/ekretos/Rythra/blob/c7739a96c2261c82cc1ff98863eeadbd1fe9a7fe/packages/core/src/Rest.ts#L51)
+Defined in: [packages/core/src/Rest.ts:51](https://github.com/ekretos/Rythra/blob/494517dd89f9fe3e5101c12673c172d6033bc461/packages/core/src/Rest.ts#L51)
 
 Releases a failed route-planner address.
 
@@ -305,7 +305,7 @@ Releases a failed route-planner address.
 
 > **updatePlayer**(`data`): `Promise`\<[`LavalinkPlayer`](../interfaces/LavalinkPlayer.md) \| `undefined`\>
 
-Defined in: [packages/core/src/Rest.ts:41](https://github.com/ekretos/Rythra/blob/c7739a96c2261c82cc1ff98863eeadbd1fe9a7fe/packages/core/src/Rest.ts#L41)
+Defined in: [packages/core/src/Rest.ts:41](https://github.com/ekretos/Rythra/blob/494517dd89f9fe3e5101c12673c172d6033bc461/packages/core/src/Rest.ts#L41)
 
 Updates a Lavalink player.
 
@@ -325,7 +325,7 @@ Updates a Lavalink player.
 
 > **updateSession**(`resuming?`, `timeout?`): `Promise`\<[`SessionInfo`](../interfaces/SessionInfo.md) \| `undefined`\>
 
-Defined in: [packages/core/src/Rest.ts:45](https://github.com/ekretos/Rythra/blob/c7739a96c2261c82cc1ff98863eeadbd1fe9a7fe/packages/core/src/Rest.ts#L45)
+Defined in: [packages/core/src/Rest.ts:45](https://github.com/ekretos/Rythra/blob/494517dd89f9fe3e5101c12673c172d6033bc461/packages/core/src/Rest.ts#L45)
 
 Updates Lavalink session resumption settings.
 

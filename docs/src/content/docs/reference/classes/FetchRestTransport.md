@@ -7,7 +7,7 @@ description: API Reference for FetchRestTransport
 
 ***
 
-Defined in: [packages/core/src/transport/RestTransport.ts:25](https://github.com/ekretos/Rythra/blob/c7739a96c2261c82cc1ff98863eeadbd1fe9a7fe/packages/core/src/transport/RestTransport.ts#L25)
+Defined in: [packages/core/src/transport/RestTransport.ts:25](https://github.com/ekretos/Rythra/blob/494517dd89f9fe3e5101c12673c172d6033bc461/packages/core/src/transport/RestTransport.ts#L25)
 
 REST transport backed by the runtime's native `fetch` implementation.
 
@@ -31,7 +31,7 @@ REST transport backed by the runtime's native `fetch` implementation.
 
 > **request**\<`T`\>(`request`): `Promise`\<`T` \| `undefined`\>
 
-Defined in: [packages/core/src/transport/RestTransport.ts:27](https://github.com/ekretos/Rythra/blob/c7739a96c2261c82cc1ff98863eeadbd1fe9a7fe/packages/core/src/transport/RestTransport.ts#L27)
+Defined in: [packages/core/src/transport/RestTransport.ts:27](https://github.com/ekretos/Rythra/blob/494517dd89f9fe3e5101c12673c172d6033bc461/packages/core/src/transport/RestTransport.ts#L27)
 
 Performs a request and resolves the decoded JSON body, if any.
 

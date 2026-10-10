@@ -1,7 +1,7 @@
 import { EventEmitter } from 'node:events';
-import type { PlayerNode } from '../contracts';
-import { Queue } from '../Queue';
-import type { PlayerOptions, SearchPlatform, Track, VoiceStateUpdate } from '@rythra/types';
+import type { PlayerNode } from '../contracts.js';
+import { Queue } from '../Queue.js';
+import type { PlayerOptions, SearchPlatform, Track, VoiceServerUpdate, VoiceStateUpdate } from '@rythra/types';
 
 interface TrackEventPayload {
     track?: Track | null;
@@ -31,7 +31,7 @@ interface PlayerSearchResult {
 type LoopMode = 'none' | 'track' | 'queue';
 
 export class RythraPlayer extends EventEmitter {
-    public readonly node: PlayerNode;
+    public node: PlayerNode;
     public readonly guild: string;
     public voiceChannel: string;
     public textChannel: string;
@@ -40,6 +40,10 @@ export class RythraPlayer extends EventEmitter {
     public volume = 100;
     public loop: LoopMode = 'none';
     public voiceState: Partial<VoiceStateUpdate> = {};
+    /** Last Discord voice server data, kept so the player can be moved to another node. */
+    public voiceServer: VoiceServerUpdate | null = null;
+    /** Last playback position reported by Lavalink, in milliseconds. */
+    public lastPosition = 0;
     public readonly data = new Map<string, unknown>();
     public readonly queue: Queue = new Queue();
 
@@ -74,7 +78,11 @@ export class RythraPlayer extends EventEmitter {
         });
         this.on('TrackExceptionEvent', (data: TrackEventPayload) => this.emit('trackException', data));
         this.on('TrackStuckEvent', (data: TrackEventPayload) => this.emit('trackStuck', data));
-        this.on('playerUpdate', (data: unknown) => this.emit('update', data));
+        this.on('playerUpdate', (data: unknown) => {
+            const position = (data as { state?: { position?: unknown } } | null)?.state?.position;
+            if (typeof position === 'number') this.lastPosition = position;
+            this.emit('update', data);
+        });
     }
 
     private decorateTrack(track: Track, requester?: unknown): IntegrationTrack {
@@ -92,6 +100,31 @@ export class RythraPlayer extends EventEmitter {
         value.raw = { info };
         if (requester !== undefined) value.requester = requester;
         return value;
+    }
+
+    /**
+     * Moves this player to another node and restores voice, track, position, volume and pause state.
+     * @throws {Error} When Discord voice data needed to re-establish the session is missing.
+     */
+    public async moveTo(node: PlayerNode): Promise<void> {
+        const { voiceServer, voiceState } = this;
+        if (!voiceServer || !voiceState.session_id || !voiceState.channel_id) throw new Error(`Cannot move player ${this.guild}: Discord voice data is missing.`);
+        const previous = this.node;
+        this.node = node;
+        try {
+            await node.rest.updatePlayer({
+                guildId: this.guild,
+                playerOptions: {
+                    voice: { token: voiceServer.token, endpoint: voiceServer.endpoint, sessionId: voiceState.session_id, channelId: voiceState.channel_id },
+                    volume: this.volume,
+                    paused: this.paused,
+                    ...(this.queue.current ? { track: { encoded: this.queue.current.encoded }, position: this.lastPosition } : {}),
+                },
+            });
+        } catch (error) {
+            this.node = previous;
+            throw error;
+        }
     }
 
     public async search(query: string, options: { requester?: unknown; source?: string } = {}): Promise<PlayerSearchResult> {

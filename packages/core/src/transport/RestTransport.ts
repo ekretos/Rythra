@@ -1,5 +1,5 @@
 import type { LavalinkRestError } from '@rythra/types';
-import type { RestTransport, TransportRequest } from './Transport';
+import type { RestTransport, TransportRequest } from './Transport.js';
 
 /** Error thrown when Lavalink answers a REST call with a failure payload. */
 export class RestError extends Error {

@@ -1,4 +1,4 @@
-import type { Rythra } from './Rythra';
+import type { Rythra } from './Rythra.js';
 import type { GatewayPacket } from '@rythra/types';
 
 /**

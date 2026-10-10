@@ -9,6 +9,6 @@ description: API Reference for V5_ADAPTER
 
 > `const` **V5\_ADAPTER**: [`ProtocolAdapter`](../interfaces/ProtocolAdapter.md)
 
-Defined in: [packages/core/src/protocol/ProtocolAdapter.ts:70](https://github.com/ekretos/Rythra/blob/c7739a96c2261c82cc1ff98863eeadbd1fe9a7fe/packages/core/src/protocol/ProtocolAdapter.ts#L70)
+Defined in: [packages/core/src/protocol/ProtocolAdapter.ts:70](https://github.com/ekretos/Rythra/blob/494517dd89f9fe3e5101c12673c172d6033bc461/packages/core/src/protocol/ProtocolAdapter.ts#L70)
 
 Lavalink v5 protocol adapter.

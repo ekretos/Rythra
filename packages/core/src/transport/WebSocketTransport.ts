@@ -1,5 +1,5 @@
 import WebSocket from 'ws';
-import type { SocketTransport, SocketTransportHandlers } from './Transport';
+import type { SocketTransport, SocketTransportHandlers } from './Transport.js';
 
 /** Connection details resolved lazily for every socket attempt. */
 export interface WebSocketTransportOptions {

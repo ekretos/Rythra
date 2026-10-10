@@ -71,6 +71,8 @@
     "format": "prettier --write .",
     "check:boundaries": "node scripts/check-workspace-boundaries.mjs",
     "check:versions": "node scripts/check-package-versions.mjs",
+    "check:dist": "node scripts/check-esm.mjs && bun run check:consumer",
+    "check:consumer": "tsc -p test/consumer/tsconfig.json",
     "check:packages": "bun run check:boundaries && bun run check:versions"
   },
   "dependencies": {

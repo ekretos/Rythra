@@ -21,6 +21,7 @@
     "build": "tsc"
   },
   "dependencies": {
-    "@rythra/types": "workspace:^"
+    "@rythra/types": "workspace:^",
+    "ws": "^8.22.0"
   }
 }

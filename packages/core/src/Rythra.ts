@@ -1,9 +1,9 @@
 import { EventEmitter } from 'node:events';
-import { Node } from './node/Node';
-import { RythraPlayer } from './player/Player';
-import { NodeRegistry, PlayerRegistry } from './kernel/Registry';
-import { Health, type HealthSnapshot } from './health/Health';
-import { ConfigurationError } from './errors/RythraError';
+import { Node } from './node/Node.js';
+import { RythraPlayer } from './player/Player.js';
+import { NodeRegistry, PlayerRegistry } from './kernel/Registry.js';
+import { Health, type HealthSnapshot } from './health/Health.js';
+import { ConfigurationError } from './errors/RythraError.js';
 import type {
     RythraOptions,
     NodeOptions,
@@ -145,6 +145,7 @@ export class Rythra extends EventEmitter implements IRythra {
         node.on('disconnect', () => {
             this.reconnects++;
             this.emit('nodeDisconnect', node);
+            if (this.options.failover) void this.migratePlayers(node);
         });
         node.on('reconnectFailed', () => this.emit('nodeReconnectFailed', node));
         node.on('state', (state, previous) =>
@@ -269,6 +270,7 @@ export class Rythra extends EventEmitter implements IRythra {
     public async voiceServerUpdate(data: VoiceServerUpdate): Promise<void> {
         const player = this.players.get(data.guild_id);
         if (!player) return;
+        player.voiceServer = data;
 
         if (!player.voiceState.session_id || !player.voiceState.channel_id) {
             throw new ConfigurationError(
@@ -287,6 +289,28 @@ export class Rythra extends EventEmitter implements IRythra {
                 },
             },
         });
+    }
+
+    /**
+     * Moves every player bound to `from` onto the best other ready node.
+     * @returns The number of players successfully migrated.
+     */
+    public async migratePlayers(from: Node): Promise<number> {
+        const target = this.getBestNode();
+        const affected = this.players.filter((player) => player.node === from);
+        if (!target || target === from || !affected.length) return 0;
+        let moved = 0;
+        for (const player of affected) {
+            try {
+                await player.moveTo(target);
+                this.migrations++;
+                moved++;
+                this.emit('playerMigrate', player, from, target);
+            } catch (error) {
+                this.emit('playerMigrateFailed', player, error);
+            }
+        }
+        return moved;
     }
 
     /** Returns the current local health snapshot without network I/O. */

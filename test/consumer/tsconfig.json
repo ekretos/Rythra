@@ -1,0 +1,39 @@
+{
+  "compilerOptions": {
+    "target": "ESNext",
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext",
+    "strict": true,
+    "noEmit": true,
+    "skipLibCheck": true,
+    "types": [
+      "node"
+    ],
+    "paths": {
+      "rythra": [
+        "../../dist/index.d.ts"
+      ],
+      "@rythra/core": [
+        "../../packages/core/dist/index.d.ts"
+      ],
+      "@rythra/types": [
+        "../../packages/types/dist/index.d.ts"
+      ],
+      "@rythra/connectors": [
+        "../../packages/connectors/dist/index.d.ts"
+      ],
+      "@rythra/connectors/*": [
+        "../../packages/connectors/dist/*.d.ts"
+      ],
+      "@rythra/metrics": [
+        "../../packages/metrics/dist/index.d.ts"
+      ],
+      "@rythra/persistence": [
+        "../../packages/persistence/dist/index.d.ts"
+      ]
+    }
+  },
+  "include": [
+    "index.ts"
+  ]
+}

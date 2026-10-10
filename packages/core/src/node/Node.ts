@@ -1,15 +1,15 @@
 import { EventEmitter } from 'node:events';
 import type WebSocket from 'ws';
-import type { RythraManager } from '../contracts';
+import type { RythraManager } from '../contracts.js';
 import type { NodeOptions, Stats } from '@rythra/types';
-import { Rest } from '../Rest';
-import { ConfigurationError } from '../errors/RythraError';
-import { getLavalinkApiVersion, type LavalinkApiVersion } from '../protocol/LavalinkProtocol';
-import { resolveProtocol, type LavalinkServerMessage, type ProtocolAdapter } from '../protocol/ProtocolAdapter';
-import { CircuitBreaker } from '../reliability/CircuitBreaker';
-import { WebSocketTransport } from '../transport/WebSocketTransport';
-import type { SocketTransport, SocketTransportHandlers } from '../transport/Transport';
-import { NodeStateMachine, type NodeState } from './NodeState';
+import { Rest } from '../Rest.js';
+import { ConfigurationError } from '../errors/RythraError.js';
+import { getLavalinkApiVersion, type LavalinkApiVersion } from '../protocol/LavalinkProtocol.js';
+import { resolveProtocol, type LavalinkServerMessage, type ProtocolAdapter } from '../protocol/ProtocolAdapter.js';
+import { CircuitBreaker } from '../reliability/CircuitBreaker.js';
+import { WebSocketTransport } from '../transport/WebSocketTransport.js';
+import type { SocketTransport, SocketTransportHandlers } from '../transport/Transport.js';
+import { NodeStateMachine, type NodeState } from './NodeState.js';
 
 /**
  * Runtime for a single Lavalink node.

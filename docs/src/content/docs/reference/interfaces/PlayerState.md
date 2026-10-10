@@ -7,7 +7,7 @@ description: API Reference for PlayerState
 
 ***
 
-Defined in: [packages/types/src/index.ts:64](https://github.com/ekretos/Rythra/blob/c7739a96c2261c82cc1ff98863eeadbd1fe9a7fe/packages/types/src/index.ts#L64)
+Defined in: [packages/types/src/index.ts:64](https://github.com/ekretos/Rythra/blob/494517dd89f9fe3e5101c12673c172d6033bc461/packages/types/src/index.ts#L64)
 
 Runtime player state.
 
@@ -17,7 +17,7 @@ Runtime player state.
 
 > **connected**: `boolean`
 
-Defined in: [packages/types/src/index.ts:64](https://github.com/ekretos/Rythra/blob/c7739a96c2261c82cc1ff98863eeadbd1fe9a7fe/packages/types/src/index.ts#L64)
+Defined in: [packages/types/src/index.ts:64](https://github.com/ekretos/Rythra/blob/494517dd89f9fe3e5101c12673c172d6033bc461/packages/types/src/index.ts#L64)
 
 ***
 
@@ -25,7 +25,7 @@ Defined in: [packages/types/src/index.ts:64](https://github.com/ekretos/Rythra/b
 
 > **ping**: `number`
 
-Defined in: [packages/types/src/index.ts:64](https://github.com/ekretos/Rythra/blob/c7739a96c2261c82cc1ff98863eeadbd1fe9a7fe/packages/types/src/index.ts#L64)
+Defined in: [packages/types/src/index.ts:64](https://github.com/ekretos/Rythra/blob/494517dd89f9fe3e5101c12673c172d6033bc461/packages/types/src/index.ts#L64)
 
 ***
 
@@ -33,7 +33,7 @@ Defined in: [packages/types/src/index.ts:64](https://github.com/ekretos/Rythra/b
 
 > **position**: `number`
 
-Defined in: [packages/types/src/index.ts:64](https://github.com/ekretos/Rythra/blob/c7739a96c2261c82cc1ff98863eeadbd1fe9a7fe/packages/types/src/index.ts#L64)
+Defined in: [packages/types/src/index.ts:64](https://github.com/ekretos/Rythra/blob/494517dd89f9fe3e5101c12673c172d6033bc461/packages/types/src/index.ts#L64)
 
 ***
 
@@ -41,4 +41,4 @@ Defined in: [packages/types/src/index.ts:64](https://github.com/ekretos/Rythra/b
 
 > **time**: `number`
 
-Defined in: [packages/types/src/index.ts:64](https://github.com/ekretos/Rythra/blob/c7739a96c2261c82cc1ff98863eeadbd1fe9a7fe/packages/types/src/index.ts#L64)
+Defined in: [packages/types/src/index.ts:64](https://github.com/ekretos/Rythra/blob/494517dd89f9fe3e5101c12673c172d6033bc461/packages/types/src/index.ts#L64)

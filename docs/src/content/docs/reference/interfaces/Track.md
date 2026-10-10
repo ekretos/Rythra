@@ -7,7 +7,7 @@ description: API Reference for Track
 
 ***
 
-Defined in: [packages/types/src/index.ts:40](https://github.com/ekretos/Rythra/blob/c7739a96c2261c82cc1ff98863eeadbd1fe9a7fe/packages/types/src/index.ts#L40)
+Defined in: [packages/types/src/index.ts:40](https://github.com/ekretos/Rythra/blob/494517dd89f9fe3e5101c12673c172d6033bc461/packages/types/src/index.ts#L40)
 
 A Lavalink encoded track.
 
@@ -17,7 +17,7 @@ A Lavalink encoded track.
 
 > **encoded**: `string`
 
-Defined in: [packages/types/src/index.ts:40](https://github.com/ekretos/Rythra/blob/c7739a96c2261c82cc1ff98863eeadbd1fe9a7fe/packages/types/src/index.ts#L40)
+Defined in: [packages/types/src/index.ts:40](https://github.com/ekretos/Rythra/blob/494517dd89f9fe3e5101c12673c172d6033bc461/packages/types/src/index.ts#L40)
 
 ***
 
@@ -25,7 +25,7 @@ Defined in: [packages/types/src/index.ts:40](https://github.com/ekretos/Rythra/b
 
 > **info**: [`TrackInfo`](TrackInfo.md)
 
-Defined in: [packages/types/src/index.ts:40](https://github.com/ekretos/Rythra/blob/c7739a96c2261c82cc1ff98863eeadbd1fe9a7fe/packages/types/src/index.ts#L40)
+Defined in: [packages/types/src/index.ts:40](https://github.com/ekretos/Rythra/blob/494517dd89f9fe3e5101c12673c172d6033bc461/packages/types/src/index.ts#L40)
 
 ***
 
@@ -33,7 +33,7 @@ Defined in: [packages/types/src/index.ts:40](https://github.com/ekretos/Rythra/b
 
 > **pluginInfo**: `Record`\<`string`, `unknown`\>
 
-Defined in: [packages/types/src/index.ts:40](https://github.com/ekretos/Rythra/blob/c7739a96c2261c82cc1ff98863eeadbd1fe9a7fe/packages/types/src/index.ts#L40)
+Defined in: [packages/types/src/index.ts:40](https://github.com/ekretos/Rythra/blob/494517dd89f9fe3e5101c12673c172d6033bc461/packages/types/src/index.ts#L40)
 
 ***
 
@@ -41,4 +41,4 @@ Defined in: [packages/types/src/index.ts:40](https://github.com/ekretos/Rythra/b
 
 > **userData**: `Record`\<`string`, `unknown`\>
 
-Defined in: [packages/types/src/index.ts:40](https://github.com/ekretos/Rythra/blob/c7739a96c2261c82cc1ff98863eeadbd1fe9a7fe/packages/types/src/index.ts#L40)
+Defined in: [packages/types/src/index.ts:40](https://github.com/ekretos/Rythra/blob/494517dd89f9fe3e5101c12673c172d6033bc461/packages/types/src/index.ts#L40)

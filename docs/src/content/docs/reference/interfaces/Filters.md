@@ -7,7 +7,7 @@ description: API Reference for Filters
 
 ***
 
-Defined in: [packages/types/src/index.ts:63](https://github.com/ekretos/Rythra/blob/c7739a96c2261c82cc1ff98863eeadbd1fe9a7fe/packages/types/src/index.ts#L63)
+Defined in: [packages/types/src/index.ts:63](https://github.com/ekretos/Rythra/blob/494517dd89f9fe3e5101c12673c172d6033bc461/packages/types/src/index.ts#L63)
 
 Lavalink filter collection.
 
@@ -17,7 +17,7 @@ Lavalink filter collection.
 
 > `optional` **channelMix?**: [`ChannelMix`](ChannelMix.md)
 
-Defined in: [packages/types/src/index.ts:63](https://github.com/ekretos/Rythra/blob/c7739a96c2261c82cc1ff98863eeadbd1fe9a7fe/packages/types/src/index.ts#L63)
+Defined in: [packages/types/src/index.ts:63](https://github.com/ekretos/Rythra/blob/494517dd89f9fe3e5101c12673c172d6033bc461/packages/types/src/index.ts#L63)
 
 ***
 
@@ -25,7 +25,7 @@ Defined in: [packages/types/src/index.ts:63](https://github.com/ekretos/Rythra/b
 
 > `optional` **distortion?**: [`Distortion`](Distortion.md)
 
-Defined in: [packages/types/src/index.ts:63](https://github.com/ekretos/Rythra/blob/c7739a96c2261c82cc1ff98863eeadbd1fe9a7fe/packages/types/src/index.ts#L63)
+Defined in: [packages/types/src/index.ts:63](https://github.com/ekretos/Rythra/blob/494517dd89f9fe3e5101c12673c172d6033bc461/packages/types/src/index.ts#L63)
 
 ***
 
@@ -33,7 +33,7 @@ Defined in: [packages/types/src/index.ts:63](https://github.com/ekretos/Rythra/b
 
 > `optional` **equalizer?**: [`Equalizer`](Equalizer.md)[]
 
-Defined in: [packages/types/src/index.ts:63](https://github.com/ekretos/Rythra/blob/c7739a96c2261c82cc1ff98863eeadbd1fe9a7fe/packages/types/src/index.ts#L63)
+Defined in: [packages/types/src/index.ts:63](https://github.com/ekretos/Rythra/blob/494517dd89f9fe3e5101c12673c172d6033bc461/packages/types/src/index.ts#L63)
 
 ***
 
@@ -41,7 +41,7 @@ Defined in: [packages/types/src/index.ts:63](https://github.com/ekretos/Rythra/b
 
 > `optional` **karaoke?**: [`Karaoke`](Karaoke.md)
 
-Defined in: [packages/types/src/index.ts:63](https://github.com/ekretos/Rythra/blob/c7739a96c2261c82cc1ff98863eeadbd1fe9a7fe/packages/types/src/index.ts#L63)
+Defined in: [packages/types/src/index.ts:63](https://github.com/ekretos/Rythra/blob/494517dd89f9fe3e5101c12673c172d6033bc461/packages/types/src/index.ts#L63)
 
 ***
 
@@ -49,7 +49,7 @@ Defined in: [packages/types/src/index.ts:63](https://github.com/ekretos/Rythra/b
 
 > `optional` **lowPass?**: [`LowPass`](LowPass.md)
 
-Defined in: [packages/types/src/index.ts:63](https://github.com/ekretos/Rythra/blob/c7739a96c2261c82cc1ff98863eeadbd1fe9a7fe/packages/types/src/index.ts#L63)
+Defined in: [packages/types/src/index.ts:63](https://github.com/ekretos/Rythra/blob/494517dd89f9fe3e5101c12673c172d6033bc461/packages/types/src/index.ts#L63)
 
 ***
 
@@ -57,7 +57,7 @@ Defined in: [packages/types/src/index.ts:63](https://github.com/ekretos/Rythra/b
 
 > `optional` **pluginFilters?**: `Record`\<`string`, `unknown`\>
 
-Defined in: [packages/types/src/index.ts:63](https://github.com/ekretos/Rythra/blob/c7739a96c2261c82cc1ff98863eeadbd1fe9a7fe/packages/types/src/index.ts#L63)
+Defined in: [packages/types/src/index.ts:63](https://github.com/ekretos/Rythra/blob/494517dd89f9fe3e5101c12673c172d6033bc461/packages/types/src/index.ts#L63)
 
 ***
 
@@ -65,7 +65,7 @@ Defined in: [packages/types/src/index.ts:63](https://github.com/ekretos/Rythra/b
 
 > `optional` **rotation?**: [`Rotation`](Rotation.md)
 
-Defined in: [packages/types/src/index.ts:63](https://github.com/ekretos/Rythra/blob/c7739a96c2261c82cc1ff98863eeadbd1fe9a7fe/packages/types/src/index.ts#L63)
+Defined in: [packages/types/src/index.ts:63](https://github.com/ekretos/Rythra/blob/494517dd89f9fe3e5101c12673c172d6033bc461/packages/types/src/index.ts#L63)
 
 ***
 
@@ -73,7 +73,7 @@ Defined in: [packages/types/src/index.ts:63](https://github.com/ekretos/Rythra/b
 
 > `optional` **timescale?**: [`Timescale`](Timescale.md)
 
-Defined in: [packages/types/src/index.ts:63](https://github.com/ekretos/Rythra/blob/c7739a96c2261c82cc1ff98863eeadbd1fe9a7fe/packages/types/src/index.ts#L63)
+Defined in: [packages/types/src/index.ts:63](https://github.com/ekretos/Rythra/blob/494517dd89f9fe3e5101c12673c172d6033bc461/packages/types/src/index.ts#L63)
 
 ***
 
@@ -81,7 +81,7 @@ Defined in: [packages/types/src/index.ts:63](https://github.com/ekretos/Rythra/b
 
 > `optional` **tremolo?**: [`Tremolo`](Tremolo.md)
 
-Defined in: [packages/types/src/index.ts:63](https://github.com/ekretos/Rythra/blob/c7739a96c2261c82cc1ff98863eeadbd1fe9a7fe/packages/types/src/index.ts#L63)
+Defined in: [packages/types/src/index.ts:63](https://github.com/ekretos/Rythra/blob/494517dd89f9fe3e5101c12673c172d6033bc461/packages/types/src/index.ts#L63)
 
 ***
 
@@ -89,7 +89,7 @@ Defined in: [packages/types/src/index.ts:63](https://github.com/ekretos/Rythra/b
 
 > `optional` **vibrato?**: [`Vibrato`](Vibrato.md)
 
-Defined in: [packages/types/src/index.ts:63](https://github.com/ekretos/Rythra/blob/c7739a96c2261c82cc1ff98863eeadbd1fe9a7fe/packages/types/src/index.ts#L63)
+Defined in: [packages/types/src/index.ts:63](https://github.com/ekretos/Rythra/blob/494517dd89f9fe3e5101c12673c172d6033bc461/packages/types/src/index.ts#L63)
 
 ***
 
@@ -97,4 +97,4 @@ Defined in: [packages/types/src/index.ts:63](https://github.com/ekretos/Rythra/b
 
 > `optional` **volume?**: `number`
 
-Defined in: [packages/types/src/index.ts:63](https://github.com/ekretos/Rythra/blob/c7739a96c2261c82cc1ff98863eeadbd1fe9a7fe/packages/types/src/index.ts#L63)
+Defined in: [packages/types/src/index.ts:63](https://github.com/ekretos/Rythra/blob/494517dd89f9fe3e5101c12673c172d6033bc461/packages/types/src/index.ts#L63)

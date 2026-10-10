@@ -7,7 +7,7 @@ description: API Reference for Node
 
 ***
 
-Defined in: [packages/core/src/node/Node.ts:24](https://github.com/ekretos/Rythra/blob/c7739a96c2261c82cc1ff98863eeadbd1fe9a7fe/packages/core/src/node/Node.ts#L24)
+Defined in: [packages/core/src/node/Node.ts:24](https://github.com/ekretos/Rythra/blob/494517dd89f9fe3e5101c12673c172d6033bc461/packages/core/src/node/Node.ts#L24)
 
 Runtime for a single Lavalink node.
 
@@ -27,7 +27,7 @@ version-specific detail lives behind a [ProtocolAdapter](../interfaces/ProtocolA
 
 > **new Node**(`manager`, `options`): `Node`
 
-Defined in: [packages/core/src/node/Node.ts:43](https://github.com/ekretos/Rythra/blob/c7739a96c2261c82cc1ff98863eeadbd1fe9a7fe/packages/core/src/node/Node.ts#L43)
+Defined in: [packages/core/src/node/Node.ts:43](https://github.com/ekretos/Rythra/blob/494517dd89f9fe3e5101c12673c172d6033bc461/packages/core/src/node/Node.ts#L43)
 
 #### Parameters
 
@@ -53,7 +53,7 @@ Defined in: [packages/core/src/node/Node.ts:43](https://github.com/ekretos/Rythr
 
 > **apiVersion**: [`LavalinkApiVersion`](../type-aliases/LavalinkApiVersion.md) \| `null` = `null`
 
-Defined in: [packages/core/src/node/Node.ts:31](https://github.com/ekretos/Rythra/blob/c7739a96c2261c82cc1ff98863eeadbd1fe9a7fe/packages/core/src/node/Node.ts#L31)
+Defined in: [packages/core/src/node/Node.ts:31](https://github.com/ekretos/Rythra/blob/494517dd89f9fe3e5101c12673c172d6033bc461/packages/core/src/node/Node.ts#L31)
 
 The Lavalink API generation selected for this node.
 
@@ -63,7 +63,7 @@ The Lavalink API generation selected for this node.
 
 > `readonly` **circuit**: [`CircuitBreaker`](CircuitBreaker.md)
 
-Defined in: [packages/core/src/node/Node.ts:28](https://github.com/ekretos/Rythra/blob/c7739a96c2261c82cc1ff98863eeadbd1fe9a7fe/packages/core/src/node/Node.ts#L28)
+Defined in: [packages/core/src/node/Node.ts:28](https://github.com/ekretos/Rythra/blob/494517dd89f9fe3e5101c12673c172d6033bc461/packages/core/src/node/Node.ts#L28)
 
 Circuit breaker protecting this node from repeated connection attempts.
 
@@ -73,7 +73,7 @@ Circuit breaker protecting this node from repeated connection attempts.
 
 > `readonly` **manager**: `RythraManager`
 
-Defined in: [packages/core/src/node/Node.ts:25](https://github.com/ekretos/Rythra/blob/c7739a96c2261c82cc1ff98863eeadbd1fe9a7fe/packages/core/src/node/Node.ts#L25)
+Defined in: [packages/core/src/node/Node.ts:25](https://github.com/ekretos/Rythra/blob/494517dd89f9fe3e5101c12673c172d6033bc461/packages/core/src/node/Node.ts#L25)
 
 The Rythra manager that owns this node.
 
@@ -83,7 +83,7 @@ The Rythra manager that owns this node.
 
 > `readonly` **options**: [`NodeOptions`](../interfaces/NodeOptions.md)
 
-Defined in: [packages/core/src/node/Node.ts:26](https://github.com/ekretos/Rythra/blob/c7739a96c2261c82cc1ff98863eeadbd1fe9a7fe/packages/core/src/node/Node.ts#L26)
+Defined in: [packages/core/src/node/Node.ts:26](https://github.com/ekretos/Rythra/blob/494517dd89f9fe3e5101c12673c172d6033bc461/packages/core/src/node/Node.ts#L26)
 
 The configuration used to connect to Lavalink.
 
@@ -93,7 +93,7 @@ The configuration used to connect to Lavalink.
 
 > **protocol**: [`ProtocolAdapter`](../interfaces/ProtocolAdapter.md) \| `null` = `null`
 
-Defined in: [packages/core/src/node/Node.ts:32](https://github.com/ekretos/Rythra/blob/c7739a96c2261c82cc1ff98863eeadbd1fe9a7fe/packages/core/src/node/Node.ts#L32)
+Defined in: [packages/core/src/node/Node.ts:32](https://github.com/ekretos/Rythra/blob/494517dd89f9fe3e5101c12673c172d6033bc461/packages/core/src/node/Node.ts#L32)
 
 The protocol adapter selected for this node, or `null` until detection completes.
 
@@ -103,7 +103,7 @@ The protocol adapter selected for this node, or `null` until detection completes
 
 > `readonly` **rest**: [`Rest`](Rest.md)
 
-Defined in: [packages/core/src/node/Node.ts:27](https://github.com/ekretos/Rythra/blob/c7739a96c2261c82cc1ff98863eeadbd1fe9a7fe/packages/core/src/node/Node.ts#L27)
+Defined in: [packages/core/src/node/Node.ts:27](https://github.com/ekretos/Rythra/blob/494517dd89f9fe3e5101c12673c172d6033bc461/packages/core/src/node/Node.ts#L27)
 
 The version-aware REST client for this node.
 
@@ -113,7 +113,7 @@ The version-aware REST client for this node.
 
 > **sessionId**: `string` \| `null` = `null`
 
-Defined in: [packages/core/src/node/Node.ts:30](https://github.com/ekretos/Rythra/blob/c7739a96c2261c82cc1ff98863eeadbd1fe9a7fe/packages/core/src/node/Node.ts#L30)
+Defined in: [packages/core/src/node/Node.ts:30](https://github.com/ekretos/Rythra/blob/494517dd89f9fe3e5101c12673c172d6033bc461/packages/core/src/node/Node.ts#L30)
 
 The Lavalink session ID used for session resumption.
 
@@ -123,7 +123,7 @@ The Lavalink session ID used for session resumption.
 
 > **stats**: [`Stats`](../interfaces/Stats.md)
 
-Defined in: [packages/core/src/node/Node.ts:29](https://github.com/ekretos/Rythra/blob/c7739a96c2261c82cc1ff98863eeadbd1fe9a7fe/packages/core/src/node/Node.ts#L29)
+Defined in: [packages/core/src/node/Node.ts:29](https://github.com/ekretos/Rythra/blob/494517dd89f9fe3e5101c12673c172d6033bc461/packages/core/src/node/Node.ts#L29)
 
 The most recently received Lavalink statistics payload.
 
@@ -135,7 +135,7 @@ The most recently received Lavalink statistics payload.
 
 > **get** **connected**(): `boolean`
 
-Defined in: [packages/core/src/node/Node.ts:59](https://github.com/ekretos/Rythra/blob/c7739a96c2261c82cc1ff98863eeadbd1fe9a7fe/packages/core/src/node/Node.ts#L59)
+Defined in: [packages/core/src/node/Node.ts:59](https://github.com/ekretos/Rythra/blob/494517dd89f9fe3e5101c12673c172d6033bc461/packages/core/src/node/Node.ts#L59)
 
 Whether the node currently has an open WebSocket connection.
 
@@ -151,7 +151,7 @@ Whether the node currently has an open WebSocket connection.
 
 > **get** **label**(): `string`
 
-Defined in: [packages/core/src/node/Node.ts:65](https://github.com/ekretos/Rythra/blob/c7739a96c2261c82cc1ff98863eeadbd1fe9a7fe/packages/core/src/node/Node.ts#L65)
+Defined in: [packages/core/src/node/Node.ts:65](https://github.com/ekretos/Rythra/blob/494517dd89f9fe3e5101c12673c172d6033bc461/packages/core/src/node/Node.ts#L65)
 
 Human-readable identifier used in logs and errors.
 
@@ -167,7 +167,7 @@ Human-readable identifier used in logs and errors.
 
 > **get** **restUrl**(): `string`
 
-Defined in: [packages/core/src/node/Node.ts:77](https://github.com/ekretos/Rythra/blob/c7739a96c2261c82cc1ff98863eeadbd1fe9a7fe/packages/core/src/node/Node.ts#L77)
+Defined in: [packages/core/src/node/Node.ts:77](https://github.com/ekretos/Rythra/blob/494517dd89f9fe3e5101c12673c172d6033bc461/packages/core/src/node/Node.ts#L77)
 
 The version-aware base URL used for REST requests.
 
@@ -183,7 +183,7 @@ The version-aware base URL used for REST requests.
 
 > **get** **state**(): [`NodeState`](../type-aliases/NodeState.md)
 
-Defined in: [packages/core/src/node/Node.ts:56](https://github.com/ekretos/Rythra/blob/c7739a96c2261c82cc1ff98863eeadbd1fe9a7fe/packages/core/src/node/Node.ts#L56)
+Defined in: [packages/core/src/node/Node.ts:56](https://github.com/ekretos/Rythra/blob/494517dd89f9fe3e5101c12673c172d6033bc461/packages/core/src/node/Node.ts#L56)
 
 The current lifecycle state of this node.
 
@@ -199,7 +199,7 @@ The current lifecycle state of this node.
 
 > **get** **ws**(): `WebSocket` \| `null`
 
-Defined in: [packages/core/src/node/Node.ts:62](https://github.com/ekretos/Rythra/blob/c7739a96c2261c82cc1ff98863eeadbd1fe9a7fe/packages/core/src/node/Node.ts#L62)
+Defined in: [packages/core/src/node/Node.ts:62](https://github.com/ekretos/Rythra/blob/494517dd89f9fe3e5101c12673c172d6033bc461/packages/core/src/node/Node.ts#L62)
 
 The active Lavalink WebSocket, or `null` when disconnected.
 
@@ -310,7 +310,7 @@ v0.1.26
 
 > **connect**(): `Promise`\<`void`\>
 
-Defined in: [packages/core/src/node/Node.ts:91](https://github.com/ekretos/Rythra/blob/c7739a96c2261c82cc1ff98863eeadbd1fe9a7fe/packages/core/src/node/Node.ts#L91)
+Defined in: [packages/core/src/node/Node.ts:91](https://github.com/ekretos/Rythra/blob/494517dd89f9fe3e5101c12673c172d6033bc461/packages/core/src/node/Node.ts#L91)
 
 Connects the node, resolving once Lavalink accepts the WebSocket handshake.
 
@@ -324,7 +324,7 @@ Connects the node, resolving once Lavalink accepts the WebSocket handshake.
 
 > `protected` **createTransport**(`handlers`): [`SocketTransport`](../interfaces/SocketTransport.md)
 
-Defined in: [packages/core/src/node/Node.ts:128](https://github.com/ekretos/Rythra/blob/c7739a96c2261c82cc1ff98863eeadbd1fe9a7fe/packages/core/src/node/Node.ts#L128)
+Defined in: [packages/core/src/node/Node.ts:128](https://github.com/ekretos/Rythra/blob/494517dd89f9fe3e5101c12673c172d6033bc461/packages/core/src/node/Node.ts#L128)
 
 Creates the socket transport for one connection attempt. Overridable for testing.
 
@@ -344,7 +344,7 @@ Creates the socket transport for one connection attempt. Overridable for testing
 
 > **disconnect**(): `void`
 
-Defined in: [packages/core/src/node/Node.ts:226](https://github.com/ekretos/Rythra/blob/c7739a96c2261c82cc1ff98863eeadbd1fe9a7fe/packages/core/src/node/Node.ts#L226)
+Defined in: [packages/core/src/node/Node.ts:226](https://github.com/ekretos/Rythra/blob/494517dd89f9fe3e5101c12673c172d6033bc461/packages/core/src/node/Node.ts#L226)
 
 Disconnects the node and cancels any pending reconnect.
 

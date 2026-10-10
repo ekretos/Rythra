@@ -1,5 +1,5 @@
 import type { RythraOptions, SearchPlatform, SearchResponse } from '@rythra/types';
-import type { Rest } from './Rest';
+import type { Rest } from './Rest.js';
 
 /** Minimal player surface a node needs to route Lavalink events. */
 export interface PlayerEventTarget {

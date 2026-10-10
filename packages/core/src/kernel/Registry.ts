@@ -1,5 +1,5 @@
-import type { Node } from '../node/Node';
-import type { RythraPlayer } from '../player/Player';
+import type { Node } from '../node/Node.js';
+import type { RythraPlayer } from '../player/Player.js';
 
 /**
  * Keyed registry of runtime entities owned by the Rythra kernel.

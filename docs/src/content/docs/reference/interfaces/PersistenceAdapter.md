@@ -7,7 +7,7 @@ description: API Reference for PersistenceAdapter
 
 ***
 
-Defined in: [packages/core/src/persistence/Persistence.ts:26](https://github.com/ekretos/Rythra/blob/c7739a96c2261c82cc1ff98863eeadbd1fe9a7fe/packages/core/src/persistence/Persistence.ts#L26)
+Defined in: [packages/core/src/persistence/Persistence.ts:26](https://github.com/ekretos/Rythra/blob/494517dd89f9fe3e5101c12673c172d6033bc461/packages/core/src/persistence/Persistence.ts#L26)
 
 Storage adapter used for crash recovery and optional long-lived player state.
 
@@ -25,7 +25,7 @@ Snapshot representation persisted by the adapter.
 
 > **delete**(`key`): `Promise`\<`void`\>
 
-Defined in: [packages/core/src/persistence/Persistence.ts:32](https://github.com/ekretos/Rythra/blob/c7739a96c2261c82cc1ff98863eeadbd1fe9a7fe/packages/core/src/persistence/Persistence.ts#L32)
+Defined in: [packages/core/src/persistence/Persistence.ts:32](https://github.com/ekretos/Rythra/blob/494517dd89f9fe3e5101c12673c172d6033bc461/packages/core/src/persistence/Persistence.ts#L32)
 
 Deletes a snapshot.
 
@@ -45,7 +45,7 @@ Deletes a snapshot.
 
 > **keys**(): `Promise`\<`string`[]\>
 
-Defined in: [packages/core/src/persistence/Persistence.ts:34](https://github.com/ekretos/Rythra/blob/c7739a96c2261c82cc1ff98863eeadbd1fe9a7fe/packages/core/src/persistence/Persistence.ts#L34)
+Defined in: [packages/core/src/persistence/Persistence.ts:34](https://github.com/ekretos/Rythra/blob/494517dd89f9fe3e5101c12673c172d6033bc461/packages/core/src/persistence/Persistence.ts#L34)
 
 Lists stored snapshot keys.
 
@@ -59,7 +59,7 @@ Lists stored snapshot keys.
 
 > **load**(`key`): `Promise`\<`Snapshot` \| `undefined`\>
 
-Defined in: [packages/core/src/persistence/Persistence.ts:30](https://github.com/ekretos/Rythra/blob/c7739a96c2261c82cc1ff98863eeadbd1fe9a7fe/packages/core/src/persistence/Persistence.ts#L30)
+Defined in: [packages/core/src/persistence/Persistence.ts:30](https://github.com/ekretos/Rythra/blob/494517dd89f9fe3e5101c12673c172d6033bc461/packages/core/src/persistence/Persistence.ts#L30)
 
 Loads a snapshot by key.
 
@@ -79,7 +79,7 @@ Loads a snapshot by key.
 
 > **save**(`key`, `snapshot`): `Promise`\<`void`\>
 
-Defined in: [packages/core/src/persistence/Persistence.ts:28](https://github.com/ekretos/Rythra/blob/c7739a96c2261c82cc1ff98863eeadbd1fe9a7fe/packages/core/src/persistence/Persistence.ts#L28)
+Defined in: [packages/core/src/persistence/Persistence.ts:28](https://github.com/ekretos/Rythra/blob/494517dd89f9fe3e5101c12673c172d6033bc461/packages/core/src/persistence/Persistence.ts#L28)
 
 Saves or replaces a snapshot.
 

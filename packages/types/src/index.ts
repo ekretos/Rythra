@@ -22,7 +22,7 @@ export interface RythraOptions {
     /** Discord application/client ID sent to Lavalink. */ clientId?: string;
     /** Custom client name sent in the Lavalink `Client-Name` header. */ clientName?: string;
     /** Number of Discord shards used by the bot. */ shards?: number;
-    /** Whether players should automatically advance to the next track. */ autoPlay?: boolean;
+    /** Whether players should automatically advance to the next track. */ autoPlay?: boolean; /** Move players to another ready node when their node disconnects unexpectedly. Defaults to `false`. */ failover?: boolean;
     /** Track properties retained by integrations. */ trackPartial?: string[];
     /** Default search platform. */ defaultSearchPlatform?: SearchPlatform;
     /** Custom User-Agent used for REST requests. */ userAgent?: string;

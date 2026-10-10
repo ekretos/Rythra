@@ -7,7 +7,7 @@ description: API Reference for RestError
 
 ***
 
-Defined in: [packages/core/src/transport/RestTransport.ts:5](https://github.com/ekretos/Rythra/blob/c7739a96c2261c82cc1ff98863eeadbd1fe9a7fe/packages/core/src/transport/RestTransport.ts#L5)
+Defined in: [packages/core/src/transport/RestTransport.ts:5](https://github.com/ekretos/Rythra/blob/494517dd89f9fe3e5101c12673c172d6033bc461/packages/core/src/transport/RestTransport.ts#L5)
 
 Error thrown when Lavalink answers a REST call with a failure payload.
 
@@ -21,7 +21,7 @@ Error thrown when Lavalink answers a REST call with a failure payload.
 
 > **new RestError**(`data`): `RestError`
 
-Defined in: [packages/core/src/transport/RestTransport.ts:13](https://github.com/ekretos/Rythra/blob/c7739a96c2261c82cc1ff98863eeadbd1fe9a7fe/packages/core/src/transport/RestTransport.ts#L13)
+Defined in: [packages/core/src/transport/RestTransport.ts:13](https://github.com/ekretos/Rythra/blob/494517dd89f9fe3e5101c12673c172d6033bc461/packages/core/src/transport/RestTransport.ts#L13)
 
 Creates a REST error from a Lavalink error payload.
 
@@ -59,7 +59,7 @@ The cause of the error.
 
 > `readonly` **error**: `string`
 
-Defined in: [packages/core/src/transport/RestTransport.ts:8](https://github.com/ekretos/Rythra/blob/c7739a96c2261c82cc1ff98863eeadbd1fe9a7fe/packages/core/src/transport/RestTransport.ts#L8)
+Defined in: [packages/core/src/transport/RestTransport.ts:8](https://github.com/ekretos/Rythra/blob/494517dd89f9fe3e5101c12673c172d6033bc461/packages/core/src/transport/RestTransport.ts#L8)
 
 Error type reported by Lavalink.
 
@@ -93,7 +93,7 @@ Defined in: node\_modules/.bun/typescript@6.0.3/node\_modules/typescript/lib/lib
 
 > `readonly` **path**: `string`
 
-Defined in: [packages/core/src/transport/RestTransport.ts:9](https://github.com/ekretos/Rythra/blob/c7739a96c2261c82cc1ff98863eeadbd1fe9a7fe/packages/core/src/transport/RestTransport.ts#L9)
+Defined in: [packages/core/src/transport/RestTransport.ts:9](https://github.com/ekretos/Rythra/blob/494517dd89f9fe3e5101c12673c172d6033bc461/packages/core/src/transport/RestTransport.ts#L9)
 
 Request path.
 
@@ -115,7 +115,7 @@ Defined in: node\_modules/.bun/typescript@6.0.3/node\_modules/typescript/lib/lib
 
 > `readonly` **status**: `number`
 
-Defined in: [packages/core/src/transport/RestTransport.ts:7](https://github.com/ekretos/Rythra/blob/c7739a96c2261c82cc1ff98863eeadbd1fe9a7fe/packages/core/src/transport/RestTransport.ts#L7)
+Defined in: [packages/core/src/transport/RestTransport.ts:7](https://github.com/ekretos/Rythra/blob/494517dd89f9fe3e5101c12673c172d6033bc461/packages/core/src/transport/RestTransport.ts#L7)
 
 HTTP status code.
 
@@ -125,7 +125,7 @@ HTTP status code.
 
 > `readonly` **timestamp**: `number`
 
-Defined in: [packages/core/src/transport/RestTransport.ts:6](https://github.com/ekretos/Rythra/blob/c7739a96c2261c82cc1ff98863eeadbd1fe9a7fe/packages/core/src/transport/RestTransport.ts#L6)
+Defined in: [packages/core/src/transport/RestTransport.ts:6](https://github.com/ekretos/Rythra/blob/494517dd89f9fe3e5101c12673c172d6033bc461/packages/core/src/transport/RestTransport.ts#L6)
 
 Error timestamp reported by Lavalink.
 
@@ -135,7 +135,7 @@ Error timestamp reported by Lavalink.
 
 > `readonly` `optional` **trace?**: `string`
 
-Defined in: [packages/core/src/transport/RestTransport.ts:10](https://github.com/ekretos/Rythra/blob/c7739a96c2261c82cc1ff98863eeadbd1fe9a7fe/packages/core/src/transport/RestTransport.ts#L10)
+Defined in: [packages/core/src/transport/RestTransport.ts:10](https://github.com/ekretos/Rythra/blob/494517dd89f9fe3e5101c12673c172d6033bc461/packages/core/src/transport/RestTransport.ts#L10)
 
 Optional stack trace reported by Lavalink.
 

@@ -39,6 +39,7 @@
       "version": "0.3.0",
       "dependencies": {
         "@rythra/types": "workspace:^",
+        "ws": "^8.22.0",
       },
     },
     "packages/metrics": {

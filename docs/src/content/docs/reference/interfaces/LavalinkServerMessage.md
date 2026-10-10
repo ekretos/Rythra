@@ -7,7 +7,7 @@ description: API Reference for LavalinkServerMessage
 
 ***
 
-Defined in: [packages/core/src/protocol/ProtocolAdapter.ts:19](https://github.com/ekretos/Rythra/blob/c7739a96c2261c82cc1ff98863eeadbd1fe9a7fe/packages/core/src/protocol/ProtocolAdapter.ts#L19)
+Defined in: [packages/core/src/protocol/ProtocolAdapter.ts:19](https://github.com/ekretos/Rythra/blob/494517dd89f9fe3e5101c12673c172d6033bc461/packages/core/src/protocol/ProtocolAdapter.ts#L19)
 
 A decoded Lavalink server message.
 
@@ -23,7 +23,7 @@ Remaining wire fields.
 
 > `optional` **guildId?**: `string`
 
-Defined in: [packages/core/src/protocol/ProtocolAdapter.ts:21](https://github.com/ekretos/Rythra/blob/c7739a96c2261c82cc1ff98863eeadbd1fe9a7fe/packages/core/src/protocol/ProtocolAdapter.ts#L21)
+Defined in: [packages/core/src/protocol/ProtocolAdapter.ts:21](https://github.com/ekretos/Rythra/blob/494517dd89f9fe3e5101c12673c172d6033bc461/packages/core/src/protocol/ProtocolAdapter.ts#L21)
 
 Guild the message belongs to, for player scoped messages.
 
@@ -33,7 +33,7 @@ Guild the message belongs to, for player scoped messages.
 
 > **op**: `string`
 
-Defined in: [packages/core/src/protocol/ProtocolAdapter.ts:20](https://github.com/ekretos/Rythra/blob/c7739a96c2261c82cc1ff98863eeadbd1fe9a7fe/packages/core/src/protocol/ProtocolAdapter.ts#L20)
+Defined in: [packages/core/src/protocol/ProtocolAdapter.ts:20](https://github.com/ekretos/Rythra/blob/494517dd89f9fe3e5101c12673c172d6033bc461/packages/core/src/protocol/ProtocolAdapter.ts#L20)
 
 Message opcode.
 
@@ -43,6 +43,6 @@ Message opcode.
 
 > `optional` **type?**: `string`
 
-Defined in: [packages/core/src/protocol/ProtocolAdapter.ts:22](https://github.com/ekretos/Rythra/blob/c7739a96c2261c82cc1ff98863eeadbd1fe9a7fe/packages/core/src/protocol/ProtocolAdapter.ts#L22)
+Defined in: [packages/core/src/protocol/ProtocolAdapter.ts:22](https://github.com/ekretos/Rythra/blob/494517dd89f9fe3e5101c12673c172d6033bc461/packages/core/src/protocol/ProtocolAdapter.ts#L22)
 
 Event type, for `event` messages.

@@ -21,7 +21,13 @@ Format based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 - Node, Player and Rest no longer import each other (shared `contracts.ts`); no circular imports remain.
 - Upgraded TypeScript to 6.0.3 and all dependencies (docs: Astro 7, Starlight 0.42).
 
+### Added (continued)
+- Opt-in `failover` option: when a node disconnects unexpectedly, `Rythra` moves its players to another ready node (`migratePlayers`, `RythraPlayer.moveTo`) and emits `playerMigrate` / `playerMigrateFailed`.
+- `bun run check:dist` loads every built entry point under plain Node ESM and compiles a consumer project against the built declarations.
+- `docs/TROUBLESHOOTING.md`.
+
 ### Fixed
+- Published packages could not be imported by Node ESM (relative imports lacked `.js` extensions, which only Bun and bundlers tolerate); `@rythra/core` also used `ws` without declaring it as a dependency.
 - Late events from a replaced/closed socket could null the current transport and trigger bogus reconnects; they are now ignored.
 - A failed connect left the node stuck in `connecting` and emitted an unhandled `error` (throwing) when no listener was attached.
 - Disconnecting during a pending connect resolved `connect()` as successful.

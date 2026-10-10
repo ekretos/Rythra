@@ -7,7 +7,7 @@ description: API Reference for Timescale
 
 ***
 
-Defined in: [packages/types/src/index.ts:56](https://github.com/ekretos/Rythra/blob/c7739a96c2261c82cc1ff98863eeadbd1fe9a7fe/packages/types/src/index.ts#L56)
+Defined in: [packages/types/src/index.ts:56](https://github.com/ekretos/Rythra/blob/494517dd89f9fe3e5101c12673c172d6033bc461/packages/types/src/index.ts#L56)
 
 Timescale filter.
 
@@ -17,7 +17,7 @@ Timescale filter.
 
 > `optional` **pitch?**: `number`
 
-Defined in: [packages/types/src/index.ts:56](https://github.com/ekretos/Rythra/blob/c7739a96c2261c82cc1ff98863eeadbd1fe9a7fe/packages/types/src/index.ts#L56)
+Defined in: [packages/types/src/index.ts:56](https://github.com/ekretos/Rythra/blob/494517dd89f9fe3e5101c12673c172d6033bc461/packages/types/src/index.ts#L56)
 
 ***
 
@@ -25,7 +25,7 @@ Defined in: [packages/types/src/index.ts:56](https://github.com/ekretos/Rythra/b
 
 > `optional` **rate?**: `number`
 
-Defined in: [packages/types/src/index.ts:56](https://github.com/ekretos/Rythra/blob/c7739a96c2261c82cc1ff98863eeadbd1fe9a7fe/packages/types/src/index.ts#L56)
+Defined in: [packages/types/src/index.ts:56](https://github.com/ekretos/Rythra/blob/494517dd89f9fe3e5101c12673c172d6033bc461/packages/types/src/index.ts#L56)
 
 ***
 
@@ -33,4 +33,4 @@ Defined in: [packages/types/src/index.ts:56](https://github.com/ekretos/Rythra/b
 
 > `optional` **speed?**: `number`
 
-Defined in: [packages/types/src/index.ts:56](https://github.com/ekretos/Rythra/blob/c7739a96c2261c82cc1ff98863eeadbd1fe9a7fe/packages/types/src/index.ts#L56)
+Defined in: [packages/types/src/index.ts:56](https://github.com/ekretos/Rythra/blob/494517dd89f9fe3e5101c12673c172d6033bc461/packages/types/src/index.ts#L56)

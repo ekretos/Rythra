@@ -7,7 +7,7 @@ description: API Reference for MetricsSnapshot
 
 ***
 
-Defined in: [packages/core/src/metrics/Metrics.ts:2](https://github.com/ekretos/Rythra/blob/c7739a96c2261c82cc1ff98863eeadbd1fe9a7fe/packages/core/src/metrics/Metrics.ts#L2)
+Defined in: [packages/core/src/metrics/Metrics.ts:2](https://github.com/ekretos/Rythra/blob/494517dd89f9fe3e5101c12673c172d6033bc461/packages/core/src/metrics/Metrics.ts#L2)
 
 Snapshot of runtime counters and latency measurements.
 
@@ -17,7 +17,7 @@ Snapshot of runtime counters and latency measurements.
 
 > **averageRestLatencyMs**: `number`
 
-Defined in: [packages/core/src/metrics/Metrics.ts:16](https://github.com/ekretos/Rythra/blob/c7739a96c2261c82cc1ff98863eeadbd1fe9a7fe/packages/core/src/metrics/Metrics.ts#L16)
+Defined in: [packages/core/src/metrics/Metrics.ts:16](https://github.com/ekretos/Rythra/blob/494517dd89f9fe3e5101c12673c172d6033bc461/packages/core/src/metrics/Metrics.ts#L16)
 
 Average recorded REST latency in milliseconds.
 
@@ -27,7 +27,7 @@ Average recorded REST latency in milliseconds.
 
 > **connectedNodes**: `number`
 
-Defined in: [packages/core/src/metrics/Metrics.ts:4](https://github.com/ekretos/Rythra/blob/c7739a96c2261c82cc1ff98863eeadbd1fe9a7fe/packages/core/src/metrics/Metrics.ts#L4)
+Defined in: [packages/core/src/metrics/Metrics.ts:4](https://github.com/ekretos/Rythra/blob/494517dd89f9fe3e5101c12673c172d6033bc461/packages/core/src/metrics/Metrics.ts#L4)
 
 Number of nodes currently connected.
 
@@ -37,7 +37,7 @@ Number of nodes currently connected.
 
 > **migrations**: `number`
 
-Defined in: [packages/core/src/metrics/Metrics.ts:12](https://github.com/ekretos/Rythra/blob/c7739a96c2261c82cc1ff98863eeadbd1fe9a7fe/packages/core/src/metrics/Metrics.ts#L12)
+Defined in: [packages/core/src/metrics/Metrics.ts:12](https://github.com/ekretos/Rythra/blob/494517dd89f9fe3e5101c12673c172d6033bc461/packages/core/src/metrics/Metrics.ts#L12)
 
 Total player migrations.
 
@@ -47,7 +47,7 @@ Total player migrations.
 
 > **players**: `number`
 
-Defined in: [packages/core/src/metrics/Metrics.ts:6](https://github.com/ekretos/Rythra/blob/c7739a96c2261c82cc1ff98863eeadbd1fe9a7fe/packages/core/src/metrics/Metrics.ts#L6)
+Defined in: [packages/core/src/metrics/Metrics.ts:6](https://github.com/ekretos/Rythra/blob/494517dd89f9fe3e5101c12673c172d6033bc461/packages/core/src/metrics/Metrics.ts#L6)
 
 Number of active players.
 
@@ -57,7 +57,7 @@ Number of active players.
 
 > **playingPlayers**: `number`
 
-Defined in: [packages/core/src/metrics/Metrics.ts:8](https://github.com/ekretos/Rythra/blob/c7739a96c2261c82cc1ff98863eeadbd1fe9a7fe/packages/core/src/metrics/Metrics.ts#L8)
+Defined in: [packages/core/src/metrics/Metrics.ts:8](https://github.com/ekretos/Rythra/blob/494517dd89f9fe3e5101c12673c172d6033bc461/packages/core/src/metrics/Metrics.ts#L8)
 
 Number of players currently playing.
 
@@ -67,7 +67,7 @@ Number of players currently playing.
 
 > **reconnects**: `number`
 
-Defined in: [packages/core/src/metrics/Metrics.ts:10](https://github.com/ekretos/Rythra/blob/c7739a96c2261c82cc1ff98863eeadbd1fe9a7fe/packages/core/src/metrics/Metrics.ts#L10)
+Defined in: [packages/core/src/metrics/Metrics.ts:10](https://github.com/ekretos/Rythra/blob/494517dd89f9fe3e5101c12673c172d6033bc461/packages/core/src/metrics/Metrics.ts#L10)
 
 Total node reconnect attempts.
 
@@ -77,6 +77,6 @@ Total node reconnect attempts.
 
 > **restErrors**: `number`
 
-Defined in: [packages/core/src/metrics/Metrics.ts:14](https://github.com/ekretos/Rythra/blob/c7739a96c2261c82cc1ff98863eeadbd1fe9a7fe/packages/core/src/metrics/Metrics.ts#L14)
+Defined in: [packages/core/src/metrics/Metrics.ts:14](https://github.com/ekretos/Rythra/blob/494517dd89f9fe3e5101c12673c172d6033bc461/packages/core/src/metrics/Metrics.ts#L14)
 
 Total failed REST requests.
