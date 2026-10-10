@@ -66,7 +66,6 @@
     "publish:all": "node scripts/publish-all.mjs",
     "typecheck": "bun x tsc --noEmit",
     "test": "bun test",
-    "test:file": "bun --watch run example/bot.ts",
     "format": "prettier --write .",
     "check:boundaries": "node scripts/check-workspace-boundaries.mjs",
     "check:versions": "node scripts/check-package-versions.mjs",
@@ -85,7 +84,6 @@
     "@types/bun": "^1.4.2",
     "@types/node": "^26.6.5",
     "@types/ws": "^8.18.2",
-    "discord.js": "^14.27.0",
     "prettier": "^3.9.10",
     "typescript": "^7.0.2"
   }

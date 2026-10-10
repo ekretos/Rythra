@@ -1,9 +1,15 @@
-import type { Client } from 'discord.js';
 import { Connector } from '@rythra/core';
 import type { GatewayPacket, VoiceStateUpdate, VoiceServerUpdate } from '@rythra/core';
 
+/** Structural subset of a discord.js `Client` used by the connector, so `discord.js` stays an optional peer. */
+export interface DiscordJSClient {
+    on(event: 'raw', listener: (packet: GatewayPacket) => void): unknown;
+    ws: { shards: { get(id: number): { send(payload: GatewayPacket, important?: boolean): unknown } | undefined } };
+    user: { id: string } | null;
+}
+
 /** Connector for discord.js. */
-export class DiscordJS extends Connector<Client> {
+export class DiscordJS extends Connector<DiscordJSClient> {
     /** Starts listening for Discord gateway voice events. */
     public listen(): void {
         if (this.listening) return;

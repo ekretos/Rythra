@@ -27,6 +27,6 @@
       "@rythra/*": ["./packages/*/src/index.ts"]
     }
   },
-  "include": ["index.ts", "packages/**/*.ts", "example/**/*.ts"],
+  "include": ["index.ts", "packages/**/*.ts"],
   "exclude": ["typedocs", "docs", "node_modules", "dist"]
 }

@@ -16,6 +16,7 @@ Format based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 - `CONTRIBUTING.md`, `LICENSE`, `docs/MIGRATION.md` and this changelog.
 
 ### Changed
+- Removed the `discord.js` dev dependency and the example bot that needed it; the `DiscordJS` connector now types its client structurally (`DiscordJSClient`), so any discord.js v14 `Client` still works.
 - **Breaking:** merged `@rythra/connector-discordjs`, `-eris`, `-oceanic` and `-seyfert` into `@rythra/connectors` (subpaths `/discordjs`, `/eris`, `/oceanic`, `/seyfert`, `/lunibee`). See the migration guide.
 - **Breaking:** a Lavalink node password is now required; the built-in `youshallnotpass` default was removed.
 - Node, Player and Rest no longer import each other (shared `contracts.ts`); no circular imports remain.
