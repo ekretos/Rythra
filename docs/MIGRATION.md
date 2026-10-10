@@ -18,6 +18,8 @@ The implicit `youshallnotpass` fallback was removed. Pass `password` explicitly 
 - After the server rejects credentials (HTTP 401/403) a node stops reconnecting and emits `reconnectFailed`.
 - `connect()` rejects if `disconnect()` is called while it is pending.
 - `queue.previous` keeps at most `Queue.maxHistory` (100) tracks.
+- REST responses with a 2xx status and invalid JSON now throw `Malformed JSON in Lavalink response`.
+- `PluginRegistry.clear()` rejects with an `AggregateError` if any plugin teardown fails (all plugins are still removed).
 - An autoplay failure is emitted as `playerError` on the player instead of an unhandled rejection.
 
 ## Types

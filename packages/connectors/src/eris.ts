@@ -4,7 +4,9 @@ interface ErisClient { on(event: 'rawWS', listener: (packet: GatewayPacket) => v
 /** Connector for Eris. */
 export class Eris extends Connector<ErisClient> {
     /** Starts listening for Eris gateway voice events. */
-    public listen(): void { this.client.on('rawWS', (packet) => { if (packet.t === 'VOICE_STATE_UPDATE') this.manager?.voiceStateUpdate(packet.d as VoiceStateUpdate); else if (packet.t === 'VOICE_SERVER_UPDATE') void this.manager?.voiceServerUpdate(packet.d as VoiceServerUpdate); }); }
+    public listen(): void {
+        if (this.listening) return;
+        this.listening = true; this.client.on('rawWS', (packet) => { if (packet.t === 'VOICE_STATE_UPDATE') this.manager?.voiceStateUpdate(packet.d as VoiceStateUpdate); else if (packet.t === 'VOICE_SERVER_UPDATE') void this.manager?.voiceServerUpdate(packet.d as VoiceServerUpdate); }); }
     /** Sends a gateway packet through Eris. */
     public sendPacket(shardId: number, payload: GatewayPacket, important: boolean): void { this.client.shards.get(shardId)?.sendWS(payload.op, payload.d, important); }
     /** Returns the Discord application user ID. */

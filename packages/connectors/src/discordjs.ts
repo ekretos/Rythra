@@ -6,6 +6,8 @@ import type { GatewayPacket, VoiceStateUpdate, VoiceServerUpdate } from '@rythra
 export class DiscordJS extends Connector<Client> {
     /** Starts listening for Discord gateway voice events. */
     public listen(): void {
+        if (this.listening) return;
+        this.listening = true;
         this.client.on('raw', (packet: GatewayPacket) => {
             if (packet.t === 'VOICE_STATE_UPDATE') this.manager?.voiceStateUpdate(packet.d as VoiceStateUpdate);
             else if (packet.t === 'VOICE_SERVER_UPDATE') void this.manager?.voiceServerUpdate(packet.d as VoiceServerUpdate);

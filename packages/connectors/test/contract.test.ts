@@ -9,29 +9,29 @@ const other = { t: 'MESSAGE_CREATE', op: 0, d: {} };
 /** Each fixture builds a fake client and returns a way to emit gateway packets and read what was sent. */
 const fixtures = [
     ['DiscordJS', () => {
-        let handler: Handler = () => {}; const sent: unknown[] = [];
-        const client = { on: (_e: string, h: Handler) => { handler = h; }, ws: { shards: { get: () => ({ send: (p: unknown) => sent.push(p) }) } }, user: { id: 'bot' } };
-        return { connector: new DiscordJS(client as never), emit: (p: object) => handler(p as never), sent };
+        const handlers: Handler[] = []; const sent: unknown[] = [];
+        const client = { on: (_e: string, h: Handler) => { handlers.push(h); }, ws: { shards: { get: () => ({ send: (p: unknown) => sent.push(p) }) } }, user: { id: 'bot' } };
+        return { connector: new DiscordJS(client as never), emit: (p: object) => handlers.forEach((h) => h(p as never)), sent };
     }],
     ['Eris', () => {
-        let handler: Handler = () => {}; const sent: unknown[] = [];
-        const client = { on: (_e: string, h: Handler) => { handler = h; }, shards: { get: () => ({ sendWS: (op: number, d: unknown) => sent.push({ op, d }) }) }, user: { id: 'bot' } };
-        return { connector: new Eris(client as never), emit: (p: object) => handler(p as never), sent };
+        const handlers: Handler[] = []; const sent: unknown[] = [];
+        const client = { on: (_e: string, h: Handler) => { handlers.push(h); }, shards: { get: () => ({ sendWS: (op: number, d: unknown) => sent.push({ op, d }) }) }, user: { id: 'bot' } };
+        return { connector: new Eris(client as never), emit: (p: object) => handlers.forEach((h) => h(p as never)), sent };
     }],
     ['OceanicJS', () => {
-        let handler: Handler = () => {}; const sent: unknown[] = [];
-        const client = { on: (_e: string, h: Handler) => { handler = h; }, shards: { get: () => ({ send: (op: number, d: unknown) => sent.push({ op, d }) }) }, user: { id: 'bot' } };
-        return { connector: new OceanicJS(client as never), emit: (p: object) => handler(p as never), sent };
+        const handlers: Handler[] = []; const sent: unknown[] = [];
+        const client = { on: (_e: string, h: Handler) => { handlers.push(h); }, shards: { get: () => ({ send: (op: number, d: unknown) => sent.push({ op, d }) }) }, user: { id: 'bot' } };
+        return { connector: new OceanicJS(client as never), emit: (p: object) => handlers.forEach((h) => h(p as never)), sent };
     }],
     ['Seyfert', () => {
-        let handler: Handler = () => {}; const sent: unknown[] = [];
-        const client = { gateway: { events: { on: (_e: string, h: Handler) => { handler = h; } }, send: (_s: number, p: unknown) => sent.push(p) }, botId: 'bot' };
-        return { connector: new Seyfert(client as never), emit: (p: object) => handler(p as never), sent };
+        const handlers: Handler[] = []; const sent: unknown[] = [];
+        const client = { gateway: { events: { on: (_e: string, h: Handler) => { handlers.push(h); } }, send: (_s: number, p: unknown) => sent.push(p) }, botId: 'bot' };
+        return { connector: new Seyfert(client as never), emit: (p: object) => handlers.forEach((h) => h(p as never)), sent };
     }],
     ['Lunibee', () => {
-        let handler: (data: { event: string; data: unknown }) => void = () => {}; const sent: unknown[] = [];
-        const client = { on: (_e: string, h: typeof handler) => { handler = h; }, ws: { send: (p: unknown) => sent.push(p) }, user: { id: 'bot' } };
-        return { connector: new Lunibee(client as never), emit: (p: { t: string; d: unknown }) => handler({ event: p.t, data: p.d }), sent };
+        const handlers: Array<(data: { event: string; data: unknown }) => void> = []; const sent: unknown[] = [];
+        const client = { on: (_e: string, h: typeof handler) => { handlers.push(h); }, ws: { send: (p: unknown) => sent.push(p) }, user: { id: 'bot' } };
+        return { connector: new Lunibee(client as never), emit: (p: { t: string; d: unknown }) => handlers.forEach((h) => h({ event: p.t, data: p.d })), sent };
     }],
 ] as const;
 
@@ -48,6 +48,14 @@ describe.each(fixtures)('%s connector contract', (_name, build) => {
         const { connector, emit } = build();
         connector.listen();
         expect(() => emit(voiceState)).not.toThrow();
+    });
+    test('listen is idempotent', () => {
+        const { connector, emit } = build();
+        const calls: string[] = [];
+        connector.setManager({ voiceStateUpdate: () => calls.push('state'), voiceServerUpdate: async () => {} } as never);
+        connector.listen(); connector.listen();
+        emit(voiceState);
+        expect(calls).toEqual(['state']);
     });
     test('sends packets through the client', () => {
         const { connector, sent } = build();

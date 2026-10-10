@@ -12,6 +12,8 @@ export abstract class Connector<T = unknown> {
     public manager: Rythra | null = null;
     /** The Discord library client. */
     public readonly client: T;
+    /** Whether {@link Connector.listen} already registered its gateway listeners. */
+    protected listening = false;
 
     /** Creates a connector around a Discord library client. */
     constructor(client: T) { this.client = client; }

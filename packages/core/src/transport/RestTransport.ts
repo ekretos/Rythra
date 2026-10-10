@@ -32,14 +32,23 @@ export class FetchRestTransport implements RestTransport {
         const timeout = setTimeout(() => abortController.abort(), Math.max(0, request.timeout ?? 10_000));
         const init: RequestInit = { method, headers: request.headers ?? {}, signal: abortController.signal };
         if (!['GET', 'HEAD'].includes(method) && request.body !== undefined) init.body = JSON.stringify(request.body);
+        const label = `${method} ${url.pathname}`;
         try {
-            const response = await fetch(url.toString(), init);
+            let response: Response;
+            try {
+                response = await fetch(url.toString(), init);
+            } catch (error) {
+                if (abortController.signal.aborted) throw new Error(`Lavalink REST request timed out: ${label}`, { cause: error });
+                throw new Error(`Lavalink REST request failed: ${label}`, { cause: error });
+            }
             if (!response.ok) {
                 const payload = (await response.json().catch(() => null)) as LavalinkRestError | null;
                 throw new RestError(payload ?? { timestamp: Date.now(), status: response.status, error: 'Unknown Error', message: 'Unexpected error response from Lavalink server', path: url.pathname });
             }
             if (response.status === 204) return;
-            try { return (await response.json()) as T; } catch { return; }
+            const text = await response.text();
+            if (!text) return;
+            try { return JSON.parse(text) as T; } catch (error) { throw new Error(`Malformed JSON in Lavalink response: ${label}`, { cause: error }); }
         } finally {
             clearTimeout(timeout);
         }

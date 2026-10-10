@@ -4,7 +4,9 @@ interface OceanicClient { on(event: 'packet', listener: (packet: GatewayPacket) 
 /** Connector for Oceanic.js. */
 export class OceanicJS extends Connector<OceanicClient> {
     /** Starts listening for Oceanic gateway voice events. */
-    public listen(): void { this.client.on('packet', (packet) => { if (packet.t === 'VOICE_STATE_UPDATE') this.manager?.voiceStateUpdate(packet.d as VoiceStateUpdate); else if (packet.t === 'VOICE_SERVER_UPDATE') void this.manager?.voiceServerUpdate(packet.d as VoiceServerUpdate); }); }
+    public listen(): void {
+        if (this.listening) return;
+        this.listening = true; this.client.on('packet', (packet) => { if (packet.t === 'VOICE_STATE_UPDATE') this.manager?.voiceStateUpdate(packet.d as VoiceStateUpdate); else if (packet.t === 'VOICE_SERVER_UPDATE') void this.manager?.voiceServerUpdate(packet.d as VoiceServerUpdate); }); }
     /** Sends a gateway packet through Oceanic.js. */
     public sendPacket(shardId: number, payload: GatewayPacket, important: boolean): void { this.client.shards.get(shardId)?.send(payload.op, payload.d, important); }
     /** Returns the Discord application user ID. */

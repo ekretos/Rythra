@@ -28,6 +28,11 @@ Format based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 - Nodes retried forever after the server rejected credentials (HTTP 401/403); they now stop and emit `reconnectFailed`.
 - `reconnectFailed` could be emitted twice.
 - An autoplay failure after a track ended caused an unhandled rejection; it is now emitted as `playerError`.
+- `Rythra.destroy()` left its timeout timer running, keeping the process alive for up to `timeout` ms after a clean shutdown.
+- `destroyPlayer` leaked the player (and its listeners) when stopping it failed.
+- REST: timeouts and network failures now carry request context and `cause`; a successful response with malformed JSON now throws instead of silently resolving `undefined`.
+- Plugins: concurrent registration of one name could run `setup` twice; setup/teardown failures are wrapped with the plugin name; `clear()` now tears down every plugin and reports failures as an `AggregateError`.
+- Connectors: calling `listen()` twice no longer registers duplicate gateway listeners.
 - `Queue.add` could overflow the stack for very large arrays; played-track history grew without bound.
 
 ## [0.2.0]

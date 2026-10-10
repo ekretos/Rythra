@@ -210,9 +210,13 @@ export class Rythra extends EventEmitter implements IRythra {
         const player = this.players.get(guild);
         if (!player) return;
 
-        await player.stop();
-        this.players.delete(guild);
-        this.emit('playerDestroy', player);
+        try {
+            await player.stop();
+        } finally {
+            this.players.delete(guild);
+            this.emit('playerDestroy', player);
+            player.removeAllListeners();
+        }
     }
 
     /** Searches Lavalink for a track, playlist or search result. */
@@ -310,12 +314,17 @@ export class Rythra extends EventEmitter implements IRythra {
             this.removeAllListeners();
         };
 
-        await Promise.race([
-            shutdown(),
-            new Promise<void>((resolve) =>
-                setTimeout(resolve, Math.max(0, timeout)),
-            ),
-        ]);
+        let timer: ReturnType<typeof setTimeout> | undefined;
+        try {
+            await Promise.race([
+                shutdown(),
+                new Promise<void>((resolve) => {
+                    timer = setTimeout(resolve, Math.max(0, timeout));
+                }),
+            ]);
+        } finally {
+            clearTimeout(timer);
+        }
     }
 
     /** Connects all configured Lavalink nodes concurrently. */
