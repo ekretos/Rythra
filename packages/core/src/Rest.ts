@@ -9,7 +9,7 @@ export class Rest {
     /** Password used for Lavalink authorization. */ protected readonly auth: string;
     /** Transport used to perform the underlying HTTP requests. */ protected readonly transport: RestTransport;
     /** Creates a REST client for a Lavalink node. */
-    constructor(node: Node, transport: RestTransport = new FetchRestTransport()) { this.node = node; this.auth = node.options.password || 'youshallnotpass'; this.transport = transport; }
+    constructor(node: Node, transport: RestTransport = new FetchRestTransport()) { this.node = node; this.auth = node.options.password ?? ''; this.transport = transport; }
     /** The version-aware base URL for REST requests. */ protected get url(): string { return this.node.restUrl; }
     /** Gets the active Lavalink session ID. */
     protected get sessionId(): string { if (!this.node.sessionId) throw new Error('Lavalink session is not ready. Connect the node first.'); return this.node.sessionId; }

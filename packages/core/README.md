@@ -46,7 +46,7 @@ const rythra = new Rythra({
         {
             host: 'localhost',
             port: 2333,
-            password: 'youshallnotpass',
+            password: process.env.LAVALINK_PASSWORD,
             secure: false,
         },
     ],

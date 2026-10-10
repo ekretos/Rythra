@@ -83,7 +83,7 @@ const rythra = new Rythra({
         {
             host: 'localhost',
             port: 2333,
-            password: 'youshallnotpass',
+            password: process.env.LAVALINK_PASSWORD,
             secure: false,
         },
     ],
@@ -209,13 +209,13 @@ const rythra = new Rythra({
         {
             host: 'node-v4.example.com',
             port: 2333,
-            password: 'youshallnotpass',
+            password: process.env.LAVALINK_PASSWORD,
             lavalinkVersion: 4,
         },
         {
             host: 'node-v5.example.com',
             port: 2333,
-            password: 'youshallnotpass',
+            password: process.env.LAVALINK_PASSWORD,
             lavalinkVersion: 'auto',
         },
     ],

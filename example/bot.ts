@@ -18,7 +18,7 @@ const rythra = new Rythra({
     nodes: [{
         host: process.env.LAVALINK_HOST || 'localhost',
         port: Number(process.env.LAVALINK_PORT || 2333),
-        password: process.env.LAVALINK_PASSWORD || 'youshallnotpass',
+        password: process.env.LAVALINK_PASSWORD,
         identifier: process.env.LAVALINK_IDENTIFIER || 'main',
         secure: process.env.LAVALINK_SECURE === 'true',
     }],

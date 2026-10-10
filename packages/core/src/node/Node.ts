@@ -3,6 +3,7 @@ import type WebSocket from 'ws';
 import type { Rythra } from '../Rythra';
 import type { NodeOptions, Stats } from '@rythra/types';
 import { Rest } from '../Rest';
+import { ConfigurationError } from '../errors/RythraError';
 import { getLavalinkApiVersion, type LavalinkApiVersion } from '../protocol/LavalinkProtocol';
 import { resolveProtocol, type LavalinkServerMessage, type ProtocolAdapter } from '../protocol/ProtocolAdapter';
 import { CircuitBreaker } from '../reliability/CircuitBreaker';
@@ -35,8 +36,12 @@ export class Node extends EventEmitter {
     /** Prevents automatic reconnecting after an explicit disconnect. */ private manuallyDisconnected = false;
 
     /** Creates a Lavalink node. */
+    private readonly password: string;
+
     constructor(manager: Rythra, options: NodeOptions) {
         super();
+        if (!options.password) throw new ConfigurationError('Lavalink node password is required.', { host: options.host });
+        this.password = options.password;
         this.manager = manager;
         this.options = { ...options, lavalinkVersion: options.lavalinkVersion ?? manager.options.lavalinkVersion };
         this.apiVersion = this.options.lavalinkVersion === 'auto' || this.options.lavalinkVersion === undefined ? null : this.options.lavalinkVersion;
@@ -72,7 +77,7 @@ export class Node extends EventEmitter {
     /** Detects the Lavalink generation when the node is configured for automatic selection. */
     private async detectVersion(): Promise<void> {
         if (this.apiVersion) return;
-        const response = await fetch(`${this.httpOrigin}/version`, { headers: { Authorization: this.options.password || 'youshallnotpass' }, signal: AbortSignal.timeout((this.manager.options.restTimeout || 10) * 1000) });
+        const response = await fetch(`${this.httpOrigin}/version`, { headers: { Authorization: this.password }, signal: AbortSignal.timeout((this.manager.options.restTimeout || 10) * 1000) });
         if (!response.ok) throw new Error(`Unable to detect Lavalink version (${response.status})`);
         const semver = (await response.text()).trim();
         this.apiVersion = getLavalinkApiVersion(semver);
@@ -101,7 +106,7 @@ export class Node extends EventEmitter {
                 {
                     url: () => this.activeProtocol.websocketUrl(this.websocketOrigin),
                     headers: () => this.activeProtocol.handshakeHeaders({
-                        password: this.options.password || 'youshallnotpass',
+                        password: this.password,
                         clientName: `${this.manager.options.clientName || 'Rythra'}/${this.manager.version}`,
                         userId: this.manager.options.clientId || this.manager.options.connector.getId() || '',
                         sessionId: this.sessionId,
