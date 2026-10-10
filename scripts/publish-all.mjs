@@ -5,6 +5,7 @@ const root = path.resolve(import.meta.dirname, '..');
 
 const packages = [
   'packages/core',
+  'packages/types',
   'packages/protocol',
   'packages/plugins',
   'packages/connectors',

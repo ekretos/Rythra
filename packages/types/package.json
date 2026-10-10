@@ -3,8 +3,16 @@
   "version": "0.2.0",
   "type": "module",
   "description": "Shared public contracts for Rythra",
-  "files": ["src"],
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": { "types": "./dist/index.d.ts" }
+  },
+  "peerDependencies": {
+    "@rythra/core": "^0.2.0"
+  },
+  "files": ["dist"],
   "publishConfig": {
     "access": "public"
-  }
+  },
+  "scripts": { "build": "tsc" }
 }

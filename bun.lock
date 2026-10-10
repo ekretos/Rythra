@@ -57,6 +57,9 @@
     "packages/types": {
       "name": "@rythra/types",
       "version": "0.2.0",
+      "peerDependencies": {
+        "@rythra/core": "^0.2.0",
+      },
     },
   },
   "packages": {
