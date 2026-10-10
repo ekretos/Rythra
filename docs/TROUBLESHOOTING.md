@@ -13,6 +13,7 @@
 
 ## Failover notes
 
+- Failover waits `failoverDelay` ms (default 5000) for the node to recover before moving players.
 - Needs a second connected node and the guild's Discord voice data; otherwise `playerMigrateFailed` is emitted and the player stays put.
 - The previous node's player is not deleted remotely; it expires with that node's session.
 - Failover has been exercised only against mocks, not a live Lavalink cluster.

@@ -54,6 +54,8 @@ export class Rythra extends EventEmitter implements IRythra {
     /** Number of player migrations performed by this runtime. */
     public migrations = 0;
 
+    private readonly failoverTimers = new Map<Node, ReturnType<typeof setTimeout>>();
+
     /** Local health collector for operational integrations. */
     public readonly healthMonitor: Health;
 
@@ -145,7 +147,7 @@ export class Rythra extends EventEmitter implements IRythra {
         node.on('disconnect', () => {
             this.reconnects++;
             this.emit('nodeDisconnect', node);
-            if (this.options.failover) void this.migratePlayers(node);
+            if (this.options.failover) this.scheduleFailover(node);
         });
         node.on('reconnectFailed', () => this.emit('nodeReconnectFailed', node));
         node.on('state', (state, previous) =>
@@ -291,6 +293,16 @@ export class Rythra extends EventEmitter implements IRythra {
         });
     }
 
+    /** Waits for the node to recover, then migrates its players if it is still down. */
+    private scheduleFailover(node: Node): void {
+        if (this.failoverTimers.has(node)) return;
+        const timer = setTimeout(() => {
+            this.failoverTimers.delete(node);
+            if (!this.shuttingDown && !node.connected) void this.migratePlayers(node);
+        }, Math.max(0, this.options.failoverDelay ?? 5000));
+        this.failoverTimers.set(node, timer);
+    }
+
     /**
      * Moves every player bound to `from` onto the best other ready node.
      * @returns The number of players successfully migrated.
@@ -323,6 +335,8 @@ export class Rythra extends EventEmitter implements IRythra {
         if (this.shuttingDown) return;
 
         this.shuttingDown = true;
+        for (const timer of this.failoverTimers.values()) clearTimeout(timer);
+        this.failoverTimers.clear();
 
         const shutdown = async (): Promise<void> => {
             await Promise.allSettled(

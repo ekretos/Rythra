@@ -22,7 +22,7 @@ Format based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 - Upgraded TypeScript to 6.0.3 and all dependencies (docs: Astro 7, Starlight 0.42).
 
 ### Added (continued)
-- Opt-in `failover` option: when a node disconnects unexpectedly, `Rythra` moves its players to another ready node (`migratePlayers`, `RythraPlayer.moveTo`) and emits `playerMigrate` / `playerMigrateFailed`.
+- Opt-in `failover` option (with `failoverDelay`, default 5000 ms, so brief outages do not trigger it): when a node stays disconnected, `Rythra` moves its players to another ready node (`migratePlayers`, `RythraPlayer.moveTo`) and emits `playerMigrate` / `playerMigrateFailed`.
 - `bun run check:dist` loads every built entry point under plain Node ESM and compiles a consumer project against the built declarations.
 - `docs/TROUBLESHOOTING.md`.
 

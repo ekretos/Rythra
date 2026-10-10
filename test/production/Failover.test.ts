@@ -2,8 +2,8 @@ import { describe, expect, test } from 'bun:test';
 import { Rythra } from '../../packages/core/src/Rythra';
 
 const connector = { client: {}, setManager() {}, listen() {}, sendPacket() {}, getId: () => '1' };
-const make = (failover = true) => {
-    const rythra = new Rythra({ connector: connector as never, failover, nodes: [
+const make = (failover = true, failoverDelay = 0) => {
+    const rythra = new Rythra({ connector: connector as never, failover, failoverDelay, nodes: [
         { host: 'a', password: 'pw', lavalinkVersion: 4 }, { host: 'b', password: 'pw', lavalinkVersion: 4 },
     ] });
     const [a, b] = [...rythra.nodes.values()];
@@ -58,5 +58,27 @@ describe('failover', () => {
         Object.defineProperty(a, 'connected', { get: () => false, configurable: true });
         Object.defineProperty(b, 'connected', { get: () => false, configurable: true });
         expect(await rythra.migratePlayers(a)).toBe(0);
+    });
+
+    test('waits for the delay and skips migration when the node recovers', async () => {
+        const { rythra, a, b } = make(true, 20);
+        Object.defineProperty(b, 'connected', { get: () => false, configurable: true });
+        const player = await withVoice(rythra);
+        Object.defineProperty(b, 'connected', { get: () => true, configurable: true });
+        a.emit('disconnect');
+        await new Promise((r) => setTimeout(r, 50));
+        expect(player.node).toBe(a); // `a` still reports connected, so it recovered
+        expect(rythra.migrations).toBe(0);
+    });
+    test('migrates after the delay when the node stays down', async () => {
+        const { rythra, a, b } = make(true, 10);
+        Object.defineProperty(b, 'connected', { get: () => false, configurable: true });
+        const player = await withVoice(rythra);
+        Object.defineProperty(b, 'connected', { get: () => true, configurable: true });
+        Object.defineProperty(a, 'connected', { get: () => false, configurable: true });
+        a.emit('disconnect');
+        await new Promise((r) => setTimeout(r, 60));
+        expect(player.node).toBe(b);
+        await rythra.destroy(0);
     });
 });
