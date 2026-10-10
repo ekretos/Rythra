@@ -7,7 +7,7 @@ description: API Reference for PlayerState
 
 ***
 
-Defined in: [packages/types/src/index.ts:64](https://github.com/ekretos/Rythra/blob/main/packages/types/src/index.ts#L64)
+Defined in: [packages/types/src/index.ts:178](https://github.com/ekretos/Rythra/blob/main/packages/types/src/index.ts#L178)
 
 Runtime player state.
 
@@ -17,7 +17,9 @@ Runtime player state.
 
 > **connected**: `boolean`
 
-Defined in: [packages/types/src/index.ts:64](https://github.com/ekretos/Rythra/blob/main/packages/types/src/index.ts#L64)
+Defined in: [packages/types/src/index.ts:181](https://github.com/ekretos/Rythra/blob/main/packages/types/src/index.ts#L181)
+
+Connection state.
 
 ***
 
@@ -25,7 +27,9 @@ Defined in: [packages/types/src/index.ts:64](https://github.com/ekretos/Rythra/b
 
 > **ping**: `number`
 
-Defined in: [packages/types/src/index.ts:64](https://github.com/ekretos/Rythra/blob/main/packages/types/src/index.ts#L64)
+Defined in: [packages/types/src/index.ts:182](https://github.com/ekretos/Rythra/blob/main/packages/types/src/index.ts#L182)
+
+Ping.
 
 ***
 
@@ -33,7 +37,9 @@ Defined in: [packages/types/src/index.ts:64](https://github.com/ekretos/Rythra/b
 
 > **position**: `number`
 
-Defined in: [packages/types/src/index.ts:64](https://github.com/ekretos/Rythra/blob/main/packages/types/src/index.ts#L64)
+Defined in: [packages/types/src/index.ts:180](https://github.com/ekretos/Rythra/blob/main/packages/types/src/index.ts#L180)
+
+Position.
 
 ***
 
@@ -41,4 +47,6 @@ Defined in: [packages/types/src/index.ts:64](https://github.com/ekretos/Rythra/b
 
 > **time**: `number`
 
-Defined in: [packages/types/src/index.ts:64](https://github.com/ekretos/Rythra/blob/main/packages/types/src/index.ts#L64)
+Defined in: [packages/types/src/index.ts:179](https://github.com/ekretos/Rythra/blob/main/packages/types/src/index.ts#L179)
+
+Server time.

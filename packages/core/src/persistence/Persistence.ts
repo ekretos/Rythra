@@ -41,9 +41,13 @@ export class NoopPersistenceAdapter implements PersistenceAdapter {
     /** @inheritdoc */
     public async save(): Promise<void> {}
     /** @inheritdoc */
-    public async load(): Promise<undefined> { return undefined; }
+    public async load(): Promise<undefined> {
+        return undefined;
+    }
     /** @inheritdoc */
     public async delete(): Promise<void> {}
     /** @inheritdoc */
-    public async keys(): Promise<string[]> { return []; }
+    public async keys(): Promise<string[]> {
+        return [];
+    }
 }

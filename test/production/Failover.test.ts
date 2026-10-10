@@ -3,14 +3,23 @@ import { Rythra } from '../../packages/core/src/Rythra';
 
 const connector = { client: {}, setManager() {}, listen() {}, sendPacket() {}, getId: () => '1' };
 const make = (failover = true, failoverDelay = 0) => {
-    const rythra = new Rythra({ connector: connector as never, failover, failoverDelay, nodes: [
-        { host: 'a', password: 'pw', lavalinkVersion: 4 }, { host: 'b', password: 'pw', lavalinkVersion: 4 },
-    ] });
+    const rythra = new Rythra({
+        connector: connector as never,
+        failover,
+        failoverDelay,
+        nodes: [
+            { host: 'a', password: 'pw', lavalinkVersion: 4 },
+            { host: 'b', password: 'pw', lavalinkVersion: 4 },
+        ],
+    });
     const [a, b] = [...rythra.nodes.values()];
     const calls: Array<{ node: string; options: Record<string, unknown> }> = [];
     for (const node of [a!, b!]) {
         Object.defineProperty(node, 'connected', { get: () => true, configurable: true });
-        (node.rest as unknown as { updatePlayer: unknown }).updatePlayer = async (data: { playerOptions: Record<string, unknown> }) => { calls.push({ node: node.options.host, options: data.playerOptions }); return undefined; };
+        (node.rest as unknown as { updatePlayer: unknown }).updatePlayer = async (data: { playerOptions: Record<string, unknown> }) => {
+            calls.push({ node: node.options.host, options: data.playerOptions });
+            return undefined;
+        };
     }
     return { rythra, a: a!, b: b!, calls };
 };
@@ -30,7 +39,8 @@ describe('failover', () => {
         Object.defineProperty(b, 'connected', { get: () => true, configurable: true });
         Object.defineProperty(a, 'connected', { get: () => false, configurable: true });
         player.queue.current = { encoded: 'abc' } as never;
-        player.lastPosition = 1234; player.volume = 50;
+        player.lastPosition = 1234;
+        player.volume = 50;
         const events: string[] = [];
         rythra.on('playerMigrate', () => events.push('migrate'));
         expect(await rythra.migratePlayers(a)).toBe(1);

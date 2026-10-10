@@ -3,29 +3,20 @@ import path from 'node:path';
 
 const root = path.resolve(import.meta.dirname, '..');
 
-const packages = [
-  'packages/types',
-  'packages/core',
-  'packages/protocol',
-  'packages/plugins',
-  'packages/metrics',
-  'packages/persistence',
-  'packages/connectors',
-  '.'
-];
+const packages = ['packages/types', 'packages/core', 'packages/protocol', 'packages/plugins', 'packages/metrics', 'packages/persistence', 'packages/connectors', '.'];
 
 console.log('Building all packages first...');
 execSync('bun run build', { cwd: root, stdio: 'inherit' });
 
 console.log('\nPublishing packages to npm...');
 for (const pkg of packages) {
-  const pkgDir = path.join(root, pkg);
-  console.log(`\n--> Publishing ${pkg}...`);
-  try {
-    // `bun publish` rewrites `workspace:` ranges to real versions; `npm publish` would leave them unresolved.
-    execSync('bun publish --access public', { cwd: pkgDir, stdio: 'inherit' });
-    console.log(`✓ Published ${pkg}`);
-  } catch (error) {
-    console.error(`✗ Failed to publish ${pkg}:`, error.message);
-  }
+    const pkgDir = path.join(root, pkg);
+    console.log(`\n--> Publishing ${pkg}...`);
+    try {
+        // `bun publish` rewrites `workspace:` ranges to real versions; `npm publish` would leave them unresolved.
+        execSync('bun publish --access public', { cwd: pkgDir, stdio: 'inherit' });
+        console.log(`✓ Published ${pkg}`);
+    } catch (error) {
+        console.error(`✗ Failed to publish ${pkg}:`, error.message);
+    }
 }

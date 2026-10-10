@@ -24,7 +24,9 @@ describe('persistence adapters', () => {
             expect(await b.load('1')).toEqual(snap);
             await b.delete('1');
             expect(await b.keys()).toEqual([]);
-        } finally { await rm(dir, { recursive: true, force: true }); }
+        } finally {
+            await rm(dir, { recursive: true, force: true });
+        }
     });
 });
 
@@ -39,6 +41,8 @@ describe('FilePersistenceAdapter recovery', () => {
             await adapter.save('1', snap);
             expect(await adapter.load('1')).toEqual(snap);
             expect(await Bun.file(`${path}.corrupt`).text()).toBe('{not json');
-        } finally { await rm(dir, { recursive: true, force: true }); }
+        } finally {
+            await rm(dir, { recursive: true, force: true });
+        }
     });
 });

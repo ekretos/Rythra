@@ -7,7 +7,7 @@ description: API Reference for Vibrato
 
 ***
 
-Defined in: [packages/types/src/index.ts:58](https://github.com/ekretos/Rythra/blob/main/packages/types/src/index.ts#L58)
+Defined in: [packages/types/src/index.ts:137](https://github.com/ekretos/Rythra/blob/main/packages/types/src/index.ts#L137)
 
 Vibrato filter.
 
@@ -17,7 +17,9 @@ Vibrato filter.
 
 > `optional` **depth?**: `number`
 
-Defined in: [packages/types/src/index.ts:58](https://github.com/ekretos/Rythra/blob/main/packages/types/src/index.ts#L58)
+Defined in: [packages/types/src/index.ts:139](https://github.com/ekretos/Rythra/blob/main/packages/types/src/index.ts#L139)
+
+Depth.
 
 ***
 
@@ -25,4 +27,6 @@ Defined in: [packages/types/src/index.ts:58](https://github.com/ekretos/Rythra/b
 
 > `optional` **frequency?**: `number`
 
-Defined in: [packages/types/src/index.ts:58](https://github.com/ekretos/Rythra/blob/main/packages/types/src/index.ts#L58)
+Defined in: [packages/types/src/index.ts:138](https://github.com/ekretos/Rythra/blob/main/packages/types/src/index.ts#L138)
+
+Frequency.

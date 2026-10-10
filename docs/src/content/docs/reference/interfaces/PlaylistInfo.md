@@ -7,7 +7,7 @@ description: API Reference for PlaylistInfo
 
 ***
 
-Defined in: [packages/types/src/index.ts:41](https://github.com/ekretos/Rythra/blob/main/packages/types/src/index.ts#L41)
+Defined in: [packages/types/src/index.ts:61](https://github.com/ekretos/Rythra/blob/main/packages/types/src/index.ts#L61)
 
 Playlist metadata.
 
@@ -17,7 +17,9 @@ Playlist metadata.
 
 > **name**: `string`
 
-Defined in: [packages/types/src/index.ts:41](https://github.com/ekretos/Rythra/blob/main/packages/types/src/index.ts#L41)
+Defined in: [packages/types/src/index.ts:62](https://github.com/ekretos/Rythra/blob/main/packages/types/src/index.ts#L62)
+
+Playlist name.
 
 ***
 
@@ -25,4 +27,6 @@ Defined in: [packages/types/src/index.ts:41](https://github.com/ekretos/Rythra/b
 
 > **selectedTrack**: `number`
 
-Defined in: [packages/types/src/index.ts:41](https://github.com/ekretos/Rythra/blob/main/packages/types/src/index.ts#L41)
+Defined in: [packages/types/src/index.ts:63](https://github.com/ekretos/Rythra/blob/main/packages/types/src/index.ts#L63)
+
+Selected track index.

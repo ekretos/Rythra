@@ -7,16 +7,22 @@ export class MemoryPersistenceAdapter<Snapshot = PlayerSnapshot> implements Pers
     private readonly store = new Map<string, Snapshot>();
 
     /** @inheritdoc */
-    public async save(key: string, snapshot: Snapshot): Promise<void> { this.store.set(key, structuredClone(snapshot)); }
+    public async save(key: string, snapshot: Snapshot): Promise<void> {
+        this.store.set(key, structuredClone(snapshot));
+    }
     /** @inheritdoc */
     public async load(key: string): Promise<Snapshot | undefined> {
         const value = this.store.get(key);
         return value === undefined ? undefined : structuredClone(value);
     }
     /** @inheritdoc */
-    public async delete(key: string): Promise<void> { this.store.delete(key); }
+    public async delete(key: string): Promise<void> {
+        this.store.delete(key);
+    }
     /** @inheritdoc */
-    public async keys(): Promise<string[]> { return [...this.store.keys()]; }
+    public async keys(): Promise<string[]> {
+        return [...this.store.keys()];
+    }
 }
 
 /** Persistence adapter that stores all snapshots in a single JSON file. */
@@ -58,11 +64,23 @@ export class FilePersistenceAdapter<Snapshot = PlayerSnapshot> implements Persis
     }
 
     /** @inheritdoc */
-    public save(key: string, snapshot: Snapshot): Promise<void> { return this.mutate((data) => { data[key] = snapshot; }); }
+    public save(key: string, snapshot: Snapshot): Promise<void> {
+        return this.mutate((data) => {
+            data[key] = snapshot;
+        });
+    }
     /** @inheritdoc */
-    public load(key: string): Promise<Snapshot | undefined> { return this.update(async () => (await this.read())[key]); }
+    public load(key: string): Promise<Snapshot | undefined> {
+        return this.update(async () => (await this.read())[key]);
+    }
     /** @inheritdoc */
-    public delete(key: string): Promise<void> { return this.mutate((data) => { delete data[key]; }); }
+    public delete(key: string): Promise<void> {
+        return this.mutate((data) => {
+            delete data[key];
+        });
+    }
     /** @inheritdoc */
-    public keys(): Promise<string[]> { return this.update(async () => Object.keys(await this.read())); }
+    public keys(): Promise<string[]> {
+        return this.update(async () => Object.keys(await this.read()));
+    }
 }

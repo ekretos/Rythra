@@ -7,7 +7,7 @@ description: API Reference for PlayerOptions
 
 ***
 
-Defined in: [packages/types/src/index.ts:50](https://github.com/ekretos/Rythra/blob/main/packages/types/src/index.ts#L50)
+Defined in: [packages/types/src/index.ts:104](https://github.com/ekretos/Rythra/blob/main/packages/types/src/index.ts#L104)
 
 Guild player configuration.
 
@@ -17,7 +17,9 @@ Guild player configuration.
 
 > **guild**: `string`
 
-Defined in: [packages/types/src/index.ts:50](https://github.com/ekretos/Rythra/blob/main/packages/types/src/index.ts#L50)
+Defined in: [packages/types/src/index.ts:105](https://github.com/ekretos/Rythra/blob/main/packages/types/src/index.ts#L105)
+
+Guild ID.
 
 ***
 
@@ -25,7 +27,9 @@ Defined in: [packages/types/src/index.ts:50](https://github.com/ekretos/Rythra/b
 
 > `optional` **selfDeaf?**: `boolean`
 
-Defined in: [packages/types/src/index.ts:50](https://github.com/ekretos/Rythra/blob/main/packages/types/src/index.ts#L50)
+Defined in: [packages/types/src/index.ts:109](https://github.com/ekretos/Rythra/blob/main/packages/types/src/index.ts#L109)
+
+Self deaf.
 
 ***
 
@@ -33,7 +37,9 @@ Defined in: [packages/types/src/index.ts:50](https://github.com/ekretos/Rythra/b
 
 > `optional` **selfMute?**: `boolean`
 
-Defined in: [packages/types/src/index.ts:50](https://github.com/ekretos/Rythra/blob/main/packages/types/src/index.ts#L50)
+Defined in: [packages/types/src/index.ts:108](https://github.com/ekretos/Rythra/blob/main/packages/types/src/index.ts#L108)
+
+Self mute.
 
 ***
 
@@ -41,7 +47,9 @@ Defined in: [packages/types/src/index.ts:50](https://github.com/ekretos/Rythra/b
 
 > **textChannel**: `string`
 
-Defined in: [packages/types/src/index.ts:50](https://github.com/ekretos/Rythra/blob/main/packages/types/src/index.ts#L50)
+Defined in: [packages/types/src/index.ts:107](https://github.com/ekretos/Rythra/blob/main/packages/types/src/index.ts#L107)
+
+Text channel ID.
 
 ***
 
@@ -49,4 +57,6 @@ Defined in: [packages/types/src/index.ts:50](https://github.com/ekretos/Rythra/b
 
 > **voiceChannel**: `string`
 
-Defined in: [packages/types/src/index.ts:50](https://github.com/ekretos/Rythra/blob/main/packages/types/src/index.ts#L50)
+Defined in: [packages/types/src/index.ts:106](https://github.com/ekretos/Rythra/blob/main/packages/types/src/index.ts#L106)
+
+Voice channel ID.

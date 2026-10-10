@@ -7,7 +7,7 @@ description: API Reference for Equalizer
 
 ***
 
-Defined in: [packages/types/src/index.ts:54](https://github.com/ekretos/Rythra/blob/main/packages/types/src/index.ts#L54)
+Defined in: [packages/types/src/index.ts:118](https://github.com/ekretos/Rythra/blob/main/packages/types/src/index.ts#L118)
 
 Equalizer filter.
 
@@ -17,7 +17,9 @@ Equalizer filter.
 
 > **band**: `number`
 
-Defined in: [packages/types/src/index.ts:54](https://github.com/ekretos/Rythra/blob/main/packages/types/src/index.ts#L54)
+Defined in: [packages/types/src/index.ts:119](https://github.com/ekretos/Rythra/blob/main/packages/types/src/index.ts#L119)
+
+Band index.
 
 ***
 
@@ -25,4 +27,6 @@ Defined in: [packages/types/src/index.ts:54](https://github.com/ekretos/Rythra/b
 
 > **gain**: `number`
 
-Defined in: [packages/types/src/index.ts:54](https://github.com/ekretos/Rythra/blob/main/packages/types/src/index.ts#L54)
+Defined in: [packages/types/src/index.ts:120](https://github.com/ekretos/Rythra/blob/main/packages/types/src/index.ts#L120)
+
+Gain.

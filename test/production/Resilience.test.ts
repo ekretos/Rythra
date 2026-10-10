@@ -3,8 +3,12 @@ import { FetchRestTransport, RestError } from '../../packages/core/src/transport
 import { PluginRegistry } from '../../packages/core/src/plugins/Plugin';
 
 const realFetch = globalThis.fetch;
-afterEach(() => { globalThis.fetch = realFetch; });
-const mockFetch = (impl: (url: string, init?: RequestInit) => Promise<Response>) => { globalThis.fetch = impl as never; };
+afterEach(() => {
+    globalThis.fetch = realFetch;
+});
+const mockFetch = (impl: (url: string, init?: RequestInit) => Promise<Response>) => {
+    globalThis.fetch = impl as never;
+};
 const req = { url: 'http://localhost:2333/v4/info' };
 
 describe('FetchRestTransport', () => {
@@ -31,7 +35,9 @@ describe('FetchRestTransport', () => {
         expect(await new FetchRestTransport().request(req)).toBeUndefined();
     });
     test('wraps network failures and timeouts with context', async () => {
-        mockFetch(async () => { throw new TypeError('fetch failed'); });
+        mockFetch(async () => {
+            throw new TypeError('fetch failed');
+        });
         const net = await new FetchRestTransport().request(req).catch((e) => e);
         expect(net.message).toContain('failed: GET /v4/info');
         expect(net.cause).toBeInstanceOf(TypeError);
@@ -45,22 +51,54 @@ describe('PluginRegistry resilience', () => {
     test('concurrent registration of the same name runs setup once', async () => {
         const registry = new PluginRegistry();
         let setups = 0;
-        const plugin = { name: 'a', setup: async () => { setups++; await Promise.resolve(); } };
+        const plugin = {
+            name: 'a',
+            setup: async () => {
+                setups++;
+                await Promise.resolve();
+            },
+        };
         const results = await Promise.allSettled([registry.register(plugin, {}), registry.register(plugin, {})]);
         expect(setups).toBe(1);
         expect(results.filter((r) => r.status === 'rejected').length).toBe(1);
     });
     test('failed setup is wrapped and leaves nothing registered', async () => {
         const registry = new PluginRegistry();
-        await expect(registry.register({ name: 'bad', setup: () => { throw new Error('x'); } }, {})).rejects.toThrow('bad');
+        await expect(
+            registry.register(
+                {
+                    name: 'bad',
+                    setup: () => {
+                        throw new Error('x');
+                    },
+                },
+                {}
+            )
+        ).rejects.toThrow('bad');
         expect(registry.list().length).toBe(0);
         await registry.register({ name: 'bad' }, {});
     });
     test('clear tears down every plugin even when one fails', async () => {
         const registry = new PluginRegistry();
         const destroyed: string[] = [];
-        await registry.register({ name: 'one', destroy: () => { throw new Error('boom'); } }, {});
-        await registry.register({ name: 'two', destroy: () => { destroyed.push('two'); } }, {});
+        await registry.register(
+            {
+                name: 'one',
+                destroy: () => {
+                    throw new Error('boom');
+                },
+            },
+            {}
+        );
+        await registry.register(
+            {
+                name: 'two',
+                destroy: () => {
+                    destroyed.push('two');
+                },
+            },
+            {}
+        );
         await expect(registry.clear({})).rejects.toBeInstanceOf(AggregateError);
         expect(destroyed).toEqual(['two']);
         expect(registry.list().length).toBe(0);

@@ -17,13 +17,13 @@ import { DiscordJS } from '@rythra/connectors';
 import { Lunibee } from '@rythra/connectors/lunibee'; // /discordjs, /eris, /oceanic, /seyfert, /lunibee
 ```
 
-| Library | Class | Notes |
-| --- | --- | --- |
-| discord.js v14 | `DiscordJS` | Needs the `GuildVoiceStates` intent. |
-| Eris | `Eris` | |
-| Oceanic.js | `OceanicJS` | |
-| Seyfert | `Seyfert` | |
-| Lunibee | `Lunibee` | Single gateway connection; needs the `GuildVoiceStates` intent. |
+| Library        | Class       | Notes                                                           |
+| -------------- | ----------- | --------------------------------------------------------------- |
+| discord.js v14 | `DiscordJS` | Needs the `GuildVoiceStates` intent.                            |
+| Eris           | `Eris`      |                                                                 |
+| Oceanic.js     | `OceanicJS` |                                                                 |
+| Seyfert        | `Seyfert`   |                                                                 |
+| Lunibee        | `Lunibee`   | Single gateway connection; needs the `GuildVoiceStates` intent. |
 
 ## Usage
 

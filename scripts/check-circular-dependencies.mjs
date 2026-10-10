@@ -1,54 +1,55 @@
-import { readFile, readdir } from "node:fs/promises";
-import { resolve } from "node:path";
+import { readFile, readdir } from 'node:fs/promises';
+import { resolve } from 'node:path';
 
-const root = resolve(import.meta.dirname, "..");
-const packagesRoot = resolve(root, "packages");
+const root = resolve(import.meta.dirname, '..');
+const packagesRoot = resolve(root, 'packages');
 const packageByName = new Map();
 
 async function walk(dir) {
-  for (const entry of await readdir(dir, { withFileTypes: true })) {
-    const path = resolve(dir, entry.name);
-    if (entry.isDirectory()) {
-      try {
-        const manifest = JSON.parse(await readFile(resolve(path, "package.json"), "utf8"));
-        if (manifest.name?.startsWith("@rythra/")) packageByName.set(manifest.name, path);
-      } catch {
-        await walk(path);
-      }
+    for (const entry of await readdir(dir, { withFileTypes: true })) {
+        const path = resolve(dir, entry.name);
+        if (entry.isDirectory()) {
+            try {
+                const manifest = JSON.parse(await readFile(resolve(path, 'package.json'), 'utf8'));
+                if (manifest.name?.startsWith('@rythra/')) packageByName.set(manifest.name, path);
+            } catch {
+                await walk(path);
+            }
+        }
     }
-  }
 }
 
 await walk(packagesRoot);
 const graph = new Map();
 
-const manifests = await Promise.all(
-  [...packageByName].map(async ([name, path]) => [name, JSON.parse(await readFile(resolve(path, "package.json"), "utf8"))]),
-);
+const manifests = await Promise.all([...packageByName].map(async ([name, path]) => [name, JSON.parse(await readFile(resolve(path, 'package.json'), 'utf8'))]));
 
 for (const [name, manifest] of manifests) {
-  const deps = new Set([
-    ...Object.keys(manifest.dependencies ?? {}),
-    ...Object.keys(manifest.devDependencies ?? {}),
-    ...Object.keys(manifest.peerDependencies ?? {}),
-    ...Object.keys(manifest.optionalDependencies ?? {}),
-  ]);
-  graph.set(name, [...deps].filter((dep) => packageByName.has(dep)));
+    const deps = new Set([
+        ...Object.keys(manifest.dependencies ?? {}),
+        ...Object.keys(manifest.devDependencies ?? {}),
+        ...Object.keys(manifest.peerDependencies ?? {}),
+        ...Object.keys(manifest.optionalDependencies ?? {}),
+    ]);
+    graph.set(
+        name,
+        [...deps].filter((dep) => packageByName.has(dep))
+    );
 }
 
 const visiting = new Set();
 const visited = new Set();
 
 function visit(name, chain = []) {
-  if (visiting.has(name)) {
-    const cycle = [...chain.slice(chain.indexOf(name)), name].join(" -> ");
-    throw new Error(`Circular @rythra dependency detected: ${cycle}`);
-  }
-  if (visited.has(name)) return;
-  visiting.add(name);
-  for (const dependency of graph.get(name) ?? []) visit(dependency, [...chain, name]);
-  visiting.delete(name);
-  visited.add(name);
+    if (visiting.has(name)) {
+        const cycle = [...chain.slice(chain.indexOf(name)), name].join(' -> ');
+        throw new Error(`Circular @rythra dependency detected: ${cycle}`);
+    }
+    if (visited.has(name)) return;
+    visiting.add(name);
+    for (const dependency of graph.get(name) ?? []) visit(dependency, [...chain, name]);
+    visiting.delete(name);
+    visited.add(name);
 }
 
 for (const name of graph.keys()) visit(name);

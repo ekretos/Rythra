@@ -7,7 +7,7 @@ description: API Reference for SearchResultData
 
 ***
 
-Defined in: [packages/types/src/index.ts:43](https://github.com/ekretos/Rythra/blob/main/packages/types/src/index.ts#L43)
+Defined in: [packages/types/src/index.ts:70](https://github.com/ekretos/Rythra/blob/main/packages/types/src/index.ts#L70)
 
 Search result data.
 
@@ -17,4 +17,6 @@ Search result data.
 
 > **tracks**: [`Track`](Track.md)[]
 
-Defined in: [packages/types/src/index.ts:43](https://github.com/ekretos/Rythra/blob/main/packages/types/src/index.ts#L43)
+Defined in: [packages/types/src/index.ts:71](https://github.com/ekretos/Rythra/blob/main/packages/types/src/index.ts#L71)
+
+Matching tracks.

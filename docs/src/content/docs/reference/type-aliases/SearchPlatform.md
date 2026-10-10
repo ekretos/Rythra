@@ -9,6 +9,6 @@ description: API Reference for SearchPlatform
 
 > **SearchPlatform** = [`LavalinkSearchPlatform`](LavalinkSearchPlatform.md) \| [`RythraSearchPlatform`](RythraSearchPlatform.md)
 
-Defined in: [packages/types/src/index.ts:36](https://github.com/ekretos/Rythra/blob/main/packages/types/src/index.ts#L36)
+Defined in: [packages/types/src/index.ts:39](https://github.com/ekretos/Rythra/blob/main/packages/types/src/index.ts#L39)
 
 All supported search source identifiers.

@@ -73,7 +73,7 @@ Transport used to perform the underlying HTTP requests.
 
 > **get** `protected` **sessionId**(): `string`
 
-Defined in: [packages/core/src/Rest.ts:22](https://github.com/ekretos/Rythra/blob/main/packages/core/src/Rest.ts#L22)
+Defined in: [packages/core/src/Rest.ts:28](https://github.com/ekretos/Rythra/blob/main/packages/core/src/Rest.ts#L28)
 
 Gets the active Lavalink session ID.
 
@@ -89,7 +89,7 @@ Gets the active Lavalink session ID.
 
 > **get** `protected` **url**(): `string`
 
-Defined in: [packages/core/src/Rest.ts:20](https://github.com/ekretos/Rythra/blob/main/packages/core/src/Rest.ts#L20)
+Defined in: [packages/core/src/Rest.ts:24](https://github.com/ekretos/Rythra/blob/main/packages/core/src/Rest.ts#L24)
 
 The version-aware base URL for REST requests.
 
@@ -103,7 +103,7 @@ The version-aware base URL for REST requests.
 
 > **decode**(`track`): `Promise`\<[`Track`](../interfaces/Track.md) \| `undefined`\>
 
-Defined in: [packages/core/src/Rest.ts:35](https://github.com/ekretos/Rythra/blob/main/packages/core/src/Rest.ts#L35)
+Defined in: [packages/core/src/Rest.ts:46](https://github.com/ekretos/Rythra/blob/main/packages/core/src/Rest.ts#L46)
 
 Decodes an encoded Lavalink track.
 
@@ -123,7 +123,7 @@ Decodes an encoded Lavalink track.
 
 > **destroyPlayer**(`guildId`): `Promise`\<`void`\>
 
-Defined in: [packages/core/src/Rest.ts:43](https://github.com/ekretos/Rythra/blob/main/packages/core/src/Rest.ts#L43)
+Defined in: [packages/core/src/Rest.ts:65](https://github.com/ekretos/Rythra/blob/main/packages/core/src/Rest.ts#L65)
 
 Destroys a Lavalink player.
 
@@ -143,7 +143,7 @@ Destroys a Lavalink player.
 
 > `protected` **fetch**\<`T`\>(`fetchOptions`): `Promise`\<`T` \| `undefined`\>
 
-Defined in: [packages/core/src/Rest.ts:55](https://github.com/ekretos/Rythra/blob/main/packages/core/src/Rest.ts#L55)
+Defined in: [packages/core/src/Rest.ts:89](https://github.com/ekretos/Rythra/blob/main/packages/core/src/Rest.ts#L89)
 
 Executes an authenticated request against Lavalink.
 
@@ -169,7 +169,7 @@ Executes an authenticated request against Lavalink.
 
 > **getLavalinkInfo**(): `Promise`\<[`NodeInfo`](../interfaces/NodeInfo.md) \| `undefined`\>
 
-Defined in: [packages/core/src/Rest.ts:53](https://github.com/ekretos/Rythra/blob/main/packages/core/src/Rest.ts#L53)
+Defined in: [packages/core/src/Rest.ts:85](https://github.com/ekretos/Rythra/blob/main/packages/core/src/Rest.ts#L85)
 
 Gets information about the connected Lavalink server.
 
@@ -183,7 +183,7 @@ Gets information about the connected Lavalink server.
 
 > **getPlayer**(`guildId`): `Promise`\<[`LavalinkPlayer`](../interfaces/LavalinkPlayer.md) \| `undefined`\>
 
-Defined in: [packages/core/src/Rest.ts:39](https://github.com/ekretos/Rythra/blob/main/packages/core/src/Rest.ts#L39)
+Defined in: [packages/core/src/Rest.ts:54](https://github.com/ekretos/Rythra/blob/main/packages/core/src/Rest.ts#L54)
 
 Gets the Lavalink player for a guild.
 
@@ -203,7 +203,7 @@ Gets the Lavalink player for a guild.
 
 > **getPlayers**(): `Promise`\<[`LavalinkPlayer`](../interfaces/LavalinkPlayer.md)[]\>
 
-Defined in: [packages/core/src/Rest.ts:37](https://github.com/ekretos/Rythra/blob/main/packages/core/src/Rest.ts#L37)
+Defined in: [packages/core/src/Rest.ts:50](https://github.com/ekretos/Rythra/blob/main/packages/core/src/Rest.ts#L50)
 
 Gets every player belonging to the current Lavalink session.
 
@@ -217,7 +217,7 @@ Gets every player belonging to the current Lavalink session.
 
 > **getRoutePlannerStatus**(): `Promise`\<[`RoutePlanner`](../interfaces/RoutePlanner.md) \| `undefined`\>
 
-Defined in: [packages/core/src/Rest.ts:49](https://github.com/ekretos/Rythra/blob/main/packages/core/src/Rest.ts#L49)
+Defined in: [packages/core/src/Rest.ts:77](https://github.com/ekretos/Rythra/blob/main/packages/core/src/Rest.ts#L77)
 
 Gets the current route planner status.
 
@@ -231,7 +231,7 @@ Gets the current route planner status.
 
 > **resolve**(`identifier`): `Promise`\<[`SearchResponse`](../type-aliases/SearchResponse.md) \| `undefined`\>
 
-Defined in: [packages/core/src/Rest.ts:24](https://github.com/ekretos/Rythra/blob/main/packages/core/src/Rest.ts#L24)
+Defined in: [packages/core/src/Rest.ts:33](https://github.com/ekretos/Rythra/blob/main/packages/core/src/Rest.ts#L33)
 
 Resolves a Lavalink identifier or search query.
 
@@ -251,7 +251,7 @@ Resolves a Lavalink identifier or search query.
 
 > **search**(`identifier`): `Promise`\<[`SearchResponse`](../type-aliases/SearchResponse.md)\>
 
-Defined in: [packages/core/src/Rest.ts:26](https://github.com/ekretos/Rythra/blob/main/packages/core/src/Rest.ts#L26)
+Defined in: [packages/core/src/Rest.ts:37](https://github.com/ekretos/Rythra/blob/main/packages/core/src/Rest.ts#L37)
 
 Searches Lavalink for tracks and normalizes legacy array-shaped search responses.
 
@@ -271,7 +271,7 @@ Searches Lavalink for tracks and normalizes legacy array-shaped search responses
 
 > **stats**(): `Promise`\<[`Stats`](../interfaces/Stats.md) \| `undefined`\>
 
-Defined in: [packages/core/src/Rest.ts:47](https://github.com/ekretos/Rythra/blob/main/packages/core/src/Rest.ts#L47)
+Defined in: [packages/core/src/Rest.ts:73](https://github.com/ekretos/Rythra/blob/main/packages/core/src/Rest.ts#L73)
 
 Gets current Lavalink statistics.
 
@@ -285,7 +285,7 @@ Gets current Lavalink statistics.
 
 > **unmarkFailedAddress**(`address`): `Promise`\<`void`\>
 
-Defined in: [packages/core/src/Rest.ts:51](https://github.com/ekretos/Rythra/blob/main/packages/core/src/Rest.ts#L51)
+Defined in: [packages/core/src/Rest.ts:81](https://github.com/ekretos/Rythra/blob/main/packages/core/src/Rest.ts#L81)
 
 Releases a failed route-planner address.
 
@@ -305,7 +305,7 @@ Releases a failed route-planner address.
 
 > **updatePlayer**(`data`): `Promise`\<[`LavalinkPlayer`](../interfaces/LavalinkPlayer.md) \| `undefined`\>
 
-Defined in: [packages/core/src/Rest.ts:41](https://github.com/ekretos/Rythra/blob/main/packages/core/src/Rest.ts#L41)
+Defined in: [packages/core/src/Rest.ts:58](https://github.com/ekretos/Rythra/blob/main/packages/core/src/Rest.ts#L58)
 
 Updates a Lavalink player.
 
@@ -325,7 +325,7 @@ Updates a Lavalink player.
 
 > **updateSession**(`resuming?`, `timeout?`): `Promise`\<[`SessionInfo`](../interfaces/SessionInfo.md) \| `undefined`\>
 
-Defined in: [packages/core/src/Rest.ts:45](https://github.com/ekretos/Rythra/blob/main/packages/core/src/Rest.ts#L45)
+Defined in: [packages/core/src/Rest.ts:69](https://github.com/ekretos/Rythra/blob/main/packages/core/src/Rest.ts#L69)
 
 Updates Lavalink session resumption settings.
 

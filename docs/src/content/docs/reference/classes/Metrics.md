@@ -32,7 +32,7 @@ telemetry backend without coupling Rythra to a specific observability stack.
 
 > **recordMigration**(): `void`
 
-Defined in: [packages/core/src/metrics/Metrics.ts:45](https://github.com/ekretos/Rythra/blob/main/packages/core/src/metrics/Metrics.ts#L45)
+Defined in: [packages/core/src/metrics/Metrics.ts:53](https://github.com/ekretos/Rythra/blob/main/packages/core/src/metrics/Metrics.ts#L53)
 
 Records a player migration.
 
@@ -46,7 +46,7 @@ Records a player migration.
 
 > **recordReconnect**(): `void`
 
-Defined in: [packages/core/src/metrics/Metrics.ts:43](https://github.com/ekretos/Rythra/blob/main/packages/core/src/metrics/Metrics.ts#L43)
+Defined in: [packages/core/src/metrics/Metrics.ts:49](https://github.com/ekretos/Rythra/blob/main/packages/core/src/metrics/Metrics.ts#L49)
 
 Records a reconnect attempt.
 
@@ -60,7 +60,7 @@ Records a reconnect attempt.
 
 > **recordRestError**(): `void`
 
-Defined in: [packages/core/src/metrics/Metrics.ts:47](https://github.com/ekretos/Rythra/blob/main/packages/core/src/metrics/Metrics.ts#L47)
+Defined in: [packages/core/src/metrics/Metrics.ts:57](https://github.com/ekretos/Rythra/blob/main/packages/core/src/metrics/Metrics.ts#L57)
 
 Records a failed REST request.
 
@@ -74,7 +74,7 @@ Records a failed REST request.
 
 > **recordRestLatency**(`milliseconds`): `void`
 
-Defined in: [packages/core/src/metrics/Metrics.ts:49](https://github.com/ekretos/Rythra/blob/main/packages/core/src/metrics/Metrics.ts#L49)
+Defined in: [packages/core/src/metrics/Metrics.ts:61](https://github.com/ekretos/Rythra/blob/main/packages/core/src/metrics/Metrics.ts#L61)
 
 Records one REST request latency sample.
 
@@ -94,7 +94,7 @@ Records one REST request latency sample.
 
 > **reset**(): `void`
 
-Defined in: [packages/core/src/metrics/Metrics.ts:69](https://github.com/ekretos/Rythra/blob/main/packages/core/src/metrics/Metrics.ts#L69)
+Defined in: [packages/core/src/metrics/Metrics.ts:81](https://github.com/ekretos/Rythra/blob/main/packages/core/src/metrics/Metrics.ts#L81)
 
 Resets counters while retaining no historical samples.
 
@@ -128,7 +128,7 @@ Sets the current node count.
 
 > **setPlayers**(`value`): `void`
 
-Defined in: [packages/core/src/metrics/Metrics.ts:39](https://github.com/ekretos/Rythra/blob/main/packages/core/src/metrics/Metrics.ts#L39)
+Defined in: [packages/core/src/metrics/Metrics.ts:41](https://github.com/ekretos/Rythra/blob/main/packages/core/src/metrics/Metrics.ts#L41)
 
 Sets the current player count.
 
@@ -148,7 +148,7 @@ Sets the current player count.
 
 > **setPlayingPlayers**(`value`): `void`
 
-Defined in: [packages/core/src/metrics/Metrics.ts:41](https://github.com/ekretos/Rythra/blob/main/packages/core/src/metrics/Metrics.ts#L41)
+Defined in: [packages/core/src/metrics/Metrics.ts:45](https://github.com/ekretos/Rythra/blob/main/packages/core/src/metrics/Metrics.ts#L45)
 
 Sets the current playing-player count.
 
@@ -168,7 +168,7 @@ Sets the current playing-player count.
 
 > **snapshot**(): [`MetricsSnapshot`](../interfaces/MetricsSnapshot.md)
 
-Defined in: [packages/core/src/metrics/Metrics.ts:56](https://github.com/ekretos/Rythra/blob/main/packages/core/src/metrics/Metrics.ts#L56)
+Defined in: [packages/core/src/metrics/Metrics.ts:68](https://github.com/ekretos/Rythra/blob/main/packages/core/src/metrics/Metrics.ts#L68)
 
 Returns a point-in-time metrics snapshot.
 

@@ -9,9 +9,9 @@ export interface PluginManifest {
     /** Supported Rythra version range. */
     readonly rythra: string;
     /** Supported Lavalink protocol versions. */
-    readonly lavalink: readonly ("v4" | "v5")[];
+    readonly lavalink: readonly ('v4' | 'v5')[];
     /** Optional runtime compatibility declarations. */
-    readonly runtimes?: readonly ("node" | "bun")[];
+    readonly runtimes?: readonly ('node' | 'bun')[];
 }
 
 /** A validated plugin entry exposed by an ecosystem registry. */
@@ -31,13 +31,11 @@ export class PluginRegistry {
         const manifest: PluginManifest = Object.freeze({
             ...entry.manifest,
             lavalink: Object.freeze([...entry.manifest.lavalink]),
-            runtimes: entry.manifest.runtimes
-                ? Object.freeze([...entry.manifest.runtimes])
-                : undefined,
+            runtimes: entry.manifest.runtimes ? Object.freeze([...entry.manifest.runtimes]) : undefined,
         });
 
         if (this.entries.has(manifest.name)) {
-            throw new Error("Plugin is already registered: " + manifest.name);
+            throw new Error('Plugin is already registered: ' + manifest.name);
         }
 
         this.entries.set(manifest.name, {
@@ -59,7 +57,7 @@ export class PluginRegistry {
     /** Load a previously registered plugin on demand. */
     public async load(name: string): Promise<unknown> {
         const entry = this.entries.get(name);
-        if (!entry) throw new Error("Plugin is not registered: " + name);
+        if (!entry) throw new Error('Plugin is not registered: ' + name);
         return entry.load();
     }
 }

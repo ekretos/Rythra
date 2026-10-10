@@ -38,7 +38,9 @@ export class FilterManager {
     private state: Filters = {};
 
     /** Returns a defensive copy of the current filters. */
-    public get current(): Filters { return structuredClone(this.state); }
+    public get current(): Filters {
+        return structuredClone(this.state);
+    }
 
     /**
      * Replaces the complete filter state after validation.
@@ -52,7 +54,9 @@ export class FilterManager {
     }
 
     /** Removes every active filter. */
-    public clear(): void { this.state = {}; }
+    public clear(): void {
+        this.state = {};
+    }
 
     /**
      * Validates Lavalink filter input without mutating state.

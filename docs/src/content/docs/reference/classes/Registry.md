@@ -81,7 +81,7 @@ Defined in: scripts/typedoc/node\_modules/typescript/lib/lib.es2015.collection.d
 
 > **filter**(`predicate`): `V`[]
 
-Defined in: [packages/core/src/kernel/Registry.ts:17](https://github.com/ekretos/Rythra/blob/main/packages/core/src/kernel/Registry.ts#L17)
+Defined in: [packages/core/src/kernel/Registry.ts:19](https://github.com/ekretos/Rythra/blob/main/packages/core/src/kernel/Registry.ts#L19)
 
 Returns the registered entries matching a predicate.
 

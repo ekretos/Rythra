@@ -1,15 +1,15 @@
 {
-  "extends": "../../tsconfig.json",
-  "compilerOptions": {
-    "outDir": "../../dist/persistence",
-    "rootDir": "src",
-    "noEmit": false,
-    "declaration": true,
-    "declarationMap": true,
-    "paths": {
-      "@rythra/types": ["../types/dist/index.d.ts"],
-      "@rythra/core": ["../../dist/core/index.d.ts"]
-    }
-  },
-  "include": ["src/**/*"]
+    "extends": "../../tsconfig.json",
+    "compilerOptions": {
+        "outDir": "../../dist/persistence",
+        "rootDir": "src",
+        "noEmit": false,
+        "declaration": true,
+        "declarationMap": true,
+        "paths": {
+            "@rythra/types": ["../types/dist/index.d.ts"],
+            "@rythra/core": ["../../dist/core/index.d.ts"]
+        }
+    },
+    "include": ["src/**/*"]
 }

@@ -7,7 +7,7 @@ description: API Reference for PluginInfo
 
 ***
 
-Defined in: [packages/types/src/index.ts:70](https://github.com/ekretos/Rythra/blob/main/packages/types/src/index.ts#L70)
+Defined in: [packages/types/src/index.ts:221](https://github.com/ekretos/Rythra/blob/main/packages/types/src/index.ts#L221)
 
 Lavalink plugin metadata.
 
@@ -17,7 +17,9 @@ Lavalink plugin metadata.
 
 > **name**: `string`
 
-Defined in: [packages/types/src/index.ts:70](https://github.com/ekretos/Rythra/blob/main/packages/types/src/index.ts#L70)
+Defined in: [packages/types/src/index.ts:222](https://github.com/ekretos/Rythra/blob/main/packages/types/src/index.ts#L222)
+
+Plugin name.
 
 ***
 
@@ -25,4 +27,6 @@ Defined in: [packages/types/src/index.ts:70](https://github.com/ekretos/Rythra/b
 
 > **version**: `string`
 
-Defined in: [packages/types/src/index.ts:70](https://github.com/ekretos/Rythra/blob/main/packages/types/src/index.ts#L70)
+Defined in: [packages/types/src/index.ts:223](https://github.com/ekretos/Rythra/blob/main/packages/types/src/index.ts#L223)
+
+Plugin version.

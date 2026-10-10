@@ -34,7 +34,7 @@ const myPlugin: RythraPlugin = {
     },
     unload(manager) {
         console.log('Plugin unloaded.');
-    }
+    },
 };
 
 registry.register(myPlugin);

@@ -9,6 +9,6 @@ description: API Reference for leastLoadNodeSortType
 
 > **leastLoadNodeSortType** = `"cpu"` \| `"memory"`
 
-Defined in: [packages/types/src/index.ts:46](https://github.com/ekretos/Rythra/blob/main/packages/types/src/index.ts#L46)
+Defined in: [packages/types/src/index.ts:80](https://github.com/ekretos/Rythra/blob/main/packages/types/src/index.ts#L80)
 
 Node load metric.

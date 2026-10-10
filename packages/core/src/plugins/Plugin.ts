@@ -23,7 +23,9 @@ export class PluginRegistry<Context = unknown> {
     private readonly plugins = new Map<string, RythraPlugin<Context>>();
 
     /** Returns all registered plugins in registration order. */
-    public list(): readonly RythraPlugin<Context>[] { return [...this.plugins.values()]; }
+    public list(): readonly RythraPlugin<Context>[] {
+        return [...this.plugins.values()];
+    }
 
     /**
      * Registers and initializes a plugin.
@@ -67,7 +69,11 @@ export class PluginRegistry<Context = unknown> {
         const failures: unknown[] = [];
         // Intentionally sequential: plugins tear down in registration order and may depend on one another.
         for (const name of [...this.plugins.keys()]) {
-            try { await this.unregister(name, context); } catch (error) { failures.push(error); }
+            try {
+                await this.unregister(name, context);
+            } catch (error) {
+                failures.push(error);
+            }
         }
         if (failures.length) throw new AggregateError(failures, 'One or more plugins failed during teardown.');
     }

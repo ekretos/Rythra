@@ -8,11 +8,30 @@ class FakeTransport implements SocketTransport {
     public disconnected = false;
     private pending: { resolve(): void; reject(error: Error): void } | null = null;
     constructor(public readonly handlers: SocketTransportHandlers) {}
-    connect(): Promise<void> { return new Promise((resolve, reject) => { this.pending = { resolve, reject }; }); }
-    open(): void { this.connected = true; this.pending?.resolve(); this.handlers.onOpen(); }
-    fail(error: unknown): void { this.handlers.onError(error); this.pending?.reject(new Error('failed')); this.handlers.onClose(false); }
-    close(): void { this.connected = false; this.handlers.onClose(true); }
-    disconnect(): void { this.disconnected = true; this.connected = false; this.pending?.reject(new Error('disconnected')); }
+    connect(): Promise<void> {
+        return new Promise((resolve, reject) => {
+            this.pending = { resolve, reject };
+        });
+    }
+    open(): void {
+        this.connected = true;
+        this.pending?.resolve();
+        this.handlers.onOpen();
+    }
+    fail(error: unknown): void {
+        this.handlers.onError(error);
+        this.pending?.reject(new Error('failed'));
+        this.handlers.onClose(false);
+    }
+    close(): void {
+        this.connected = false;
+        this.handlers.onClose(true);
+    }
+    disconnect(): void {
+        this.disconnected = true;
+        this.connected = false;
+        this.pending?.reject(new Error('disconnected'));
+    }
     send(): void {}
 }
 
@@ -77,7 +96,7 @@ describe('Node lifecycle', () => {
         await tick();
         const second = node.connect().catch((e: Error) => e);
         node.disconnect();
-        expect((await second as Error).message).toContain('disconnected');
+        expect(((await second) as Error).message).toContain('disconnected');
         expect(await first).toBeInstanceOf(Error);
     });
 

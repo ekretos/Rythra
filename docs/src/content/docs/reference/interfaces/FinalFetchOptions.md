@@ -7,7 +7,7 @@ description: API Reference for FinalFetchOptions
 
 ***
 
-Defined in: [packages/types/src/index.ts:73](https://github.com/ekretos/Rythra/blob/main/packages/types/src/index.ts#L73)
+Defined in: [packages/types/src/index.ts:251](https://github.com/ekretos/Rythra/blob/main/packages/types/src/index.ts#L251)
 
 Final native fetch options.
 
@@ -17,7 +17,9 @@ Final native fetch options.
 
 > `optional` **body?**: `string`
 
-Defined in: [packages/types/src/index.ts:73](https://github.com/ekretos/Rythra/blob/main/packages/types/src/index.ts#L73)
+Defined in: [packages/types/src/index.ts:255](https://github.com/ekretos/Rythra/blob/main/packages/types/src/index.ts#L255)
+
+Body.
 
 ***
 
@@ -25,7 +27,9 @@ Defined in: [packages/types/src/index.ts:73](https://github.com/ekretos/Rythra/b
 
 > **headers**: `Record`\<`string`, `string`\>
 
-Defined in: [packages/types/src/index.ts:73](https://github.com/ekretos/Rythra/blob/main/packages/types/src/index.ts#L73)
+Defined in: [packages/types/src/index.ts:253](https://github.com/ekretos/Rythra/blob/main/packages/types/src/index.ts#L253)
+
+Headers.
 
 ***
 
@@ -33,7 +37,9 @@ Defined in: [packages/types/src/index.ts:73](https://github.com/ekretos/Rythra/b
 
 > **method**: `string`
 
-Defined in: [packages/types/src/index.ts:73](https://github.com/ekretos/Rythra/blob/main/packages/types/src/index.ts#L73)
+Defined in: [packages/types/src/index.ts:252](https://github.com/ekretos/Rythra/blob/main/packages/types/src/index.ts#L252)
+
+Method.
 
 ***
 
@@ -41,4 +47,6 @@ Defined in: [packages/types/src/index.ts:73](https://github.com/ekretos/Rythra/b
 
 > **signal**: `AbortSignal`
 
-Defined in: [packages/types/src/index.ts:73](https://github.com/ekretos/Rythra/blob/main/packages/types/src/index.ts#L73)
+Defined in: [packages/types/src/index.ts:254](https://github.com/ekretos/Rythra/blob/main/packages/types/src/index.ts#L254)
+
+Abort signal.

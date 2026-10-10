@@ -7,7 +7,7 @@ description: API Reference for NodeOptions
 
 ***
 
-Defined in: [packages/types/src/index.ts:49](https://github.com/ekretos/Rythra/blob/main/packages/types/src/index.ts#L49)
+Defined in: [packages/types/src/index.ts:91](https://github.com/ekretos/Rythra/blob/main/packages/types/src/index.ts#L91)
 
 Lavalink node configuration.
 
@@ -17,7 +17,9 @@ Lavalink node configuration.
 
 > **host**: `string`
 
-Defined in: [packages/types/src/index.ts:49](https://github.com/ekretos/Rythra/blob/main/packages/types/src/index.ts#L49)
+Defined in: [packages/types/src/index.ts:92](https://github.com/ekretos/Rythra/blob/main/packages/types/src/index.ts#L92)
+
+Hostname.
 
 ***
 
@@ -25,7 +27,9 @@ Defined in: [packages/types/src/index.ts:49](https://github.com/ekretos/Rythra/b
 
 > `optional` **identifier?**: `string`
 
-Defined in: [packages/types/src/index.ts:49](https://github.com/ekretos/Rythra/blob/main/packages/types/src/index.ts#L49)
+Defined in: [packages/types/src/index.ts:97](https://github.com/ekretos/Rythra/blob/main/packages/types/src/index.ts#L97)
+
+Node identifier.
 
 ***
 
@@ -33,7 +37,9 @@ Defined in: [packages/types/src/index.ts:49](https://github.com/ekretos/Rythra/b
 
 > `optional` **lavalinkVersion?**: [`LavalinkApiVersionMode`](../type-aliases/LavalinkApiVersionMode.md)
 
-Defined in: [packages/types/src/index.ts:49](https://github.com/ekretos/Rythra/blob/main/packages/types/src/index.ts#L49)
+Defined in: [packages/types/src/index.ts:100](https://github.com/ekretos/Rythra/blob/main/packages/types/src/index.ts#L100)
+
+API version or auto.
 
 ***
 
@@ -41,7 +47,9 @@ Defined in: [packages/types/src/index.ts:49](https://github.com/ekretos/Rythra/b
 
 > `optional` **maxRetryInterval?**: `number`
 
-Defined in: [packages/types/src/index.ts:49](https://github.com/ekretos/Rythra/blob/main/packages/types/src/index.ts#L49)
+Defined in: [packages/types/src/index.ts:102](https://github.com/ekretos/Rythra/blob/main/packages/types/src/index.ts#L102)
+
+Maximum retry interval.
 
 ***
 
@@ -49,7 +57,9 @@ Defined in: [packages/types/src/index.ts:49](https://github.com/ekretos/Rythra/b
 
 > `optional` **password?**: `string`
 
-Defined in: [packages/types/src/index.ts:49](https://github.com/ekretos/Rythra/blob/main/packages/types/src/index.ts#L49)
+Defined in: [packages/types/src/index.ts:94](https://github.com/ekretos/Rythra/blob/main/packages/types/src/index.ts#L94)
+
+Password.
 
 ***
 
@@ -57,7 +67,9 @@ Defined in: [packages/types/src/index.ts:49](https://github.com/ekretos/Rythra/b
 
 > `optional` **port?**: `number`
 
-Defined in: [packages/types/src/index.ts:49](https://github.com/ekretos/Rythra/blob/main/packages/types/src/index.ts#L49)
+Defined in: [packages/types/src/index.ts:93](https://github.com/ekretos/Rythra/blob/main/packages/types/src/index.ts#L93)
+
+Port.
 
 ***
 
@@ -65,7 +77,9 @@ Defined in: [packages/types/src/index.ts:49](https://github.com/ekretos/Rythra/b
 
 > `optional` **rejectUnauthorized?**: `boolean`
 
-Defined in: [packages/types/src/index.ts:49](https://github.com/ekretos/Rythra/blob/main/packages/types/src/index.ts#L49)
+Defined in: [packages/types/src/index.ts:96](https://github.com/ekretos/Rythra/blob/main/packages/types/src/index.ts#L96)
+
+Validate TLS certificates.
 
 ***
 
@@ -73,7 +87,9 @@ Defined in: [packages/types/src/index.ts:49](https://github.com/ekretos/Rythra/b
 
 > `optional` **retryAmount?**: `number`
 
-Defined in: [packages/types/src/index.ts:49](https://github.com/ekretos/Rythra/blob/main/packages/types/src/index.ts#L49)
+Defined in: [packages/types/src/index.ts:99](https://github.com/ekretos/Rythra/blob/main/packages/types/src/index.ts#L99)
+
+Retry count.
 
 ***
 
@@ -81,7 +97,9 @@ Defined in: [packages/types/src/index.ts:49](https://github.com/ekretos/Rythra/b
 
 > `optional` **retryInterval?**: `number`
 
-Defined in: [packages/types/src/index.ts:49](https://github.com/ekretos/Rythra/blob/main/packages/types/src/index.ts#L49)
+Defined in: [packages/types/src/index.ts:98](https://github.com/ekretos/Rythra/blob/main/packages/types/src/index.ts#L98)
+
+Retry interval.
 
 ***
 
@@ -89,7 +107,9 @@ Defined in: [packages/types/src/index.ts:49](https://github.com/ekretos/Rythra/b
 
 > `optional` **retryJitter?**: `number`
 
-Defined in: [packages/types/src/index.ts:49](https://github.com/ekretos/Rythra/blob/main/packages/types/src/index.ts#L49)
+Defined in: [packages/types/src/index.ts:101](https://github.com/ekretos/Rythra/blob/main/packages/types/src/index.ts#L101)
+
+Retry jitter fraction.
 
 ***
 
@@ -97,4 +117,6 @@ Defined in: [packages/types/src/index.ts:49](https://github.com/ekretos/Rythra/b
 
 > `optional` **secure?**: `boolean`
 
-Defined in: [packages/types/src/index.ts:49](https://github.com/ekretos/Rythra/blob/main/packages/types/src/index.ts#L49)
+Defined in: [packages/types/src/index.ts:95](https://github.com/ekretos/Rythra/blob/main/packages/types/src/index.ts#L95)
+
+HTTPS/WSS.

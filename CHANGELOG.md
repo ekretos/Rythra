@@ -8,6 +8,7 @@ Format based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 ## [0.3.0]
 
 ### Added
+
 - Lunibee connector.
 - `@rythra/types` now holds all public contracts; `@rythra/metrics` (Prometheus/StatsD exporters) and `@rythra/persistence` (memory and file adapters) are now populated.
 - `Queue.pushHistory` and `Queue.maxHistory` (default 100) bound the played-track history.
@@ -16,6 +17,7 @@ Format based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 - `CONTRIBUTING.md`, `LICENSE`, `docs/MIGRATION.md` and this changelog.
 
 ### Changed
+
 - Removed the `discord.js` dev dependency and the example bot that needed it; the `DiscordJS` connector now types its client structurally (`DiscordJSClient`), so any discord.js v14 `Client` still works.
 - **Breaking:** merged `@rythra/connector-discordjs`, `-eris`, `-oceanic` and `-seyfert` into `@rythra/connectors` (subpaths `/discordjs`, `/eris`, `/oceanic`, `/seyfert`, `/lunibee`). See the migration guide.
 - **Breaking:** a Lavalink node password is now required; the built-in `youshallnotpass` default was removed.
@@ -23,11 +25,13 @@ Format based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 - Removed ESLint; `bun run typecheck` (strict, with `noUnusedLocals`/`noUnusedParameters`) is the static check. Upgraded TypeScript to 7.0.2 (TypeDoc, which does not support TS 7 yet, runs from an isolated `scripts/typedoc` toolchain pinned to TypeScript 6.0.3) and all dependencies (docs: Astro 7, Starlight 0.42).
 
 ### Added (continued)
+
 - Opt-in `failover` option (with `failoverDelay`, default 5000 ms, so brief outages do not trigger it): when a node stays disconnected, `Rythra` moves its players to another ready node (`migratePlayers`, `RythraPlayer.moveTo`) and emits `playerMigrate` / `playerMigrateFailed`.
 - `bun run check:dist` loads every built entry point under plain Node ESM and compiles a consumer project against the built declarations.
 - `docs/TROUBLESHOOTING.md`.
 
 ### Fixed
+
 - Another member's voice state in the same guild could overwrite the bot's voice session on a player (`Rythra.voiceStateUpdate` merged every user's state). Updates for other users are now ignored when the connector reports a `user_id`.
 - The Lunibee connector now uses Lunibee's typed `voiceStateUpdate` / `voiceServerUpdate` events and its shard-aware `sendVoiceState` (Lunibee >= 0.3.0; older versions fall back to `ws.send`), and ignores voice server updates with a null endpoint.
 - `@rythra/connectors` declares the Discord libraries as optional peer dependencies.

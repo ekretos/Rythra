@@ -37,9 +37,13 @@ export class PrometheusMetricsAdapter implements RythraMetricsAdapter {
     constructor(private readonly prefix = 'rythra') {}
 
     /** @inheritdoc */
-    public counter(name: string, value = 1): void { this.counters.set(name, (this.counters.get(name) ?? 0) + value); }
+    public counter(name: string, value = 1): void {
+        this.counters.set(name, (this.counters.get(name) ?? 0) + value);
+    }
     /** @inheritdoc */
-    public gauge(name: string, value: number): void { this.gauges.set(name, value); }
+    public gauge(name: string, value: number): void {
+        this.gauges.set(name, value);
+    }
     /** @inheritdoc */
     public histogram(name: string, value: number): void {
         const entry = this.histograms.get(name) ?? { sum: 0, count: 0 };

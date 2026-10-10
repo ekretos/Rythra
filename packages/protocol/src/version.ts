@@ -1,5 +1,5 @@
 /** Supported Lavalink protocol versions. Add a new literal here when Lavalink ships a new protocol. */
-export type LavalinkVersion = "v3" | "v4" | "v5" | (string & {});
+export type LavalinkVersion = 'v3' | 'v4' | 'v5' | (string & {});
 
 /** Capabilities exposed by a concrete Lavalink protocol adapter. */
 export interface ProtocolCapabilities {

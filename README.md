@@ -24,6 +24,7 @@ A lightweight, powerful, and modular Lavalink client for modern TypeScript & Jav
 You can install Rythra either as a single all-in-one package or as individual scoped packages:
 
 ### Option 1: All-in-One Package (Recommended)
+
 ```bash
 # Using Bun
 bun add rythra discord.js
@@ -36,6 +37,7 @@ pnpm add rythra discord.js
 ```
 
 ### Option 2: Modular Packages
+
 ```bash
 # Core + Discord.js
 bun add @rythra/core @rythra/connectors discord.js
@@ -67,12 +69,7 @@ import { Rythra, DiscordJS } from 'rythra';
 // import { DiscordJS } from '@rythra/connectors';
 
 const client = new Client({
-    intents: [
-        GatewayIntentBits.Guilds,
-        GatewayIntentBits.GuildVoiceStates,
-        GatewayIntentBits.GuildMessages,
-        GatewayIntentBits.MessageContent,
-    ],
+    intents: [GatewayIntentBits.Guilds, GatewayIntentBits.GuildVoiceStates, GatewayIntentBits.GuildMessages, GatewayIntentBits.MessageContent],
 });
 
 const connector = new DiscordJS(client);
@@ -151,13 +148,13 @@ client.login(process.env.BOT_TOKEN);
 
 ## 🔌 Supported Connectors
 
-| Library | Connector Import | Package |
-| :--- | :--- | :--- |
+| Library        | Connector Import                                               | Package                                                                  |
+| :------------- | :------------------------------------------------------------- | :----------------------------------------------------------------------- |
 | **Discord.js** | `import { DiscordJS } from 'rythra'` or `'@rythra/connectors'` | [`@rythra/connectors`](https://www.npmjs.com/package/@rythra/connectors) |
-| **Eris** | `import { Eris } from '@rythra/connectors'` | [`@rythra/connectors`](https://www.npmjs.com/package/@rythra/connectors) |
-| **Oceanic.js** | `import { OceanicJS } from '@rythra/connectors'` | [`@rythra/connectors`](https://www.npmjs.com/package/@rythra/connectors) |
-| **Seyfert** | `import { Seyfert } from '@rythra/connectors'` | [`@rythra/connectors`](https://www.npmjs.com/package/@rythra/connectors) |
-| **Lunibee** | `import { Lunibee } from '@rythra/connectors'` | [`@rythra/connectors`](https://www.npmjs.com/package/@rythra/connectors) |
+| **Eris**       | `import { Eris } from '@rythra/connectors'`                    | [`@rythra/connectors`](https://www.npmjs.com/package/@rythra/connectors) |
+| **Oceanic.js** | `import { OceanicJS } from '@rythra/connectors'`               | [`@rythra/connectors`](https://www.npmjs.com/package/@rythra/connectors) |
+| **Seyfert**    | `import { Seyfert } from '@rythra/connectors'`                 | [`@rythra/connectors`](https://www.npmjs.com/package/@rythra/connectors) |
+| **Lunibee**    | `import { Lunibee } from '@rythra/connectors'`                 | [`@rythra/connectors`](https://www.npmjs.com/package/@rythra/connectors) |
 
 ---
 
@@ -168,10 +165,10 @@ const player = rythra.players.get(guildId);
 
 // Playback controls
 await player.play();
-await player.pause(true);  // Pause
+await player.pause(true); // Pause
 await player.pause(false); // Resume
-await player.skip();       // Skip to next track
-await player.stop();       // Stop and clear
+await player.skip(); // Skip to next track
+await player.stop(); // Stop and clear
 
 // Volume (0 - 1000, 100 is default)
 await player.setVolume(80);
@@ -184,15 +181,15 @@ await player.node.rest.updatePlayer({
     guildId,
     playerOptions: {
         filters: {
-            timescale: { speed: 1.25, pitch: 1.0, rate: 1.0 }
-        }
-    }
+            timescale: { speed: 1.25, pitch: 1.0, rate: 1.0 },
+        },
+    },
 });
 
 // Queue management
 player.queue.shuffle();
 player.queue.remove(0); // Remove first track
-player.queue.clear();   // Clear remaining queue
+player.queue.clear(); // Clear remaining queue
 ```
 
 ---
@@ -227,9 +224,9 @@ A node resolves a protocol adapter once (from `lavalinkVersion`, or from `GET /v
 ```typescript
 import { resolveProtocol, resolveProtocolFromServerVersion } from 'rythra';
 
-resolveProtocol(4).restUrl('http://localhost:2333');     // http://localhost:2333/v4
-resolveProtocol(5).websocketUrl('ws://localhost:2333');  // ws://localhost:2333/v5/websocket
-resolveProtocolFromServerVersion('5.0.0').capabilities;  // { sessionResume, filters, dave }
+resolveProtocol(4).restUrl('http://localhost:2333'); // http://localhost:2333/v4
+resolveProtocol(5).websocketUrl('ws://localhost:2333'); // ws://localhost:2333/v5/websocket
+resolveProtocolFromServerVersion('5.0.0').capabilities; // { sessionResume, filters, dave }
 ```
 
 ---

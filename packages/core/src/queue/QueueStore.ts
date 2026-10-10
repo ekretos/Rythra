@@ -18,15 +18,25 @@ export interface QueueStore<Track = unknown> {
 /** In-memory FIFO queue implementation. */
 export class MemoryQueueStore<Track = unknown> implements QueueStore<Track> {
     protected readonly items: Track[] = [];
-    public get size(): number { return this.items.length; }
-    public add(track: Track): void { this.items.push(track); }
-    public addMany(tracks: readonly Track[]): void { this.items.push(...tracks); }
-    public shift(): Track | undefined { return this.items.shift(); }
+    public get size(): number {
+        return this.items.length;
+    }
+    public add(track: Track): void {
+        this.items.push(track);
+    }
+    public addMany(tracks: readonly Track[]): void {
+        this.items.push(...tracks);
+    }
+    public shift(): Track | undefined {
+        return this.items.shift();
+    }
     public remove(index: number): Track | undefined {
         if (index < 0 || index >= this.items.length) return undefined;
         return this.items.splice(index, 1)[0];
     }
-    public clear(): void { this.items.length = 0; }
+    public clear(): void {
+        this.items.length = 0;
+    }
     public shuffle(): void {
         for (let i = this.items.length - 1; i > 0; i--) {
             const j = Math.floor(Math.random() * (i + 1));
@@ -36,5 +46,7 @@ export class MemoryQueueStore<Track = unknown> implements QueueStore<Track> {
             this.items[j] = current;
         }
     }
-    public snapshot(): Track[] { return this.items.slice(); }
+    public snapshot(): Track[] {
+        return this.items.slice();
+    }
 }

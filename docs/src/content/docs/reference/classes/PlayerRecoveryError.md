@@ -7,7 +7,7 @@ description: API Reference for PlayerRecoveryError
 
 ***
 
-Defined in: [packages/core/src/errors/RythraError.ts:19](https://github.com/ekretos/Rythra/blob/main/packages/core/src/errors/RythraError.ts#L19)
+Defined in: [packages/core/src/errors/RythraError.ts:51](https://github.com/ekretos/Rythra/blob/main/packages/core/src/errors/RythraError.ts#L51)
 
 Error raised when a player cannot be recovered or migrated.
 
@@ -21,7 +21,9 @@ Error raised when a player cannot be recovered or migrated.
 
 > **new PlayerRecoveryError**(`message`, `options?`): `PlayerRecoveryError`
 
-Defined in: [packages/core/src/errors/RythraError.ts:19](https://github.com/ekretos/Rythra/blob/main/packages/core/src/errors/RythraError.ts#L19)
+Defined in: [packages/core/src/errors/RythraError.ts:52](https://github.com/ekretos/Rythra/blob/main/packages/core/src/errors/RythraError.ts#L52)
+
+Creates a player recovery error.
 
 #### Parameters
 
@@ -53,7 +55,7 @@ Defined in: [packages/core/src/errors/RythraError.ts:19](https://github.com/ekre
 
 > `readonly` `optional` **cause?**: `unknown`
 
-Defined in: [packages/core/src/errors/RythraError.ts:7](https://github.com/ekretos/Rythra/blob/main/packages/core/src/errors/RythraError.ts#L7)
+Defined in: [packages/core/src/errors/RythraError.ts:21](https://github.com/ekretos/Rythra/blob/main/packages/core/src/errors/RythraError.ts#L21)
 
 Optional originating error.
 
@@ -67,7 +69,7 @@ Optional originating error.
 
 > `readonly` **code**: [`RythraErrorCode`](../type-aliases/RythraErrorCode.md)
 
-Defined in: [packages/core/src/errors/RythraError.ts:6](https://github.com/ekretos/Rythra/blob/main/packages/core/src/errors/RythraError.ts#L6)
+Defined in: [packages/core/src/errors/RythraError.ts:20](https://github.com/ekretos/Rythra/blob/main/packages/core/src/errors/RythraError.ts#L20)
 
 Stable machine-readable error code.
 
@@ -81,7 +83,7 @@ Stable machine-readable error code.
 
 > `readonly` **context**: `Readonly`\<`Record`\<`string`, `unknown`\>\>
 
-Defined in: [packages/core/src/errors/RythraError.ts:8](https://github.com/ekretos/Rythra/blob/main/packages/core/src/errors/RythraError.ts#L8)
+Defined in: [packages/core/src/errors/RythraError.ts:22](https://github.com/ekretos/Rythra/blob/main/packages/core/src/errors/RythraError.ts#L22)
 
 Additional structured diagnostic context.
 

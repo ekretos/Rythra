@@ -7,7 +7,7 @@ description: API Reference for Stats
 
 ***
 
-Defined in: [packages/types/src/index.ts:68](https://github.com/ekretos/Rythra/blob/main/packages/types/src/index.ts#L68)
+Defined in: [packages/types/src/index.ts:209](https://github.com/ekretos/Rythra/blob/main/packages/types/src/index.ts#L209)
 
 Lavalink node statistics.
 
@@ -17,7 +17,9 @@ Lavalink node statistics.
 
 > **cpu**: `object`
 
-Defined in: [packages/types/src/index.ts:68](https://github.com/ekretos/Rythra/blob/main/packages/types/src/index.ts#L68)
+Defined in: [packages/types/src/index.ts:214](https://github.com/ekretos/Rythra/blob/main/packages/types/src/index.ts#L214)
+
+CPU.
 
 #### cores
 
@@ -37,7 +39,9 @@ Defined in: [packages/types/src/index.ts:68](https://github.com/ekretos/Rythra/b
 
 > `optional` **frameStats?**: `object`
 
-Defined in: [packages/types/src/index.ts:68](https://github.com/ekretos/Rythra/blob/main/packages/types/src/index.ts#L68)
+Defined in: [packages/types/src/index.ts:215](https://github.com/ekretos/Rythra/blob/main/packages/types/src/index.ts#L215)
+
+Frame stats.
 
 #### deficit
 
@@ -57,7 +61,9 @@ Defined in: [packages/types/src/index.ts:68](https://github.com/ekretos/Rythra/b
 
 > **memory**: `object`
 
-Defined in: [packages/types/src/index.ts:68](https://github.com/ekretos/Rythra/blob/main/packages/types/src/index.ts#L68)
+Defined in: [packages/types/src/index.ts:213](https://github.com/ekretos/Rythra/blob/main/packages/types/src/index.ts#L213)
+
+Memory.
 
 #### allocated
 
@@ -81,7 +87,9 @@ Defined in: [packages/types/src/index.ts:68](https://github.com/ekretos/Rythra/b
 
 > **players**: `number`
 
-Defined in: [packages/types/src/index.ts:68](https://github.com/ekretos/Rythra/blob/main/packages/types/src/index.ts#L68)
+Defined in: [packages/types/src/index.ts:210](https://github.com/ekretos/Rythra/blob/main/packages/types/src/index.ts#L210)
+
+Players.
 
 ***
 
@@ -89,7 +97,9 @@ Defined in: [packages/types/src/index.ts:68](https://github.com/ekretos/Rythra/b
 
 > **playingPlayers**: `number`
 
-Defined in: [packages/types/src/index.ts:68](https://github.com/ekretos/Rythra/blob/main/packages/types/src/index.ts#L68)
+Defined in: [packages/types/src/index.ts:211](https://github.com/ekretos/Rythra/blob/main/packages/types/src/index.ts#L211)
+
+Playing players.
 
 ***
 
@@ -97,4 +107,6 @@ Defined in: [packages/types/src/index.ts:68](https://github.com/ekretos/Rythra/b
 
 > **uptime**: `number`
 
-Defined in: [packages/types/src/index.ts:68](https://github.com/ekretos/Rythra/blob/main/packages/types/src/index.ts#L68)
+Defined in: [packages/types/src/index.ts:212](https://github.com/ekretos/Rythra/blob/main/packages/types/src/index.ts#L212)
+
+Uptime.

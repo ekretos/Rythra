@@ -47,9 +47,15 @@ export class RythraPlayer extends EventEmitter {
     public readonly data = new Map<string, unknown>();
     public readonly queue: Queue = new Queue();
 
-    public get guildId(): string { return this.guild; }
-    public get voiceId(): string { return this.voiceChannel; }
-    public get textId(): string { return this.textChannel; }
+    public get guildId(): string {
+        return this.guild;
+    }
+    public get voiceId(): string {
+        return this.voiceChannel;
+    }
+    public get textId(): string {
+        return this.textChannel;
+    }
 
     constructor(node: PlayerNode, options: PlayerOptions) {
         super();
@@ -73,7 +79,10 @@ export class RythraPlayer extends EventEmitter {
                 else if (this.loop === 'queue') this.queue.add(current);
             }
             const reason = data.reason?.toLowerCase();
-            if (reason !== 'replaced' && reason !== 'stopped' && this.node.manager.options.autoPlay && this.queue.length > 0) await this.play().catch((error: unknown) => { this.emit('playerError', error); });
+            if (reason !== 'replaced' && reason !== 'stopped' && this.node.manager.options.autoPlay && this.queue.length > 0)
+                await this.play().catch((error: unknown) => {
+                    this.emit('playerError', error);
+                });
             this.emit('trackEnd', data);
         });
         this.on('TrackExceptionEvent', (data: TrackEventPayload) => this.emit('trackException', data));
@@ -132,8 +141,13 @@ export class RythraPlayer extends EventEmitter {
         const response = await this.node.manager.search(query, options.requester, source as SearchPlatform | undefined);
         if (response.loadType === 'error') throw new Error(response.data.message || 'Lavalink search failed.');
         if (response.loadType === 'empty') return { type: 'EMPTY', tracks: [] };
-        if (response.loadType === 'playlist') return { type: 'PLAYLIST', playlistName: response.data.info?.name, tracks: (response.data.tracks || []).map((track: Track) => this.decorateTrack(track, options.requester)) };
-        const tracks = response.loadType === 'track' ? [response.data] : (response.data.tracks || []);
+        if (response.loadType === 'playlist')
+            return {
+                type: 'PLAYLIST',
+                playlistName: response.data.info?.name,
+                tracks: (response.data.tracks || []).map((track: Track) => this.decorateTrack(track, options.requester)),
+            };
+        const tracks = response.loadType === 'track' ? [response.data] : response.data.tracks || [];
         return { type: 'SEARCH', tracks: tracks.map((track: Track) => this.decorateTrack(track, options.requester)) };
     }
 
@@ -152,7 +166,9 @@ export class RythraPlayer extends EventEmitter {
         this.emit('stop');
     }
 
-    public async destroy(): Promise<void> { await this.node.manager.destroyPlayer(this.guild); }
+    public async destroy(): Promise<void> {
+        await this.node.manager.destroyPlayer(this.guild);
+    }
 
     public async skip(): Promise<void> {
         this.emit('trackSkip', this.queue.current);
@@ -189,6 +205,10 @@ export class RythraPlayer extends EventEmitter {
 
     public connect(options?: { voiceChannel?: string; selfMute?: boolean; selfDeaf?: boolean }): void {
         this.voiceChannel = options?.voiceChannel ?? this.voiceChannel;
-        this.node.manager.options.connector.sendPacket(0, { op: 4, d: { guild_id: this.guild, channel_id: this.voiceChannel, self_mute: options?.selfMute ?? false, self_deaf: options?.selfDeaf ?? false } }, false);
+        this.node.manager.options.connector.sendPacket(
+            0,
+            { op: 4, d: { guild_id: this.guild, channel_id: this.voiceChannel, self_mute: options?.selfMute ?? false, self_deaf: options?.selfDeaf ?? false } },
+            false
+        );
     }
 }

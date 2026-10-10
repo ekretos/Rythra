@@ -31,7 +31,7 @@ No-op persistence adapter for applications that do not need durable state.
 
 > **delete**(): `Promise`\<`void`\>
 
-Defined in: [packages/core/src/persistence/Persistence.ts:46](https://github.com/ekretos/Rythra/blob/main/packages/core/src/persistence/Persistence.ts#L46)
+Defined in: [packages/core/src/persistence/Persistence.ts:48](https://github.com/ekretos/Rythra/blob/main/packages/core/src/persistence/Persistence.ts#L48)
 
 Deletes a snapshot.
 
@@ -49,7 +49,7 @@ Deletes a snapshot.
 
 > **keys**(): `Promise`\<`string`[]\>
 
-Defined in: [packages/core/src/persistence/Persistence.ts:48](https://github.com/ekretos/Rythra/blob/main/packages/core/src/persistence/Persistence.ts#L48)
+Defined in: [packages/core/src/persistence/Persistence.ts:50](https://github.com/ekretos/Rythra/blob/main/packages/core/src/persistence/Persistence.ts#L50)
 
 Lists stored snapshot keys.
 

@@ -30,10 +30,14 @@ export class Queue extends Array<Track> {
     }
 
     /** Removes a track at a specific queue index. */
-    public remove(index: number): Track | undefined { return this.splice(index, 1)[0]; }
+    public remove(index: number): Track | undefined {
+        return this.splice(index, 1)[0];
+    }
 
     /** Removes every pending track while preserving current/history state. */
-    public clear(): void { this.length = 0; }
+    public clear(): void {
+        this.length = 0;
+    }
 
     /** Randomly reorders pending tracks using Fisher-Yates shuffling. */
     public shuffle(): void {

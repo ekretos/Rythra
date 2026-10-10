@@ -26,7 +26,13 @@ export class Node extends EventEmitter {
     /** The configuration used to connect to Lavalink. */ public readonly options: NodeOptions;
     /** The version-aware REST client for this node. */ public readonly rest: Rest;
     /** Circuit breaker protecting this node from repeated connection attempts. */ public readonly circuit = new CircuitBreaker();
-    /** The most recently received Lavalink statistics payload. */ public stats: Stats = { players: 0, playingPlayers: 0, uptime: 0, memory: { free: 0, used: 0, allocated: 0, reservable: 0 }, cpu: { cores: 0, systemLoad: 0, lavalinkLoad: 0 } };
+    /** The most recently received Lavalink statistics payload. */ public stats: Stats = {
+        players: 0,
+        playingPlayers: 0,
+        uptime: 0,
+        memory: { free: 0, used: 0, allocated: 0, reservable: 0 },
+        cpu: { cores: 0, systemLoad: 0, lavalinkLoad: 0 },
+    };
     /** The Lavalink session ID used for session resumption. */ public sessionId: string | null = null;
     /** The Lavalink API generation selected for this node. */ public apiVersion: LavalinkApiVersion | null = null;
     /** The protocol adapter selected for this node, or `null` until detection completes. */ public protocol: ProtocolAdapter | null = null;
@@ -53,33 +59,52 @@ export class Node extends EventEmitter {
     }
 
     /** The current lifecycle state of this node. */
-    public get state(): NodeState { return this.machine.state; }
+    public get state(): NodeState {
+        return this.machine.state;
+    }
 
     /** Whether the node currently has an open WebSocket connection. */
-    public get connected(): boolean { return this.machine.state === 'ready'; }
+    public get connected(): boolean {
+        return this.machine.state === 'ready';
+    }
 
     /** The active Lavalink WebSocket, or `null` when disconnected. */
-    public get ws(): WebSocket | null { return (this.transport as { socket?: WebSocket | null } | null)?.socket ?? null; }
+    public get ws(): WebSocket | null {
+        return (this.transport as { socket?: WebSocket | null } | null)?.socket ?? null;
+    }
 
     /** Human-readable identifier used in logs and errors. */
-    public get label(): string { return this.options.identifier ?? this.options.host; }
+    public get label(): string {
+        return this.options.identifier ?? this.options.host;
+    }
 
     /** The protocol adapter in use, falling back to the oldest supported generation. */
-    private get activeProtocol(): ProtocolAdapter { return this.protocol ?? resolveProtocol(4); }
+    private get activeProtocol(): ProtocolAdapter {
+        return this.protocol ?? resolveProtocol(4);
+    }
 
     /** The HTTP origin of this node. */
-    private get httpOrigin(): string { return `${this.options.secure ? 'https' : 'http'}://${this.options.host}${this.options.port ? `:${this.options.port}` : ''}`; }
+    private get httpOrigin(): string {
+        return `${this.options.secure ? 'https' : 'http'}://${this.options.host}${this.options.port ? `:${this.options.port}` : ''}`;
+    }
 
     /** The WebSocket origin of this node. */
-    private get websocketOrigin(): string { return `${this.options.secure ? 'wss' : 'ws'}://${this.options.host}${this.options.port ? `:${this.options.port}` : ''}`; }
+    private get websocketOrigin(): string {
+        return `${this.options.secure ? 'wss' : 'ws'}://${this.options.host}${this.options.port ? `:${this.options.port}` : ''}`;
+    }
 
     /** The version-aware base URL used for REST requests. */
-    public get restUrl(): string { return this.activeProtocol.restUrl(this.httpOrigin); }
+    public get restUrl(): string {
+        return this.activeProtocol.restUrl(this.httpOrigin);
+    }
 
     /** Detects the Lavalink generation when the node is configured for automatic selection. */
     private async detectVersion(): Promise<void> {
         if (this.apiVersion) return;
-        const response = await fetch(`${this.httpOrigin}/version`, { headers: { Authorization: this.password }, signal: AbortSignal.timeout((this.manager.options.restTimeout || 10) * 1000) });
+        const response = await fetch(`${this.httpOrigin}/version`, {
+            headers: { Authorization: this.password },
+            signal: AbortSignal.timeout((this.manager.options.restTimeout || 10) * 1000),
+        });
         if (!response.ok) throw new Error(`Unable to detect Lavalink version (${response.status})`);
         const semver = (await response.text()).trim();
         this.apiVersion = getLavalinkApiVersion(semver);
@@ -94,10 +119,23 @@ export class Node extends EventEmitter {
         if (this.connected) return;
         if (this.transport) {
             return new Promise<void>((resolve, reject) => {
-                const onConnect = () => { cleanup(); resolve(); };
-                const onError = (error: Error) => { cleanup(); reject(error); };
-                const onAbort = () => { cleanup(); reject(new Error(`Lavalink node ${this.label} was disconnected before it connected.`)); };
-                const cleanup = () => { this.off('connect', onConnect); this.off('error', onError); this.off('manualDisconnect', onAbort); };
+                const onConnect = () => {
+                    cleanup();
+                    resolve();
+                };
+                const onError = (error: Error) => {
+                    cleanup();
+                    reject(error);
+                };
+                const onAbort = () => {
+                    cleanup();
+                    reject(new Error(`Lavalink node ${this.label} was disconnected before it connected.`));
+                };
+                const cleanup = () => {
+                    this.off('connect', onConnect);
+                    this.off('error', onError);
+                    this.off('manualDisconnect', onAbort);
+                };
                 this.once('connect', onConnect);
                 this.once('error', onError);
                 this.once('manualDisconnect', onAbort);
@@ -108,10 +146,18 @@ export class Node extends EventEmitter {
         try {
             await this.detectVersion();
             const transport = this.createTransport({
-                    onOpen: () => { if (this.transport === transport) this.handleOpen(); },
-                    onMessage: (message) => { if (this.transport === transport) this.handleMessage(message); },
-                    onClose: () => { if (this.transport === transport) this.handleClose(); },
-                    onError: (error) => { if (this.transport === transport) this.handleTransportError(error); },
+                onOpen: () => {
+                    if (this.transport === transport) this.handleOpen();
+                },
+                onMessage: (message) => {
+                    if (this.transport === transport) this.handleMessage(message);
+                },
+                onClose: () => {
+                    if (this.transport === transport) this.handleClose();
+                },
+                onError: (error) => {
+                    if (this.transport === transport) this.handleTransportError(error);
+                },
             });
             this.transport = transport;
             await transport.connect();
@@ -131,15 +177,16 @@ export class Node extends EventEmitter {
         return new WebSocketTransport(
             {
                 url: () => this.activeProtocol.websocketUrl(this.websocketOrigin),
-                headers: () => this.activeProtocol.handshakeHeaders({
-                    password: this.password,
-                    clientName: `${this.manager.options.clientName || 'Rythra'}/${this.manager.version}`,
-                    userId: this.manager.options.clientId || this.manager.options.connector.getId() || '',
-                    sessionId: this.sessionId,
-                }),
+                headers: () =>
+                    this.activeProtocol.handshakeHeaders({
+                        password: this.password,
+                        clientName: `${this.manager.options.clientName || 'Rythra'}/${this.manager.version}`,
+                        userId: this.manager.options.clientId || this.manager.options.connector.getId() || '',
+                        sessionId: this.sessionId,
+                    }),
                 rejectUnauthorized: this.options.rejectUnauthorized ?? true,
             },
-            handlers,
+            handlers
         );
     }
 
@@ -228,7 +275,10 @@ export class Node extends EventEmitter {
     public disconnect(): void {
         this.manuallyDisconnected = true;
         this.emit('manualDisconnect');
-        if (this.reconnectTimer) { clearTimeout(this.reconnectTimer); this.reconnectTimer = null; }
+        if (this.reconnectTimer) {
+            clearTimeout(this.reconnectTimer);
+            this.reconnectTimer = null;
+        }
         this.machine.transition('draining');
         this.transport?.disconnect();
         this.transport = null;

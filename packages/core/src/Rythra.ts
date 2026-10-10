@@ -4,16 +4,7 @@ import { RythraPlayer } from './player/Player.js';
 import { NodeRegistry, PlayerRegistry } from './kernel/Registry.js';
 import { Health, type HealthSnapshot } from './health/Health.js';
 import { ConfigurationError } from './errors/RythraError.js';
-import type {
-    RythraOptions,
-    NodeOptions,
-    PlayerOptions,
-    SearchPlatform,
-    SearchResponse,
-    IRythra,
-    VoiceStateUpdate,
-    VoiceServerUpdate,
-} from '@rythra/types';
+import type { RythraOptions, NodeOptions, PlayerOptions, SearchPlatform, SearchResponse, IRythra, VoiceStateUpdate, VoiceServerUpdate } from '@rythra/types';
 
 /** Checks that a value is an integer within an inclusive range. */
 function isIntegerInRange(value: number, min: number, max = Infinity): boolean {
@@ -123,9 +114,7 @@ export class Rythra extends EventEmitter implements IRythra {
 
         const identifier = options.identifier || `${options.host}:${options.port ?? 2333}`;
         if (this.nodes.has(identifier)) {
-            throw new ConfigurationError(
-                `A node with identifier "${identifier}" already exists.`,
-            );
+            throw new ConfigurationError(`A node with identifier "${identifier}" already exists.`);
         }
 
         const node = new Node(this, options);
@@ -139,9 +128,7 @@ export class Rythra extends EventEmitter implements IRythra {
     /** Binds node lifecycle events to the runtime event surface. */
     private bindNode(node: Node): void {
         node.on('error', (err) => this.emit('nodeError', node, err));
-        node.on('version', (version, serverVersion) =>
-            this.emit('nodeVersion', node, version, serverVersion),
-        );
+        node.on('version', (version, serverVersion) => this.emit('nodeVersion', node, version, serverVersion));
         node.on('ready', (data) => this.emit('nodeReady', node, data));
         node.on('connect', () => this.emit('nodeConnect', node));
         node.on('disconnect', () => {
@@ -150,9 +137,7 @@ export class Rythra extends EventEmitter implements IRythra {
             if (this.options.failover) this.scheduleFailover(node);
         });
         node.on('reconnectFailed', () => this.emit('nodeReconnectFailed', node));
-        node.on('state', (state, previous) =>
-            this.emit('nodeState', node, state, previous),
-        );
+        node.on('state', (state, previous) => this.emit('nodeState', node, state, previous));
         node.on('stats', (stats) => this.emit('nodeStats', node, stats));
         node.on('event', (event) => this.emit('nodeEvent', node, event));
     }
@@ -175,10 +160,7 @@ export class Rythra extends EventEmitter implements IRythra {
             if (!best) return node;
 
             if (node.stats.players < best.stats.players) return node;
-            if (
-                node.stats.players === best.stats.players &&
-                node.stats.playingPlayers < best.stats.playingPlayers
-            ) {
+            if (node.stats.players === best.stats.players && node.stats.playingPlayers < best.stats.playingPlayers) {
                 return node;
             }
 
@@ -223,11 +205,7 @@ export class Rythra extends EventEmitter implements IRythra {
     }
 
     /** Searches Lavalink for a track, playlist or search result. */
-    public async search(
-        query: string,
-        _requester: unknown,
-        source?: SearchPlatform,
-    ): Promise<SearchResponse> {
+    public async search(query: string, _requester: unknown, source?: SearchPlatform): Promise<SearchResponse> {
         if (!query?.trim()) {
             throw new ConfigurationError('Search query cannot be empty.');
         }
@@ -247,10 +225,7 @@ export class Rythra extends EventEmitter implements IRythra {
         let identifier = query;
         const isUrl = /^https?:\/\//.test(query);
 
-        if (
-            !isUrl &&
-            !Object.values(sources).some((prefix) => query.startsWith(`${prefix}:`))
-        ) {
+        if (!isUrl && !Object.values(sources).some((prefix) => query.startsWith(`${prefix}:`))) {
             const platform = (source || this.options.defaultSearchPlatform || 'youtube') as string;
             identifier = `${sources[platform] || platform}:${query}`;
         }
@@ -278,9 +253,7 @@ export class Rythra extends EventEmitter implements IRythra {
         player.voiceServer = data;
 
         if (!player.voiceState.session_id || !player.voiceState.channel_id) {
-            throw new ConfigurationError(
-                `Missing Discord voice state for guild ${data.guild_id}`,
-            );
+            throw new ConfigurationError(`Missing Discord voice state for guild ${data.guild_id}`);
         }
 
         await player.node.rest.updatePlayer({
@@ -299,10 +272,13 @@ export class Rythra extends EventEmitter implements IRythra {
     /** Waits for the node to recover, then migrates its players if it is still down. */
     private scheduleFailover(node: Node): void {
         if (this.failoverTimers.has(node)) return;
-        const timer = setTimeout(() => {
-            this.failoverTimers.delete(node);
-            if (!this.shuttingDown && !node.connected) void this.migratePlayers(node);
-        }, Math.max(0, this.options.failoverDelay ?? 5000));
+        const timer = setTimeout(
+            () => {
+                this.failoverTimers.delete(node);
+                if (!this.shuttingDown && !node.connected) void this.migratePlayers(node);
+            },
+            Math.max(0, this.options.failoverDelay ?? 5000)
+        );
         this.failoverTimers.set(node, timer);
     }
 
@@ -342,9 +318,7 @@ export class Rythra extends EventEmitter implements IRythra {
         this.failoverTimers.clear();
 
         const shutdown = async (): Promise<void> => {
-            await Promise.allSettled(
-                Array.from(this.players.keys(), (guild) => this.destroyPlayer(guild)),
-            );
+            await Promise.allSettled(Array.from(this.players.keys(), (guild) => this.destroyPlayer(guild)));
 
             for (const node of this.nodes.values()) node.disconnect();
 
@@ -374,8 +348,6 @@ export class Rythra extends EventEmitter implements IRythra {
             throw new Error('Rythra is shutting down.');
         }
 
-        await Promise.all(
-            Array.from(this.nodes.values(), (node) => node.connect()),
-        );
+        await Promise.all(Array.from(this.nodes.values(), (node) => node.connect()));
     }
 }

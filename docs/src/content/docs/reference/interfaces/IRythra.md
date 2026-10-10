@@ -7,7 +7,7 @@ description: API Reference for IRythra
 
 ***
 
-Defined in: [packages/types/src/index.ts:51](https://github.com/ekretos/Rythra/blob/main/packages/types/src/index.ts#L51)
+Defined in: [packages/types/src/index.ts:111](https://github.com/ekretos/Rythra/blob/main/packages/types/src/index.ts#L111)
 
 Minimal Rythra manager contract.
 
@@ -23,7 +23,9 @@ Minimal Rythra manager contract.
 
 > **on**(`event`, `listener`): `this`
 
-Defined in: [packages/types/src/index.ts:51](https://github.com/ekretos/Rythra/blob/main/packages/types/src/index.ts#L51)
+Defined in: [packages/types/src/index.ts:112](https://github.com/ekretos/Rythra/blob/main/packages/types/src/index.ts#L112)
+
+Registers node creation listener.
 
 #### Parameters
 

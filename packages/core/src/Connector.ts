@@ -16,10 +16,14 @@ export abstract class Connector<T = unknown> {
     protected listening = false;
 
     /** Creates a connector around a Discord library client. */
-    constructor(client: T) { this.client = client; }
+    constructor(client: T) {
+        this.client = client;
+    }
 
     /** Sets the Rythra manager for this connector. */
-    public setManager(manager: Rythra): void { this.manager = manager; }
+    public setManager(manager: Rythra): void {
+        this.manager = manager;
+    }
 
     /** Sends a packet to the Discord gateway. */
     public abstract sendPacket(shardId: number, payload: GatewayPacket, important: boolean): void;

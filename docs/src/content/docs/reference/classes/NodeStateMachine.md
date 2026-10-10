@@ -60,7 +60,7 @@ The current node state.
 
 > **can**(`to`): `boolean`
 
-Defined in: [packages/core/src/node/NodeState.ts:36](https://github.com/ekretos/Rythra/blob/main/packages/core/src/node/NodeState.ts#L36)
+Defined in: [packages/core/src/node/NodeState.ts:38](https://github.com/ekretos/Rythra/blob/main/packages/core/src/node/NodeState.ts#L38)
 
 Determines whether a transition to the given state is accepted.
 
@@ -80,7 +80,7 @@ Determines whether a transition to the given state is accepted.
 
 > **transition**(`to`): `boolean`
 
-Defined in: [packages/core/src/node/NodeState.ts:44](https://github.com/ekretos/Rythra/blob/main/packages/core/src/node/NodeState.ts#L44)
+Defined in: [packages/core/src/node/NodeState.ts:48](https://github.com/ekretos/Rythra/blob/main/packages/core/src/node/NodeState.ts#L48)
 
 Moves the machine to a new state.
 

@@ -9,6 +9,6 @@ description: API Reference for SearchResponse
 
 > **SearchResponse** = \{ `data`: [`Track`](../interfaces/Track.md); `loadType`: `"track"`; \} \| \{ `data`: [`PlaylistData`](../interfaces/PlaylistData.md); `loadType`: `"playlist"`; \} \| \{ `data`: [`SearchResultData`](../interfaces/SearchResultData.md); `loadType`: `"search"`; \} \| \{ `data`: `Record`\<`string`, `never`\>; `loadType`: `"empty"`; \} \| \{ `data`: [`LavalinkRestError`](../interfaces/LavalinkRestError.md); `loadType`: `"error"`; \}
 
-Defined in: [packages/types/src/index.ts:44](https://github.com/ekretos/Rythra/blob/main/packages/types/src/index.ts#L44)
+Defined in: [packages/types/src/index.ts:73](https://github.com/ekretos/Rythra/blob/main/packages/types/src/index.ts#L73)
 
 Discriminated Lavalink response.

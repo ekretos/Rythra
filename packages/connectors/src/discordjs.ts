@@ -20,8 +20,12 @@ export class DiscordJS extends Connector<DiscordJSClient> {
         });
     }
     /** Sends a gateway packet through discord.js. */
-    public sendPacket(shardId: number, payload: GatewayPacket, important: boolean): void { this.client.ws.shards.get(shardId)?.send(payload, important); }
+    public sendPacket(shardId: number, payload: GatewayPacket, important: boolean): void {
+        this.client.ws.shards.get(shardId)?.send(payload, important);
+    }
     /** Returns the Discord application user ID. */
-    public getId(): string | null { return this.client.user?.id ?? null; }
+    public getId(): string | null {
+        return this.client.user?.id ?? null;
+    }
 }
 export default DiscordJS;

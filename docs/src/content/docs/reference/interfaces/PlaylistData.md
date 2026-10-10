@@ -7,7 +7,7 @@ description: API Reference for PlaylistData
 
 ***
 
-Defined in: [packages/types/src/index.ts:42](https://github.com/ekretos/Rythra/blob/main/packages/types/src/index.ts#L42)
+Defined in: [packages/types/src/index.ts:65](https://github.com/ekretos/Rythra/blob/main/packages/types/src/index.ts#L65)
 
 Playlist response data.
 
@@ -17,7 +17,9 @@ Playlist response data.
 
 > **info**: [`PlaylistInfo`](PlaylistInfo.md)
 
-Defined in: [packages/types/src/index.ts:42](https://github.com/ekretos/Rythra/blob/main/packages/types/src/index.ts#L42)
+Defined in: [packages/types/src/index.ts:66](https://github.com/ekretos/Rythra/blob/main/packages/types/src/index.ts#L66)
+
+Playlist metadata.
 
 ***
 
@@ -25,7 +27,9 @@ Defined in: [packages/types/src/index.ts:42](https://github.com/ekretos/Rythra/b
 
 > **pluginInfo**: `Record`\<`string`, `unknown`\>
 
-Defined in: [packages/types/src/index.ts:42](https://github.com/ekretos/Rythra/blob/main/packages/types/src/index.ts#L42)
+Defined in: [packages/types/src/index.ts:67](https://github.com/ekretos/Rythra/blob/main/packages/types/src/index.ts#L67)
+
+Plugin metadata.
 
 ***
 
@@ -33,4 +37,6 @@ Defined in: [packages/types/src/index.ts:42](https://github.com/ekretos/Rythra/b
 
 > **tracks**: [`Track`](Track.md)[]
 
-Defined in: [packages/types/src/index.ts:42](https://github.com/ekretos/Rythra/blob/main/packages/types/src/index.ts#L42)
+Defined in: [packages/types/src/index.ts:68](https://github.com/ekretos/Rythra/blob/main/packages/types/src/index.ts#L68)
+
+Tracks.

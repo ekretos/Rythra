@@ -7,7 +7,7 @@ description: API Reference for UpdatePlayerInfo
 
 ***
 
-Defined in: [packages/types/src/index.ts:66](https://github.com/ekretos/Rythra/blob/main/packages/types/src/index.ts#L66)
+Defined in: [packages/types/src/index.ts:193](https://github.com/ekretos/Rythra/blob/main/packages/types/src/index.ts#L193)
 
 Player update request.
 
@@ -17,7 +17,9 @@ Player update request.
 
 > **guildId**: `string`
 
-Defined in: [packages/types/src/index.ts:66](https://github.com/ekretos/Rythra/blob/main/packages/types/src/index.ts#L66)
+Defined in: [packages/types/src/index.ts:194](https://github.com/ekretos/Rythra/blob/main/packages/types/src/index.ts#L194)
+
+Guild ID.
 
 ***
 
@@ -25,7 +27,9 @@ Defined in: [packages/types/src/index.ts:66](https://github.com/ekretos/Rythra/b
 
 > `optional` **noReplace?**: `boolean`
 
-Defined in: [packages/types/src/index.ts:66](https://github.com/ekretos/Rythra/blob/main/packages/types/src/index.ts#L66)
+Defined in: [packages/types/src/index.ts:195](https://github.com/ekretos/Rythra/blob/main/packages/types/src/index.ts#L195)
+
+Do not replace current track.
 
 ***
 
@@ -33,23 +37,33 @@ Defined in: [packages/types/src/index.ts:66](https://github.com/ekretos/Rythra/b
 
 > **playerOptions**: `object`
 
-Defined in: [packages/types/src/index.ts:66](https://github.com/ekretos/Rythra/blob/main/packages/types/src/index.ts#L66)
+Defined in: [packages/types/src/index.ts:196](https://github.com/ekretos/Rythra/blob/main/packages/types/src/index.ts#L196)
+
+Player options.
 
 #### filters?
 
 > `optional` **filters?**: [`Filters`](Filters.md)
 
+Filters.
+
 #### paused?
 
 > `optional` **paused?**: `boolean`
+
+Paused.
 
 #### position?
 
 > `optional` **position?**: `number`
 
+Position.
+
 #### track?
 
 > `optional` **track?**: `object`
+
+Track.
 
 ##### track.encoded?
 
@@ -66,6 +80,8 @@ Defined in: [packages/types/src/index.ts:66](https://github.com/ekretos/Rythra/b
 #### voice?
 
 > `optional` **voice?**: `object`
+
+Voice.
 
 ##### voice.channelId?
 
@@ -86,3 +102,5 @@ Defined in: [packages/types/src/index.ts:66](https://github.com/ekretos/Rythra/b
 #### volume?
 
 > `optional` **volume?**: `number`
+
+Volume.

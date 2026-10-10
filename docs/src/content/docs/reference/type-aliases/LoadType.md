@@ -9,6 +9,6 @@ description: API Reference for LoadType
 
 > **LoadType** = `"track"` \| `"playlist"` \| `"search"` \| `"empty"` \| `"error"`
 
-Defined in: [packages/types/src/index.ts:37](https://github.com/ekretos/Rythra/blob/main/packages/types/src/index.ts#L37)
+Defined in: [packages/types/src/index.ts:40](https://github.com/ekretos/Rythra/blob/main/packages/types/src/index.ts#L40)
 
 Result category returned by Lavalink.

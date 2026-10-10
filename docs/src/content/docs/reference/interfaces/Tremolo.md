@@ -7,7 +7,7 @@ description: API Reference for Tremolo
 
 ***
 
-Defined in: [packages/types/src/index.ts:57](https://github.com/ekretos/Rythra/blob/main/packages/types/src/index.ts#L57)
+Defined in: [packages/types/src/index.ts:133](https://github.com/ekretos/Rythra/blob/main/packages/types/src/index.ts#L133)
 
 Tremolo filter.
 
@@ -17,7 +17,9 @@ Tremolo filter.
 
 > `optional` **depth?**: `number`
 
-Defined in: [packages/types/src/index.ts:57](https://github.com/ekretos/Rythra/blob/main/packages/types/src/index.ts#L57)
+Defined in: [packages/types/src/index.ts:135](https://github.com/ekretos/Rythra/blob/main/packages/types/src/index.ts#L135)
+
+Depth.
 
 ***
 
@@ -25,4 +27,6 @@ Defined in: [packages/types/src/index.ts:57](https://github.com/ekretos/Rythra/b
 
 > `optional` **frequency?**: `number`
 
-Defined in: [packages/types/src/index.ts:57](https://github.com/ekretos/Rythra/blob/main/packages/types/src/index.ts#L57)
+Defined in: [packages/types/src/index.ts:134](https://github.com/ekretos/Rythra/blob/main/packages/types/src/index.ts#L134)
+
+Frequency.

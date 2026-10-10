@@ -9,6 +9,6 @@ description: API Reference for leastUsedNodeSortType
 
 > **leastUsedNodeSortType** = `"memory"` \| `"calls"` \| `"players"`
 
-Defined in: [packages/types/src/index.ts:45](https://github.com/ekretos/Rythra/blob/main/packages/types/src/index.ts#L45)
+Defined in: [packages/types/src/index.ts:79](https://github.com/ekretos/Rythra/blob/main/packages/types/src/index.ts#L79)
 
 Node selection metric.

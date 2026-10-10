@@ -7,7 +7,7 @@ description: API Reference for NodeError
 
 ***
 
-Defined in: [packages/core/src/errors/RythraError.ts:17](https://github.com/ekretos/Rythra/blob/main/packages/core/src/errors/RythraError.ts#L17)
+Defined in: [packages/core/src/errors/RythraError.ts:40](https://github.com/ekretos/Rythra/blob/main/packages/core/src/errors/RythraError.ts#L40)
 
 Error raised while connecting to or communicating with a Lavalink node.
 
@@ -21,7 +21,9 @@ Error raised while connecting to or communicating with a Lavalink node.
 
 > **new NodeError**(`message`, `code?`, `options?`): `NodeError`
 
-Defined in: [packages/core/src/errors/RythraError.ts:17](https://github.com/ekretos/Rythra/blob/main/packages/core/src/errors/RythraError.ts#L17)
+Defined in: [packages/core/src/errors/RythraError.ts:41](https://github.com/ekretos/Rythra/blob/main/packages/core/src/errors/RythraError.ts#L41)
+
+Creates a node error.
 
 #### Parameters
 
@@ -57,7 +59,7 @@ Defined in: [packages/core/src/errors/RythraError.ts:17](https://github.com/ekre
 
 > `readonly` `optional` **cause?**: `unknown`
 
-Defined in: [packages/core/src/errors/RythraError.ts:7](https://github.com/ekretos/Rythra/blob/main/packages/core/src/errors/RythraError.ts#L7)
+Defined in: [packages/core/src/errors/RythraError.ts:21](https://github.com/ekretos/Rythra/blob/main/packages/core/src/errors/RythraError.ts#L21)
 
 Optional originating error.
 
@@ -71,7 +73,7 @@ Optional originating error.
 
 > `readonly` **code**: [`RythraErrorCode`](../type-aliases/RythraErrorCode.md)
 
-Defined in: [packages/core/src/errors/RythraError.ts:6](https://github.com/ekretos/Rythra/blob/main/packages/core/src/errors/RythraError.ts#L6)
+Defined in: [packages/core/src/errors/RythraError.ts:20](https://github.com/ekretos/Rythra/blob/main/packages/core/src/errors/RythraError.ts#L20)
 
 Stable machine-readable error code.
 
@@ -85,7 +87,7 @@ Stable machine-readable error code.
 
 > `readonly` **context**: `Readonly`\<`Record`\<`string`, `unknown`\>\>
 
-Defined in: [packages/core/src/errors/RythraError.ts:8](https://github.com/ekretos/Rythra/blob/main/packages/core/src/errors/RythraError.ts#L8)
+Defined in: [packages/core/src/errors/RythraError.ts:22](https://github.com/ekretos/Rythra/blob/main/packages/core/src/errors/RythraError.ts#L22)
 
 Additional structured diagnostic context.
 

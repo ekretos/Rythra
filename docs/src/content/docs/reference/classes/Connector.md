@@ -77,7 +77,7 @@ The Rythra manager instance.
 
 > `abstract` **getId**(): `string` \| `null`
 
-Defined in: [packages/core/src/Connector.ts:31](https://github.com/ekretos/Rythra/blob/main/packages/core/src/Connector.ts#L31)
+Defined in: [packages/core/src/Connector.ts:35](https://github.com/ekretos/Rythra/blob/main/packages/core/src/Connector.ts#L35)
 
 Gets the client ID from the Discord client.
 
@@ -91,7 +91,7 @@ Gets the client ID from the Discord client.
 
 > `abstract` **listen**(): `void`
 
-Defined in: [packages/core/src/Connector.ts:28](https://github.com/ekretos/Rythra/blob/main/packages/core/src/Connector.ts#L28)
+Defined in: [packages/core/src/Connector.ts:32](https://github.com/ekretos/Rythra/blob/main/packages/core/src/Connector.ts#L32)
 
 Starts listening for gateway events.
 
@@ -105,7 +105,7 @@ Starts listening for gateway events.
 
 > `abstract` **sendPacket**(`shardId`, `payload`, `important`): `void`
 
-Defined in: [packages/core/src/Connector.ts:25](https://github.com/ekretos/Rythra/blob/main/packages/core/src/Connector.ts#L25)
+Defined in: [packages/core/src/Connector.ts:29](https://github.com/ekretos/Rythra/blob/main/packages/core/src/Connector.ts#L29)
 
 Sends a packet to the Discord gateway.
 
@@ -133,7 +133,7 @@ Sends a packet to the Discord gateway.
 
 > **setManager**(`manager`): `void`
 
-Defined in: [packages/core/src/Connector.ts:22](https://github.com/ekretos/Rythra/blob/main/packages/core/src/Connector.ts#L22)
+Defined in: [packages/core/src/Connector.ts:24](https://github.com/ekretos/Rythra/blob/main/packages/core/src/Connector.ts#L24)
 
 Sets the Rythra manager for this connector.
 

@@ -43,12 +43,24 @@ export class FetchRestTransport implements RestTransport {
             }
             if (!response.ok) {
                 const payload = (await response.json().catch(() => null)) as LavalinkRestError | null;
-                throw new RestError(payload ?? { timestamp: Date.now(), status: response.status, error: 'Unknown Error', message: 'Unexpected error response from Lavalink server', path: url.pathname });
+                throw new RestError(
+                    payload ?? {
+                        timestamp: Date.now(),
+                        status: response.status,
+                        error: 'Unknown Error',
+                        message: 'Unexpected error response from Lavalink server',
+                        path: url.pathname,
+                    }
+                );
             }
             if (response.status === 204) return;
             const text = await response.text();
             if (!text) return;
-            try { return JSON.parse(text) as T; } catch (error) { throw new Error(`Malformed JSON in Lavalink response: ${label}`, { cause: error }); }
+            try {
+                return JSON.parse(text) as T;
+            } catch (error) {
+                throw new Error(`Malformed JSON in Lavalink response: ${label}`, { cause: error });
+            }
         } finally {
             clearTimeout(timeout);
         }

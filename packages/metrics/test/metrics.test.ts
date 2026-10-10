@@ -9,10 +9,16 @@ describe('metrics exporters', () => {
         expect(text).toContain('rythra_players 3');
         expect(text).toContain('# TYPE rythra_reconnects_total counter');
     });
-    test('renders statsd lines', () => { expect(toStatsD(snapshot)).toContain('rythra.connected_nodes:2|g'); });
+    test('renders statsd lines', () => {
+        expect(toStatsD(snapshot)).toContain('rythra.connected_nodes:2|g');
+    });
     test('adapter aggregates values', () => {
         const adapter = new PrometheusMetricsAdapter();
-        adapter.counter('hits'); adapter.counter('hits', 2); adapter.gauge('g', 7); adapter.histogram('h', 4); adapter.histogram('h', 6);
+        adapter.counter('hits');
+        adapter.counter('hits', 2);
+        adapter.gauge('g', 7);
+        adapter.histogram('h', 4);
+        adapter.histogram('h', 6);
         const text = adapter.render();
         expect(text).toContain('rythra_hits_total 3');
         expect(text).toContain('rythra_g 7');

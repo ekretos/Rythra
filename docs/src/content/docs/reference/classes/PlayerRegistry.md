@@ -7,7 +7,7 @@ description: API Reference for PlayerRegistry
 
 ***
 
-Defined in: [packages/core/src/kernel/Registry.ts:29](https://github.com/ekretos/Rythra/blob/main/packages/core/src/kernel/Registry.ts#L29)
+Defined in: [packages/core/src/kernel/Registry.ts:38](https://github.com/ekretos/Rythra/blob/main/packages/core/src/kernel/Registry.ts#L38)
 
 Registry of guild players managed by a Rythra runtime.
 
@@ -63,7 +63,7 @@ Defined in: scripts/typedoc/node\_modules/typescript/lib/lib.es2015.collection.d
 
 > **filter**(`predicate`): [`RythraPlayer`](RythraPlayer.md)[]
 
-Defined in: [packages/core/src/kernel/Registry.ts:17](https://github.com/ekretos/Rythra/blob/main/packages/core/src/kernel/Registry.ts#L17)
+Defined in: [packages/core/src/kernel/Registry.ts:19](https://github.com/ekretos/Rythra/blob/main/packages/core/src/kernel/Registry.ts#L19)
 
 Returns the registered entries matching a predicate.
 
@@ -105,7 +105,7 @@ Returns every registered entry.
 
 > **playing**(): [`RythraPlayer`](RythraPlayer.md)[]
 
-Defined in: [packages/core/src/kernel/Registry.ts:31](https://github.com/ekretos/Rythra/blob/main/packages/core/src/kernel/Registry.ts#L31)
+Defined in: [packages/core/src/kernel/Registry.ts:40](https://github.com/ekretos/Rythra/blob/main/packages/core/src/kernel/Registry.ts#L40)
 
 Returns the players that currently have a track playing.
 

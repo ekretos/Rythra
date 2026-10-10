@@ -7,7 +7,7 @@ description: API Reference for SessionInfo
 
 ***
 
-Defined in: [packages/types/src/index.ts:67](https://github.com/ekretos/Rythra/blob/main/packages/types/src/index.ts#L67)
+Defined in: [packages/types/src/index.ts:205](https://github.com/ekretos/Rythra/blob/main/packages/types/src/index.ts#L205)
 
 Lavalink session settings.
 
@@ -17,7 +17,9 @@ Lavalink session settings.
 
 > **resuming**: `boolean`
 
-Defined in: [packages/types/src/index.ts:67](https://github.com/ekretos/Rythra/blob/main/packages/types/src/index.ts#L67)
+Defined in: [packages/types/src/index.ts:206](https://github.com/ekretos/Rythra/blob/main/packages/types/src/index.ts#L206)
+
+Resuming enabled.
 
 ***
 
@@ -25,4 +27,6 @@ Defined in: [packages/types/src/index.ts:67](https://github.com/ekretos/Rythra/b
 
 > **timeout**: `number`
 
-Defined in: [packages/types/src/index.ts:67](https://github.com/ekretos/Rythra/blob/main/packages/types/src/index.ts#L67)
+Defined in: [packages/types/src/index.ts:207](https://github.com/ekretos/Rythra/blob/main/packages/types/src/index.ts#L207)
+
+Timeout seconds.

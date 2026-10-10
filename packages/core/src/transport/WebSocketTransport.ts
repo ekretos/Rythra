@@ -16,10 +16,15 @@ export class WebSocketTransport implements SocketTransport {
     private rejectConnect: ((error: Error) => void) | null = null;
 
     /** Creates a socket transport. */
-    public constructor(private readonly options: WebSocketTransportOptions, private readonly handlers: SocketTransportHandlers) {}
+    public constructor(
+        private readonly options: WebSocketTransportOptions,
+        private readonly handlers: SocketTransportHandlers
+    ) {}
 
     /** Whether the socket is currently open. */
-    public get connected(): boolean { return this.opened; }
+    public get connected(): boolean {
+        return this.opened;
+    }
 
     /** Opens the socket and resolves once Lavalink accepts the handshake. */
     public connect(): Promise<void> {
@@ -27,7 +32,10 @@ export class WebSocketTransport implements SocketTransport {
         return new Promise<void>((resolve, reject) => {
             this.resolveConnect = resolve;
             this.rejectConnect = reject;
-            const socket = new WebSocket(this.options.url(), { headers: this.options.headers(), rejectUnauthorized: this.options.rejectUnauthorized ?? true } as WebSocket.ClientOptions);
+            const socket = new WebSocket(this.options.url(), {
+                headers: this.options.headers(),
+                rejectUnauthorized: this.options.rejectUnauthorized ?? true,
+            } as WebSocket.ClientOptions);
             this.socket = socket;
             socket.onopen = () => {
                 this.opened = true;

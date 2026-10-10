@@ -7,7 +7,7 @@ description: API Reference for NodeRegistry
 
 ***
 
-Defined in: [packages/core/src/kernel/Registry.ts:21](https://github.com/ekretos/Rythra/blob/main/packages/core/src/kernel/Registry.ts#L21)
+Defined in: [packages/core/src/kernel/Registry.ts:25](https://github.com/ekretos/Rythra/blob/main/packages/core/src/kernel/Registry.ts#L25)
 
 Registry of Lavalink nodes managed by a Rythra runtime.
 
@@ -63,7 +63,7 @@ Defined in: scripts/typedoc/node\_modules/typescript/lib/lib.es2015.collection.d
 
 > **available**(): [`Node`](Node.md)[]
 
-Defined in: [packages/core/src/kernel/Registry.ts:25](https://github.com/ekretos/Rythra/blob/main/packages/core/src/kernel/Registry.ts#L25)
+Defined in: [packages/core/src/kernel/Registry.ts:31](https://github.com/ekretos/Rythra/blob/main/packages/core/src/kernel/Registry.ts#L31)
 
 Returns the nodes eligible to receive work, preferring connected nodes.
 
@@ -77,7 +77,7 @@ Returns the nodes eligible to receive work, preferring connected nodes.
 
 > **connected**(): [`Node`](Node.md)[]
 
-Defined in: [packages/core/src/kernel/Registry.ts:23](https://github.com/ekretos/Rythra/blob/main/packages/core/src/kernel/Registry.ts#L23)
+Defined in: [packages/core/src/kernel/Registry.ts:27](https://github.com/ekretos/Rythra/blob/main/packages/core/src/kernel/Registry.ts#L27)
 
 Returns the nodes whose transport is currently connected.
 
@@ -91,7 +91,7 @@ Returns the nodes whose transport is currently connected.
 
 > **filter**(`predicate`): [`Node`](Node.md)[]
 
-Defined in: [packages/core/src/kernel/Registry.ts:17](https://github.com/ekretos/Rythra/blob/main/packages/core/src/kernel/Registry.ts#L17)
+Defined in: [packages/core/src/kernel/Registry.ts:19](https://github.com/ekretos/Rythra/blob/main/packages/core/src/kernel/Registry.ts#L19)
 
 Returns the registered entries matching a predicate.
 

@@ -2,10 +2,24 @@ import { Connector } from '@rythra/core';
 import type { GatewayPacket, VoiceStateUpdate, VoiceServerUpdate } from '@rythra/core';
 
 /** Voice state dispatch as emitted by Lunibee's `voiceStateUpdate` event. */
-interface LunibeeVoiceState { guild_id?: string | null; channel_id: string | null; session_id: string; user_id: string; }
+interface LunibeeVoiceState {
+    guild_id?: string | null;
+    channel_id: string | null;
+    session_id: string;
+    user_id: string;
+}
 /** Voice server dispatch as emitted by Lunibee's `voiceServerUpdate` event; `endpoint` is null while Discord reallocates the server. */
-interface LunibeeVoiceServer { guild_id: string; token: string; endpoint?: string | null; }
-interface LunibeePayload { op: number; d: unknown; s: number | null; t: string | null; }
+interface LunibeeVoiceServer {
+    guild_id: string;
+    token: string;
+    endpoint?: string | null;
+}
+interface LunibeePayload {
+    op: number;
+    d: unknown;
+    s: number | null;
+    t: string | null;
+}
 /** Structural subset of a Lunibee `Client` (the stable voice interface, Lunibee >= 0.3.0 for `sendVoiceState`). */
 interface LunibeeClient {
     on(event: 'voiceStateUpdate', listener: (data: LunibeeVoiceState) => void): unknown;
@@ -40,6 +54,8 @@ export class Lunibee extends Connector<LunibeeClient> {
         this.client.ws.send({ op: payload.op ?? 0, d: payload.d ?? null, s: null, t: payload.t ?? null });
     }
     /** Returns the Discord application user ID. */
-    public getId(): string | null { return this.client.user?.id ?? null; }
+    public getId(): string | null {
+        return this.client.user?.id ?? null;
+    }
 }
 export default Lunibee;

@@ -122,7 +122,7 @@ Adds one or more tracks to the end of the queue.
 
 > **clear**(): `void`
 
-Defined in: [packages/core/src/Queue.ts:36](https://github.com/ekretos/Rythra/blob/main/packages/core/src/Queue.ts#L36)
+Defined in: [packages/core/src/Queue.ts:38](https://github.com/ekretos/Rythra/blob/main/packages/core/src/Queue.ts#L38)
 
 Removes every pending track while preserving current/history state.
 
@@ -176,7 +176,7 @@ Removes a track at a specific queue index.
 
 > **shuffle**(): `void`
 
-Defined in: [packages/core/src/Queue.ts:39](https://github.com/ekretos/Rythra/blob/main/packages/core/src/Queue.ts#L39)
+Defined in: [packages/core/src/Queue.ts:43](https://github.com/ekretos/Rythra/blob/main/packages/core/src/Queue.ts#L43)
 
 Randomly reorders pending tracks using Fisher-Yates shuffling.
 

@@ -57,7 +57,7 @@ Discord library connector used by the manager.
 
 > `optional` **defaultSearchPlatform?**: [`SearchPlatform`](../type-aliases/SearchPlatform.md)
 
-Defined in: [packages/types/src/index.ts:27](https://github.com/ekretos/Rythra/blob/main/packages/types/src/index.ts#L27)
+Defined in: [packages/types/src/index.ts:29](https://github.com/ekretos/Rythra/blob/main/packages/types/src/index.ts#L29)
 
 Default search platform.
 
@@ -67,7 +67,9 @@ Default search platform.
 
 > `optional` **failover?**: `boolean`
 
-Defined in: [packages/types/src/index.ts:25](https://github.com/ekretos/Rythra/blob/main/packages/types/src/index.ts#L25)
+Defined in: [packages/types/src/index.ts:26](https://github.com/ekretos/Rythra/blob/main/packages/types/src/index.ts#L26)
+
+Move players to another ready node when their node disconnects unexpectedly. Defaults to `false`.
 
 ***
 
@@ -75,7 +77,9 @@ Defined in: [packages/types/src/index.ts:25](https://github.com/ekretos/Rythra/b
 
 > `optional` **failoverDelay?**: `number`
 
-Defined in: [packages/types/src/index.ts:25](https://github.com/ekretos/Rythra/blob/main/packages/types/src/index.ts#L25)
+Defined in: [packages/types/src/index.ts:27](https://github.com/ekretos/Rythra/blob/main/packages/types/src/index.ts#L27)
+
+Milliseconds to wait for a disconnected node to recover before failing over. Defaults to `5000`.
 
 ***
 
@@ -83,7 +87,7 @@ Defined in: [packages/types/src/index.ts:25](https://github.com/ekretos/Rythra/b
 
 > `optional` **lavalinkVersion?**: [`LavalinkApiVersionMode`](../type-aliases/LavalinkApiVersionMode.md)
 
-Defined in: [packages/types/src/index.ts:30](https://github.com/ekretos/Rythra/blob/main/packages/types/src/index.ts#L30)
+Defined in: [packages/types/src/index.ts:32](https://github.com/ekretos/Rythra/blob/main/packages/types/src/index.ts#L32)
 
 Default Lavalink API generation.
 
@@ -103,7 +107,7 @@ Lavalink nodes to register during manager initialization.
 
 > `optional` **restTimeout?**: `number`
 
-Defined in: [packages/types/src/index.ts:29](https://github.com/ekretos/Rythra/blob/main/packages/types/src/index.ts#L29)
+Defined in: [packages/types/src/index.ts:31](https://github.com/ekretos/Rythra/blob/main/packages/types/src/index.ts#L31)
 
 REST request timeout in seconds.
 
@@ -123,7 +127,7 @@ Number of Discord shards used by the bot.
 
 > `optional` **trackPartial?**: `string`[]
 
-Defined in: [packages/types/src/index.ts:26](https://github.com/ekretos/Rythra/blob/main/packages/types/src/index.ts#L26)
+Defined in: [packages/types/src/index.ts:28](https://github.com/ekretos/Rythra/blob/main/packages/types/src/index.ts#L28)
 
 Track properties retained by integrations.
 
@@ -133,7 +137,7 @@ Track properties retained by integrations.
 
 > `optional` **userAgent?**: `string`
 
-Defined in: [packages/types/src/index.ts:28](https://github.com/ekretos/Rythra/blob/main/packages/types/src/index.ts#L28)
+Defined in: [packages/types/src/index.ts:30](https://github.com/ekretos/Rythra/blob/main/packages/types/src/index.ts#L30)
 
 Custom User-Agent used for REST requests.
 

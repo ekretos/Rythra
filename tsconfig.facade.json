@@ -1,16 +1,16 @@
 {
-  "extends": "./tsconfig.json",
-  "compilerOptions": {
-    "outDir": "dist",
-    "rootDir": ".",
-    "noEmit": false,
-    "declaration": true,
-    "declarationMap": true,
-    "paths": {
-      "@rythra/types": ["./packages/types/dist/index.d.ts"],
-      "@rythra/core": ["./dist/core/index.d.ts"],
-      "@rythra/connectors": ["./dist/connectors/index.d.ts"]
-    }
-  },
-  "include": ["index.ts"]
+    "extends": "./tsconfig.json",
+    "compilerOptions": {
+        "outDir": "dist",
+        "rootDir": ".",
+        "noEmit": false,
+        "declaration": true,
+        "declarationMap": true,
+        "paths": {
+            "@rythra/types": ["./packages/types/dist/index.d.ts"],
+            "@rythra/core": ["./dist/core/index.d.ts"],
+            "@rythra/connectors": ["./dist/connectors/index.d.ts"]
+        }
+    },
+    "include": ["index.ts"]
 }
