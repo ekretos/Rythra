@@ -52,62 +52,83 @@ client.once('clientReady', async () => {
     }
 });
 
+type Player = ReturnType<typeof rythra.createPlayer>;
+
+async function enqueue(player: Player, message: Message, result: SearchResponse): Promise<boolean> {
+    if (result.loadType === 'empty' || result.loadType === 'error') return false;
+    if (result.loadType === 'playlist') {
+        const tracks = result.data.tracks;
+        if (!tracks.length) { await message.reply('The playlist contains no playable tracks.'); return false; }
+        player.queue.add(tracks);
+        await message.reply(`Added playlist **${result.data.info.name}** with ${tracks.length} tracks.`);
+        return true;
+    }
+    if (result.loadType === 'track') {
+        player.queue.add(result.data);
+        await message.reply(`Added **${result.data.info.title}** to the queue.`);
+        return true;
+    }
+    // Search responses from Lavalink are normalized by Rythra as data.tracks.
+    const tracks = result.data?.tracks;
+    const track = Array.isArray(tracks) ? tracks[0] : undefined;
+    if (!track) {
+        console.warn('[Rythra] Search returned an invalid/empty track list:', JSON.stringify(result));
+        await message.reply('No playable search results found.');
+        return false;
+    }
+    player.queue.add(track);
+    await message.reply(`Added **${track.info.title}** to the queue.`);
+    return true;
+}
+
+async function play(message: Message, guildId: string, args: string[]): Promise<void> {
+    const query = args.join(' ');
+    if (!query) return void message.reply('Please provide a search query.');
+    const voiceChannel = message.member?.voice.channel;
+    if (!voiceChannel) return void message.reply('You need to be in a voice channel.');
+
+    try {
+        const result: SearchResponse = await rythra.search(query, message.author.id, 'youtube');
+        if (result.loadType === 'empty') return void message.reply('No results found.');
+        if (result.loadType === 'error') return void message.reply(`Lavalink search failed: ${result.data.message}`);
+
+        const player = rythra.createPlayer({ guild: guildId, voiceChannel: voiceChannel.id, textChannel: message.channel.id });
+        if (!(await enqueue(player, message, result))) return;
+        player.connect();
+        if (!player.playing && !player.paused) await player.play();
+    } catch (error) {
+        console.error('[Rythra] Play command failed:', error);
+        await message.reply('An error occurred while trying to play the track.');
+    }
+}
+
+async function showQueue(player: Player, message: Message): Promise<void> {
+    if (player.queue.length === 0 && !player.queue.current) return void message.reply('The queue is empty.');
+    const queue = player.queue.map((track: Track, index: number) => `${index + 1}. **${track.info.title}**`).join('\n');
+    await message.reply(`**Current Queue:**\n${player.queue.current ? `Now Playing: **${player.queue.current.info.title}**\n\n` : ''}${queue || 'No more songs in queue.'}`);
+}
+
+const controls: Record<string, [(player: Player) => Promise<void>, string]> = {
+    skip: [(p) => p.skip(), 'Skipped the current track.'],
+    stop: [(p) => p.stop(), 'Stopped playback.'],
+    pause: [(p) => p.pause(true), 'Paused playback.'],
+    resume: [(p) => p.pause(false), 'Resumed playback.'],
+};
+
 client.on('messageCreate', async (message: Message) => {
     if (message.author.bot || !message.guild || !message.content.startsWith('-')) return;
     const args = message.content.slice(1).trim().split(/ +/);
-    const command = args.shift()?.toLowerCase();
+    const command = args.shift()?.toLowerCase() ?? '';
 
-    if (command === 'play' || command === 'p') {
-        const query = args.join(' ');
-        if (!query) return void message.reply('Please provide a search query.');
-        const voiceChannel = message.member?.voice.channel;
-        if (!voiceChannel) return void message.reply('You need to be in a voice channel.');
-
-        try {
-            const result: SearchResponse = await rythra.search(query, message.author.id, 'youtube');
-            if (result.loadType === 'empty') return void message.reply('No results found.');
-            if (result.loadType === 'error') return void message.reply(`Lavalink search failed: ${result.data.message}`);
-
-            const player = rythra.createPlayer({ guild: message.guild.id, voiceChannel: voiceChannel.id, textChannel: message.channel.id });
-
-            if (result.loadType === 'playlist') {
-                const tracks = result.data.tracks;
-                if (!tracks.length) return void message.reply('The playlist contains no playable tracks.');
-                player.queue.add(tracks);
-                await message.reply(`Added playlist **${result.data.info.name}** with ${tracks.length} tracks.`);
-            } else if (result.loadType === 'track') {
-                player.queue.add(result.data);
-                await message.reply(`Added **${result.data.info.title}** to the queue.`);
-            } else {
-                // Search responses from Lavalink are normalized by Rythra as data.tracks.
-                const tracks = result.data?.tracks;
-                const track = Array.isArray(tracks) ? tracks[0] : undefined;
-                if (!track) {
-                    console.warn('[Rythra] Search returned an invalid/empty track list:', JSON.stringify(result));
-                    return void message.reply('No playable search results found.');
-                }
-                player.queue.add(track);
-                await message.reply(`Added **${track.info.title}** to the queue.`);
-            }
-
-            player.connect();
-            if (!player.playing && !player.paused) await player.play();
-        } catch (error) {
-            console.error('[Rythra] Play command failed:', error);
-            await message.reply('An error occurred while trying to play the track.');
-        }
-    }
+    if (command === 'play' || command === 'p') return play(message, message.guild.id, args);
 
     const player = rythra.players.get(message.guild.id);
     if (!player) return;
-    if (command === 'skip') { await player.skip(); await message.reply('Skipped the current track.'); }
-    if (command === 'stop') { await player.stop(); await message.reply('Stopped playback.'); }
-    if (command === 'pause') { await player.pause(true); await message.reply('Paused playback.'); }
-    if (command === 'resume') { await player.pause(false); await message.reply('Resumed playback.'); }
-    if (command === 'queue') {
-        if (player.queue.length === 0 && !player.queue.current) return void message.reply('The queue is empty.');
-        const queue = player.queue.map((track: Track, index: number) => `${index + 1}. **${track.info.title}**`).join('\n');
-        await message.reply(`**Current Queue:**\n${player.queue.current ? `Now Playing: **${player.queue.current.info.title}**\n\n` : ''}${queue || 'No more songs in queue.'}`);
+    if (command === 'queue') return showQueue(player, message);
+    const control = controls[command];
+    if (control) {
+        await control[0](player);
+        await message.reply(control[1]);
     }
 });
 
