@@ -7,7 +7,7 @@ description: API Reference for PluginInfo
 
 ***
 
-Defined in: [packages/types/src/index.ts:70](https://github.com/ekretos/Rythra/blob/494517dd89f9fe3e5101c12673c172d6033bc461/packages/types/src/index.ts#L70)
+Defined in: [packages/types/src/index.ts:70](https://github.com/ekretos/Rythra/blob/8c65b2b9a1c3f4d653aa63873bbc3c7b0f9b3db4/packages/types/src/index.ts#L70)
 
 Lavalink plugin metadata.
 
@@ -17,7 +17,7 @@ Lavalink plugin metadata.
 
 > **name**: `string`
 
-Defined in: [packages/types/src/index.ts:70](https://github.com/ekretos/Rythra/blob/494517dd89f9fe3e5101c12673c172d6033bc461/packages/types/src/index.ts#L70)
+Defined in: [packages/types/src/index.ts:70](https://github.com/ekretos/Rythra/blob/8c65b2b9a1c3f4d653aa63873bbc3c7b0f9b3db4/packages/types/src/index.ts#L70)
 
 ***
 
@@ -25,4 +25,4 @@ Defined in: [packages/types/src/index.ts:70](https://github.com/ekretos/Rythra/b
 
 > **version**: `string`
 
-Defined in: [packages/types/src/index.ts:70](https://github.com/ekretos/Rythra/blob/494517dd89f9fe3e5101c12673c172d6033bc461/packages/types/src/index.ts#L70)
+Defined in: [packages/types/src/index.ts:70](https://github.com/ekretos/Rythra/blob/8c65b2b9a1c3f4d653aa63873bbc3c7b0f9b3db4/packages/types/src/index.ts#L70)

@@ -9,7 +9,7 @@ description: API Reference for NodeStateListener
 
 > **NodeStateListener** = (`to`, `from`) => `void`
 
-Defined in: [packages/core/src/node/NodeState.ts:14](https://github.com/ekretos/Rythra/blob/494517dd89f9fe3e5101c12673c172d6033bc461/packages/core/src/node/NodeState.ts#L14)
+Defined in: [packages/core/src/node/NodeState.ts:14](https://github.com/ekretos/Rythra/blob/8c65b2b9a1c3f4d653aa63873bbc3c7b0f9b3db4/packages/core/src/node/NodeState.ts#L14)
 
 Callback invoked whenever a node state machine changes state.
 

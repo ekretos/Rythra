@@ -7,7 +7,7 @@ description: API Reference for VoiceServerUpdate
 
 ***
 
-Defined in: [packages/types/src/index.ts:76](https://github.com/ekretos/Rythra/blob/494517dd89f9fe3e5101c12673c172d6033bc461/packages/types/src/index.ts#L76)
+Defined in: [packages/types/src/index.ts:76](https://github.com/ekretos/Rythra/blob/8c65b2b9a1c3f4d653aa63873bbc3c7b0f9b3db4/packages/types/src/index.ts#L76)
 
 Discord voice server update.
 
@@ -17,7 +17,7 @@ Discord voice server update.
 
 > **endpoint**: `string`
 
-Defined in: [packages/types/src/index.ts:76](https://github.com/ekretos/Rythra/blob/494517dd89f9fe3e5101c12673c172d6033bc461/packages/types/src/index.ts#L76)
+Defined in: [packages/types/src/index.ts:76](https://github.com/ekretos/Rythra/blob/8c65b2b9a1c3f4d653aa63873bbc3c7b0f9b3db4/packages/types/src/index.ts#L76)
 
 ***
 
@@ -25,7 +25,7 @@ Defined in: [packages/types/src/index.ts:76](https://github.com/ekretos/Rythra/b
 
 > **guild\_id**: `string`
 
-Defined in: [packages/types/src/index.ts:76](https://github.com/ekretos/Rythra/blob/494517dd89f9fe3e5101c12673c172d6033bc461/packages/types/src/index.ts#L76)
+Defined in: [packages/types/src/index.ts:76](https://github.com/ekretos/Rythra/blob/8c65b2b9a1c3f4d653aa63873bbc3c7b0f9b3db4/packages/types/src/index.ts#L76)
 
 ***
 
@@ -33,4 +33,4 @@ Defined in: [packages/types/src/index.ts:76](https://github.com/ekretos/Rythra/b
 
 > **token**: `string`
 
-Defined in: [packages/types/src/index.ts:76](https://github.com/ekretos/Rythra/blob/494517dd89f9fe3e5101c12673c172d6033bc461/packages/types/src/index.ts#L76)
+Defined in: [packages/types/src/index.ts:76](https://github.com/ekretos/Rythra/blob/8c65b2b9a1c3f4d653aa63873bbc3c7b0f9b3db4/packages/types/src/index.ts#L76)

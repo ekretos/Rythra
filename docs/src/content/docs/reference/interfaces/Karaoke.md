@@ -7,7 +7,7 @@ description: API Reference for Karaoke
 
 ***
 
-Defined in: [packages/types/src/index.ts:55](https://github.com/ekretos/Rythra/blob/494517dd89f9fe3e5101c12673c172d6033bc461/packages/types/src/index.ts#L55)
+Defined in: [packages/types/src/index.ts:55](https://github.com/ekretos/Rythra/blob/8c65b2b9a1c3f4d653aa63873bbc3c7b0f9b3db4/packages/types/src/index.ts#L55)
 
 Karaoke filter.
 
@@ -17,7 +17,7 @@ Karaoke filter.
 
 > `optional` **filterBand?**: `number`
 
-Defined in: [packages/types/src/index.ts:55](https://github.com/ekretos/Rythra/blob/494517dd89f9fe3e5101c12673c172d6033bc461/packages/types/src/index.ts#L55)
+Defined in: [packages/types/src/index.ts:55](https://github.com/ekretos/Rythra/blob/8c65b2b9a1c3f4d653aa63873bbc3c7b0f9b3db4/packages/types/src/index.ts#L55)
 
 ***
 
@@ -25,7 +25,7 @@ Defined in: [packages/types/src/index.ts:55](https://github.com/ekretos/Rythra/b
 
 > `optional` **filterWidth?**: `number`
 
-Defined in: [packages/types/src/index.ts:55](https://github.com/ekretos/Rythra/blob/494517dd89f9fe3e5101c12673c172d6033bc461/packages/types/src/index.ts#L55)
+Defined in: [packages/types/src/index.ts:55](https://github.com/ekretos/Rythra/blob/8c65b2b9a1c3f4d653aa63873bbc3c7b0f9b3db4/packages/types/src/index.ts#L55)
 
 ***
 
@@ -33,7 +33,7 @@ Defined in: [packages/types/src/index.ts:55](https://github.com/ekretos/Rythra/b
 
 > `optional` **level?**: `number`
 
-Defined in: [packages/types/src/index.ts:55](https://github.com/ekretos/Rythra/blob/494517dd89f9fe3e5101c12673c172d6033bc461/packages/types/src/index.ts#L55)
+Defined in: [packages/types/src/index.ts:55](https://github.com/ekretos/Rythra/blob/8c65b2b9a1c3f4d653aa63873bbc3c7b0f9b3db4/packages/types/src/index.ts#L55)
 
 ***
 
@@ -41,4 +41,4 @@ Defined in: [packages/types/src/index.ts:55](https://github.com/ekretos/Rythra/b
 
 > `optional` **monoLevel?**: `number`
 
-Defined in: [packages/types/src/index.ts:55](https://github.com/ekretos/Rythra/blob/494517dd89f9fe3e5101c12673c172d6033bc461/packages/types/src/index.ts#L55)
+Defined in: [packages/types/src/index.ts:55](https://github.com/ekretos/Rythra/blob/8c65b2b9a1c3f4d653aa63873bbc3c7b0f9b3db4/packages/types/src/index.ts#L55)

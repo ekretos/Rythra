@@ -7,7 +7,7 @@ description: API Reference for TrackInfo
 
 ***
 
-Defined in: [packages/types/src/index.ts:39](https://github.com/ekretos/Rythra/blob/494517dd89f9fe3e5101c12673c172d6033bc461/packages/types/src/index.ts#L39)
+Defined in: [packages/types/src/index.ts:39](https://github.com/ekretos/Rythra/blob/8c65b2b9a1c3f4d653aa63873bbc3c7b0f9b3db4/packages/types/src/index.ts#L39)
 
 Metadata describing a resolved audio track.
 
@@ -17,7 +17,7 @@ Metadata describing a resolved audio track.
 
 > `optional` **artworkUrl?**: `string`
 
-Defined in: [packages/types/src/index.ts:39](https://github.com/ekretos/Rythra/blob/494517dd89f9fe3e5101c12673c172d6033bc461/packages/types/src/index.ts#L39)
+Defined in: [packages/types/src/index.ts:39](https://github.com/ekretos/Rythra/blob/8c65b2b9a1c3f4d653aa63873bbc3c7b0f9b3db4/packages/types/src/index.ts#L39)
 
 ***
 
@@ -25,7 +25,7 @@ Defined in: [packages/types/src/index.ts:39](https://github.com/ekretos/Rythra/b
 
 > **author**: `string`
 
-Defined in: [packages/types/src/index.ts:39](https://github.com/ekretos/Rythra/blob/494517dd89f9fe3e5101c12673c172d6033bc461/packages/types/src/index.ts#L39)
+Defined in: [packages/types/src/index.ts:39](https://github.com/ekretos/Rythra/blob/8c65b2b9a1c3f4d653aa63873bbc3c7b0f9b3db4/packages/types/src/index.ts#L39)
 
 ***
 
@@ -33,7 +33,7 @@ Defined in: [packages/types/src/index.ts:39](https://github.com/ekretos/Rythra/b
 
 > **identifier**: `string`
 
-Defined in: [packages/types/src/index.ts:39](https://github.com/ekretos/Rythra/blob/494517dd89f9fe3e5101c12673c172d6033bc461/packages/types/src/index.ts#L39)
+Defined in: [packages/types/src/index.ts:39](https://github.com/ekretos/Rythra/blob/8c65b2b9a1c3f4d653aa63873bbc3c7b0f9b3db4/packages/types/src/index.ts#L39)
 
 ***
 
@@ -41,7 +41,7 @@ Defined in: [packages/types/src/index.ts:39](https://github.com/ekretos/Rythra/b
 
 > `optional` **isrc?**: `string`
 
-Defined in: [packages/types/src/index.ts:39](https://github.com/ekretos/Rythra/blob/494517dd89f9fe3e5101c12673c172d6033bc461/packages/types/src/index.ts#L39)
+Defined in: [packages/types/src/index.ts:39](https://github.com/ekretos/Rythra/blob/8c65b2b9a1c3f4d653aa63873bbc3c7b0f9b3db4/packages/types/src/index.ts#L39)
 
 ***
 
@@ -49,7 +49,7 @@ Defined in: [packages/types/src/index.ts:39](https://github.com/ekretos/Rythra/b
 
 > **isSeekable**: `boolean`
 
-Defined in: [packages/types/src/index.ts:39](https://github.com/ekretos/Rythra/blob/494517dd89f9fe3e5101c12673c172d6033bc461/packages/types/src/index.ts#L39)
+Defined in: [packages/types/src/index.ts:39](https://github.com/ekretos/Rythra/blob/8c65b2b9a1c3f4d653aa63873bbc3c7b0f9b3db4/packages/types/src/index.ts#L39)
 
 ***
 
@@ -57,7 +57,7 @@ Defined in: [packages/types/src/index.ts:39](https://github.com/ekretos/Rythra/b
 
 > **isStream**: `boolean`
 
-Defined in: [packages/types/src/index.ts:39](https://github.com/ekretos/Rythra/blob/494517dd89f9fe3e5101c12673c172d6033bc461/packages/types/src/index.ts#L39)
+Defined in: [packages/types/src/index.ts:39](https://github.com/ekretos/Rythra/blob/8c65b2b9a1c3f4d653aa63873bbc3c7b0f9b3db4/packages/types/src/index.ts#L39)
 
 ***
 
@@ -65,7 +65,7 @@ Defined in: [packages/types/src/index.ts:39](https://github.com/ekretos/Rythra/b
 
 > **length**: `number`
 
-Defined in: [packages/types/src/index.ts:39](https://github.com/ekretos/Rythra/blob/494517dd89f9fe3e5101c12673c172d6033bc461/packages/types/src/index.ts#L39)
+Defined in: [packages/types/src/index.ts:39](https://github.com/ekretos/Rythra/blob/8c65b2b9a1c3f4d653aa63873bbc3c7b0f9b3db4/packages/types/src/index.ts#L39)
 
 ***
 
@@ -73,7 +73,7 @@ Defined in: [packages/types/src/index.ts:39](https://github.com/ekretos/Rythra/b
 
 > **position**: `number`
 
-Defined in: [packages/types/src/index.ts:39](https://github.com/ekretos/Rythra/blob/494517dd89f9fe3e5101c12673c172d6033bc461/packages/types/src/index.ts#L39)
+Defined in: [packages/types/src/index.ts:39](https://github.com/ekretos/Rythra/blob/8c65b2b9a1c3f4d653aa63873bbc3c7b0f9b3db4/packages/types/src/index.ts#L39)
 
 ***
 
@@ -81,7 +81,7 @@ Defined in: [packages/types/src/index.ts:39](https://github.com/ekretos/Rythra/b
 
 > **sourceName**: `string`
 
-Defined in: [packages/types/src/index.ts:39](https://github.com/ekretos/Rythra/blob/494517dd89f9fe3e5101c12673c172d6033bc461/packages/types/src/index.ts#L39)
+Defined in: [packages/types/src/index.ts:39](https://github.com/ekretos/Rythra/blob/8c65b2b9a1c3f4d653aa63873bbc3c7b0f9b3db4/packages/types/src/index.ts#L39)
 
 ***
 
@@ -89,7 +89,7 @@ Defined in: [packages/types/src/index.ts:39](https://github.com/ekretos/Rythra/b
 
 > **title**: `string`
 
-Defined in: [packages/types/src/index.ts:39](https://github.com/ekretos/Rythra/blob/494517dd89f9fe3e5101c12673c172d6033bc461/packages/types/src/index.ts#L39)
+Defined in: [packages/types/src/index.ts:39](https://github.com/ekretos/Rythra/blob/8c65b2b9a1c3f4d653aa63873bbc3c7b0f9b3db4/packages/types/src/index.ts#L39)
 
 ***
 
@@ -97,4 +97,4 @@ Defined in: [packages/types/src/index.ts:39](https://github.com/ekretos/Rythra/b
 
 > `optional` **uri?**: `string`
 
-Defined in: [packages/types/src/index.ts:39](https://github.com/ekretos/Rythra/blob/494517dd89f9fe3e5101c12673c172d6033bc461/packages/types/src/index.ts#L39)
+Defined in: [packages/types/src/index.ts:39](https://github.com/ekretos/Rythra/blob/8c65b2b9a1c3f4d653aa63873bbc3c7b0f9b3db4/packages/types/src/index.ts#L39)

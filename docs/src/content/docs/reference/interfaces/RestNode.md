@@ -7,7 +7,7 @@ description: API Reference for RestNode
 
 ***
 
-Defined in: [packages/core/src/Rest.ts:6](https://github.com/ekretos/Rythra/blob/494517dd89f9fe3e5101c12673c172d6033bc461/packages/core/src/Rest.ts#L6)
+Defined in: [packages/core/src/Rest.ts:6](https://github.com/ekretos/Rythra/blob/8c65b2b9a1c3f4d653aa63873bbc3c7b0f9b3db4/packages/core/src/Rest.ts#L6)
 
 Minimal node surface required by the REST client.
 
@@ -17,7 +17,7 @@ Minimal node surface required by the REST client.
 
 > `readonly` **manager**: `object`
 
-Defined in: [packages/core/src/Rest.ts:10](https://github.com/ekretos/Rythra/blob/494517dd89f9fe3e5101c12673c172d6033bc461/packages/core/src/Rest.ts#L10)
+Defined in: [packages/core/src/Rest.ts:10](https://github.com/ekretos/Rythra/blob/8c65b2b9a1c3f4d653aa63873bbc3c7b0f9b3db4/packages/core/src/Rest.ts#L10)
 
 Owning manager settings.
 
@@ -39,7 +39,7 @@ Owning manager settings.
 
 > `readonly` **options**: `object`
 
-Defined in: [packages/core/src/Rest.ts:7](https://github.com/ekretos/Rythra/blob/494517dd89f9fe3e5101c12673c172d6033bc461/packages/core/src/Rest.ts#L7)
+Defined in: [packages/core/src/Rest.ts:7](https://github.com/ekretos/Rythra/blob/8c65b2b9a1c3f4d653aa63873bbc3c7b0f9b3db4/packages/core/src/Rest.ts#L7)
 
 Node configuration.
 
@@ -53,7 +53,7 @@ Node configuration.
 
 > `readonly` **restUrl**: `string`
 
-Defined in: [packages/core/src/Rest.ts:8](https://github.com/ekretos/Rythra/blob/494517dd89f9fe3e5101c12673c172d6033bc461/packages/core/src/Rest.ts#L8)
+Defined in: [packages/core/src/Rest.ts:8](https://github.com/ekretos/Rythra/blob/8c65b2b9a1c3f4d653aa63873bbc3c7b0f9b3db4/packages/core/src/Rest.ts#L8)
 
 Version-aware REST base URL.
 
@@ -63,6 +63,6 @@ Version-aware REST base URL.
 
 > `readonly` **sessionId**: `string` \| `null`
 
-Defined in: [packages/core/src/Rest.ts:9](https://github.com/ekretos/Rythra/blob/494517dd89f9fe3e5101c12673c172d6033bc461/packages/core/src/Rest.ts#L9)
+Defined in: [packages/core/src/Rest.ts:9](https://github.com/ekretos/Rythra/blob/8c65b2b9a1c3f4d653aa63873bbc3c7b0f9b3db4/packages/core/src/Rest.ts#L9)
 
 Current Lavalink session ID.

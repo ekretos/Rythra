@@ -7,7 +7,7 @@ description: API Reference for PlayerSnapshot
 
 ***
 
-Defined in: [packages/core/src/persistence/Persistence.ts:2](https://github.com/ekretos/Rythra/blob/494517dd89f9fe3e5101c12673c172d6033bc461/packages/core/src/persistence/Persistence.ts#L2)
+Defined in: [packages/core/src/persistence/Persistence.ts:2](https://github.com/ekretos/Rythra/blob/8c65b2b9a1c3f4d653aa63873bbc3c7b0f9b3db4/packages/core/src/persistence/Persistence.ts#L2)
 
 Serializable player recovery snapshot.
 
@@ -17,7 +17,7 @@ Serializable player recovery snapshot.
 
 > **guildId**: `string`
 
-Defined in: [packages/core/src/persistence/Persistence.ts:4](https://github.com/ekretos/Rythra/blob/494517dd89f9fe3e5101c12673c172d6033bc461/packages/core/src/persistence/Persistence.ts#L4)
+Defined in: [packages/core/src/persistence/Persistence.ts:4](https://github.com/ekretos/Rythra/blob/8c65b2b9a1c3f4d653aa63873bbc3c7b0f9b3db4/packages/core/src/persistence/Persistence.ts#L4)
 
 Guild identifier.
 
@@ -27,7 +27,7 @@ Guild identifier.
 
 > `optional` **nodeId?**: `string`
 
-Defined in: [packages/core/src/persistence/Persistence.ts:6](https://github.com/ekretos/Rythra/blob/494517dd89f9fe3e5101c12673c172d6033bc461/packages/core/src/persistence/Persistence.ts#L6)
+Defined in: [packages/core/src/persistence/Persistence.ts:6](https://github.com/ekretos/Rythra/blob/8c65b2b9a1c3f4d653aa63873bbc3c7b0f9b3db4/packages/core/src/persistence/Persistence.ts#L6)
 
 Node identifier, when known.
 
@@ -37,7 +37,7 @@ Node identifier, when known.
 
 > **paused**: `boolean`
 
-Defined in: [packages/core/src/persistence/Persistence.ts:12](https://github.com/ekretos/Rythra/blob/494517dd89f9fe3e5101c12673c172d6033bc461/packages/core/src/persistence/Persistence.ts#L12)
+Defined in: [packages/core/src/persistence/Persistence.ts:12](https://github.com/ekretos/Rythra/blob/8c65b2b9a1c3f4d653aa63873bbc3c7b0f9b3db4/packages/core/src/persistence/Persistence.ts#L12)
 
 Pause state.
 
@@ -47,7 +47,7 @@ Pause state.
 
 > **position**: `number`
 
-Defined in: [packages/core/src/persistence/Persistence.ts:10](https://github.com/ekretos/Rythra/blob/494517dd89f9fe3e5101c12673c172d6033bc461/packages/core/src/persistence/Persistence.ts#L10)
+Defined in: [packages/core/src/persistence/Persistence.ts:10](https://github.com/ekretos/Rythra/blob/8c65b2b9a1c3f4d653aa63873bbc3c7b0f9b3db4/packages/core/src/persistence/Persistence.ts#L10)
 
 Playback position in milliseconds.
 
@@ -57,7 +57,7 @@ Playback position in milliseconds.
 
 > **queue**: `unknown`[]
 
-Defined in: [packages/core/src/persistence/Persistence.ts:16](https://github.com/ekretos/Rythra/blob/494517dd89f9fe3e5101c12673c172d6033bc461/packages/core/src/persistence/Persistence.ts#L16)
+Defined in: [packages/core/src/persistence/Persistence.ts:16](https://github.com/ekretos/Rythra/blob/8c65b2b9a1c3f4d653aa63873bbc3c7b0f9b3db4/packages/core/src/persistence/Persistence.ts#L16)
 
 Serialized queue.
 
@@ -67,7 +67,7 @@ Serialized queue.
 
 > `optional` **track?**: `string`
 
-Defined in: [packages/core/src/persistence/Persistence.ts:8](https://github.com/ekretos/Rythra/blob/494517dd89f9fe3e5101c12673c172d6033bc461/packages/core/src/persistence/Persistence.ts#L8)
+Defined in: [packages/core/src/persistence/Persistence.ts:8](https://github.com/ekretos/Rythra/blob/8c65b2b9a1c3f4d653aa63873bbc3c7b0f9b3db4/packages/core/src/persistence/Persistence.ts#L8)
 
 Encoded current track, when playing.
 
@@ -77,7 +77,7 @@ Encoded current track, when playing.
 
 > **updatedAt**: `number`
 
-Defined in: [packages/core/src/persistence/Persistence.ts:18](https://github.com/ekretos/Rythra/blob/494517dd89f9fe3e5101c12673c172d6033bc461/packages/core/src/persistence/Persistence.ts#L18)
+Defined in: [packages/core/src/persistence/Persistence.ts:18](https://github.com/ekretos/Rythra/blob/8c65b2b9a1c3f4d653aa63873bbc3c7b0f9b3db4/packages/core/src/persistence/Persistence.ts#L18)
 
 Unix timestamp at which the snapshot was produced.
 
@@ -87,6 +87,6 @@ Unix timestamp at which the snapshot was produced.
 
 > **volume**: `number`
 
-Defined in: [packages/core/src/persistence/Persistence.ts:14](https://github.com/ekretos/Rythra/blob/494517dd89f9fe3e5101c12673c172d6033bc461/packages/core/src/persistence/Persistence.ts#L14)
+Defined in: [packages/core/src/persistence/Persistence.ts:14](https://github.com/ekretos/Rythra/blob/8c65b2b9a1c3f4d653aa63873bbc3c7b0f9b3db4/packages/core/src/persistence/Persistence.ts#L14)
 
 Volume.

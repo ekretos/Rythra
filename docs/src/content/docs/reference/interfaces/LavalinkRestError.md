@@ -7,7 +7,7 @@ description: API Reference for LavalinkRestError
 
 ***
 
-Defined in: [packages/types/src/index.ts:74](https://github.com/ekretos/Rythra/blob/494517dd89f9fe3e5101c12673c172d6033bc461/packages/types/src/index.ts#L74)
+Defined in: [packages/types/src/index.ts:74](https://github.com/ekretos/Rythra/blob/8c65b2b9a1c3f4d653aa63873bbc3c7b0f9b3db4/packages/types/src/index.ts#L74)
 
 Structured Lavalink REST error.
 
@@ -17,7 +17,7 @@ Structured Lavalink REST error.
 
 > **error**: `string`
 
-Defined in: [packages/types/src/index.ts:74](https://github.com/ekretos/Rythra/blob/494517dd89f9fe3e5101c12673c172d6033bc461/packages/types/src/index.ts#L74)
+Defined in: [packages/types/src/index.ts:74](https://github.com/ekretos/Rythra/blob/8c65b2b9a1c3f4d653aa63873bbc3c7b0f9b3db4/packages/types/src/index.ts#L74)
 
 ***
 
@@ -25,7 +25,7 @@ Defined in: [packages/types/src/index.ts:74](https://github.com/ekretos/Rythra/b
 
 > **message**: `string`
 
-Defined in: [packages/types/src/index.ts:74](https://github.com/ekretos/Rythra/blob/494517dd89f9fe3e5101c12673c172d6033bc461/packages/types/src/index.ts#L74)
+Defined in: [packages/types/src/index.ts:74](https://github.com/ekretos/Rythra/blob/8c65b2b9a1c3f4d653aa63873bbc3c7b0f9b3db4/packages/types/src/index.ts#L74)
 
 ***
 
@@ -33,7 +33,7 @@ Defined in: [packages/types/src/index.ts:74](https://github.com/ekretos/Rythra/b
 
 > **path**: `string`
 
-Defined in: [packages/types/src/index.ts:74](https://github.com/ekretos/Rythra/blob/494517dd89f9fe3e5101c12673c172d6033bc461/packages/types/src/index.ts#L74)
+Defined in: [packages/types/src/index.ts:74](https://github.com/ekretos/Rythra/blob/8c65b2b9a1c3f4d653aa63873bbc3c7b0f9b3db4/packages/types/src/index.ts#L74)
 
 ***
 
@@ -41,7 +41,7 @@ Defined in: [packages/types/src/index.ts:74](https://github.com/ekretos/Rythra/b
 
 > **status**: `number`
 
-Defined in: [packages/types/src/index.ts:74](https://github.com/ekretos/Rythra/blob/494517dd89f9fe3e5101c12673c172d6033bc461/packages/types/src/index.ts#L74)
+Defined in: [packages/types/src/index.ts:74](https://github.com/ekretos/Rythra/blob/8c65b2b9a1c3f4d653aa63873bbc3c7b0f9b3db4/packages/types/src/index.ts#L74)
 
 ***
 
@@ -49,7 +49,7 @@ Defined in: [packages/types/src/index.ts:74](https://github.com/ekretos/Rythra/b
 
 > **timestamp**: `number`
 
-Defined in: [packages/types/src/index.ts:74](https://github.com/ekretos/Rythra/blob/494517dd89f9fe3e5101c12673c172d6033bc461/packages/types/src/index.ts#L74)
+Defined in: [packages/types/src/index.ts:74](https://github.com/ekretos/Rythra/blob/8c65b2b9a1c3f4d653aa63873bbc3c7b0f9b3db4/packages/types/src/index.ts#L74)
 
 ***
 
@@ -57,4 +57,4 @@ Defined in: [packages/types/src/index.ts:74](https://github.com/ekretos/Rythra/b
 
 > `optional` **trace?**: `string`
 
-Defined in: [packages/types/src/index.ts:74](https://github.com/ekretos/Rythra/blob/494517dd89f9fe3e5101c12673c172d6033bc461/packages/types/src/index.ts#L74)
+Defined in: [packages/types/src/index.ts:74](https://github.com/ekretos/Rythra/blob/8c65b2b9a1c3f4d653aa63873bbc3c7b0f9b3db4/packages/types/src/index.ts#L74)

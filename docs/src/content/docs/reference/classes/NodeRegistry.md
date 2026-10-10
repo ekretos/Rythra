@@ -7,7 +7,7 @@ description: API Reference for NodeRegistry
 
 ***
 
-Defined in: [packages/core/src/kernel/Registry.ts:21](https://github.com/ekretos/Rythra/blob/494517dd89f9fe3e5101c12673c172d6033bc461/packages/core/src/kernel/Registry.ts#L21)
+Defined in: [packages/core/src/kernel/Registry.ts:21](https://github.com/ekretos/Rythra/blob/8c65b2b9a1c3f4d653aa63873bbc3c7b0f9b3db4/packages/core/src/kernel/Registry.ts#L21)
 
 Registry of Lavalink nodes managed by a Rythra runtime.
 
@@ -121,7 +121,7 @@ Returns an iterable of entries in the map.
 
 > **available**(): [`Node`](Node.md)[]
 
-Defined in: [packages/core/src/kernel/Registry.ts:25](https://github.com/ekretos/Rythra/blob/494517dd89f9fe3e5101c12673c172d6033bc461/packages/core/src/kernel/Registry.ts#L25)
+Defined in: [packages/core/src/kernel/Registry.ts:25](https://github.com/ekretos/Rythra/blob/8c65b2b9a1c3f4d653aa63873bbc3c7b0f9b3db4/packages/core/src/kernel/Registry.ts#L25)
 
 Returns the nodes eligible to receive work, preferring connected nodes.
 
@@ -153,7 +153,7 @@ Removes all elements from the Map.
 
 > **connected**(): [`Node`](Node.md)[]
 
-Defined in: [packages/core/src/kernel/Registry.ts:23](https://github.com/ekretos/Rythra/blob/494517dd89f9fe3e5101c12673c172d6033bc461/packages/core/src/kernel/Registry.ts#L23)
+Defined in: [packages/core/src/kernel/Registry.ts:23](https://github.com/ekretos/Rythra/blob/8c65b2b9a1c3f4d653aa63873bbc3c7b0f9b3db4/packages/core/src/kernel/Registry.ts#L23)
 
 Returns the nodes whose transport is currently connected.
 
@@ -209,7 +209,7 @@ Returns an iterable of key, value pairs for every entry in the map.
 
 > **filter**(`predicate`): [`Node`](Node.md)[]
 
-Defined in: [packages/core/src/kernel/Registry.ts:17](https://github.com/ekretos/Rythra/blob/494517dd89f9fe3e5101c12673c172d6033bc461/packages/core/src/kernel/Registry.ts#L17)
+Defined in: [packages/core/src/kernel/Registry.ts:17](https://github.com/ekretos/Rythra/blob/8c65b2b9a1c3f4d653aa63873bbc3c7b0f9b3db4/packages/core/src/kernel/Registry.ts#L17)
 
 Returns the registered entries matching a predicate.
 
@@ -391,7 +391,7 @@ Returns an iterable of keys in the map
 
 > **list**(): [`Node`](Node.md)[]
 
-Defined in: [packages/core/src/kernel/Registry.ts:15](https://github.com/ekretos/Rythra/blob/494517dd89f9fe3e5101c12673c172d6033bc461/packages/core/src/kernel/Registry.ts#L15)
+Defined in: [packages/core/src/kernel/Registry.ts:15](https://github.com/ekretos/Rythra/blob/8c65b2b9a1c3f4d653aa63873bbc3c7b0f9b3db4/packages/core/src/kernel/Registry.ts#L15)
 
 Returns every registered entry.
 

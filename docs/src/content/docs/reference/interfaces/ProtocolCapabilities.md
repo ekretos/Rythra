@@ -7,7 +7,7 @@ description: API Reference for ProtocolCapabilities
 
 ***
 
-Defined in: [packages/core/src/protocol/ProtocolAdapter.ts:4](https://github.com/ekretos/Rythra/blob/494517dd89f9fe3e5101c12673c172d6033bc461/packages/core/src/protocol/ProtocolAdapter.ts#L4)
+Defined in: [packages/core/src/protocol/ProtocolAdapter.ts:4](https://github.com/ekretos/Rythra/blob/8c65b2b9a1c3f4d653aa63873bbc3c7b0f9b3db4/packages/core/src/protocol/ProtocolAdapter.ts#L4)
 
 Feature set advertised by a Lavalink protocol generation.
 
@@ -17,7 +17,7 @@ Feature set advertised by a Lavalink protocol generation.
 
 > `readonly` **dave**: `boolean`
 
-Defined in: [packages/core/src/protocol/ProtocolAdapter.ts:7](https://github.com/ekretos/Rythra/blob/494517dd89f9fe3e5101c12673c172d6033bc461/packages/core/src/protocol/ProtocolAdapter.ts#L7)
+Defined in: [packages/core/src/protocol/ProtocolAdapter.ts:7](https://github.com/ekretos/Rythra/blob/8c65b2b9a1c3f4d653aa63873bbc3c7b0f9b3db4/packages/core/src/protocol/ProtocolAdapter.ts#L7)
 
 Whether the generation supports DAVE voice integration.
 
@@ -27,7 +27,7 @@ Whether the generation supports DAVE voice integration.
 
 > `readonly` **filters**: `boolean`
 
-Defined in: [packages/core/src/protocol/ProtocolAdapter.ts:6](https://github.com/ekretos/Rythra/blob/494517dd89f9fe3e5101c12673c172d6033bc461/packages/core/src/protocol/ProtocolAdapter.ts#L6)
+Defined in: [packages/core/src/protocol/ProtocolAdapter.ts:6](https://github.com/ekretos/Rythra/blob/8c65b2b9a1c3f4d653aa63873bbc3c7b0f9b3db4/packages/core/src/protocol/ProtocolAdapter.ts#L6)
 
 Whether the generation supports player filters.
 
@@ -37,6 +37,6 @@ Whether the generation supports player filters.
 
 > `readonly` **sessionResume**: `boolean`
 
-Defined in: [packages/core/src/protocol/ProtocolAdapter.ts:5](https://github.com/ekretos/Rythra/blob/494517dd89f9fe3e5101c12673c172d6033bc461/packages/core/src/protocol/ProtocolAdapter.ts#L5)
+Defined in: [packages/core/src/protocol/ProtocolAdapter.ts:5](https://github.com/ekretos/Rythra/blob/8c65b2b9a1c3f4d653aa63873bbc3c7b0f9b3db4/packages/core/src/protocol/ProtocolAdapter.ts#L5)
 
 Whether the generation supports session resuming.

@@ -7,7 +7,7 @@ description: API Reference for Queue
 
 ***
 
-Defined in: [packages/core/src/Queue.ts:12](https://github.com/ekretos/Rythra/blob/494517dd89f9fe3e5101c12673c172d6033bc461/packages/core/src/Queue.ts#L12)
+Defined in: [packages/core/src/Queue.ts:12](https://github.com/ekretos/Rythra/blob/8c65b2b9a1c3f4d653aa63873bbc3c7b0f9b3db4/packages/core/src/Queue.ts#L12)
 
 Ordered collection of tracks waiting for playback.
 
@@ -260,7 +260,7 @@ Gets or sets the length of the array. This is a number one higher than the highe
 
 > **current**: [`Track`](../interfaces/Track.md) \| `null` = `null`
 
-Defined in: [packages/core/src/Queue.ts:14](https://github.com/ekretos/Rythra/blob/494517dd89f9fe3e5101c12673c172d6033bc461/packages/core/src/Queue.ts#L14)
+Defined in: [packages/core/src/Queue.ts:14](https://github.com/ekretos/Rythra/blob/8c65b2b9a1c3f4d653aa63873bbc3c7b0f9b3db4/packages/core/src/Queue.ts#L14)
 
 The track currently selected for playback.
 
@@ -284,7 +284,7 @@ Gets or sets the length of the array. This is a number one higher than the highe
 
 > **previous**: [`Track`](../interfaces/Track.md)[] = `[]`
 
-Defined in: [packages/core/src/Queue.ts:16](https://github.com/ekretos/Rythra/blob/494517dd89f9fe3e5101c12673c172d6033bc461/packages/core/src/Queue.ts#L16)
+Defined in: [packages/core/src/Queue.ts:16](https://github.com/ekretos/Rythra/blob/8c65b2b9a1c3f4d653aa63873bbc3c7b0f9b3db4/packages/core/src/Queue.ts#L16)
 
 Tracks that have already completed or been skipped, newest first.
 
@@ -306,7 +306,7 @@ Defined in: node\_modules/.bun/typescript@6.0.3/node\_modules/typescript/lib/lib
 
 > `static` **maxHistory**: `number` = `100`
 
-Defined in: [packages/core/src/Queue.ts:18](https://github.com/ekretos/Rythra/blob/494517dd89f9fe3e5101c12673c172d6033bc461/packages/core/src/Queue.ts#L18)
+Defined in: [packages/core/src/Queue.ts:18](https://github.com/ekretos/Rythra/blob/8c65b2b9a1c3f4d653aa63873bbc3c7b0f9b3db4/packages/core/src/Queue.ts#L18)
 
 Maximum number of tracks retained in [Queue.previous](#previous).
 
@@ -334,7 +334,7 @@ Iterator
 
 > **add**(`track`): `void`
 
-Defined in: [packages/core/src/Queue.ts:27](https://github.com/ekretos/Rythra/blob/494517dd89f9fe3e5101c12673c172d6033bc461/packages/core/src/Queue.ts#L27)
+Defined in: [packages/core/src/Queue.ts:27](https://github.com/ekretos/Rythra/blob/8c65b2b9a1c3f4d653aa63873bbc3c7b0f9b3db4/packages/core/src/Queue.ts#L27)
 
 Adds one or more tracks to the end of the queue.
 
@@ -380,7 +380,7 @@ The zero-based index of the desired code unit. A negative index will count back 
 
 > **clear**(): `void`
 
-Defined in: [packages/core/src/Queue.ts:36](https://github.com/ekretos/Rythra/blob/494517dd89f9fe3e5101c12673c172d6033bc461/packages/core/src/Queue.ts#L36)
+Defined in: [packages/core/src/Queue.ts:36](https://github.com/ekretos/Rythra/blob/8c65b2b9a1c3f4d653aa63873bbc3c7b0f9b3db4/packages/core/src/Queue.ts#L36)
 
 Removes every pending track while preserving current/history state.
 
@@ -1243,7 +1243,7 @@ New elements to add to the array.
 
 > **pushHistory**(`track`): `void`
 
-Defined in: [packages/core/src/Queue.ts:21](https://github.com/ekretos/Rythra/blob/494517dd89f9fe3e5101c12673c172d6033bc461/packages/core/src/Queue.ts#L21)
+Defined in: [packages/core/src/Queue.ts:21](https://github.com/ekretos/Rythra/blob/8c65b2b9a1c3f4d653aa63873bbc3c7b0f9b3db4/packages/core/src/Queue.ts#L21)
 
 Records a finished track in the bounded history, newest first.
 
@@ -1439,7 +1439,7 @@ If initialValue is specified, it is used as the initial value to start the accum
 
 > **remove**(`index`): [`Track`](../interfaces/Track.md) \| `undefined`
 
-Defined in: [packages/core/src/Queue.ts:33](https://github.com/ekretos/Rythra/blob/494517dd89f9fe3e5101c12673c172d6033bc461/packages/core/src/Queue.ts#L33)
+Defined in: [packages/core/src/Queue.ts:33](https://github.com/ekretos/Rythra/blob/8c65b2b9a1c3f4d653aa63873bbc3c7b0f9b3db4/packages/core/src/Queue.ts#L33)
 
 Removes a track at a specific queue index.
 
@@ -1497,7 +1497,7 @@ If the array is empty, undefined is returned and the array is not modified.
 
 > **shuffle**(): `void`
 
-Defined in: [packages/core/src/Queue.ts:39](https://github.com/ekretos/Rythra/blob/494517dd89f9fe3e5101c12673c172d6033bc461/packages/core/src/Queue.ts#L39)
+Defined in: [packages/core/src/Queue.ts:39](https://github.com/ekretos/Rythra/blob/8c65b2b9a1c3f4d653aa63873bbc3c7b0f9b3db4/packages/core/src/Queue.ts#L39)
 
 Randomly reorders pending tracks using Fisher-Yates shuffling.
 

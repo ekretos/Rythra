@@ -7,7 +7,7 @@ description: API Reference for GatewayPacket
 
 ***
 
-Defined in: [packages/types/src/index.ts:75](https://github.com/ekretos/Rythra/blob/494517dd89f9fe3e5101c12673c172d6033bc461/packages/types/src/index.ts#L75)
+Defined in: [packages/types/src/index.ts:75](https://github.com/ekretos/Rythra/blob/8c65b2b9a1c3f4d653aa63873bbc3c7b0f9b3db4/packages/types/src/index.ts#L75)
 
 Generic Discord gateway packet.
 
@@ -17,7 +17,7 @@ Generic Discord gateway packet.
 
 > `optional` **d?**: `unknown`
 
-Defined in: [packages/types/src/index.ts:75](https://github.com/ekretos/Rythra/blob/494517dd89f9fe3e5101c12673c172d6033bc461/packages/types/src/index.ts#L75)
+Defined in: [packages/types/src/index.ts:75](https://github.com/ekretos/Rythra/blob/8c65b2b9a1c3f4d653aa63873bbc3c7b0f9b3db4/packages/types/src/index.ts#L75)
 
 ***
 
@@ -25,7 +25,7 @@ Defined in: [packages/types/src/index.ts:75](https://github.com/ekretos/Rythra/b
 
 > `optional` **op?**: `number`
 
-Defined in: [packages/types/src/index.ts:75](https://github.com/ekretos/Rythra/blob/494517dd89f9fe3e5101c12673c172d6033bc461/packages/types/src/index.ts#L75)
+Defined in: [packages/types/src/index.ts:75](https://github.com/ekretos/Rythra/blob/8c65b2b9a1c3f4d653aa63873bbc3c7b0f9b3db4/packages/types/src/index.ts#L75)
 
 ***
 
@@ -33,4 +33,4 @@ Defined in: [packages/types/src/index.ts:75](https://github.com/ekretos/Rythra/b
 
 > `optional` **t?**: `string`
 
-Defined in: [packages/types/src/index.ts:75](https://github.com/ekretos/Rythra/blob/494517dd89f9fe3e5101c12673c172d6033bc461/packages/types/src/index.ts#L75)
+Defined in: [packages/types/src/index.ts:75](https://github.com/ekretos/Rythra/blob/8c65b2b9a1c3f4d653aa63873bbc3c7b0f9b3db4/packages/types/src/index.ts#L75)
