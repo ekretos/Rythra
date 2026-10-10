@@ -1,5 +1,5 @@
 import { Rythra } from './Rythra';
-import type { GatewayPacket } from './Types';
+import type { GatewayPacket } from '@rythra/types';
 
 /**
  * Abstract class representing a connector to a Discord library.

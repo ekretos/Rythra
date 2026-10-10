@@ -1,7 +1,7 @@
 import { EventEmitter } from 'node:events';
 import { Node } from '../node/Node';
 import { Queue } from '../Queue';
-import type { PlayerOptions, SearchPlatform, Track, VoiceStateUpdate } from '../Types';
+import type { PlayerOptions, SearchPlatform, Track, VoiceStateUpdate } from '@rythra/types';
 
 interface TrackEventPayload {
     track?: Track | null;

@@ -1,5 +1,5 @@
 import type { Node } from './node/Node';
-import type { SearchResponse, LavalinkPlayer, Track, UpdatePlayerInfo, SessionInfo, Stats, RoutePlanner, NodeInfo, FetchOptions, LavalinkResponse } from './Types';
+import type { SearchResponse, LavalinkPlayer, Track, UpdatePlayerInfo, SessionInfo, Stats, RoutePlanner, NodeInfo, FetchOptions, LavalinkResponse } from '@rythra/types';
 import type { RestTransport } from './transport/Transport';
 import { FetchRestTransport } from './transport/RestTransport';
 

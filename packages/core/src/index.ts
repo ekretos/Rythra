@@ -26,7 +26,7 @@ export * from './Rest';
 export * from './Connector';
 
 // Public contracts and domain types.
-export * from './Types';
+export type * from '@rythra/types';
 export * from './errors/RythraError';
 export * from './health/Health';
 export * from './reliability/CircuitBreaker';

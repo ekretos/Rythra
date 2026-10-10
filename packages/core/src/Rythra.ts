@@ -13,7 +13,7 @@ import type {
     IRythra,
     VoiceStateUpdate,
     VoiceServerUpdate,
-} from './Types';
+} from '@rythra/types';
 
 /**
  * The main Rythra runtime.

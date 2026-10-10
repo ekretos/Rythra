@@ -1,7 +1,7 @@
 import { EventEmitter } from 'node:events';
 import type WebSocket from 'ws';
 import type { Rythra } from '../Rythra';
-import type { NodeOptions, Stats } from '../Types';
+import type { NodeOptions, Stats } from '@rythra/types';
 import { Rest } from '../Rest';
 import { getLavalinkApiVersion, type LavalinkApiVersion } from '../protocol/LavalinkProtocol';
 import { resolveProtocol, type LavalinkServerMessage, type ProtocolAdapter } from '../protocol/ProtocolAdapter';

@@ -6,7 +6,6 @@ const root = path.resolve(import.meta.dirname, '..');
 const mappings = [
   { from: 'dist/core', to: 'packages/core/dist' },
   { from: 'dist/connectors', to: 'packages/connectors/dist' },
-  { from: 'dist/types', to: 'packages/types/dist' },
   { from: 'dist/protocol', to: 'packages/protocol/dist' },
   { from: 'dist/plugins', to: 'packages/plugins/dist' },
 ];

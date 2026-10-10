@@ -5,14 +5,17 @@
   "description": "Shared public contracts for Rythra",
   "types": "./dist/index.d.ts",
   "exports": {
-    ".": { "types": "./dist/index.d.ts" }
+    ".": {
+      "types": "./dist/index.d.ts"
+    }
   },
-  "peerDependencies": {
-    "@rythra/core": "^0.2.0"
-  },
-  "files": ["dist"],
+  "files": [
+    "dist"
+  ],
   "publishConfig": {
     "access": "public"
   },
-  "scripts": { "build": "tsc" }
+  "scripts": {
+    "build": "tsc"
+  }
 }

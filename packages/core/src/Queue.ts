@@ -1,4 +1,4 @@
-import type { Track } from './Types';
+import type { Track } from '@rythra/types';
 
 /**
  * Ordered collection of tracks waiting for playback.

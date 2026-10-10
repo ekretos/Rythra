@@ -8,7 +8,7 @@ export default tseslint.config(
     ...tseslint.configs.recommended,
     prettierConfig,
     {
-        ignores: ['dist/**', 'node_modules/**', 'typedocs/**', 'docs/**'],
+        ignores: ['**/dist/**', 'node_modules/**', 'typedocs/**', 'docs/**'],
     },
     {
         languageOptions: { globals: globals.node },

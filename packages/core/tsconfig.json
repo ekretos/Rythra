@@ -6,7 +6,9 @@
     "noEmit": false,
     "declaration": true,
     "declarationMap": true,
-    "paths": {}
+    "paths": {
+      "@rythra/types": ["../types/dist/index.d.ts"]
+    }
   },
   "include": ["src/**/*"]
 }

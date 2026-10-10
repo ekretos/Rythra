@@ -37,6 +37,9 @@
     "packages/core": {
       "name": "@rythra/core",
       "version": "0.2.0",
+      "dependencies": {
+        "@rythra/types": "workspace:^",
+      },
     },
     "packages/metrics": {
       "name": "@rythra/metrics",
@@ -57,9 +60,6 @@
     "packages/types": {
       "name": "@rythra/types",
       "version": "0.2.0",
-      "peerDependencies": {
-        "@rythra/core": "^0.2.0",
-      },
     },
   },
   "packages": {

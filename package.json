@@ -53,7 +53,7 @@
   ],
   "scripts": {
     "build": "bun run build:packages && bun run build:facade && node scripts/sync-dist.mjs && bun run build:docs",
-    "build:packages": "bun run build:core && bun run build:protocol && bun run build:types && bun run build:plugins && bun run build:connectors",
+    "build:packages": "bun run build:types && bun run build:core && bun run build:protocol && bun run build:plugins && bun run build:connectors",
     "build:core": "bun --filter @rythra/core build",
     "build:types": "bun --filter @rythra/types build",
     "build:protocol": "bun --filter @rythra/protocol build",
