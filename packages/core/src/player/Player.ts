@@ -1,7 +1,7 @@
 import { EventEmitter } from 'node:events';
 import { Node } from '../node/Node';
 import { Queue } from '../Queue';
-import type { PlayerOptions, Track, VoiceStateUpdate } from '../Types';
+import type { PlayerOptions, SearchPlatform, Track, VoiceStateUpdate } from '../Types';
 
 interface TrackEventPayload {
     track?: Track | null;
@@ -10,7 +10,24 @@ interface TrackEventPayload {
     exception?: unknown;
 }
 
-type IntegrationTrack = Track & Record<string, any>;
+type IntegrationTrack = Track & {
+    title?: string;
+    author?: string;
+    length?: number;
+    isStream?: boolean;
+    position?: number;
+    identifier?: string;
+    sourceName?: string;
+    uri?: string;
+    thumbnail?: string;
+    raw?: { info: Track['info'] };
+    requester?: unknown;
+};
+interface PlayerSearchResult {
+    type: 'EMPTY' | 'PLAYLIST' | 'SEARCH';
+    playlistName?: string;
+    tracks: IntegrationTrack[];
+}
 type LoopMode = 'none' | 'track' | 'queue';
 
 export class RythraPlayer extends EventEmitter {
@@ -77,9 +94,9 @@ export class RythraPlayer extends EventEmitter {
         return value;
     }
 
-    public async search(query: string, options: { requester?: unknown; source?: string } = {}): Promise<any> {
+    public async search(query: string, options: { requester?: unknown; source?: string } = {}): Promise<PlayerSearchResult> {
         const source = options.source ? String(options.source).replace(/:$/, '') : undefined;
-        const response = await this.node.manager.search(query, options.requester, source as any);
+        const response = await this.node.manager.search(query, options.requester, source as SearchPlatform | undefined);
         if (response.loadType === 'error') throw new Error(response.data.message || 'Lavalink search failed.');
         if (response.loadType === 'empty') return { type: 'EMPTY', tracks: [] };
         if (response.loadType === 'playlist') return { type: 'PLAYLIST', playlistName: response.data.info?.name, tracks: (response.data.tracks || []).map((track: Track) => this.decorateTrack(track, options.requester)) };
