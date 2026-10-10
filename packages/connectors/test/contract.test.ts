@@ -30,7 +30,7 @@ const fixtures = [
     }],
     ['Lunibee', () => {
         const handlers: Array<(data: { event: string; data: unknown }) => void> = []; const sent: unknown[] = [];
-        const client = { on: (_e: string, h: typeof handler) => { handlers.push(h); }, ws: { send: (p: unknown) => sent.push(p) }, user: { id: 'bot' } };
+        const client = { on: (_e: string, h: (typeof handlers)[number]) => { handlers.push(h); }, ws: { send: (p: unknown) => sent.push(p) }, user: { id: 'bot' } };
         return { connector: new Lunibee(client as never), emit: (p: { t: string; d: unknown }) => handlers.forEach((h) => h({ event: p.t, data: p.d })), sent };
     }],
 ] as const;
