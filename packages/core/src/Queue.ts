@@ -14,10 +14,18 @@ export class Queue extends Array<Track> {
     public current: Track | null = null;
     /** Tracks that have already completed or been skipped, newest first. */
     public previous: Track[] = [];
+    /** Maximum number of tracks retained in {@link Queue.previous}. */
+    public static maxHistory = 100;
+
+    /** Records a finished track in the bounded history, newest first. */
+    public pushHistory(track: Track): void {
+        this.previous.unshift(track);
+        if (this.previous.length > Queue.maxHistory) this.previous.length = Queue.maxHistory;
+    }
 
     /** Adds one or more tracks to the end of the queue. */
     public add(track: Track | Track[]): void {
-        if (Array.isArray(track)) this.push(...track);
+        if (Array.isArray(track)) for (const item of track) this.push(item);
         else this.push(track);
     }
 

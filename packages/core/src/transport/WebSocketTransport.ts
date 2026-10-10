@@ -60,7 +60,7 @@ export class WebSocketTransport implements SocketTransport {
         this.opened = false;
         this.socket?.close();
         this.socket = null;
-        this.settle();
+        this.fail(new Error('WebSocket transport was disconnected.'));
     }
 
     /** Sends a payload over the socket. */

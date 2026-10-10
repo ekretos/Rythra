@@ -63,13 +63,13 @@ export class RythraPlayer extends EventEmitter {
             const current = this.queue.current;
             const endedEncoded = data.encodedTrack ?? data.track?.encoded;
             if (current && (!endedEncoded || endedEncoded === current.encoded)) {
-                this.queue.previous.unshift(current);
+                this.queue.pushHistory(current);
                 this.queue.current = null;
                 if (this.loop === 'track') this.queue.unshift(current);
                 else if (this.loop === 'queue') this.queue.add(current);
             }
             const reason = data.reason?.toLowerCase();
-            if (reason !== 'replaced' && reason !== 'stopped' && this.node.manager.options.autoPlay && this.queue.length > 0) await this.play();
+            if (reason !== 'replaced' && reason !== 'stopped' && this.node.manager.options.autoPlay && this.queue.length > 0) await this.play().catch((error: unknown) => { this.emit('playerError', error); });
             this.emit('trackEnd', data);
         });
         this.on('TrackExceptionEvent', (data: TrackEventPayload) => this.emit('trackException', data));
@@ -123,7 +123,7 @@ export class RythraPlayer extends EventEmitter {
 
     public async skip(): Promise<void> {
         this.emit('trackSkip', this.queue.current);
-        if (this.queue.current) this.queue.previous.unshift(this.queue.current);
+        if (this.queue.current) this.queue.pushHistory(this.queue.current);
         this.queue.current = null;
         if (this.queue.length > 0) await this.play();
         else await this.stop();
