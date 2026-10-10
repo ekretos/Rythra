@@ -52,7 +52,10 @@ export class PrometheusMetricsAdapter implements RythraMetricsAdapter {
     public render(): string {
         const p = sanitize(this.prefix);
         const lines: string[] = [];
-        for (const [name, value] of this.counters) lines.push(`# TYPE ${p}_${sanitize(name)} counter`, `${p}_${sanitize(name)} ${value}`);
+        for (const [name, value] of this.counters) {
+            const metric = `${p}_${sanitize(name)}${name.endsWith('_total') ? '' : '_total'}`;
+            lines.push(`# TYPE ${metric} counter`, `${metric} ${value}`);
+        }
         for (const [name, value] of this.gauges) lines.push(`# TYPE ${p}_${sanitize(name)} gauge`, `${p}_${sanitize(name)} ${value}`);
         for (const [name, { sum, count }] of this.histograms) {
             const metric = `${p}_${sanitize(name)}`;

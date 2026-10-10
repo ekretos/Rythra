@@ -31,6 +31,11 @@ export class FilePersistenceAdapter<Snapshot = PlayerSnapshot> implements Persis
             return JSON.parse(await readFile(this.path, 'utf8')) as Record<string, Snapshot>;
         } catch (error) {
             if ((error as NodeJS.ErrnoException).code === 'ENOENT') return {};
+            if (error instanceof SyntaxError) {
+                // Corrupt state must not brick persistence: keep the bad file for inspection and start empty.
+                await rename(this.path, `${this.path}.corrupt`).catch(() => undefined);
+                return {};
+            }
             throw error;
         }
     }
@@ -46,7 +51,7 @@ export class FilePersistenceAdapter<Snapshot = PlayerSnapshot> implements Persis
             const data = await this.read();
             change(data);
             await mkdir(dirname(this.path), { recursive: true });
-            const temp = `${this.path}.tmp`;
+            const temp = `${this.path}.${process.pid}.${Math.random().toString(36).slice(2)}.tmp`;
             await writeFile(temp, JSON.stringify(data));
             await rename(temp, this.path);
         });

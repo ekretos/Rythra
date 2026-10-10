@@ -27,6 +27,9 @@ Format based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 - `docs/TROUBLESHOOTING.md`.
 
 ### Fixed
+- `FilePersistenceAdapter` no longer fails permanently on a corrupt JSON file (it is kept as `<file>.corrupt` and the store starts empty) and uses a unique temp file per write.
+- A `connect()` call waiting on an in-flight attempt now rejects when `disconnect()` is called instead of hanging.
+- `PrometheusMetricsAdapter` appends `_total` to counter names; a test keeps the default client version in sync with the package version.
 - `publish:all` used `npm publish`, which leaves `workspace:` dependency ranges unresolved, and published `@rythra/core` before `@rythra/types`; it now uses `bun publish` in dependency order.
 - Published packages could not be imported by Node ESM (relative imports lacked `.js` extensions, which only Bun and bundlers tolerate); `@rythra/core` also used `ws` without declaring it as a dependency.
 - Late events from a replaced/closed socket could null the current transport and trigger bogus reconnects; they are now ignored.

@@ -14,7 +14,7 @@ describe('metrics exporters', () => {
         const adapter = new PrometheusMetricsAdapter();
         adapter.counter('hits'); adapter.counter('hits', 2); adapter.gauge('g', 7); adapter.histogram('h', 4); adapter.histogram('h', 6);
         const text = adapter.render();
-        expect(text).toContain('rythra_hits 3');
+        expect(text).toContain('rythra_hits_total 3');
         expect(text).toContain('rythra_g 7');
         expect(text).toContain('rythra_h_sum 10');
         expect(text).toContain('rythra_h_count 2');

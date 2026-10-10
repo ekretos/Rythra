@@ -227,7 +227,7 @@ Connects the node, resolving once Lavalink accepts the WebSocket handshake.
 
 > `protected` **createTransport**(`handlers`): [`SocketTransport`](../interfaces/SocketTransport.md)
 
-Defined in: [packages/core/src/node/Node.ts:128](https://github.com/ekretos/Rythra/blob/main/packages/core/src/node/Node.ts#L128)
+Defined in: [packages/core/src/node/Node.ts:130](https://github.com/ekretos/Rythra/blob/main/packages/core/src/node/Node.ts#L130)
 
 Creates the socket transport for one connection attempt. Overridable for testing.
 
@@ -247,7 +247,7 @@ Creates the socket transport for one connection attempt. Overridable for testing
 
 > **disconnect**(): `void`
 
-Defined in: [packages/core/src/node/Node.ts:226](https://github.com/ekretos/Rythra/blob/main/packages/core/src/node/Node.ts#L226)
+Defined in: [packages/core/src/node/Node.ts:228](https://github.com/ekretos/Rythra/blob/main/packages/core/src/node/Node.ts#L228)
 
 Disconnects the node and cancels any pending reconnect.
 

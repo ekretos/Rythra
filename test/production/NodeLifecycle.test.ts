@@ -71,6 +71,16 @@ describe('Node lifecycle', () => {
         expect(node.state).toBe('disconnected');
     });
 
+    test('a second connect() waiting on an in-flight attempt rejects when disconnect() is called', async () => {
+        const node = make();
+        const first = node.connect().catch((e: Error) => e);
+        await tick();
+        const second = node.connect().catch((e: Error) => e);
+        node.disconnect();
+        expect((await second as Error).message).toContain('disconnected');
+        expect(await first).toBeInstanceOf(Error);
+    });
+
     test('credential rejection stops reconnecting', async () => {
         const node = make();
         let failed = 0;

@@ -27,3 +27,18 @@ describe('persistence adapters', () => {
         } finally { await rm(dir, { recursive: true, force: true }); }
     });
 });
+
+describe('FilePersistenceAdapter recovery', () => {
+    test('recovers from a corrupt file and keeps it aside', async () => {
+        const dir = await mkdtemp(join(tmpdir(), 'rythra-'));
+        try {
+            const path = join(dir, 'state.json');
+            await Bun.write(path, '{not json');
+            const adapter = new FilePersistenceAdapter(path);
+            expect(await adapter.keys()).toEqual([]);
+            await adapter.save('1', snap);
+            expect(await adapter.load('1')).toEqual(snap);
+            expect(await Bun.file(`${path}.corrupt`).text()).toBe('{not json');
+        } finally { await rm(dir, { recursive: true, force: true }); }
+    });
+});

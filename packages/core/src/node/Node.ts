@@ -96,9 +96,11 @@ export class Node extends EventEmitter {
             return new Promise<void>((resolve, reject) => {
                 const onConnect = () => { cleanup(); resolve(); };
                 const onError = (error: Error) => { cleanup(); reject(error); };
-                const cleanup = () => { this.off('connect', onConnect); this.off('error', onError); };
+                const onAbort = () => { cleanup(); reject(new Error(`Lavalink node ${this.label} was disconnected before it connected.`)); };
+                const cleanup = () => { this.off('connect', onConnect); this.off('error', onError); this.off('manualDisconnect', onAbort); };
                 this.once('connect', onConnect);
                 this.once('error', onError);
+                this.once('manualDisconnect', onAbort);
             });
         }
         if (!this.circuit.canRequest()) throw new Error(`Lavalink node ${this.label} is unavailable (circuit breaker open).`);
@@ -225,6 +227,7 @@ export class Node extends EventEmitter {
     /** Disconnects the node and cancels any pending reconnect. */
     public disconnect(): void {
         this.manuallyDisconnected = true;
+        this.emit('manualDisconnect');
         if (this.reconnectTimer) { clearTimeout(this.reconnectTimer); this.reconnectTimer = null; }
         this.machine.transition('draining');
         this.transport?.disconnect();
