@@ -8,14 +8,7 @@
  */
 
 export { Rythra, Node, RythraPlayer } from '@rythra/core';
-export type {
-    Track,
-    SearchResponse,
-    RythraOptions,
-    NodeOptions,
-    PlayerOptions,
-    Stats,
-} from '@rythra/core';
+export type { Track, SearchResponse, RythraOptions, NodeOptions, PlayerOptions, Stats } from '@rythra/core';
 
 /** Discord.js integration exported as an optional convenience from the facade. */
-export { DiscordJS } from '@rythra/connector-discordjs';
+export { DiscordJS } from '@rythra/connectors';

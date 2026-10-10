@@ -1,19 +1,15 @@
 import { EventEmitter } from 'node:events';
-import { Node } from './node/Node';
-import { RythraPlayer } from './player/Player';
-import { NodeRegistry, PlayerRegistry } from './kernel/Registry';
-import { Health, type HealthSnapshot } from './health/Health';
-import { ConfigurationError } from './errors/RythraError';
-import type {
-    RythraOptions,
-    NodeOptions,
-    PlayerOptions,
-    SearchPlatform,
-    SearchResponse,
-    IRythra,
-    VoiceStateUpdate,
-    VoiceServerUpdate,
-} from './Types';
+import { Node } from './node/Node.js';
+import { RythraPlayer } from './player/Player.js';
+import { NodeRegistry, PlayerRegistry } from './kernel/Registry.js';
+import { Health, type HealthSnapshot } from './health/Health.js';
+import { ConfigurationError } from './errors/RythraError.js';
+import type { RythraOptions, NodeOptions, PlayerOptions, SearchPlatform, SearchResponse, IRythra, VoiceStateUpdate, VoiceServerUpdate } from '@rythra/types';
+
+/** Checks that a value is an integer within an inclusive range. */
+function isIntegerInRange(value: number, min: number, max = Infinity): boolean {
+    return Number.isInteger(value) && value >= min && value <= max;
+}
 
 /**
  * The main Rythra runtime.
@@ -49,6 +45,8 @@ export class Rythra extends EventEmitter implements IRythra {
     /** Number of player migrations performed by this runtime. */
     public migrations = 0;
 
+    private readonly failoverTimers = new Map<Node, ReturnType<typeof setTimeout>>();
+
     /** Local health collector for operational integrations. */
     public readonly healthMonitor: Health;
 
@@ -66,7 +64,7 @@ export class Rythra extends EventEmitter implements IRythra {
         this.validateOptions(options);
 
         this.options = options;
-        this.version = options.version || '0.2.0';
+        this.version = options.version || '0.3.0';
         this.options.connector.setManager(this);
         this.options.connector.listen();
         this.healthMonitor = new Health(this);
@@ -84,42 +82,23 @@ export class Rythra extends EventEmitter implements IRythra {
             throw new ConfigurationError('A valid connector instance is required.');
         }
 
-        for (const node of options.nodes ?? []) {
-            if (!node.host?.trim()) {
-                throw new ConfigurationError('Every Lavalink node requires a host.');
-            }
+        for (const node of options.nodes ?? []) this.validateNode(node);
+    }
 
-            if (
-                node.port !== undefined &&
-                (!Number.isInteger(node.port) || node.port < 1 || node.port > 65535)
-            ) {
-                throw new ConfigurationError(`Invalid Lavalink port: ${node.port}`);
-            }
-
-            if (
-                node.retryAmount !== undefined &&
-                (!Number.isInteger(node.retryAmount) || node.retryAmount < 0)
-            ) {
-                throw new ConfigurationError(`Invalid retryAmount: ${node.retryAmount}`);
-            }
-
-            if (
-                node.retryInterval !== undefined &&
-                (!Number.isFinite(node.retryInterval) || node.retryInterval < 0)
-            ) {
-                throw new ConfigurationError(`Invalid retryInterval: ${node.retryInterval}`);
-            }
-
-            if (
-                node.lavalinkVersion !== undefined &&
-                node.lavalinkVersion !== 'auto' &&
-                node.lavalinkVersion !== 4 &&
-                node.lavalinkVersion !== 5
-            ) {
-                throw new ConfigurationError(
-                    `Unsupported Lavalink API version: ${String(node.lavalinkVersion)}`,
-                );
-            }
+    /** Validates one Lavalink node configuration. */
+    private validateNode(node: NodeOptions): void {
+        if (!node.host?.trim()) throw new ConfigurationError('Every Lavalink node requires a host.');
+        if (node.port !== undefined && !isIntegerInRange(node.port, 1, 65535)) {
+            throw new ConfigurationError(`Invalid Lavalink port: ${node.port}`);
+        }
+        if (node.retryAmount !== undefined && !isIntegerInRange(node.retryAmount, 0)) {
+            throw new ConfigurationError(`Invalid retryAmount: ${node.retryAmount}`);
+        }
+        if (node.retryInterval !== undefined && !(Number.isFinite(node.retryInterval) && node.retryInterval >= 0)) {
+            throw new ConfigurationError(`Invalid retryInterval: ${node.retryInterval}`);
+        }
+        if (node.lavalinkVersion !== undefined && !['auto', 4, 5].includes(node.lavalinkVersion)) {
+            throw new ConfigurationError(`Unsupported Lavalink API version: ${String(node.lavalinkVersion)}`);
         }
     }
 
@@ -135,9 +114,7 @@ export class Rythra extends EventEmitter implements IRythra {
 
         const identifier = options.identifier || `${options.host}:${options.port ?? 2333}`;
         if (this.nodes.has(identifier)) {
-            throw new ConfigurationError(
-                `A node with identifier "${identifier}" already exists.`,
-            );
+            throw new ConfigurationError(`A node with identifier "${identifier}" already exists.`);
         }
 
         const node = new Node(this, options);
@@ -151,19 +128,16 @@ export class Rythra extends EventEmitter implements IRythra {
     /** Binds node lifecycle events to the runtime event surface. */
     private bindNode(node: Node): void {
         node.on('error', (err) => this.emit('nodeError', node, err));
-        node.on('version', (version, serverVersion) =>
-            this.emit('nodeVersion', node, version, serverVersion),
-        );
+        node.on('version', (version, serverVersion) => this.emit('nodeVersion', node, version, serverVersion));
         node.on('ready', (data) => this.emit('nodeReady', node, data));
         node.on('connect', () => this.emit('nodeConnect', node));
         node.on('disconnect', () => {
             this.reconnects++;
             this.emit('nodeDisconnect', node);
+            if (this.options.failover) this.scheduleFailover(node);
         });
         node.on('reconnectFailed', () => this.emit('nodeReconnectFailed', node));
-        node.on('state', (state, previous) =>
-            this.emit('nodeState', node, state, previous),
-        );
+        node.on('state', (state, previous) => this.emit('nodeState', node, state, previous));
         node.on('stats', (stats) => this.emit('nodeStats', node, stats));
         node.on('event', (event) => this.emit('nodeEvent', node, event));
     }
@@ -186,10 +160,7 @@ export class Rythra extends EventEmitter implements IRythra {
             if (!best) return node;
 
             if (node.stats.players < best.stats.players) return node;
-            if (
-                node.stats.players === best.stats.players &&
-                node.stats.playingPlayers < best.stats.playingPlayers
-            ) {
+            if (node.stats.players === best.stats.players && node.stats.playingPlayers < best.stats.playingPlayers) {
                 return node;
             }
 
@@ -224,17 +195,17 @@ export class Rythra extends EventEmitter implements IRythra {
         const player = this.players.get(guild);
         if (!player) return;
 
-        await player.stop();
-        this.players.delete(guild);
-        this.emit('playerDestroy', player);
+        try {
+            await player.stop();
+        } finally {
+            this.players.delete(guild);
+            this.emit('playerDestroy', player);
+            player.removeAllListeners();
+        }
     }
 
     /** Searches Lavalink for a track, playlist or search result. */
-    public async search(
-        query: string,
-        _requester: unknown,
-        source?: SearchPlatform,
-    ): Promise<SearchResponse> {
+    public async search(query: string, _requester: unknown, source?: SearchPlatform): Promise<SearchResponse> {
         if (!query?.trim()) {
             throw new ConfigurationError('Search query cannot be empty.');
         }
@@ -254,10 +225,7 @@ export class Rythra extends EventEmitter implements IRythra {
         let identifier = query;
         const isUrl = /^https?:\/\//.test(query);
 
-        if (
-            !isUrl &&
-            !Object.values(sources).some((prefix) => query.startsWith(`${prefix}:`))
-        ) {
+        if (!isUrl && !Object.values(sources).some((prefix) => query.startsWith(`${prefix}:`))) {
             const platform = (source || this.options.defaultSearchPlatform || 'youtube') as string;
             identifier = `${sources[platform] || platform}:${query}`;
         }
@@ -268,6 +236,9 @@ export class Rythra extends EventEmitter implements IRythra {
     /** Updates the stored Discord voice state for a guild player. */
     public voiceStateUpdate(data: VoiceStateUpdate): void {
         if (!data.guild_id) return;
+        // Voice states of other members in the guild must not overwrite the bot's own session.
+        const botId = this.options.clientId || this.options.connector.getId();
+        if (data.user_id && botId && data.user_id !== botId) return;
 
         const player = this.players.get(data.guild_id);
         if (player) {
@@ -279,11 +250,10 @@ export class Rythra extends EventEmitter implements IRythra {
     public async voiceServerUpdate(data: VoiceServerUpdate): Promise<void> {
         const player = this.players.get(data.guild_id);
         if (!player) return;
+        player.voiceServer = data;
 
         if (!player.voiceState.session_id || !player.voiceState.channel_id) {
-            throw new ConfigurationError(
-                `Missing Discord voice state for guild ${data.guild_id}`,
-            );
+            throw new ConfigurationError(`Missing Discord voice state for guild ${data.guild_id}`);
         }
 
         await player.node.rest.updatePlayer({
@@ -299,6 +269,41 @@ export class Rythra extends EventEmitter implements IRythra {
         });
     }
 
+    /** Waits for the node to recover, then migrates its players if it is still down. */
+    private scheduleFailover(node: Node): void {
+        if (this.failoverTimers.has(node)) return;
+        const timer = setTimeout(
+            () => {
+                this.failoverTimers.delete(node);
+                if (!this.shuttingDown && !node.connected) void this.migratePlayers(node);
+            },
+            Math.max(0, this.options.failoverDelay ?? 5000)
+        );
+        this.failoverTimers.set(node, timer);
+    }
+
+    /**
+     * Moves every player bound to `from` onto the best other ready node.
+     * @returns The number of players successfully migrated.
+     */
+    public async migratePlayers(from: Node): Promise<number> {
+        const target = this.getBestNode();
+        const affected = this.players.filter((player) => player.node === from);
+        if (!target || target === from || !affected.length) return 0;
+        let moved = 0;
+        for (const player of affected) {
+            try {
+                await player.moveTo(target);
+                this.migrations++;
+                moved++;
+                this.emit('playerMigrate', player, from, target);
+            } catch (error) {
+                this.emit('playerMigrateFailed', player, error);
+            }
+        }
+        return moved;
+    }
+
     /** Returns the current local health snapshot without network I/O. */
     public health(): HealthSnapshot {
         return this.healthMonitor.snapshot();
@@ -309,11 +314,11 @@ export class Rythra extends EventEmitter implements IRythra {
         if (this.shuttingDown) return;
 
         this.shuttingDown = true;
+        for (const timer of this.failoverTimers.values()) clearTimeout(timer);
+        this.failoverTimers.clear();
 
         const shutdown = async (): Promise<void> => {
-            await Promise.allSettled(
-                Array.from(this.players.keys(), (guild) => this.destroyPlayer(guild)),
-            );
+            await Promise.allSettled(Array.from(this.players.keys(), (guild) => this.destroyPlayer(guild)));
 
             for (const node of this.nodes.values()) node.disconnect();
 
@@ -324,12 +329,17 @@ export class Rythra extends EventEmitter implements IRythra {
             this.removeAllListeners();
         };
 
-        await Promise.race([
-            shutdown(),
-            new Promise<void>((resolve) =>
-                setTimeout(resolve, Math.max(0, timeout)),
-            ),
-        ]);
+        let timer: ReturnType<typeof setTimeout> | undefined;
+        try {
+            await Promise.race([
+                shutdown(),
+                new Promise<void>((resolve) => {
+                    timer = setTimeout(resolve, Math.max(0, timeout));
+                }),
+            ]);
+        } finally {
+            clearTimeout(timer);
+        }
     }
 
     /** Connects all configured Lavalink nodes concurrently. */
@@ -338,8 +348,6 @@ export class Rythra extends EventEmitter implements IRythra {
             throw new Error('Rythra is shutting down.');
         }
 
-        await Promise.all(
-            Array.from(this.nodes.values(), (node) => node.connect()),
-        );
+        await Promise.all(Array.from(this.nodes.values(), (node) => node.connect()));
     }
 }

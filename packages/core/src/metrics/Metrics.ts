@@ -34,17 +34,29 @@ export class Metrics {
     private restRequests = 0;
 
     /** Sets the current node count. */
-    public setConnectedNodes(value: number): void { this.connectedNodes = Math.max(0, value); }
+    public setConnectedNodes(value: number): void {
+        this.connectedNodes = Math.max(0, value);
+    }
     /** Sets the current player count. */
-    public setPlayers(value: number): void { this.players = Math.max(0, value); }
+    public setPlayers(value: number): void {
+        this.players = Math.max(0, value);
+    }
     /** Sets the current playing-player count. */
-    public setPlayingPlayers(value: number): void { this.playingPlayers = Math.max(0, value); }
+    public setPlayingPlayers(value: number): void {
+        this.playingPlayers = Math.max(0, value);
+    }
     /** Records a reconnect attempt. */
-    public recordReconnect(): void { this.reconnects++; }
+    public recordReconnect(): void {
+        this.reconnects++;
+    }
     /** Records a player migration. */
-    public recordMigration(): void { this.migrations++; }
+    public recordMigration(): void {
+        this.migrations++;
+    }
     /** Records a failed REST request. */
-    public recordRestError(): void { this.restErrors++; }
+    public recordRestError(): void {
+        this.restErrors++;
+    }
     /** Records one REST request latency sample. */
     public recordRestLatency(milliseconds: number): void {
         if (!Number.isFinite(milliseconds) || milliseconds < 0) return;

@@ -3,11 +3,11 @@ title: PlayerState
 description: API Reference for PlayerState
 ---
 
-[**Rythra Documentation v0.2.0**](../README.md)
+[**Rythra Documentation v0.3.0**](../README.md)
 
 ***
 
-Defined in: [packages/core/src/Types.ts:53](https://github.com/ekretos/Rythra/blob/6c930d7e9f0c1ef34b406255dcc9686af3cb2be2/packages/core/src/Types.ts#L53)
+Defined in: [packages/types/src/index.ts:178](https://github.com/ekretos/Rythra/blob/main/packages/types/src/index.ts#L178)
 
 Runtime player state.
 
@@ -17,7 +17,9 @@ Runtime player state.
 
 > **connected**: `boolean`
 
-Defined in: [packages/core/src/Types.ts:53](https://github.com/ekretos/Rythra/blob/6c930d7e9f0c1ef34b406255dcc9686af3cb2be2/packages/core/src/Types.ts#L53)
+Defined in: [packages/types/src/index.ts:181](https://github.com/ekretos/Rythra/blob/main/packages/types/src/index.ts#L181)
+
+Connection state.
 
 ***
 
@@ -25,7 +27,9 @@ Defined in: [packages/core/src/Types.ts:53](https://github.com/ekretos/Rythra/bl
 
 > **ping**: `number`
 
-Defined in: [packages/core/src/Types.ts:53](https://github.com/ekretos/Rythra/blob/6c930d7e9f0c1ef34b406255dcc9686af3cb2be2/packages/core/src/Types.ts#L53)
+Defined in: [packages/types/src/index.ts:182](https://github.com/ekretos/Rythra/blob/main/packages/types/src/index.ts#L182)
+
+Ping.
 
 ***
 
@@ -33,7 +37,9 @@ Defined in: [packages/core/src/Types.ts:53](https://github.com/ekretos/Rythra/bl
 
 > **position**: `number`
 
-Defined in: [packages/core/src/Types.ts:53](https://github.com/ekretos/Rythra/blob/6c930d7e9f0c1ef34b406255dcc9686af3cb2be2/packages/core/src/Types.ts#L53)
+Defined in: [packages/types/src/index.ts:180](https://github.com/ekretos/Rythra/blob/main/packages/types/src/index.ts#L180)
+
+Position.
 
 ***
 
@@ -41,4 +47,6 @@ Defined in: [packages/core/src/Types.ts:53](https://github.com/ekretos/Rythra/bl
 
 > **time**: `number`
 
-Defined in: [packages/core/src/Types.ts:53](https://github.com/ekretos/Rythra/blob/6c930d7e9f0c1ef34b406255dcc9686af3cb2be2/packages/core/src/Types.ts#L53)
+Defined in: [packages/types/src/index.ts:179](https://github.com/ekretos/Rythra/blob/main/packages/types/src/index.ts#L179)
+
+Server time.

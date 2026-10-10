@@ -1,0 +1,15 @@
+{
+    "extends": "../../tsconfig.json",
+    "compilerOptions": {
+        "outDir": "../../dist/connectors",
+        "rootDir": "src",
+        "noEmit": false,
+        "declaration": true,
+        "declarationMap": true,
+        "paths": {
+            "@rythra/types": ["../../packages/types/dist/index.d.ts"],
+            "@rythra/core": ["../../dist/core/index.d.ts"]
+        }
+    },
+    "include": ["src/**/*"]
+}

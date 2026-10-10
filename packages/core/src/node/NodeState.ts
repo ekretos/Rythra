@@ -30,10 +30,14 @@ export class NodeStateMachine {
     public constructor(private readonly onTransition?: NodeStateListener) {}
 
     /** The current node state. */
-    public get state(): NodeState { return this.current; }
+    public get state(): NodeState {
+        return this.current;
+    }
 
     /** Determines whether a transition to the given state is accepted. */
-    public can(to: NodeState): boolean { return NODE_STATE_TRANSITIONS[this.current].includes(to); }
+    public can(to: NodeState): boolean {
+        return NODE_STATE_TRANSITIONS[this.current].includes(to);
+    }
 
     /**
      * Moves the machine to a new state.

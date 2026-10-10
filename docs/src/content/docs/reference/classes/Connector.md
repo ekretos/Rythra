@@ -3,11 +3,11 @@ title: Connector
 description: API Reference for Connector
 ---
 
-[**Rythra Documentation v0.2.0**](../README.md)
+[**Rythra Documentation v0.3.0**](../README.md)
 
 ***
 
-Defined in: [packages/core/src/Connector.ts:10](https://github.com/ekretos/Rythra/blob/6c930d7e9f0c1ef34b406255dcc9686af3cb2be2/packages/core/src/Connector.ts#L10)
+Defined in: [packages/core/src/Connector.ts:10](https://github.com/ekretos/Rythra/blob/main/packages/core/src/Connector.ts#L10)
 
 Abstract class representing a connector to a Discord library.
 
@@ -27,7 +27,7 @@ Connectors keep Discord gateway concerns outside the Rythra playback core.
 
 > **new Connector**\<`T`\>(`client`): `Connector`\<`T`\>
 
-Defined in: [packages/core/src/Connector.ts:17](https://github.com/ekretos/Rythra/blob/6c930d7e9f0c1ef34b406255dcc9686af3cb2be2/packages/core/src/Connector.ts#L17)
+Defined in: [packages/core/src/Connector.ts:19](https://github.com/ekretos/Rythra/blob/main/packages/core/src/Connector.ts#L19)
 
 Creates a connector around a Discord library client.
 
@@ -47,9 +47,19 @@ Creates a connector around a Discord library client.
 
 > `readonly` **client**: `T`
 
-Defined in: [packages/core/src/Connector.ts:14](https://github.com/ekretos/Rythra/blob/6c930d7e9f0c1ef34b406255dcc9686af3cb2be2/packages/core/src/Connector.ts#L14)
+Defined in: [packages/core/src/Connector.ts:14](https://github.com/ekretos/Rythra/blob/main/packages/core/src/Connector.ts#L14)
 
 The Discord library client.
+
+***
+
+### listening
+
+> `protected` **listening**: `boolean` = `false`
+
+Defined in: [packages/core/src/Connector.ts:16](https://github.com/ekretos/Rythra/blob/main/packages/core/src/Connector.ts#L16)
+
+Whether [Connector.listen](#listen) already registered its gateway listeners.
 
 ***
 
@@ -57,7 +67,7 @@ The Discord library client.
 
 > **manager**: [`Rythra`](Rythra.md) \| `null` = `null`
 
-Defined in: [packages/core/src/Connector.ts:12](https://github.com/ekretos/Rythra/blob/6c930d7e9f0c1ef34b406255dcc9686af3cb2be2/packages/core/src/Connector.ts#L12)
+Defined in: [packages/core/src/Connector.ts:12](https://github.com/ekretos/Rythra/blob/main/packages/core/src/Connector.ts#L12)
 
 The Rythra manager instance.
 
@@ -67,7 +77,7 @@ The Rythra manager instance.
 
 > `abstract` **getId**(): `string` \| `null`
 
-Defined in: [packages/core/src/Connector.ts:29](https://github.com/ekretos/Rythra/blob/6c930d7e9f0c1ef34b406255dcc9686af3cb2be2/packages/core/src/Connector.ts#L29)
+Defined in: [packages/core/src/Connector.ts:35](https://github.com/ekretos/Rythra/blob/main/packages/core/src/Connector.ts#L35)
 
 Gets the client ID from the Discord client.
 
@@ -81,7 +91,7 @@ Gets the client ID from the Discord client.
 
 > `abstract` **listen**(): `void`
 
-Defined in: [packages/core/src/Connector.ts:26](https://github.com/ekretos/Rythra/blob/6c930d7e9f0c1ef34b406255dcc9686af3cb2be2/packages/core/src/Connector.ts#L26)
+Defined in: [packages/core/src/Connector.ts:32](https://github.com/ekretos/Rythra/blob/main/packages/core/src/Connector.ts#L32)
 
 Starts listening for gateway events.
 
@@ -95,7 +105,7 @@ Starts listening for gateway events.
 
 > `abstract` **sendPacket**(`shardId`, `payload`, `important`): `void`
 
-Defined in: [packages/core/src/Connector.ts:23](https://github.com/ekretos/Rythra/blob/6c930d7e9f0c1ef34b406255dcc9686af3cb2be2/packages/core/src/Connector.ts#L23)
+Defined in: [packages/core/src/Connector.ts:29](https://github.com/ekretos/Rythra/blob/main/packages/core/src/Connector.ts#L29)
 
 Sends a packet to the Discord gateway.
 
@@ -123,7 +133,7 @@ Sends a packet to the Discord gateway.
 
 > **setManager**(`manager`): `void`
 
-Defined in: [packages/core/src/Connector.ts:20](https://github.com/ekretos/Rythra/blob/6c930d7e9f0c1ef34b406255dcc9686af3cb2be2/packages/core/src/Connector.ts#L20)
+Defined in: [packages/core/src/Connector.ts:24](https://github.com/ekretos/Rythra/blob/main/packages/core/src/Connector.ts#L24)
 
 Sets the Rythra manager for this connector.
 

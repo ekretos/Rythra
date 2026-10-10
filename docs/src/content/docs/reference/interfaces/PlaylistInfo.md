@@ -3,11 +3,11 @@ title: PlaylistInfo
 description: API Reference for PlaylistInfo
 ---
 
-[**Rythra Documentation v0.2.0**](../README.md)
+[**Rythra Documentation v0.3.0**](../README.md)
 
 ***
 
-Defined in: [packages/core/src/Types.ts:30](https://github.com/ekretos/Rythra/blob/6c930d7e9f0c1ef34b406255dcc9686af3cb2be2/packages/core/src/Types.ts#L30)
+Defined in: [packages/types/src/index.ts:61](https://github.com/ekretos/Rythra/blob/main/packages/types/src/index.ts#L61)
 
 Playlist metadata.
 
@@ -17,7 +17,9 @@ Playlist metadata.
 
 > **name**: `string`
 
-Defined in: [packages/core/src/Types.ts:30](https://github.com/ekretos/Rythra/blob/6c930d7e9f0c1ef34b406255dcc9686af3cb2be2/packages/core/src/Types.ts#L30)
+Defined in: [packages/types/src/index.ts:62](https://github.com/ekretos/Rythra/blob/main/packages/types/src/index.ts#L62)
+
+Playlist name.
 
 ***
 
@@ -25,4 +27,6 @@ Defined in: [packages/core/src/Types.ts:30](https://github.com/ekretos/Rythra/bl
 
 > **selectedTrack**: `number`
 
-Defined in: [packages/core/src/Types.ts:30](https://github.com/ekretos/Rythra/blob/6c930d7e9f0c1ef34b406255dcc9686af3cb2be2/packages/core/src/Types.ts#L30)
+Defined in: [packages/types/src/index.ts:63](https://github.com/ekretos/Rythra/blob/main/packages/types/src/index.ts#L63)
+
+Selected track index.

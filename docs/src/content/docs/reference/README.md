@@ -3,7 +3,7 @@ title: README
 description: API Reference for README
 ---
 
-**Rythra Documentation v0.2.0**
+**Rythra Documentation v0.3.0**
 
 ***
 
@@ -18,10 +18,12 @@ description: API Reference for README
 - [Connector](classes/Connector.md)
 - [FetchRestTransport](classes/FetchRestTransport.md)
 - [Health](classes/Health.md)
+- [Metrics](classes/Metrics.md)
 - [Node](classes/Node.md)
 - [NodeError](classes/NodeError.md)
 - [NodeRegistry](classes/NodeRegistry.md)
 - [NodeStateMachine](classes/NodeStateMachine.md)
+- [NoopPersistenceAdapter](classes/NoopPersistenceAdapter.md)
 - [PlayerRecoveryError](classes/PlayerRecoveryError.md)
 - [PlayerRegistry](classes/PlayerRegistry.md)
 - [Queue](classes/Queue.md)
@@ -45,16 +47,20 @@ description: API Reference for README
 - [FinalFetchOptions](interfaces/FinalFetchOptions.md)
 - [GatewayPacket](interfaces/GatewayPacket.md)
 - [HealthSnapshot](interfaces/HealthSnapshot.md)
+- [IConnector](interfaces/IConnector.md)
 - [IRythra](interfaces/IRythra.md)
 - [Karaoke](interfaces/Karaoke.md)
 - [LavalinkPlayer](interfaces/LavalinkPlayer.md)
 - [LavalinkRestError](interfaces/LavalinkRestError.md)
 - [LavalinkServerMessage](interfaces/LavalinkServerMessage.md)
 - [LowPass](interfaces/LowPass.md)
+- [MetricsSnapshot](interfaces/MetricsSnapshot.md)
 - [NodeInfo](interfaces/NodeInfo.md)
 - [NodeOptions](interfaces/NodeOptions.md)
 - [Payload](interfaces/Payload.md)
+- [PersistenceAdapter](interfaces/PersistenceAdapter.md)
 - [PlayerOptions](interfaces/PlayerOptions.md)
+- [PlayerSnapshot](interfaces/PlayerSnapshot.md)
 - [PlayerState](interfaces/PlayerState.md)
 - [PlaylistData](interfaces/PlaylistData.md)
 - [PlaylistInfo](interfaces/PlaylistInfo.md)
@@ -62,10 +68,13 @@ description: API Reference for README
 - [ProtocolAdapter](interfaces/ProtocolAdapter.md)
 - [ProtocolCapabilities](interfaces/ProtocolCapabilities.md)
 - [ProtocolHandshake](interfaces/ProtocolHandshake.md)
+- [RestNode](interfaces/RestNode.md)
 - [RestTransport](interfaces/RestTransport.md)
 - [Rotation](interfaces/Rotation.md)
 - [RoutePlanner](interfaces/RoutePlanner.md)
+- [RythraMetricsAdapter](interfaces/RythraMetricsAdapter.md)
 - [RythraOptions](interfaces/RythraOptions.md)
+- [RythraPersistenceAdapter](interfaces/RythraPersistenceAdapter.md)
 - [SearchResultData](interfaces/SearchResultData.md)
 - [SessionInfo](interfaces/SessionInfo.md)
 - [SocketTransport](interfaces/SocketTransport.md)

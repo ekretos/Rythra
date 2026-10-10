@@ -1,7 +1,7 @@
 import { EventEmitter } from 'node:events';
-import { Node } from '../node/Node';
-import { Queue } from '../Queue';
-import type { PlayerOptions, Track, VoiceStateUpdate } from '../Types';
+import type { PlayerNode } from '../contracts.js';
+import { Queue } from '../Queue.js';
+import type { PlayerOptions, SearchPlatform, Track, VoiceServerUpdate, VoiceStateUpdate } from '@rythra/types';
 
 interface TrackEventPayload {
     track?: Track | null;
@@ -10,11 +10,28 @@ interface TrackEventPayload {
     exception?: unknown;
 }
 
-type IntegrationTrack = Track & Record<string, any>;
+type IntegrationTrack = Track & {
+    title?: string;
+    author?: string;
+    length?: number;
+    isStream?: boolean;
+    position?: number;
+    identifier?: string;
+    sourceName?: string;
+    uri?: string;
+    thumbnail?: string;
+    raw?: { info: Track['info'] };
+    requester?: unknown;
+};
+interface PlayerSearchResult {
+    type: 'EMPTY' | 'PLAYLIST' | 'SEARCH';
+    playlistName?: string;
+    tracks: IntegrationTrack[];
+}
 type LoopMode = 'none' | 'track' | 'queue';
 
 export class RythraPlayer extends EventEmitter {
-    public readonly node: Node;
+    public node: PlayerNode;
     public readonly guild: string;
     public voiceChannel: string;
     public textChannel: string;
@@ -23,14 +40,24 @@ export class RythraPlayer extends EventEmitter {
     public volume = 100;
     public loop: LoopMode = 'none';
     public voiceState: Partial<VoiceStateUpdate> = {};
+    /** Last Discord voice server data, kept so the player can be moved to another node. */
+    public voiceServer: VoiceServerUpdate | null = null;
+    /** Last playback position reported by Lavalink, in milliseconds. */
+    public lastPosition = 0;
     public readonly data = new Map<string, unknown>();
     public readonly queue: Queue = new Queue();
 
-    public get guildId(): string { return this.guild; }
-    public get voiceId(): string { return this.voiceChannel; }
-    public get textId(): string { return this.textChannel; }
+    public get guildId(): string {
+        return this.guild;
+    }
+    public get voiceId(): string {
+        return this.voiceChannel;
+    }
+    public get textId(): string {
+        return this.textChannel;
+    }
 
-    constructor(node: Node, options: PlayerOptions) {
+    constructor(node: PlayerNode, options: PlayerOptions) {
         super();
         this.node = node;
         this.guild = options.guild;
@@ -46,18 +73,25 @@ export class RythraPlayer extends EventEmitter {
             const current = this.queue.current;
             const endedEncoded = data.encodedTrack ?? data.track?.encoded;
             if (current && (!endedEncoded || endedEncoded === current.encoded)) {
-                this.queue.previous.unshift(current);
+                this.queue.pushHistory(current);
                 this.queue.current = null;
                 if (this.loop === 'track') this.queue.unshift(current);
                 else if (this.loop === 'queue') this.queue.add(current);
             }
             const reason = data.reason?.toLowerCase();
-            if (reason !== 'replaced' && reason !== 'stopped' && this.node.manager.options.autoPlay && this.queue.length > 0) await this.play();
+            if (reason !== 'replaced' && reason !== 'stopped' && this.node.manager.options.autoPlay && this.queue.length > 0)
+                await this.play().catch((error: unknown) => {
+                    this.emit('playerError', error);
+                });
             this.emit('trackEnd', data);
         });
         this.on('TrackExceptionEvent', (data: TrackEventPayload) => this.emit('trackException', data));
         this.on('TrackStuckEvent', (data: TrackEventPayload) => this.emit('trackStuck', data));
-        this.on('playerUpdate', (data: unknown) => this.emit('update', data));
+        this.on('playerUpdate', (data: unknown) => {
+            const position = (data as { state?: { position?: unknown } } | null)?.state?.position;
+            if (typeof position === 'number') this.lastPosition = position;
+            this.emit('update', data);
+        });
     }
 
     private decorateTrack(track: Track, requester?: unknown): IntegrationTrack {
@@ -77,13 +111,43 @@ export class RythraPlayer extends EventEmitter {
         return value;
     }
 
-    public async search(query: string, options: { requester?: unknown; source?: string } = {}): Promise<any> {
+    /**
+     * Moves this player to another node and restores voice, track, position, volume and pause state.
+     * @throws {Error} When Discord voice data needed to re-establish the session is missing.
+     */
+    public async moveTo(node: PlayerNode): Promise<void> {
+        const { voiceServer, voiceState } = this;
+        if (!voiceServer || !voiceState.session_id || !voiceState.channel_id) throw new Error(`Cannot move player ${this.guild}: Discord voice data is missing.`);
+        const previous = this.node;
+        this.node = node;
+        try {
+            await node.rest.updatePlayer({
+                guildId: this.guild,
+                playerOptions: {
+                    voice: { token: voiceServer.token, endpoint: voiceServer.endpoint, sessionId: voiceState.session_id, channelId: voiceState.channel_id },
+                    volume: this.volume,
+                    paused: this.paused,
+                    ...(this.queue.current ? { track: { encoded: this.queue.current.encoded }, position: this.lastPosition } : {}),
+                },
+            });
+        } catch (error) {
+            this.node = previous;
+            throw error;
+        }
+    }
+
+    public async search(query: string, options: { requester?: unknown; source?: string } = {}): Promise<PlayerSearchResult> {
         const source = options.source ? String(options.source).replace(/:$/, '') : undefined;
-        const response = await this.node.manager.search(query, options.requester, source as any);
+        const response = await this.node.manager.search(query, options.requester, source as SearchPlatform | undefined);
         if (response.loadType === 'error') throw new Error(response.data.message || 'Lavalink search failed.');
         if (response.loadType === 'empty') return { type: 'EMPTY', tracks: [] };
-        if (response.loadType === 'playlist') return { type: 'PLAYLIST', playlistName: response.data.info?.name, tracks: (response.data.tracks || []).map((track: Track) => this.decorateTrack(track, options.requester)) };
-        const tracks = response.loadType === 'track' ? [response.data] : (response.data.tracks || []);
+        if (response.loadType === 'playlist')
+            return {
+                type: 'PLAYLIST',
+                playlistName: response.data.info?.name,
+                tracks: (response.data.tracks || []).map((track: Track) => this.decorateTrack(track, options.requester)),
+            };
+        const tracks = response.loadType === 'track' ? [response.data] : response.data.tracks || [];
         return { type: 'SEARCH', tracks: tracks.map((track: Track) => this.decorateTrack(track, options.requester)) };
     }
 
@@ -102,11 +166,13 @@ export class RythraPlayer extends EventEmitter {
         this.emit('stop');
     }
 
-    public async destroy(): Promise<void> { await this.node.manager.destroyPlayer(this.guild); }
+    public async destroy(): Promise<void> {
+        await this.node.manager.destroyPlayer(this.guild);
+    }
 
     public async skip(): Promise<void> {
         this.emit('trackSkip', this.queue.current);
-        if (this.queue.current) this.queue.previous.unshift(this.queue.current);
+        if (this.queue.current) this.queue.pushHistory(this.queue.current);
         this.queue.current = null;
         if (this.queue.length > 0) await this.play();
         else await this.stop();
@@ -139,6 +205,10 @@ export class RythraPlayer extends EventEmitter {
 
     public connect(options?: { voiceChannel?: string; selfMute?: boolean; selfDeaf?: boolean }): void {
         this.voiceChannel = options?.voiceChannel ?? this.voiceChannel;
-        this.node.manager.options.connector.sendPacket(0, { op: 4, d: { guild_id: this.guild, channel_id: this.voiceChannel, self_mute: options?.selfMute ?? false, self_deaf: options?.selfDeaf ?? false } }, false);
+        this.node.manager.options.connector.sendPacket(
+            0,
+            { op: 4, d: { guild_id: this.guild, channel_id: this.voiceChannel, self_mute: options?.selfMute ?? false, self_deaf: options?.selfDeaf ?? false } },
+            false
+        );
     }
 }

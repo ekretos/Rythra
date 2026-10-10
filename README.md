@@ -10,7 +10,7 @@ A lightweight, powerful, and modular Lavalink client for modern TypeScript & Jav
 ## ✨ Features
 
 - 🧩 **Modular & Standalone**: Use the full all-in-one `rythra` package or install only `@rythra/core` with your chosen connector.
-- 🔌 **Multi-Library Connectors**: Native support for **Discord.js**, **Eris**, **Oceanic.js**, and **Seyfert**.
+- 🔌 **Multi-Library Connectors**: Native support for **Discord.js**, **Eris**, **Oceanic.js**, **Seyfert**, and **Lunibee**.
 - ⚡ **Version-Aware Protocol**: Built-in support for **Lavalink v4** and forward-compatible **Lavalink v5** architecture with auto-version discovery.
 - 📜 **Zero-Dependency Queue**: High-performance built-in queue system with loop, shuffle, and custom store support.
 - 🛡️ **Reliability & Resilience**: Built-in circuit breaker, explicit node state machine, health monitoring snapshots, and automatic failover.
@@ -24,6 +24,7 @@ A lightweight, powerful, and modular Lavalink client for modern TypeScript & Jav
 You can install Rythra either as a single all-in-one package or as individual scoped packages:
 
 ### Option 1: All-in-One Package (Recommended)
+
 ```bash
 # Using Bun
 bun add rythra discord.js
@@ -36,18 +37,22 @@ pnpm add rythra discord.js
 ```
 
 ### Option 2: Modular Packages
+
 ```bash
 # Core + Discord.js
-bun add @rythra/core @rythra/connector-discordjs discord.js
+bun add @rythra/core @rythra/connectors discord.js
 
 # Core + Eris
-bun add @rythra/core @rythra/connector-eris eris
+bun add @rythra/core @rythra/connectors eris
 
 # Core + Oceanic.js
-bun add @rythra/core @rythra/connector-oceanic oceanic.js
+bun add @rythra/core @rythra/connectors oceanic.js
 
 # Core + Seyfert
-bun add @rythra/core @rythra/connector-seyfert seyfert
+bun add @rythra/core @rythra/connectors seyfert
+
+# Lunibee
+bun add @rythra/core @rythra/connectors lunibee
 ```
 
 ---
@@ -61,15 +66,10 @@ import { Client, GatewayIntentBits } from 'discord.js';
 import { Rythra, DiscordJS } from 'rythra';
 // Or modular:
 // import { Rythra } from '@rythra/core';
-// import { DiscordJS } from '@rythra/connector-discordjs';
+// import { DiscordJS } from '@rythra/connectors';
 
 const client = new Client({
-    intents: [
-        GatewayIntentBits.Guilds,
-        GatewayIntentBits.GuildVoiceStates,
-        GatewayIntentBits.GuildMessages,
-        GatewayIntentBits.MessageContent,
-    ],
+    intents: [GatewayIntentBits.Guilds, GatewayIntentBits.GuildVoiceStates, GatewayIntentBits.GuildMessages, GatewayIntentBits.MessageContent],
 });
 
 const connector = new DiscordJS(client);
@@ -80,7 +80,7 @@ const rythra = new Rythra({
         {
             host: 'localhost',
             port: 2333,
-            password: 'youshallnotpass',
+            password: process.env.LAVALINK_PASSWORD,
             secure: false,
         },
     ],
@@ -148,12 +148,13 @@ client.login(process.env.BOT_TOKEN);
 
 ## 🔌 Supported Connectors
 
-| Library | Connector Import | Package |
-| :--- | :--- | :--- |
-| **Discord.js** | `import { DiscordJS } from 'rythra'` or `'@rythra/connector-discordjs'` | [`@rythra/connector-discordjs`](https://www.npmjs.com/package/@rythra/connector-discordjs) |
-| **Eris** | `import { ErisConnector } from '@rythra/connector-eris'` | [`@rythra/connector-eris`](https://www.npmjs.com/package/@rythra/connector-eris) |
-| **Oceanic.js** | `import { OceanicJS } from '@rythra/connector-oceanic'` | [`@rythra/connector-oceanic`](https://www.npmjs.com/package/@rythra/connector-oceanic) |
-| **Seyfert** | `import { SeyfertConnector } from '@rythra/connector-seyfert'` | [`@rythra/connector-seyfert`](https://www.npmjs.com/package/@rythra/connector-seyfert) |
+| Library        | Connector Import                                               | Package                                                                  |
+| :------------- | :------------------------------------------------------------- | :----------------------------------------------------------------------- |
+| **Discord.js** | `import { DiscordJS } from 'rythra'` or `'@rythra/connectors'` | [`@rythra/connectors`](https://www.npmjs.com/package/@rythra/connectors) |
+| **Eris**       | `import { Eris } from '@rythra/connectors'`                    | [`@rythra/connectors`](https://www.npmjs.com/package/@rythra/connectors) |
+| **Oceanic.js** | `import { OceanicJS } from '@rythra/connectors'`               | [`@rythra/connectors`](https://www.npmjs.com/package/@rythra/connectors) |
+| **Seyfert**    | `import { Seyfert } from '@rythra/connectors'`                 | [`@rythra/connectors`](https://www.npmjs.com/package/@rythra/connectors) |
+| **Lunibee**    | `import { Lunibee } from '@rythra/connectors'`                 | [`@rythra/connectors`](https://www.npmjs.com/package/@rythra/connectors) |
 
 ---
 
@@ -164,10 +165,10 @@ const player = rythra.players.get(guildId);
 
 // Playback controls
 await player.play();
-await player.pause(true);  // Pause
+await player.pause(true); // Pause
 await player.pause(false); // Resume
-await player.skip();       // Skip to next track
-await player.stop();       // Stop and clear
+await player.skip(); // Skip to next track
+await player.stop(); // Stop and clear
 
 // Volume (0 - 1000, 100 is default)
 await player.setVolume(80);
@@ -180,15 +181,15 @@ await player.node.rest.updatePlayer({
     guildId,
     playerOptions: {
         filters: {
-            timescale: { speed: 1.25, pitch: 1.0, rate: 1.0 }
-        }
-    }
+            timescale: { speed: 1.25, pitch: 1.0, rate: 1.0 },
+        },
+    },
 });
 
 // Queue management
 player.queue.shuffle();
 player.queue.remove(0); // Remove first track
-player.queue.clear();   // Clear remaining queue
+player.queue.clear(); // Clear remaining queue
 ```
 
 ---
@@ -205,13 +206,13 @@ const rythra = new Rythra({
         {
             host: 'node-v4.example.com',
             port: 2333,
-            password: 'youshallnotpass',
+            password: process.env.LAVALINK_PASSWORD,
             lavalinkVersion: 4,
         },
         {
             host: 'node-v5.example.com',
             port: 2333,
-            password: 'youshallnotpass',
+            password: process.env.LAVALINK_PASSWORD,
             lavalinkVersion: 'auto',
         },
     ],
@@ -223,9 +224,9 @@ A node resolves a protocol adapter once (from `lavalinkVersion`, or from `GET /v
 ```typescript
 import { resolveProtocol, resolveProtocolFromServerVersion } from 'rythra';
 
-resolveProtocol(4).restUrl('http://localhost:2333');     // http://localhost:2333/v4
-resolveProtocol(5).websocketUrl('ws://localhost:2333');  // ws://localhost:2333/v5/websocket
-resolveProtocolFromServerVersion('5.0.0').capabilities;  // { sessionResume, filters, dave }
+resolveProtocol(4).restUrl('http://localhost:2333'); // http://localhost:2333/v4
+resolveProtocol(5).websocketUrl('ws://localhost:2333'); // ws://localhost:2333/v5/websocket
+resolveProtocolFromServerVersion('5.0.0').capabilities; // { sessionResume, filters, dave }
 ```
 
 ---
@@ -257,10 +258,7 @@ Rythra
 │   ├── protocol                 # @rythra/protocol: Lavalink v4/v5 protocol definitions
 │   ├── plugins                  # @rythra/plugins: Extensible plugin registry
 │   └── connectors/
-│       ├── discordjs            # @rythra/connector-discordjs
-│       ├── eris                 # @rythra/connector-eris
-│       ├── oceanic              # @rythra/connector-oceanic
-│       └── seyfert              # @rythra/connector-seyfert
+│       └── src                  # @rythra/connectors (discordjs, eris, oceanic, seyfert, lunibee)
 └── dist/                        # Unified root distribution build
 ```
 

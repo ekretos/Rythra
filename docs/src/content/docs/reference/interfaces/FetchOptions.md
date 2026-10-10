@@ -3,11 +3,11 @@ title: FetchOptions
 description: API Reference for FetchOptions
 ---
 
-[**Rythra Documentation v0.2.0**](../README.md)
+[**Rythra Documentation v0.3.0**](../README.md)
 
 ***
 
-Defined in: [packages/core/src/Types.ts:61](https://github.com/ekretos/Rythra/blob/6c930d7e9f0c1ef34b406255dcc9686af3cb2be2/packages/core/src/Types.ts#L61)
+Defined in: [packages/types/src/index.ts:242](https://github.com/ekretos/Rythra/blob/main/packages/types/src/index.ts#L242)
 
 Internal REST request description.
 
@@ -17,7 +17,9 @@ Internal REST request description.
 
 > **endpoint**: `string`
 
-Defined in: [packages/core/src/Types.ts:61](https://github.com/ekretos/Rythra/blob/6c930d7e9f0c1ef34b406255dcc9686af3cb2be2/packages/core/src/Types.ts#L61)
+Defined in: [packages/types/src/index.ts:243](https://github.com/ekretos/Rythra/blob/main/packages/types/src/index.ts#L243)
+
+Endpoint.
 
 ***
 
@@ -25,20 +27,30 @@ Defined in: [packages/core/src/Types.ts:61](https://github.com/ekretos/Rythra/bl
 
 > **options**: `object`
 
-Defined in: [packages/core/src/Types.ts:61](https://github.com/ekretos/Rythra/blob/6c930d7e9f0c1ef34b406255dcc9686af3cb2be2/packages/core/src/Types.ts#L61)
+Defined in: [packages/types/src/index.ts:244](https://github.com/ekretos/Rythra/blob/main/packages/types/src/index.ts#L244)
+
+Request options.
 
 #### body?
 
 > `optional` **body?**: `unknown`
 
+Body.
+
 #### headers?
 
 > `optional` **headers?**: `Record`\<`string`, `string`\>
+
+Headers.
 
 #### method?
 
 > `optional` **method?**: `string`
 
+Method.
+
 #### params?
 
 > `optional` **params?**: `Record`\<`string`, `string`\>
+
+Params.

@@ -1,12 +1,14 @@
 {
-  "extends": "../../tsconfig.json",
-  "compilerOptions": {
-    "outDir": "../../dist/core",
-    "rootDir": "src",
-    "noEmit": false,
-    "declaration": true,
-    "declarationMap": true,
-    "paths": {}
-  },
-  "include": ["src/**/*"]
+    "extends": "../../tsconfig.json",
+    "compilerOptions": {
+        "outDir": "../../dist/core",
+        "rootDir": "src",
+        "noEmit": false,
+        "declaration": true,
+        "declarationMap": true,
+        "paths": {
+            "@rythra/types": ["../types/dist/index.d.ts"]
+        }
+    },
+    "include": ["src/**/*"]
 }

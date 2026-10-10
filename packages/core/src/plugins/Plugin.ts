@@ -23,7 +23,9 @@ export class PluginRegistry<Context = unknown> {
     private readonly plugins = new Map<string, RythraPlugin<Context>>();
 
     /** Returns all registered plugins in registration order. */
-    public list(): readonly RythraPlugin<Context>[] { return [...this.plugins.values()]; }
+    public list(): readonly RythraPlugin<Context>[] {
+        return [...this.plugins.values()];
+    }
 
     /**
      * Registers and initializes a plugin.
@@ -34,8 +36,14 @@ export class PluginRegistry<Context = unknown> {
     public async register(plugin: RythraPlugin<Context>, context: Context): Promise<void> {
         if (!plugin.name.trim()) throw new Error('Plugin name cannot be empty.');
         if (this.plugins.has(plugin.name)) throw new Error(`Plugin already registered: ${plugin.name}`);
-        await plugin.setup?.(context);
+        // Reserve the name first so concurrent registrations of the same plugin cannot both run setup.
         this.plugins.set(plugin.name, plugin);
+        try {
+            await plugin.setup?.(context);
+        } catch (error) {
+            this.plugins.delete(plugin.name);
+            throw new Error(`Plugin "${plugin.name}" failed during setup`, { cause: error });
+        }
     }
 
     /**
@@ -47,13 +55,26 @@ export class PluginRegistry<Context = unknown> {
     public async unregister(name: string, context: Context): Promise<boolean> {
         const plugin = this.plugins.get(name);
         if (!plugin) return false;
-        await plugin.destroy?.(context);
         this.plugins.delete(name);
+        try {
+            await plugin.destroy?.(context);
+        } catch (error) {
+            throw new Error(`Plugin "${name}" failed during teardown`, { cause: error });
+        }
         return true;
     }
 
     /** Tears down and removes every registered plugin. */
     public async clear(context: Context): Promise<void> {
-        for (const name of [...this.plugins.keys()]) await this.unregister(name, context);
+        const failures: unknown[] = [];
+        // Intentionally sequential: plugins tear down in registration order and may depend on one another.
+        for (const name of [...this.plugins.keys()]) {
+            try {
+                await this.unregister(name, context);
+            } catch (error) {
+                failures.push(error);
+            }
+        }
+        if (failures.length) throw new AggregateError(failures, 'One or more plugins failed during teardown.');
     }
 }

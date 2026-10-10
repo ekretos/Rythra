@@ -1,13 +1,15 @@
 import { EventEmitter } from 'node:events';
 import type WebSocket from 'ws';
-import type { Rythra } from '../Rythra';
-import type { NodeOptions, Stats } from '../Types';
-import { Rest } from '../Rest';
-import { getLavalinkApiVersion, type LavalinkApiVersion } from '../protocol/LavalinkProtocol';
-import { resolveProtocol, type LavalinkServerMessage, type ProtocolAdapter } from '../protocol/ProtocolAdapter';
-import { CircuitBreaker } from '../reliability/CircuitBreaker';
-import { WebSocketTransport } from '../transport/WebSocketTransport';
-import { NodeStateMachine, type NodeState } from './NodeState';
+import type { RythraManager } from '../contracts.js';
+import type { NodeOptions, Stats } from '@rythra/types';
+import { Rest } from '../Rest.js';
+import { ConfigurationError } from '../errors/RythraError.js';
+import { getLavalinkApiVersion, type LavalinkApiVersion } from '../protocol/LavalinkProtocol.js';
+import { resolveProtocol, type LavalinkServerMessage, type ProtocolAdapter } from '../protocol/ProtocolAdapter.js';
+import { CircuitBreaker } from '../reliability/CircuitBreaker.js';
+import { WebSocketTransport } from '../transport/WebSocketTransport.js';
+import type { SocketTransport, SocketTransportHandlers } from '../transport/Transport.js';
+import { NodeStateMachine, type NodeState } from './NodeState.js';
 
 /**
  * Runtime for a single Lavalink node.
@@ -20,23 +22,34 @@ import { NodeStateMachine, type NodeState } from './NodeState';
  * @extends EventEmitter
  */
 export class Node extends EventEmitter {
-    /** The Rythra manager that owns this node. */ public readonly manager: Rythra;
+    /** The Rythra manager that owns this node. */ public readonly manager: RythraManager;
     /** The configuration used to connect to Lavalink. */ public readonly options: NodeOptions;
     /** The version-aware REST client for this node. */ public readonly rest: Rest;
     /** Circuit breaker protecting this node from repeated connection attempts. */ public readonly circuit = new CircuitBreaker();
-    /** The most recently received Lavalink statistics payload. */ public stats: Stats = { players: 0, playingPlayers: 0, uptime: 0, memory: { free: 0, used: 0, allocated: 0, reservable: 0 }, cpu: { cores: 0, systemLoad: 0, lavalinkLoad: 0 } };
+    /** The most recently received Lavalink statistics payload. */ public stats: Stats = {
+        players: 0,
+        playingPlayers: 0,
+        uptime: 0,
+        memory: { free: 0, used: 0, allocated: 0, reservable: 0 },
+        cpu: { cores: 0, systemLoad: 0, lavalinkLoad: 0 },
+    };
     /** The Lavalink session ID used for session resumption. */ public sessionId: string | null = null;
     /** The Lavalink API generation selected for this node. */ public apiVersion: LavalinkApiVersion | null = null;
     /** The protocol adapter selected for this node, or `null` until detection completes. */ public protocol: ProtocolAdapter | null = null;
     /** Lifecycle state machine for this node. */ private readonly machine: NodeStateMachine;
-    /** The active socket transport, or `null` when disconnected. */ private transport: WebSocketTransport | null = null;
+    /** The active socket transport, or `null` when disconnected. */ private transport: SocketTransport | null = null;
     /** Timer used for a pending reconnect attempt. */ private reconnectTimer: ReturnType<typeof setTimeout> | null = null;
     /** Number of reconnect attempts made since the last successful connection. */ private reconnectAttempts = 0;
     /** Prevents automatic reconnecting after an explicit disconnect. */ private manuallyDisconnected = false;
+    /** Set when the server rejected our credentials; reconnecting cannot succeed. */ private authFailed = false;
 
     /** Creates a Lavalink node. */
-    constructor(manager: Rythra, options: NodeOptions) {
+    private readonly password: string;
+
+    constructor(manager: RythraManager, options: NodeOptions) {
         super();
+        if (!options.password) throw new ConfigurationError('Lavalink node password is required.', { host: options.host });
+        this.password = options.password;
         this.manager = manager;
         this.options = { ...options, lavalinkVersion: options.lavalinkVersion ?? manager.options.lavalinkVersion };
         this.apiVersion = this.options.lavalinkVersion === 'auto' || this.options.lavalinkVersion === undefined ? null : this.options.lavalinkVersion;
@@ -46,33 +59,52 @@ export class Node extends EventEmitter {
     }
 
     /** The current lifecycle state of this node. */
-    public get state(): NodeState { return this.machine.state; }
+    public get state(): NodeState {
+        return this.machine.state;
+    }
 
     /** Whether the node currently has an open WebSocket connection. */
-    public get connected(): boolean { return this.machine.state === 'ready'; }
+    public get connected(): boolean {
+        return this.machine.state === 'ready';
+    }
 
     /** The active Lavalink WebSocket, or `null` when disconnected. */
-    public get ws(): WebSocket | null { return this.transport?.socket ?? null; }
+    public get ws(): WebSocket | null {
+        return (this.transport as { socket?: WebSocket | null } | null)?.socket ?? null;
+    }
 
     /** Human-readable identifier used in logs and errors. */
-    public get label(): string { return this.options.identifier ?? this.options.host; }
+    public get label(): string {
+        return this.options.identifier ?? this.options.host;
+    }
 
     /** The protocol adapter in use, falling back to the oldest supported generation. */
-    private get activeProtocol(): ProtocolAdapter { return this.protocol ?? resolveProtocol(4); }
+    private get activeProtocol(): ProtocolAdapter {
+        return this.protocol ?? resolveProtocol(4);
+    }
 
     /** The HTTP origin of this node. */
-    private get httpOrigin(): string { return `${this.options.secure ? 'https' : 'http'}://${this.options.host}${this.options.port ? `:${this.options.port}` : ''}`; }
+    private get httpOrigin(): string {
+        return `${this.options.secure ? 'https' : 'http'}://${this.options.host}${this.options.port ? `:${this.options.port}` : ''}`;
+    }
 
     /** The WebSocket origin of this node. */
-    private get websocketOrigin(): string { return `${this.options.secure ? 'wss' : 'ws'}://${this.options.host}${this.options.port ? `:${this.options.port}` : ''}`; }
+    private get websocketOrigin(): string {
+        return `${this.options.secure ? 'wss' : 'ws'}://${this.options.host}${this.options.port ? `:${this.options.port}` : ''}`;
+    }
 
     /** The version-aware base URL used for REST requests. */
-    public get restUrl(): string { return this.activeProtocol.restUrl(this.httpOrigin); }
+    public get restUrl(): string {
+        return this.activeProtocol.restUrl(this.httpOrigin);
+    }
 
     /** Detects the Lavalink generation when the node is configured for automatic selection. */
     private async detectVersion(): Promise<void> {
         if (this.apiVersion) return;
-        const response = await fetch(`${this.httpOrigin}/version`, { headers: { Authorization: this.options.password || 'youshallnotpass' }, signal: AbortSignal.timeout((this.manager.options.restTimeout || 10) * 1000) });
+        const response = await fetch(`${this.httpOrigin}/version`, {
+            headers: { Authorization: this.password },
+            signal: AbortSignal.timeout((this.manager.options.restTimeout || 10) * 1000),
+        });
         if (!response.ok) throw new Error(`Unable to detect Lavalink version (${response.status})`);
         const semver = (await response.text()).trim();
         this.apiVersion = getLavalinkApiVersion(semver);
@@ -83,47 +115,91 @@ export class Node extends EventEmitter {
     /** Connects the node, resolving once Lavalink accepts the WebSocket handshake. */
     public async connect(): Promise<void> {
         this.manuallyDisconnected = false;
+        this.authFailed = false;
         if (this.connected) return;
         if (this.transport) {
             return new Promise<void>((resolve, reject) => {
-                const onConnect = () => { cleanup(); resolve(); };
-                const onError = (error: Error) => { cleanup(); reject(error); };
-                const cleanup = () => { this.off('connect', onConnect); this.off('error', onError); };
+                const onConnect = () => {
+                    cleanup();
+                    resolve();
+                };
+                const onError = (error: Error) => {
+                    cleanup();
+                    reject(error);
+                };
+                const onAbort = () => {
+                    cleanup();
+                    reject(new Error(`Lavalink node ${this.label} was disconnected before it connected.`));
+                };
+                const cleanup = () => {
+                    this.off('connect', onConnect);
+                    this.off('error', onError);
+                    this.off('manualDisconnect', onAbort);
+                };
                 this.once('connect', onConnect);
                 this.once('error', onError);
+                this.once('manualDisconnect', onAbort);
             });
         }
         if (!this.circuit.canRequest()) throw new Error(`Lavalink node ${this.label} is unavailable (circuit breaker open).`);
         this.machine.transition('connecting');
         try {
             await this.detectVersion();
-            const transport = new WebSocketTransport(
-                {
-                    url: () => this.activeProtocol.websocketUrl(this.websocketOrigin),
-                    headers: () => this.activeProtocol.handshakeHeaders({
-                        password: this.options.password || 'youshallnotpass',
+            const transport = this.createTransport({
+                onOpen: () => {
+                    if (this.transport === transport) this.handleOpen();
+                },
+                onMessage: (message) => {
+                    if (this.transport === transport) this.handleMessage(message);
+                },
+                onClose: () => {
+                    if (this.transport === transport) this.handleClose();
+                },
+                onError: (error) => {
+                    if (this.transport === transport) this.handleTransportError(error);
+                },
+            });
+            this.transport = transport;
+            await transport.connect();
+        } catch (error) {
+            if (this.manuallyDisconnected) throw error instanceof Error ? error : new Error(String(error));
+            this.transport = null;
+            this.circuit.failure();
+            this.machine.transition('degraded');
+            this.emitError(error);
+            this.scheduleReconnect();
+            throw error instanceof Error ? error : new Error(String(error));
+        }
+    }
+
+    /** Creates the socket transport for one connection attempt. Overridable for testing. */
+    protected createTransport(handlers: SocketTransportHandlers): SocketTransport {
+        return new WebSocketTransport(
+            {
+                url: () => this.activeProtocol.websocketUrl(this.websocketOrigin),
+                headers: () =>
+                    this.activeProtocol.handshakeHeaders({
+                        password: this.password,
                         clientName: `${this.manager.options.clientName || 'Rythra'}/${this.manager.version}`,
                         userId: this.manager.options.clientId || this.manager.options.connector.getId() || '',
                         sessionId: this.sessionId,
                     }),
-                    rejectUnauthorized: this.options.rejectUnauthorized ?? true,
-                },
-                {
-                    onOpen: () => this.handleOpen(),
-                    onMessage: (message) => this.handleMessage(message),
-                    onClose: () => this.handleClose(),
-                    onError: (error) => this.emit('error', error),
-                },
-            );
-            this.transport = transport;
-            await transport.connect();
-        } catch (error) {
-            this.transport = null;
-            this.circuit.failure();
-            this.emit('error', error);
-            this.scheduleReconnect();
-            throw error instanceof Error ? error : new Error(String(error));
-        }
+                rejectUnauthorized: this.options.rejectUnauthorized ?? true,
+            },
+            handlers
+        );
+    }
+
+    /** Emits `error` only when a listener exists, because an unhandled `error` event would throw. */
+    private emitError(error: unknown): void {
+        if (this.listenerCount('error') > 0) this.emit('error', error);
+    }
+
+    /** Records credential rejections so they are not retried forever, then reports the error. */
+    private handleTransportError(error: unknown): void {
+        const message = (error as { message?: unknown } | null)?.message;
+        if (typeof message === 'string' && /Unexpected server response: (401|403)\b/.test(message)) this.authFailed = true;
+        this.emitError(error);
     }
 
     /** Handles a successful handshake. */
@@ -171,11 +247,15 @@ export class Node extends EventEmitter {
 
     /** Schedules the next reconnect attempt using exponential backoff with jitter. */
     private scheduleReconnect(): void {
-        if (this.manuallyDisconnected || this.reconnectTimer || !this.circuit.canRequest()) return;
+        if (this.manuallyDisconnected || this.reconnectTimer) return;
+        if (this.authFailed) {
+            if (this.machine.transition('disconnected')) this.emit('reconnectFailed');
+            return;
+        }
+        if (!this.circuit.canRequest()) return;
         const maxAttempts = this.options.retryAmount ?? Infinity;
         if (this.reconnectAttempts >= maxAttempts) {
-            this.machine.transition('disconnected');
-            this.emit('reconnectFailed');
+            if (this.machine.transition('disconnected')) this.emit('reconnectFailed');
             return;
         }
         this.reconnectAttempts++;
@@ -194,7 +274,11 @@ export class Node extends EventEmitter {
     /** Disconnects the node and cancels any pending reconnect. */
     public disconnect(): void {
         this.manuallyDisconnected = true;
-        if (this.reconnectTimer) { clearTimeout(this.reconnectTimer); this.reconnectTimer = null; }
+        this.emit('manualDisconnect');
+        if (this.reconnectTimer) {
+            clearTimeout(this.reconnectTimer);
+            this.reconnectTimer = null;
+        }
         this.machine.transition('draining');
         this.transport?.disconnect();
         this.transport = null;

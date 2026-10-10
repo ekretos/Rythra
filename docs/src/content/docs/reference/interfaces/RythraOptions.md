@@ -3,11 +3,11 @@ title: RythraOptions
 description: API Reference for RythraOptions
 ---
 
-[**Rythra Documentation v0.2.0**](../README.md)
+[**Rythra Documentation v0.3.0**](../README.md)
 
 ***
 
-Defined in: [packages/core/src/Types.ts:7](https://github.com/ekretos/Rythra/blob/6c930d7e9f0c1ef34b406255dcc9686af3cb2be2/packages/core/src/Types.ts#L7)
+Defined in: [packages/types/src/index.ts:18](https://github.com/ekretos/Rythra/blob/main/packages/types/src/index.ts#L18)
 
 Configuration used to create a Rythra manager.
 
@@ -17,7 +17,7 @@ Configuration used to create a Rythra manager.
 
 > `optional` **autoPlay?**: `boolean`
 
-Defined in: [packages/core/src/Types.ts:14](https://github.com/ekretos/Rythra/blob/6c930d7e9f0c1ef34b406255dcc9686af3cb2be2/packages/core/src/Types.ts#L14)
+Defined in: [packages/types/src/index.ts:25](https://github.com/ekretos/Rythra/blob/main/packages/types/src/index.ts#L25)
 
 Whether players should automatically advance to the next track.
 
@@ -27,7 +27,7 @@ Whether players should automatically advance to the next track.
 
 > `optional` **clientId?**: `string`
 
-Defined in: [packages/core/src/Types.ts:11](https://github.com/ekretos/Rythra/blob/6c930d7e9f0c1ef34b406255dcc9686af3cb2be2/packages/core/src/Types.ts#L11)
+Defined in: [packages/types/src/index.ts:22](https://github.com/ekretos/Rythra/blob/main/packages/types/src/index.ts#L22)
 
 Discord application/client ID sent to Lavalink.
 
@@ -37,7 +37,7 @@ Discord application/client ID sent to Lavalink.
 
 > `optional` **clientName?**: `string`
 
-Defined in: [packages/core/src/Types.ts:12](https://github.com/ekretos/Rythra/blob/6c930d7e9f0c1ef34b406255dcc9686af3cb2be2/packages/core/src/Types.ts#L12)
+Defined in: [packages/types/src/index.ts:23](https://github.com/ekretos/Rythra/blob/main/packages/types/src/index.ts#L23)
 
 Custom client name sent in the Lavalink `Client-Name` header.
 
@@ -45,9 +45,9 @@ Custom client name sent in the Lavalink `Client-Name` header.
 
 ### connector
 
-> **connector**: [`Connector`](../classes/Connector.md)
+> **connector**: [`IConnector`](IConnector.md)
 
-Defined in: [packages/core/src/Types.ts:8](https://github.com/ekretos/Rythra/blob/6c930d7e9f0c1ef34b406255dcc9686af3cb2be2/packages/core/src/Types.ts#L8)
+Defined in: [packages/types/src/index.ts:19](https://github.com/ekretos/Rythra/blob/main/packages/types/src/index.ts#L19)
 
 Discord library connector used by the manager.
 
@@ -57,9 +57,29 @@ Discord library connector used by the manager.
 
 > `optional` **defaultSearchPlatform?**: [`SearchPlatform`](../type-aliases/SearchPlatform.md)
 
-Defined in: [packages/core/src/Types.ts:16](https://github.com/ekretos/Rythra/blob/6c930d7e9f0c1ef34b406255dcc9686af3cb2be2/packages/core/src/Types.ts#L16)
+Defined in: [packages/types/src/index.ts:29](https://github.com/ekretos/Rythra/blob/main/packages/types/src/index.ts#L29)
 
 Default search platform.
+
+***
+
+### failover?
+
+> `optional` **failover?**: `boolean`
+
+Defined in: [packages/types/src/index.ts:26](https://github.com/ekretos/Rythra/blob/main/packages/types/src/index.ts#L26)
+
+Move players to another ready node when their node disconnects unexpectedly. Defaults to `false`.
+
+***
+
+### failoverDelay?
+
+> `optional` **failoverDelay?**: `number`
+
+Defined in: [packages/types/src/index.ts:27](https://github.com/ekretos/Rythra/blob/main/packages/types/src/index.ts#L27)
+
+Milliseconds to wait for a disconnected node to recover before failing over. Defaults to `5000`.
 
 ***
 
@@ -67,7 +87,7 @@ Default search platform.
 
 > `optional` **lavalinkVersion?**: [`LavalinkApiVersionMode`](../type-aliases/LavalinkApiVersionMode.md)
 
-Defined in: [packages/core/src/Types.ts:19](https://github.com/ekretos/Rythra/blob/6c930d7e9f0c1ef34b406255dcc9686af3cb2be2/packages/core/src/Types.ts#L19)
+Defined in: [packages/types/src/index.ts:32](https://github.com/ekretos/Rythra/blob/main/packages/types/src/index.ts#L32)
 
 Default Lavalink API generation.
 
@@ -77,7 +97,7 @@ Default Lavalink API generation.
 
 > `optional` **nodes?**: [`NodeOptions`](NodeOptions.md)[]
 
-Defined in: [packages/core/src/Types.ts:10](https://github.com/ekretos/Rythra/blob/6c930d7e9f0c1ef34b406255dcc9686af3cb2be2/packages/core/src/Types.ts#L10)
+Defined in: [packages/types/src/index.ts:21](https://github.com/ekretos/Rythra/blob/main/packages/types/src/index.ts#L21)
 
 Lavalink nodes to register during manager initialization.
 
@@ -87,7 +107,7 @@ Lavalink nodes to register during manager initialization.
 
 > `optional` **restTimeout?**: `number`
 
-Defined in: [packages/core/src/Types.ts:18](https://github.com/ekretos/Rythra/blob/6c930d7e9f0c1ef34b406255dcc9686af3cb2be2/packages/core/src/Types.ts#L18)
+Defined in: [packages/types/src/index.ts:31](https://github.com/ekretos/Rythra/blob/main/packages/types/src/index.ts#L31)
 
 REST request timeout in seconds.
 
@@ -97,7 +117,7 @@ REST request timeout in seconds.
 
 > `optional` **shards?**: `number`
 
-Defined in: [packages/core/src/Types.ts:13](https://github.com/ekretos/Rythra/blob/6c930d7e9f0c1ef34b406255dcc9686af3cb2be2/packages/core/src/Types.ts#L13)
+Defined in: [packages/types/src/index.ts:24](https://github.com/ekretos/Rythra/blob/main/packages/types/src/index.ts#L24)
 
 Number of Discord shards used by the bot.
 
@@ -107,7 +127,7 @@ Number of Discord shards used by the bot.
 
 > `optional` **trackPartial?**: `string`[]
 
-Defined in: [packages/core/src/Types.ts:15](https://github.com/ekretos/Rythra/blob/6c930d7e9f0c1ef34b406255dcc9686af3cb2be2/packages/core/src/Types.ts#L15)
+Defined in: [packages/types/src/index.ts:28](https://github.com/ekretos/Rythra/blob/main/packages/types/src/index.ts#L28)
 
 Track properties retained by integrations.
 
@@ -117,7 +137,7 @@ Track properties retained by integrations.
 
 > `optional` **userAgent?**: `string`
 
-Defined in: [packages/core/src/Types.ts:17](https://github.com/ekretos/Rythra/blob/6c930d7e9f0c1ef34b406255dcc9686af3cb2be2/packages/core/src/Types.ts#L17)
+Defined in: [packages/types/src/index.ts:30](https://github.com/ekretos/Rythra/blob/main/packages/types/src/index.ts#L30)
 
 Custom User-Agent used for REST requests.
 
@@ -127,6 +147,6 @@ Custom User-Agent used for REST requests.
 
 > `optional` **version?**: `string`
 
-Defined in: [packages/core/src/Types.ts:9](https://github.com/ekretos/Rythra/blob/6c930d7e9f0c1ef34b406255dcc9686af3cb2be2/packages/core/src/Types.ts#L9)
+Defined in: [packages/types/src/index.ts:20](https://github.com/ekretos/Rythra/blob/main/packages/types/src/index.ts#L20)
 
 Rythra client version included in Lavalink identification headers.

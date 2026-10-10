@@ -1,5 +1,5 @@
-import { Rythra } from './Rythra';
-import type { GatewayPacket } from './Types';
+import type { Rythra } from './Rythra.js';
+import type { GatewayPacket } from '@rythra/types';
 
 /**
  * Abstract class representing a connector to a Discord library.
@@ -12,12 +12,18 @@ export abstract class Connector<T = unknown> {
     public manager: Rythra | null = null;
     /** The Discord library client. */
     public readonly client: T;
+    /** Whether {@link Connector.listen} already registered its gateway listeners. */
+    protected listening = false;
 
     /** Creates a connector around a Discord library client. */
-    constructor(client: T) { this.client = client; }
+    constructor(client: T) {
+        this.client = client;
+    }
 
     /** Sets the Rythra manager for this connector. */
-    public setManager(manager: Rythra): void { this.manager = manager; }
+    public setManager(manager: Rythra): void {
+        this.manager = manager;
+    }
 
     /** Sends a packet to the Discord gateway. */
     public abstract sendPacket(shardId: number, payload: GatewayPacket, important: boolean): void;

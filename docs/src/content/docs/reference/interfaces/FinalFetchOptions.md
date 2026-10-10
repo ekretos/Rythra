@@ -3,11 +3,11 @@ title: FinalFetchOptions
 description: API Reference for FinalFetchOptions
 ---
 
-[**Rythra Documentation v0.2.0**](../README.md)
+[**Rythra Documentation v0.3.0**](../README.md)
 
 ***
 
-Defined in: [packages/core/src/Types.ts:62](https://github.com/ekretos/Rythra/blob/6c930d7e9f0c1ef34b406255dcc9686af3cb2be2/packages/core/src/Types.ts#L62)
+Defined in: [packages/types/src/index.ts:251](https://github.com/ekretos/Rythra/blob/main/packages/types/src/index.ts#L251)
 
 Final native fetch options.
 
@@ -17,7 +17,9 @@ Final native fetch options.
 
 > `optional` **body?**: `string`
 
-Defined in: [packages/core/src/Types.ts:62](https://github.com/ekretos/Rythra/blob/6c930d7e9f0c1ef34b406255dcc9686af3cb2be2/packages/core/src/Types.ts#L62)
+Defined in: [packages/types/src/index.ts:255](https://github.com/ekretos/Rythra/blob/main/packages/types/src/index.ts#L255)
+
+Body.
 
 ***
 
@@ -25,7 +27,9 @@ Defined in: [packages/core/src/Types.ts:62](https://github.com/ekretos/Rythra/bl
 
 > **headers**: `Record`\<`string`, `string`\>
 
-Defined in: [packages/core/src/Types.ts:62](https://github.com/ekretos/Rythra/blob/6c930d7e9f0c1ef34b406255dcc9686af3cb2be2/packages/core/src/Types.ts#L62)
+Defined in: [packages/types/src/index.ts:253](https://github.com/ekretos/Rythra/blob/main/packages/types/src/index.ts#L253)
+
+Headers.
 
 ***
 
@@ -33,7 +37,9 @@ Defined in: [packages/core/src/Types.ts:62](https://github.com/ekretos/Rythra/bl
 
 > **method**: `string`
 
-Defined in: [packages/core/src/Types.ts:62](https://github.com/ekretos/Rythra/blob/6c930d7e9f0c1ef34b406255dcc9686af3cb2be2/packages/core/src/Types.ts#L62)
+Defined in: [packages/types/src/index.ts:252](https://github.com/ekretos/Rythra/blob/main/packages/types/src/index.ts#L252)
+
+Method.
 
 ***
 
@@ -41,4 +47,6 @@ Defined in: [packages/core/src/Types.ts:62](https://github.com/ekretos/Rythra/bl
 
 > **signal**: `AbortSignal`
 
-Defined in: [packages/core/src/Types.ts:62](https://github.com/ekretos/Rythra/blob/6c930d7e9f0c1ef34b406255dcc9686af3cb2be2/packages/core/src/Types.ts#L62)
+Defined in: [packages/types/src/index.ts:254](https://github.com/ekretos/Rythra/blob/main/packages/types/src/index.ts#L254)
+
+Abort signal.

@@ -21,21 +21,16 @@ npm install @rythra/core
 
 ## 🚀 Usage
 
-`@rythra/core` is designed to be paired with any Discord library connector (e.g. `@rythra/connector-discordjs`):
+`@rythra/core` is designed to be paired with any Discord library connector (e.g. `@rythra/connectors`):
 
 ```typescript
 import { Rythra, Node, RythraPlayer } from '@rythra/core';
 import type { Track, SearchResponse } from '@rythra/core';
-import { DiscordJS } from '@rythra/connector-discordjs';
+import { DiscordJS } from '@rythra/connectors';
 import { Client, GatewayIntentBits } from 'discord.js';
 
 const client = new Client({
-    intents: [
-        GatewayIntentBits.Guilds,
-        GatewayIntentBits.GuildVoiceStates,
-        GatewayIntentBits.GuildMessages,
-        GatewayIntentBits.MessageContent,
-    ],
+    intents: [GatewayIntentBits.Guilds, GatewayIntentBits.GuildVoiceStates, GatewayIntentBits.GuildMessages, GatewayIntentBits.MessageContent],
 });
 
 const connector = new DiscordJS(client);
@@ -46,7 +41,7 @@ const rythra = new Rythra({
         {
             host: 'localhost',
             port: 2333,
-            password: 'youshallnotpass',
+            password: process.env.LAVALINK_PASSWORD,
             secure: false,
         },
     ],

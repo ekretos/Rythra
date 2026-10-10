@@ -1,10 +1,21 @@
 {
   "name": "@rythra/types",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "type": "module",
   "description": "Shared public contracts for Rythra",
-  "files": ["src"],
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts"
+    }
+  },
+  "files": [
+    "dist"
+  ],
   "publishConfig": {
     "access": "public"
+  },
+  "scripts": {
+    "build": "tsc"
   }
 }

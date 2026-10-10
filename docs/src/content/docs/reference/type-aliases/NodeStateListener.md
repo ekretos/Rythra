@@ -3,13 +3,13 @@ title: NodeStateListener
 description: API Reference for NodeStateListener
 ---
 
-[**Rythra Documentation v0.2.0**](../README.md)
+[**Rythra Documentation v0.3.0**](../README.md)
 
 ***
 
 > **NodeStateListener** = (`to`, `from`) => `void`
 
-Defined in: [packages/core/src/node/NodeState.ts:14](https://github.com/ekretos/Rythra/blob/6c930d7e9f0c1ef34b406255dcc9686af3cb2be2/packages/core/src/node/NodeState.ts#L14)
+Defined in: [packages/core/src/node/NodeState.ts:14](https://github.com/ekretos/Rythra/blob/main/packages/core/src/node/NodeState.ts#L14)
 
 Callback invoked whenever a node state machine changes state.
 

@@ -3,11 +3,11 @@ title: Health
 description: API Reference for Health
 ---
 
-[**Rythra Documentation v0.2.0**](../README.md)
+[**Rythra Documentation v0.3.0**](../README.md)
 
 ***
 
-Defined in: [packages/core/src/health/Health.ts:5](https://github.com/ekretos/Rythra/blob/6c930d7e9f0c1ef34b406255dcc9686af3cb2be2/packages/core/src/health/Health.ts#L5)
+Defined in: [packages/core/src/health/Health.ts:14](https://github.com/ekretos/Rythra/blob/main/packages/core/src/health/Health.ts#L14)
 
 Collects lightweight runtime health information without network I/O.
 
@@ -17,7 +17,7 @@ Collects lightweight runtime health information without network I/O.
 
 > **new Health**(`manager`): `Health`
 
-Defined in: [packages/core/src/health/Health.ts:7](https://github.com/ekretos/Rythra/blob/6c930d7e9f0c1ef34b406255dcc9686af3cb2be2/packages/core/src/health/Health.ts#L7)
+Defined in: [packages/core/src/health/Health.ts:16](https://github.com/ekretos/Rythra/blob/main/packages/core/src/health/Health.ts#L16)
 
 Creates a health collector.
 
@@ -55,7 +55,7 @@ Creates a health collector.
 
 > **snapshot**(): [`HealthSnapshot`](../interfaces/HealthSnapshot.md)
 
-Defined in: [packages/core/src/health/Health.ts:9](https://github.com/ekretos/Rythra/blob/6c930d7e9f0c1ef34b406255dcc9686af3cb2be2/packages/core/src/health/Health.ts#L9)
+Defined in: [packages/core/src/health/Health.ts:26](https://github.com/ekretos/Rythra/blob/main/packages/core/src/health/Health.ts#L26)
 
 Returns a point-in-time health snapshot.
 

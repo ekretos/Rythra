@@ -3,11 +3,11 @@ title: Karaoke
 description: API Reference for Karaoke
 ---
 
-[**Rythra Documentation v0.2.0**](../README.md)
+[**Rythra Documentation v0.3.0**](../README.md)
 
 ***
 
-Defined in: [packages/core/src/Types.ts:44](https://github.com/ekretos/Rythra/blob/6c930d7e9f0c1ef34b406255dcc9686af3cb2be2/packages/core/src/Types.ts#L44)
+Defined in: [packages/types/src/index.ts:122](https://github.com/ekretos/Rythra/blob/main/packages/types/src/index.ts#L122)
 
 Karaoke filter.
 
@@ -17,7 +17,9 @@ Karaoke filter.
 
 > `optional` **filterBand?**: `number`
 
-Defined in: [packages/core/src/Types.ts:44](https://github.com/ekretos/Rythra/blob/6c930d7e9f0c1ef34b406255dcc9686af3cb2be2/packages/core/src/Types.ts#L44)
+Defined in: [packages/types/src/index.ts:125](https://github.com/ekretos/Rythra/blob/main/packages/types/src/index.ts#L125)
+
+Filter band.
 
 ***
 
@@ -25,7 +27,9 @@ Defined in: [packages/core/src/Types.ts:44](https://github.com/ekretos/Rythra/bl
 
 > `optional` **filterWidth?**: `number`
 
-Defined in: [packages/core/src/Types.ts:44](https://github.com/ekretos/Rythra/blob/6c930d7e9f0c1ef34b406255dcc9686af3cb2be2/packages/core/src/Types.ts#L44)
+Defined in: [packages/types/src/index.ts:126](https://github.com/ekretos/Rythra/blob/main/packages/types/src/index.ts#L126)
+
+Filter width.
 
 ***
 
@@ -33,7 +37,9 @@ Defined in: [packages/core/src/Types.ts:44](https://github.com/ekretos/Rythra/bl
 
 > `optional` **level?**: `number`
 
-Defined in: [packages/core/src/Types.ts:44](https://github.com/ekretos/Rythra/blob/6c930d7e9f0c1ef34b406255dcc9686af3cb2be2/packages/core/src/Types.ts#L44)
+Defined in: [packages/types/src/index.ts:123](https://github.com/ekretos/Rythra/blob/main/packages/types/src/index.ts#L123)
+
+Level.
 
 ***
 
@@ -41,4 +47,6 @@ Defined in: [packages/core/src/Types.ts:44](https://github.com/ekretos/Rythra/bl
 
 > `optional` **monoLevel?**: `number`
 
-Defined in: [packages/core/src/Types.ts:44](https://github.com/ekretos/Rythra/blob/6c930d7e9f0c1ef34b406255dcc9686af3cb2be2/packages/core/src/Types.ts#L44)
+Defined in: [packages/types/src/index.ts:124](https://github.com/ekretos/Rythra/blob/main/packages/types/src/index.ts#L124)
+
+Mono level.

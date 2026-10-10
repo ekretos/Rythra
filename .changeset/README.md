@@ -8,8 +8,8 @@ Each package can be versioned independently. Release automation should publish o
 
 ```md
 ---
-"@rythra/core": minor
-"@rythra/types": patch
+'@rythra/core': minor
+'@rythra/types': patch
 ---
 
 Add the new plugin lifecycle contract.

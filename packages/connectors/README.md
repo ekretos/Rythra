@@ -1,39 +1,52 @@
-# @rythra/connectors 🔌
+# @rythra/connectors
 
-Discord gateway and voice adapters for [Rythra](https://github.com/Ekretos/Rythra). Connectors bridge Discord library gateway events and voice states into Rythra's framework-agnostic voice runtime.
+Discord library connectors for [Rythra](https://github.com/Ekretos/Rythra): `DiscordJS`, `Eris`, `OceanicJS`, `Seyfert` and `Lunibee`.
 
----
+A connector forwards your Discord library's voice events to Rythra and sends voice packets back through it. Your Discord library is **your own dependency** — this package does not install it.
 
-## 📦 Available Connectors
+## Install
 
-| Library | Package | Description |
-| :--- | :--- | :--- |
-| **Discord.js** | [`@rythra/connector-discordjs`](./discordjs) | Adapter for Discord.js v14+ bots |
-| **Eris** | [`@rythra/connector-eris`](./eris) | Adapter for Eris bots |
-| **Oceanic.js** | [`@rythra/connector-oceanic`](./oceanic) | Adapter for Oceanic.js bots |
-| **Seyfert** | [`@rythra/connector-seyfert`](./seyfert) | Adapter for Seyfert bots |
-
----
-
-## 🛠️ Implementing Custom Connectors
-
-You can easily build a connector for any Discord library or gateway architecture by extending the base `Connector` class from `@rythra/core`:
-
-```typescript
-import { Connector } from '@rythra/core';
-
-export class CustomConnector extends Connector {
-    public listen(): void {
-        // Listen to raw gateway voiceServerUpdate and voiceStateUpdate events
-        // and forward them:
-        // this.manager.voiceServerUpdate(data);
-        // this.manager.voiceStateUpdate(data);
-    }
-}
+```bash
+bun add @rythra/core @rythra/connectors   # plus your Discord library
 ```
 
----
+Import from the package root or a subpath:
 
-## 📄 License
+```ts
+import { DiscordJS } from '@rythra/connectors';
+import { Lunibee } from '@rythra/connectors/lunibee'; // /discordjs, /eris, /oceanic, /seyfert, /lunibee
+```
 
-MIT © [Rythra Team](https://github.com/Ekretos/Rythra)
+| Library        | Class       | Notes                                                           |
+| -------------- | ----------- | --------------------------------------------------------------- |
+| discord.js v14 | `DiscordJS` | Needs the `GuildVoiceStates` intent.                            |
+| Eris           | `Eris`      |                                                                 |
+| Oceanic.js     | `OceanicJS` |                                                                 |
+| Seyfert        | `Seyfert`   |                                                                 |
+| Lunibee        | `Lunibee`   | Single gateway connection; needs the `GuildVoiceStates` intent. |
+
+## Usage
+
+Every connector is used the same way: wrap your client and pass it to `Rythra`.
+
+```ts
+import { Client, GatewayIntentBits } from 'discord.js';
+import { Rythra } from '@rythra/core';
+import { DiscordJS } from '@rythra/connectors';
+
+const client = new Client({ intents: [GatewayIntentBits.Guilds, GatewayIntentBits.GuildVoiceStates] });
+
+const rythra = new Rythra({
+    connector: new DiscordJS(client),
+    nodes: [{ host: 'localhost', port: 2333, password: process.env.LAVALINK_PASSWORD! }],
+});
+
+client.once('clientReady', () => rythra.connect());
+await client.login(process.env.BOT_TOKEN);
+```
+
+For Eris, Oceanic.js, Seyfert and Lunibee, replace `DiscordJS` with `Eris`, `OceanicJS`, `Seyfert` or `Lunibee` and pass that library's client. Connect Rythra only after the client is ready: connectors cannot send voice packets before the Discord gateway is connected.
+
+## Writing a connector
+
+Extend `Connector` from `@rythra/core` and implement `listen()`, `sendPacket()` and `getId()`. `listen()` is idempotent in the built-in connectors; keep the `listening` guard in yours.

@@ -1,4 +1,4 @@
-import { getLavalinkApiPath, getLavalinkApiVersion, type LavalinkApiVersion } from './LavalinkProtocol';
+import { getLavalinkApiPath, getLavalinkApiVersion, type LavalinkApiVersion } from './LavalinkProtocol.js';
 
 /** Feature set advertised by a Lavalink protocol generation. */
 export interface ProtocolCapabilities {

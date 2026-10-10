@@ -3,11 +3,11 @@ title: Equalizer
 description: API Reference for Equalizer
 ---
 
-[**Rythra Documentation v0.2.0**](../README.md)
+[**Rythra Documentation v0.3.0**](../README.md)
 
 ***
 
-Defined in: [packages/core/src/Types.ts:43](https://github.com/ekretos/Rythra/blob/6c930d7e9f0c1ef34b406255dcc9686af3cb2be2/packages/core/src/Types.ts#L43)
+Defined in: [packages/types/src/index.ts:118](https://github.com/ekretos/Rythra/blob/main/packages/types/src/index.ts#L118)
 
 Equalizer filter.
 
@@ -17,7 +17,9 @@ Equalizer filter.
 
 > **band**: `number`
 
-Defined in: [packages/core/src/Types.ts:43](https://github.com/ekretos/Rythra/blob/6c930d7e9f0c1ef34b406255dcc9686af3cb2be2/packages/core/src/Types.ts#L43)
+Defined in: [packages/types/src/index.ts:119](https://github.com/ekretos/Rythra/blob/main/packages/types/src/index.ts#L119)
+
+Band index.
 
 ***
 
@@ -25,4 +27,6 @@ Defined in: [packages/core/src/Types.ts:43](https://github.com/ekretos/Rythra/bl
 
 > **gain**: `number`
 
-Defined in: [packages/core/src/Types.ts:43](https://github.com/ekretos/Rythra/blob/6c930d7e9f0c1ef34b406255dcc9686af3cb2be2/packages/core/src/Types.ts#L43)
+Defined in: [packages/types/src/index.ts:120](https://github.com/ekretos/Rythra/blob/main/packages/types/src/index.ts#L120)
+
+Gain.

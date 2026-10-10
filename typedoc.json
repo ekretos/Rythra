@@ -10,5 +10,7 @@
     "excludePrivate": true,
     "excludeInternal": true,
     "exclude": ["example/**", "docs/**"],
-    "readme": "none"
+    "readme": "none",
+    "gitRevision": "main",
+    "excludeExternals": true
 }
