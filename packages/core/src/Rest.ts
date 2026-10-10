@@ -1,15 +1,22 @@
-import type { Node } from './node/Node';
 import type { SearchResponse, LavalinkPlayer, Track, UpdatePlayerInfo, SessionInfo, Stats, RoutePlanner, NodeInfo, FetchOptions, LavalinkResponse } from '@rythra/types';
 import type { RestTransport } from './transport/Transport';
 import { FetchRestTransport } from './transport/RestTransport';
 
+/** Minimal node surface required by the REST client. */
+export interface RestNode {
+    /** Node configuration. */ readonly options: { password?: string };
+    /** Version-aware REST base URL. */ readonly restUrl: string;
+    /** Current Lavalink session ID. */ readonly sessionId: string | null;
+    /** Owning manager settings. */ readonly manager: { readonly options: { userAgent?: string; restTimeout?: number } };
+}
+
 /** Version-aware wrapper around the Lavalink REST API. */
 export class Rest {
-    /** Node that owns this REST client. */ protected readonly node: Node;
+    /** Node that owns this REST client. */ protected readonly node: RestNode;
     /** Password used for Lavalink authorization. */ protected readonly auth: string;
     /** Transport used to perform the underlying HTTP requests. */ protected readonly transport: RestTransport;
     /** Creates a REST client for a Lavalink node. */
-    constructor(node: Node, transport: RestTransport = new FetchRestTransport()) { this.node = node; this.auth = node.options.password ?? ''; this.transport = transport; }
+    constructor(node: RestNode, transport: RestTransport = new FetchRestTransport()) { this.node = node; this.auth = node.options.password ?? ''; this.transport = transport; }
     /** The version-aware base URL for REST requests. */ protected get url(): string { return this.node.restUrl; }
     /** Gets the active Lavalink session ID. */
     protected get sessionId(): string { if (!this.node.sessionId) throw new Error('Lavalink session is not ready. Connect the node first.'); return this.node.sessionId; }

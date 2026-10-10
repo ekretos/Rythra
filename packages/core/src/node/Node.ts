@@ -1,6 +1,6 @@
 import { EventEmitter } from 'node:events';
 import type WebSocket from 'ws';
-import type { Rythra } from '../Rythra';
+import type { RythraManager } from '../contracts';
 import type { NodeOptions, Stats } from '@rythra/types';
 import { Rest } from '../Rest';
 import { ConfigurationError } from '../errors/RythraError';
@@ -21,7 +21,7 @@ import { NodeStateMachine, type NodeState } from './NodeState';
  * @extends EventEmitter
  */
 export class Node extends EventEmitter {
-    /** The Rythra manager that owns this node. */ public readonly manager: Rythra;
+    /** The Rythra manager that owns this node. */ public readonly manager: RythraManager;
     /** The configuration used to connect to Lavalink. */ public readonly options: NodeOptions;
     /** The version-aware REST client for this node. */ public readonly rest: Rest;
     /** Circuit breaker protecting this node from repeated connection attempts. */ public readonly circuit = new CircuitBreaker();
@@ -38,7 +38,7 @@ export class Node extends EventEmitter {
     /** Creates a Lavalink node. */
     private readonly password: string;
 
-    constructor(manager: Rythra, options: NodeOptions) {
+    constructor(manager: RythraManager, options: NodeOptions) {
         super();
         if (!options.password) throw new ConfigurationError('Lavalink node password is required.', { host: options.host });
         this.password = options.password;

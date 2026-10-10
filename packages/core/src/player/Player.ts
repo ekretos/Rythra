@@ -1,5 +1,5 @@
 import { EventEmitter } from 'node:events';
-import { Node } from '../node/Node';
+import type { PlayerNode } from '../contracts';
 import { Queue } from '../Queue';
 import type { PlayerOptions, SearchPlatform, Track, VoiceStateUpdate } from '@rythra/types';
 
@@ -31,7 +31,7 @@ interface PlayerSearchResult {
 type LoopMode = 'none' | 'track' | 'queue';
 
 export class RythraPlayer extends EventEmitter {
-    public readonly node: Node;
+    public readonly node: PlayerNode;
     public readonly guild: string;
     public voiceChannel: string;
     public textChannel: string;
@@ -47,7 +47,7 @@ export class RythraPlayer extends EventEmitter {
     public get voiceId(): string { return this.voiceChannel; }
     public get textId(): string { return this.textChannel; }
 
-    constructor(node: Node, options: PlayerOptions) {
+    constructor(node: PlayerNode, options: PlayerOptions) {
         super();
         this.node = node;
         this.guild = options.guild;
