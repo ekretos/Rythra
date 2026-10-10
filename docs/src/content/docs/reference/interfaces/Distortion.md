@@ -3,11 +3,11 @@ title: Distortion
 description: API Reference for Distortion
 ---
 
-[**Rythra Documentation v0.2.0**](../README.md)
+[**Rythra Documentation v0.3.0**](../README.md)
 
 ***
 
-Defined in: [packages/core/src/Types.ts:49](https://github.com/ekretos/Rythra/blob/6c930d7e9f0c1ef34b406255dcc9686af3cb2be2/packages/core/src/Types.ts#L49)
+Defined in: [packages/types/src/index.ts:60](https://github.com/ekretos/Rythra/blob/c7739a96c2261c82cc1ff98863eeadbd1fe9a7fe/packages/types/src/index.ts#L60)
 
 Distortion filter.
 
@@ -17,7 +17,7 @@ Distortion filter.
 
 > `optional` **cos2Offset?**: `number`
 
-Defined in: [packages/core/src/Types.ts:49](https://github.com/ekretos/Rythra/blob/6c930d7e9f0c1ef34b406255dcc9686af3cb2be2/packages/core/src/Types.ts#L49)
+Defined in: [packages/types/src/index.ts:60](https://github.com/ekretos/Rythra/blob/c7739a96c2261c82cc1ff98863eeadbd1fe9a7fe/packages/types/src/index.ts#L60)
 
 ***
 
@@ -25,7 +25,7 @@ Defined in: [packages/core/src/Types.ts:49](https://github.com/ekretos/Rythra/bl
 
 > `optional` **cos2Scale?**: `number`
 
-Defined in: [packages/core/src/Types.ts:49](https://github.com/ekretos/Rythra/blob/6c930d7e9f0c1ef34b406255dcc9686af3cb2be2/packages/core/src/Types.ts#L49)
+Defined in: [packages/types/src/index.ts:60](https://github.com/ekretos/Rythra/blob/c7739a96c2261c82cc1ff98863eeadbd1fe9a7fe/packages/types/src/index.ts#L60)
 
 ***
 
@@ -33,7 +33,7 @@ Defined in: [packages/core/src/Types.ts:49](https://github.com/ekretos/Rythra/bl
 
 > `optional` **cosOffset?**: `number`
 
-Defined in: [packages/core/src/Types.ts:49](https://github.com/ekretos/Rythra/blob/6c930d7e9f0c1ef34b406255dcc9686af3cb2be2/packages/core/src/Types.ts#L49)
+Defined in: [packages/types/src/index.ts:60](https://github.com/ekretos/Rythra/blob/c7739a96c2261c82cc1ff98863eeadbd1fe9a7fe/packages/types/src/index.ts#L60)
 
 ***
 
@@ -41,7 +41,7 @@ Defined in: [packages/core/src/Types.ts:49](https://github.com/ekretos/Rythra/bl
 
 > `optional` **cosScale?**: `number`
 
-Defined in: [packages/core/src/Types.ts:49](https://github.com/ekretos/Rythra/blob/6c930d7e9f0c1ef34b406255dcc9686af3cb2be2/packages/core/src/Types.ts#L49)
+Defined in: [packages/types/src/index.ts:60](https://github.com/ekretos/Rythra/blob/c7739a96c2261c82cc1ff98863eeadbd1fe9a7fe/packages/types/src/index.ts#L60)
 
 ***
 
@@ -49,7 +49,7 @@ Defined in: [packages/core/src/Types.ts:49](https://github.com/ekretos/Rythra/bl
 
 > `optional` **sinOffset?**: `number`
 
-Defined in: [packages/core/src/Types.ts:49](https://github.com/ekretos/Rythra/blob/6c930d7e9f0c1ef34b406255dcc9686af3cb2be2/packages/core/src/Types.ts#L49)
+Defined in: [packages/types/src/index.ts:60](https://github.com/ekretos/Rythra/blob/c7739a96c2261c82cc1ff98863eeadbd1fe9a7fe/packages/types/src/index.ts#L60)
 
 ***
 
@@ -57,7 +57,7 @@ Defined in: [packages/core/src/Types.ts:49](https://github.com/ekretos/Rythra/bl
 
 > `optional` **sinScale?**: `number`
 
-Defined in: [packages/core/src/Types.ts:49](https://github.com/ekretos/Rythra/blob/6c930d7e9f0c1ef34b406255dcc9686af3cb2be2/packages/core/src/Types.ts#L49)
+Defined in: [packages/types/src/index.ts:60](https://github.com/ekretos/Rythra/blob/c7739a96c2261c82cc1ff98863eeadbd1fe9a7fe/packages/types/src/index.ts#L60)
 
 ***
 
@@ -65,7 +65,7 @@ Defined in: [packages/core/src/Types.ts:49](https://github.com/ekretos/Rythra/bl
 
 > `optional` **tan2Offset?**: `number`
 
-Defined in: [packages/core/src/Types.ts:49](https://github.com/ekretos/Rythra/blob/6c930d7e9f0c1ef34b406255dcc9686af3cb2be2/packages/core/src/Types.ts#L49)
+Defined in: [packages/types/src/index.ts:60](https://github.com/ekretos/Rythra/blob/c7739a96c2261c82cc1ff98863eeadbd1fe9a7fe/packages/types/src/index.ts#L60)
 
 ***
 
@@ -73,7 +73,7 @@ Defined in: [packages/core/src/Types.ts:49](https://github.com/ekretos/Rythra/bl
 
 > `optional` **tan2Scale?**: `number`
 
-Defined in: [packages/core/src/Types.ts:49](https://github.com/ekretos/Rythra/blob/6c930d7e9f0c1ef34b406255dcc9686af3cb2be2/packages/core/src/Types.ts#L49)
+Defined in: [packages/types/src/index.ts:60](https://github.com/ekretos/Rythra/blob/c7739a96c2261c82cc1ff98863eeadbd1fe9a7fe/packages/types/src/index.ts#L60)
 
 ***
 
@@ -81,7 +81,7 @@ Defined in: [packages/core/src/Types.ts:49](https://github.com/ekretos/Rythra/bl
 
 > `optional` **tanOffset?**: `number`
 
-Defined in: [packages/core/src/Types.ts:49](https://github.com/ekretos/Rythra/blob/6c930d7e9f0c1ef34b406255dcc9686af3cb2be2/packages/core/src/Types.ts#L49)
+Defined in: [packages/types/src/index.ts:60](https://github.com/ekretos/Rythra/blob/c7739a96c2261c82cc1ff98863eeadbd1fe9a7fe/packages/types/src/index.ts#L60)
 
 ***
 
@@ -89,4 +89,4 @@ Defined in: [packages/core/src/Types.ts:49](https://github.com/ekretos/Rythra/bl
 
 > `optional` **tanScale?**: `number`
 
-Defined in: [packages/core/src/Types.ts:49](https://github.com/ekretos/Rythra/blob/6c930d7e9f0c1ef34b406255dcc9686af3cb2be2/packages/core/src/Types.ts#L49)
+Defined in: [packages/types/src/index.ts:60](https://github.com/ekretos/Rythra/blob/c7739a96c2261c82cc1ff98863eeadbd1fe9a7fe/packages/types/src/index.ts#L60)

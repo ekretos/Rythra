@@ -29,43 +29,43 @@
     },
     "packages/connectors": {
       "name": "@rythra/connectors",
-      "version": "0.2.0",
+      "version": "0.3.0",
       "peerDependencies": {
-        "@rythra/core": "^0.2.0",
+        "@rythra/core": "^0.3.0",
       },
     },
     "packages/core": {
       "name": "@rythra/core",
-      "version": "0.2.0",
+      "version": "0.3.0",
       "dependencies": {
         "@rythra/types": "workspace:^",
       },
     },
     "packages/metrics": {
       "name": "@rythra/metrics",
-      "version": "0.2.0",
+      "version": "0.3.0",
       "peerDependencies": {
-        "@rythra/core": "^0.2.0",
+        "@rythra/core": "^0.3.0",
       },
     },
     "packages/persistence": {
       "name": "@rythra/persistence",
-      "version": "0.2.0",
+      "version": "0.3.0",
       "peerDependencies": {
-        "@rythra/core": "^0.2.0",
+        "@rythra/core": "^0.3.0",
       },
     },
     "packages/plugins": {
       "name": "@rythra/plugins",
-      "version": "0.2.0",
+      "version": "0.3.0",
     },
     "packages/protocol": {
       "name": "@rythra/protocol",
-      "version": "0.2.0",
+      "version": "0.3.0",
     },
     "packages/types": {
       "name": "@rythra/types",
-      "version": "0.2.0",
+      "version": "0.3.0",
     },
   },
   "packages": {

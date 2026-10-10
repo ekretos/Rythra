@@ -3,11 +3,11 @@ title: RythraPlayer
 description: API Reference for RythraPlayer
 ---
 
-[**Rythra Documentation v0.2.0**](../README.md)
+[**Rythra Documentation v0.3.0**](../README.md)
 
 ***
 
-Defined in: [packages/core/src/player/Player.ts:16](https://github.com/ekretos/Rythra/blob/6c930d7e9f0c1ef34b406255dcc9686af3cb2be2/packages/core/src/player/Player.ts#L16)
+Defined in: [packages/core/src/player/Player.ts:33](https://github.com/ekretos/Rythra/blob/c7739a96c2261c82cc1ff98863eeadbd1fe9a7fe/packages/core/src/player/Player.ts#L33)
 
 ## Extends
 
@@ -19,13 +19,13 @@ Defined in: [packages/core/src/player/Player.ts:16](https://github.com/ekretos/R
 
 > **new RythraPlayer**(`node`, `options`): `RythraPlayer`
 
-Defined in: [packages/core/src/player/Player.ts:33](https://github.com/ekretos/Rythra/blob/6c930d7e9f0c1ef34b406255dcc9686af3cb2be2/packages/core/src/player/Player.ts#L33)
+Defined in: [packages/core/src/player/Player.ts:50](https://github.com/ekretos/Rythra/blob/c7739a96c2261c82cc1ff98863eeadbd1fe9a7fe/packages/core/src/player/Player.ts#L50)
 
 #### Parameters
 
 ##### node
 
-[`Node`](Node.md)
+`PlayerNode`
 
 ##### options
 
@@ -45,7 +45,7 @@ Defined in: [packages/core/src/player/Player.ts:33](https://github.com/ekretos/R
 
 > `readonly` **data**: `Map`\<`string`, `unknown`\>
 
-Defined in: [packages/core/src/player/Player.ts:26](https://github.com/ekretos/Rythra/blob/6c930d7e9f0c1ef34b406255dcc9686af3cb2be2/packages/core/src/player/Player.ts#L26)
+Defined in: [packages/core/src/player/Player.ts:43](https://github.com/ekretos/Rythra/blob/c7739a96c2261c82cc1ff98863eeadbd1fe9a7fe/packages/core/src/player/Player.ts#L43)
 
 ***
 
@@ -53,7 +53,7 @@ Defined in: [packages/core/src/player/Player.ts:26](https://github.com/ekretos/R
 
 > `readonly` **guild**: `string`
 
-Defined in: [packages/core/src/player/Player.ts:18](https://github.com/ekretos/Rythra/blob/6c930d7e9f0c1ef34b406255dcc9686af3cb2be2/packages/core/src/player/Player.ts#L18)
+Defined in: [packages/core/src/player/Player.ts:35](https://github.com/ekretos/Rythra/blob/c7739a96c2261c82cc1ff98863eeadbd1fe9a7fe/packages/core/src/player/Player.ts#L35)
 
 ***
 
@@ -61,15 +61,15 @@ Defined in: [packages/core/src/player/Player.ts:18](https://github.com/ekretos/R
 
 > **loop**: `LoopMode` = `'none'`
 
-Defined in: [packages/core/src/player/Player.ts:24](https://github.com/ekretos/Rythra/blob/6c930d7e9f0c1ef34b406255dcc9686af3cb2be2/packages/core/src/player/Player.ts#L24)
+Defined in: [packages/core/src/player/Player.ts:41](https://github.com/ekretos/Rythra/blob/c7739a96c2261c82cc1ff98863eeadbd1fe9a7fe/packages/core/src/player/Player.ts#L41)
 
 ***
 
 ### node
 
-> `readonly` **node**: [`Node`](Node.md)
+> `readonly` **node**: `PlayerNode`
 
-Defined in: [packages/core/src/player/Player.ts:17](https://github.com/ekretos/Rythra/blob/6c930d7e9f0c1ef34b406255dcc9686af3cb2be2/packages/core/src/player/Player.ts#L17)
+Defined in: [packages/core/src/player/Player.ts:34](https://github.com/ekretos/Rythra/blob/c7739a96c2261c82cc1ff98863eeadbd1fe9a7fe/packages/core/src/player/Player.ts#L34)
 
 ***
 
@@ -77,7 +77,7 @@ Defined in: [packages/core/src/player/Player.ts:17](https://github.com/ekretos/R
 
 > **paused**: `boolean` = `false`
 
-Defined in: [packages/core/src/player/Player.ts:22](https://github.com/ekretos/Rythra/blob/6c930d7e9f0c1ef34b406255dcc9686af3cb2be2/packages/core/src/player/Player.ts#L22)
+Defined in: [packages/core/src/player/Player.ts:39](https://github.com/ekretos/Rythra/blob/c7739a96c2261c82cc1ff98863eeadbd1fe9a7fe/packages/core/src/player/Player.ts#L39)
 
 ***
 
@@ -85,7 +85,7 @@ Defined in: [packages/core/src/player/Player.ts:22](https://github.com/ekretos/R
 
 > **playing**: `boolean` = `false`
 
-Defined in: [packages/core/src/player/Player.ts:21](https://github.com/ekretos/Rythra/blob/6c930d7e9f0c1ef34b406255dcc9686af3cb2be2/packages/core/src/player/Player.ts#L21)
+Defined in: [packages/core/src/player/Player.ts:38](https://github.com/ekretos/Rythra/blob/c7739a96c2261c82cc1ff98863eeadbd1fe9a7fe/packages/core/src/player/Player.ts#L38)
 
 ***
 
@@ -93,7 +93,7 @@ Defined in: [packages/core/src/player/Player.ts:21](https://github.com/ekretos/R
 
 > `readonly` **queue**: [`Queue`](Queue.md)
 
-Defined in: [packages/core/src/player/Player.ts:27](https://github.com/ekretos/Rythra/blob/6c930d7e9f0c1ef34b406255dcc9686af3cb2be2/packages/core/src/player/Player.ts#L27)
+Defined in: [packages/core/src/player/Player.ts:44](https://github.com/ekretos/Rythra/blob/c7739a96c2261c82cc1ff98863eeadbd1fe9a7fe/packages/core/src/player/Player.ts#L44)
 
 ***
 
@@ -101,7 +101,7 @@ Defined in: [packages/core/src/player/Player.ts:27](https://github.com/ekretos/R
 
 > **textChannel**: `string`
 
-Defined in: [packages/core/src/player/Player.ts:20](https://github.com/ekretos/Rythra/blob/6c930d7e9f0c1ef34b406255dcc9686af3cb2be2/packages/core/src/player/Player.ts#L20)
+Defined in: [packages/core/src/player/Player.ts:37](https://github.com/ekretos/Rythra/blob/c7739a96c2261c82cc1ff98863eeadbd1fe9a7fe/packages/core/src/player/Player.ts#L37)
 
 ***
 
@@ -109,7 +109,7 @@ Defined in: [packages/core/src/player/Player.ts:20](https://github.com/ekretos/R
 
 > **voiceChannel**: `string`
 
-Defined in: [packages/core/src/player/Player.ts:19](https://github.com/ekretos/Rythra/blob/6c930d7e9f0c1ef34b406255dcc9686af3cb2be2/packages/core/src/player/Player.ts#L19)
+Defined in: [packages/core/src/player/Player.ts:36](https://github.com/ekretos/Rythra/blob/c7739a96c2261c82cc1ff98863eeadbd1fe9a7fe/packages/core/src/player/Player.ts#L36)
 
 ***
 
@@ -117,7 +117,7 @@ Defined in: [packages/core/src/player/Player.ts:19](https://github.com/ekretos/R
 
 > **voiceState**: `Partial`\<[`VoiceStateUpdate`](../interfaces/VoiceStateUpdate.md)\> = `{}`
 
-Defined in: [packages/core/src/player/Player.ts:25](https://github.com/ekretos/Rythra/blob/6c930d7e9f0c1ef34b406255dcc9686af3cb2be2/packages/core/src/player/Player.ts#L25)
+Defined in: [packages/core/src/player/Player.ts:42](https://github.com/ekretos/Rythra/blob/c7739a96c2261c82cc1ff98863eeadbd1fe9a7fe/packages/core/src/player/Player.ts#L42)
 
 ***
 
@@ -125,7 +125,7 @@ Defined in: [packages/core/src/player/Player.ts:25](https://github.com/ekretos/R
 
 > **volume**: `number` = `100`
 
-Defined in: [packages/core/src/player/Player.ts:23](https://github.com/ekretos/Rythra/blob/6c930d7e9f0c1ef34b406255dcc9686af3cb2be2/packages/core/src/player/Player.ts#L23)
+Defined in: [packages/core/src/player/Player.ts:40](https://github.com/ekretos/Rythra/blob/c7739a96c2261c82cc1ff98863eeadbd1fe9a7fe/packages/core/src/player/Player.ts#L40)
 
 ## Accessors
 
@@ -135,7 +135,7 @@ Defined in: [packages/core/src/player/Player.ts:23](https://github.com/ekretos/R
 
 > **get** **guildId**(): `string`
 
-Defined in: [packages/core/src/player/Player.ts:29](https://github.com/ekretos/Rythra/blob/6c930d7e9f0c1ef34b406255dcc9686af3cb2be2/packages/core/src/player/Player.ts#L29)
+Defined in: [packages/core/src/player/Player.ts:46](https://github.com/ekretos/Rythra/blob/c7739a96c2261c82cc1ff98863eeadbd1fe9a7fe/packages/core/src/player/Player.ts#L46)
 
 ##### Returns
 
@@ -149,7 +149,7 @@ Defined in: [packages/core/src/player/Player.ts:29](https://github.com/ekretos/R
 
 > **get** **textId**(): `string`
 
-Defined in: [packages/core/src/player/Player.ts:31](https://github.com/ekretos/Rythra/blob/6c930d7e9f0c1ef34b406255dcc9686af3cb2be2/packages/core/src/player/Player.ts#L31)
+Defined in: [packages/core/src/player/Player.ts:48](https://github.com/ekretos/Rythra/blob/c7739a96c2261c82cc1ff98863eeadbd1fe9a7fe/packages/core/src/player/Player.ts#L48)
 
 ##### Returns
 
@@ -163,7 +163,7 @@ Defined in: [packages/core/src/player/Player.ts:31](https://github.com/ekretos/R
 
 > **get** **voiceId**(): `string`
 
-Defined in: [packages/core/src/player/Player.ts:30](https://github.com/ekretos/Rythra/blob/6c930d7e9f0c1ef34b406255dcc9686af3cb2be2/packages/core/src/player/Player.ts#L30)
+Defined in: [packages/core/src/player/Player.ts:47](https://github.com/ekretos/Rythra/blob/c7739a96c2261c82cc1ff98863eeadbd1fe9a7fe/packages/core/src/player/Player.ts#L47)
 
 ##### Returns
 
@@ -175,7 +175,7 @@ Defined in: [packages/core/src/player/Player.ts:30](https://github.com/ekretos/R
 
 > `optional` **\[captureRejectionSymbol\]**(`error`, `event`, ...`args`): `void`
 
-Defined in: node\_modules/.bun/@types+node@26.6.1/node\_modules/@types/node/events.d.ts:87
+Defined in: node\_modules/.bun/@types+node@26.6.5/node\_modules/@types/node/events.d.ts:87
 
 The `Symbol.for('nodejs.rejection')` method is called in case a
 promise rejection happens when emitting an event and
@@ -234,7 +234,7 @@ v13.4.0, v12.16.0
 
 > **addListener**\<`E`\>(`eventName`, `listener`): `this`
 
-Defined in: node\_modules/.bun/@types+node@26.6.1/node\_modules/@types/node/events.d.ts:92
+Defined in: node\_modules/.bun/@types+node@26.6.5/node\_modules/@types/node/events.d.ts:92
 
 Alias for `emitter.on(eventName, listener)`.
 
@@ -272,7 +272,7 @@ v0.1.26
 
 > **connect**(`options?`): `void`
 
-Defined in: [packages/core/src/player/Player.ts:140](https://github.com/ekretos/Rythra/blob/6c930d7e9f0c1ef34b406255dcc9686af3cb2be2/packages/core/src/player/Player.ts#L140)
+Defined in: [packages/core/src/player/Player.ts:157](https://github.com/ekretos/Rythra/blob/c7739a96c2261c82cc1ff98863eeadbd1fe9a7fe/packages/core/src/player/Player.ts#L157)
 
 #### Parameters
 
@@ -300,7 +300,7 @@ Defined in: [packages/core/src/player/Player.ts:140](https://github.com/ekretos/
 
 > **destroy**(): `Promise`\<`void`\>
 
-Defined in: [packages/core/src/player/Player.ts:105](https://github.com/ekretos/Rythra/blob/6c930d7e9f0c1ef34b406255dcc9686af3cb2be2/packages/core/src/player/Player.ts#L105)
+Defined in: [packages/core/src/player/Player.ts:122](https://github.com/ekretos/Rythra/blob/c7739a96c2261c82cc1ff98863eeadbd1fe9a7fe/packages/core/src/player/Player.ts#L122)
 
 #### Returns
 
@@ -312,7 +312,7 @@ Defined in: [packages/core/src/player/Player.ts:105](https://github.com/ekretos/
 
 > **emit**\<`E`\>(`eventName`, ...`args`): `boolean`
 
-Defined in: node\_modules/.bun/@types+node@26.6.1/node\_modules/@types/node/events.d.ts:134
+Defined in: node\_modules/.bun/@types+node@26.6.5/node\_modules/@types/node/events.d.ts:134
 
 Synchronously calls each of the listeners registered for the event named
 `eventName`, in the order they were registered, passing the supplied arguments
@@ -387,7 +387,7 @@ v0.1.26
 
 > **eventNames**(): (`string` \| `symbol`)[]
 
-Defined in: node\_modules/.bun/@types+node@26.6.1/node\_modules/@types/node/events.d.ts:154
+Defined in: node\_modules/.bun/@types+node@26.6.5/node\_modules/@types/node/events.d.ts:154
 
 Returns an array listing the events for which the emitter has registered
 listeners.
@@ -424,7 +424,7 @@ v6.0.0
 
 > **getMaxListeners**(): `number`
 
-Defined in: node\_modules/.bun/@types+node@26.6.1/node\_modules/@types/node/events.d.ts:161
+Defined in: node\_modules/.bun/@types+node@26.6.5/node\_modules/@types/node/events.d.ts:161
 
 Returns the current max listener value for the `EventEmitter` which is either
 set by `emitter.setMaxListeners(n)` or defaults to
@@ -448,7 +448,7 @@ v1.0.0
 
 > **listenerCount**\<`E`\>(`eventName`, `listener?`): `number`
 
-Defined in: node\_modules/.bun/@types+node@26.6.1/node\_modules/@types/node/events.d.ts:170
+Defined in: node\_modules/.bun/@types+node@26.6.5/node\_modules/@types/node/events.d.ts:170
 
 Returns the number of listeners listening for the event named `eventName`.
 If `listener` is provided, it will return how many times the listener is found
@@ -492,7 +492,7 @@ v3.2.0
 
 > **listeners**\<`E`\>(`eventName`): (...`args`) => `void`[]
 
-Defined in: node\_modules/.bun/@types+node@26.6.1/node\_modules/@types/node/events.d.ts:186
+Defined in: node\_modules/.bun/@types+node@26.6.5/node\_modules/@types/node/events.d.ts:186
 
 Returns a copy of the array of listeners for the event named `eventName`.
 
@@ -534,7 +534,7 @@ v0.1.26
 
 > **off**\<`E`\>(`eventName`, `listener`): `this`
 
-Defined in: node\_modules/.bun/@types+node@26.6.1/node\_modules/@types/node/events.d.ts:191
+Defined in: node\_modules/.bun/@types+node@26.6.5/node\_modules/@types/node/events.d.ts:191
 
 Alias for `emitter.removeListener()`.
 
@@ -572,7 +572,7 @@ v10.0.0
 
 > **on**\<`E`\>(`eventName`, `listener`): `this`
 
-Defined in: node\_modules/.bun/@types+node@26.6.1/node\_modules/@types/node/events.d.ts:225
+Defined in: node\_modules/.bun/@types+node@26.6.5/node\_modules/@types/node/events.d.ts:225
 
 Adds the `listener` function to the end of the listeners array for the
 event named `eventName`. No checks are made to see if the `listener` has
@@ -641,7 +641,7 @@ v0.1.101
 
 > **once**\<`E`\>(`eventName`, `listener`): `this`
 
-Defined in: node\_modules/.bun/@types+node@26.6.1/node\_modules/@types/node/events.d.ts:256
+Defined in: node\_modules/.bun/@types+node@26.6.5/node\_modules/@types/node/events.d.ts:256
 
 Adds a **one-time** `listener` function for the event named `eventName`. The
 next time `eventName` is triggered, this listener is removed and then invoked.
@@ -707,7 +707,7 @@ v0.3.0
 
 > **pause**(`pause`): `Promise`\<`void`\>
 
-Defined in: [packages/core/src/player/Player.ts:115](https://github.com/ekretos/Rythra/blob/6c930d7e9f0c1ef34b406255dcc9686af3cb2be2/packages/core/src/player/Player.ts#L115)
+Defined in: [packages/core/src/player/Player.ts:132](https://github.com/ekretos/Rythra/blob/c7739a96c2261c82cc1ff98863eeadbd1fe9a7fe/packages/core/src/player/Player.ts#L132)
 
 #### Parameters
 
@@ -725,7 +725,7 @@ Defined in: [packages/core/src/player/Player.ts:115](https://github.com/ekretos/
 
 > **play**(`track?`, `options?`): `Promise`\<`void`\>
 
-Defined in: [packages/core/src/player/Player.ts:90](https://github.com/ekretos/Rythra/blob/6c930d7e9f0c1ef34b406255dcc9686af3cb2be2/packages/core/src/player/Player.ts#L90)
+Defined in: [packages/core/src/player/Player.ts:107](https://github.com/ekretos/Rythra/blob/c7739a96c2261c82cc1ff98863eeadbd1fe9a7fe/packages/core/src/player/Player.ts#L107)
 
 #### Parameters
 
@@ -747,7 +747,7 @@ Defined in: [packages/core/src/player/Player.ts:90](https://github.com/ekretos/R
 
 > **prependListener**\<`E`\>(`eventName`, `listener`): `this`
 
-Defined in: node\_modules/.bun/@types+node@26.6.1/node\_modules/@types/node/events.d.ts:275
+Defined in: node\_modules/.bun/@types+node@26.6.5/node\_modules/@types/node/events.d.ts:275
 
 Adds the `listener` function to the _beginning_ of the listeners array for the
 event named `eventName`. No checks are made to see if the `listener` has
@@ -801,7 +801,7 @@ v6.0.0
 
 > **prependOnceListener**\<`E`\>(`eventName`, `listener`): `this`
 
-Defined in: node\_modules/.bun/@types+node@26.6.1/node\_modules/@types/node/events.d.ts:292
+Defined in: node\_modules/.bun/@types+node@26.6.5/node\_modules/@types/node/events.d.ts:292
 
 Adds a **one-time** `listener` function for the event named `eventName` to the
 _beginning_ of the listeners array. The next time `eventName` is triggered, this
@@ -853,7 +853,7 @@ v6.0.0
 
 > **rawListeners**\<`E`\>(`eventName`): (...`args`) => `void`[]
 
-Defined in: node\_modules/.bun/@types+node@26.6.1/node\_modules/@types/node/events.d.ts:326
+Defined in: node\_modules/.bun/@types+node@26.6.5/node\_modules/@types/node/events.d.ts:326
 
 Returns a copy of the array of listeners for the event named `eventName`,
 including any wrappers (such as those created by `.once()`).
@@ -913,7 +913,7 @@ v9.4.0
 
 > **removeAllListeners**\<`E`\>(`eventName?`): `this`
 
-Defined in: node\_modules/.bun/@types+node@26.6.1/node\_modules/@types/node/events.d.ts:338
+Defined in: node\_modules/.bun/@types+node@26.6.5/node\_modules/@types/node/events.d.ts:338
 
 Removes all listeners, or those of the specified `eventName`.
 
@@ -953,7 +953,7 @@ v0.1.26
 
 > **removeListener**\<`E`\>(`eventName`, `listener`): `this`
 
-Defined in: node\_modules/.bun/@types+node@26.6.1/node\_modules/@types/node/events.d.ts:425
+Defined in: node\_modules/.bun/@types+node@26.6.5/node\_modules/@types/node/events.d.ts:425
 
 Removes the specified `listener` from the listener array for the event named
 `eventName`.
@@ -1071,9 +1071,9 @@ v0.1.26
 
 ### search()
 
-> **search**(`query`, `options?`): `Promise`\<`any`\>
+> **search**(`query`, `options?`): `Promise`\<`PlayerSearchResult`\>
 
-Defined in: [packages/core/src/player/Player.ts:80](https://github.com/ekretos/Rythra/blob/6c930d7e9f0c1ef34b406255dcc9686af3cb2be2/packages/core/src/player/Player.ts#L80)
+Defined in: [packages/core/src/player/Player.ts:97](https://github.com/ekretos/Rythra/blob/c7739a96c2261c82cc1ff98863eeadbd1fe9a7fe/packages/core/src/player/Player.ts#L97)
 
 #### Parameters
 
@@ -1093,7 +1093,7 @@ Defined in: [packages/core/src/player/Player.ts:80](https://github.com/ekretos/R
 
 #### Returns
 
-`Promise`\<`any`\>
+`Promise`\<`PlayerSearchResult`\>
 
 ***
 
@@ -1101,7 +1101,7 @@ Defined in: [packages/core/src/player/Player.ts:80](https://github.com/ekretos/R
 
 > **seek**(`position`): `Promise`\<`void`\>
 
-Defined in: [packages/core/src/player/Player.ts:134](https://github.com/ekretos/Rythra/blob/6c930d7e9f0c1ef34b406255dcc9686af3cb2be2/packages/core/src/player/Player.ts#L134)
+Defined in: [packages/core/src/player/Player.ts:151](https://github.com/ekretos/Rythra/blob/c7739a96c2261c82cc1ff98863eeadbd1fe9a7fe/packages/core/src/player/Player.ts#L151)
 
 #### Parameters
 
@@ -1119,7 +1119,7 @@ Defined in: [packages/core/src/player/Player.ts:134](https://github.com/ekretos/
 
 > **setLoop**(`mode`): `Promise`\<`void`\>
 
-Defined in: [packages/core/src/player/Player.ts:128](https://github.com/ekretos/Rythra/blob/6c930d7e9f0c1ef34b406255dcc9686af3cb2be2/packages/core/src/player/Player.ts#L128)
+Defined in: [packages/core/src/player/Player.ts:145](https://github.com/ekretos/Rythra/blob/c7739a96c2261c82cc1ff98863eeadbd1fe9a7fe/packages/core/src/player/Player.ts#L145)
 
 #### Parameters
 
@@ -1137,7 +1137,7 @@ Defined in: [packages/core/src/player/Player.ts:128](https://github.com/ekretos/
 
 > **setMaxListeners**(`n`): `this`
 
-Defined in: node\_modules/.bun/@types+node@26.6.1/node\_modules/@types/node/events.d.ts:436
+Defined in: node\_modules/.bun/@types+node@26.6.5/node\_modules/@types/node/events.d.ts:436
 
 By default `EventEmitter`s will print a warning if more than `10` listeners are
 added for a particular event. This is a useful default that helps finding
@@ -1171,7 +1171,7 @@ v0.3.5
 
 > **setVolume**(`volume`): `Promise`\<`void`\>
 
-Defined in: [packages/core/src/player/Player.ts:121](https://github.com/ekretos/Rythra/blob/6c930d7e9f0c1ef34b406255dcc9686af3cb2be2/packages/core/src/player/Player.ts#L121)
+Defined in: [packages/core/src/player/Player.ts:138](https://github.com/ekretos/Rythra/blob/c7739a96c2261c82cc1ff98863eeadbd1fe9a7fe/packages/core/src/player/Player.ts#L138)
 
 #### Parameters
 
@@ -1189,7 +1189,7 @@ Defined in: [packages/core/src/player/Player.ts:121](https://github.com/ekretos/
 
 > **skip**(): `Promise`\<`void`\>
 
-Defined in: [packages/core/src/player/Player.ts:107](https://github.com/ekretos/Rythra/blob/6c930d7e9f0c1ef34b406255dcc9686af3cb2be2/packages/core/src/player/Player.ts#L107)
+Defined in: [packages/core/src/player/Player.ts:124](https://github.com/ekretos/Rythra/blob/c7739a96c2261c82cc1ff98863eeadbd1fe9a7fe/packages/core/src/player/Player.ts#L124)
 
 #### Returns
 
@@ -1201,7 +1201,7 @@ Defined in: [packages/core/src/player/Player.ts:107](https://github.com/ekretos/
 
 > **stop**(): `Promise`\<`void`\>
 
-Defined in: [packages/core/src/player/Player.ts:99](https://github.com/ekretos/Rythra/blob/6c930d7e9f0c1ef34b406255dcc9686af3cb2be2/packages/core/src/player/Player.ts#L99)
+Defined in: [packages/core/src/player/Player.ts:116](https://github.com/ekretos/Rythra/blob/c7739a96c2261c82cc1ff98863eeadbd1fe9a7fe/packages/core/src/player/Player.ts#L116)
 
 #### Returns
 

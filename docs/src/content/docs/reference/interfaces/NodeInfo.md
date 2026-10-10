@@ -3,11 +3,11 @@ title: NodeInfo
 description: API Reference for NodeInfo
 ---
 
-[**Rythra Documentation v0.2.0**](../README.md)
+[**Rythra Documentation v0.3.0**](../README.md)
 
 ***
 
-Defined in: [packages/core/src/Types.ts:60](https://github.com/ekretos/Rythra/blob/6c930d7e9f0c1ef34b406255dcc9686af3cb2be2/packages/core/src/Types.ts#L60)
+Defined in: [packages/types/src/index.ts:71](https://github.com/ekretos/Rythra/blob/c7739a96c2261c82cc1ff98863eeadbd1fe9a7fe/packages/types/src/index.ts#L71)
 
 Lavalink server information.
 
@@ -17,7 +17,7 @@ Lavalink server information.
 
 > **buildTime**: `number`
 
-Defined in: [packages/core/src/Types.ts:60](https://github.com/ekretos/Rythra/blob/6c930d7e9f0c1ef34b406255dcc9686af3cb2be2/packages/core/src/Types.ts#L60)
+Defined in: [packages/types/src/index.ts:71](https://github.com/ekretos/Rythra/blob/c7739a96c2261c82cc1ff98863eeadbd1fe9a7fe/packages/types/src/index.ts#L71)
 
 ***
 
@@ -25,7 +25,7 @@ Defined in: [packages/core/src/Types.ts:60](https://github.com/ekretos/Rythra/bl
 
 > **filters**: `string`[]
 
-Defined in: [packages/core/src/Types.ts:60](https://github.com/ekretos/Rythra/blob/6c930d7e9f0c1ef34b406255dcc9686af3cb2be2/packages/core/src/Types.ts#L60)
+Defined in: [packages/types/src/index.ts:71](https://github.com/ekretos/Rythra/blob/c7739a96c2261c82cc1ff98863eeadbd1fe9a7fe/packages/types/src/index.ts#L71)
 
 ***
 
@@ -33,7 +33,7 @@ Defined in: [packages/core/src/Types.ts:60](https://github.com/ekretos/Rythra/bl
 
 > **git**: `object`
 
-Defined in: [packages/core/src/Types.ts:60](https://github.com/ekretos/Rythra/blob/6c930d7e9f0c1ef34b406255dcc9686af3cb2be2/packages/core/src/Types.ts#L60)
+Defined in: [packages/types/src/index.ts:71](https://github.com/ekretos/Rythra/blob/c7739a96c2261c82cc1ff98863eeadbd1fe9a7fe/packages/types/src/index.ts#L71)
 
 #### branch
 
@@ -53,7 +53,7 @@ Defined in: [packages/core/src/Types.ts:60](https://github.com/ekretos/Rythra/bl
 
 > **jvm**: `string`
 
-Defined in: [packages/core/src/Types.ts:60](https://github.com/ekretos/Rythra/blob/6c930d7e9f0c1ef34b406255dcc9686af3cb2be2/packages/core/src/Types.ts#L60)
+Defined in: [packages/types/src/index.ts:71](https://github.com/ekretos/Rythra/blob/c7739a96c2261c82cc1ff98863eeadbd1fe9a7fe/packages/types/src/index.ts#L71)
 
 ***
 
@@ -61,7 +61,7 @@ Defined in: [packages/core/src/Types.ts:60](https://github.com/ekretos/Rythra/bl
 
 > **lavaplayer**: `string`
 
-Defined in: [packages/core/src/Types.ts:60](https://github.com/ekretos/Rythra/blob/6c930d7e9f0c1ef34b406255dcc9686af3cb2be2/packages/core/src/Types.ts#L60)
+Defined in: [packages/types/src/index.ts:71](https://github.com/ekretos/Rythra/blob/c7739a96c2261c82cc1ff98863eeadbd1fe9a7fe/packages/types/src/index.ts#L71)
 
 ***
 
@@ -69,7 +69,7 @@ Defined in: [packages/core/src/Types.ts:60](https://github.com/ekretos/Rythra/bl
 
 > **plugins**: [`PluginInfo`](PluginInfo.md)[]
 
-Defined in: [packages/core/src/Types.ts:60](https://github.com/ekretos/Rythra/blob/6c930d7e9f0c1ef34b406255dcc9686af3cb2be2/packages/core/src/Types.ts#L60)
+Defined in: [packages/types/src/index.ts:71](https://github.com/ekretos/Rythra/blob/c7739a96c2261c82cc1ff98863eeadbd1fe9a7fe/packages/types/src/index.ts#L71)
 
 ***
 
@@ -77,7 +77,7 @@ Defined in: [packages/core/src/Types.ts:60](https://github.com/ekretos/Rythra/bl
 
 > **sourceManagers**: `string`[]
 
-Defined in: [packages/core/src/Types.ts:60](https://github.com/ekretos/Rythra/blob/6c930d7e9f0c1ef34b406255dcc9686af3cb2be2/packages/core/src/Types.ts#L60)
+Defined in: [packages/types/src/index.ts:71](https://github.com/ekretos/Rythra/blob/c7739a96c2261c82cc1ff98863eeadbd1fe9a7fe/packages/types/src/index.ts#L71)
 
 ***
 
@@ -85,7 +85,7 @@ Defined in: [packages/core/src/Types.ts:60](https://github.com/ekretos/Rythra/bl
 
 > **version**: `object`
 
-Defined in: [packages/core/src/Types.ts:60](https://github.com/ekretos/Rythra/blob/6c930d7e9f0c1ef34b406255dcc9686af3cb2be2/packages/core/src/Types.ts#L60)
+Defined in: [packages/types/src/index.ts:71](https://github.com/ekretos/Rythra/blob/c7739a96c2261c82cc1ff98863eeadbd1fe9a7fe/packages/types/src/index.ts#L71)
 
 #### build
 

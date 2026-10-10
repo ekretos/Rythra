@@ -1,13 +1,13 @@
 {
   "name": "@rythra/connectors",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "type": "module",
   "private": false,
   "description": "Discord library connectors (discord.js, Eris, Oceanic.js, Seyfert, Lunibee) for Rythra",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "peerDependencies": {
-    "@rythra/core": "^0.2.0"
+    "@rythra/core": "^0.3.0"
   },
   "exports": {
     ".": { "types": "./dist/index.d.ts", "import": "./dist/index.js" },
