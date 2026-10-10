@@ -7,7 +7,7 @@ description: API Reference for RestTransport
 
 ***
 
-Defined in: [packages/core/src/transport/Transport.ts:12](https://github.com/ekretos/Rythra/blob/8c65b2b9a1c3f4d653aa63873bbc3c7b0f9b3db4/packages/core/src/transport/Transport.ts#L12)
+Defined in: [packages/core/src/transport/Transport.ts:12](https://github.com/ekretos/Rythra/blob/6d3e11d8b74cbecf36b255d64f946bfb20532192/packages/core/src/transport/Transport.ts#L12)
 
 Request/response transport used by the Lavalink REST client.
 
@@ -17,7 +17,7 @@ Request/response transport used by the Lavalink REST client.
 
 > **request**\<`T`\>(`request`): `Promise`\<`T` \| `undefined`\>
 
-Defined in: [packages/core/src/transport/Transport.ts:14](https://github.com/ekretos/Rythra/blob/8c65b2b9a1c3f4d653aa63873bbc3c7b0f9b3db4/packages/core/src/transport/Transport.ts#L14)
+Defined in: [packages/core/src/transport/Transport.ts:14](https://github.com/ekretos/Rythra/blob/6d3e11d8b74cbecf36b255d64f946bfb20532192/packages/core/src/transport/Transport.ts#L14)
 
 Performs a request and resolves the decoded JSON body, if any.
 

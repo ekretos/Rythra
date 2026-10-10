@@ -7,7 +7,7 @@ description: API Reference for ConfigurationError
 
 ***
 
-Defined in: [packages/core/src/errors/RythraError.ts:15](https://github.com/ekretos/Rythra/blob/8c65b2b9a1c3f4d653aa63873bbc3c7b0f9b3db4/packages/core/src/errors/RythraError.ts#L15)
+Defined in: [packages/core/src/errors/RythraError.ts:15](https://github.com/ekretos/Rythra/blob/6d3e11d8b74cbecf36b255d64f946bfb20532192/packages/core/src/errors/RythraError.ts#L15)
 
 Error caused by invalid Rythra configuration.
 
@@ -21,7 +21,7 @@ Error caused by invalid Rythra configuration.
 
 > **new ConfigurationError**(`message`, `context?`): `ConfigurationError`
 
-Defined in: [packages/core/src/errors/RythraError.ts:15](https://github.com/ekretos/Rythra/blob/8c65b2b9a1c3f4d653aa63873bbc3c7b0f9b3db4/packages/core/src/errors/RythraError.ts#L15)
+Defined in: [packages/core/src/errors/RythraError.ts:15](https://github.com/ekretos/Rythra/blob/6d3e11d8b74cbecf36b255d64f946bfb20532192/packages/core/src/errors/RythraError.ts#L15)
 
 #### Parameters
 
@@ -47,7 +47,7 @@ Defined in: [packages/core/src/errors/RythraError.ts:15](https://github.com/ekre
 
 > `readonly` `optional` **cause?**: `unknown`
 
-Defined in: [packages/core/src/errors/RythraError.ts:7](https://github.com/ekretos/Rythra/blob/8c65b2b9a1c3f4d653aa63873bbc3c7b0f9b3db4/packages/core/src/errors/RythraError.ts#L7)
+Defined in: [packages/core/src/errors/RythraError.ts:7](https://github.com/ekretos/Rythra/blob/6d3e11d8b74cbecf36b255d64f946bfb20532192/packages/core/src/errors/RythraError.ts#L7)
 
 Optional originating error.
 
@@ -61,7 +61,7 @@ Optional originating error.
 
 > `readonly` **code**: [`RythraErrorCode`](../type-aliases/RythraErrorCode.md)
 
-Defined in: [packages/core/src/errors/RythraError.ts:6](https://github.com/ekretos/Rythra/blob/8c65b2b9a1c3f4d653aa63873bbc3c7b0f9b3db4/packages/core/src/errors/RythraError.ts#L6)
+Defined in: [packages/core/src/errors/RythraError.ts:6](https://github.com/ekretos/Rythra/blob/6d3e11d8b74cbecf36b255d64f946bfb20532192/packages/core/src/errors/RythraError.ts#L6)
 
 Stable machine-readable error code.
 
@@ -75,7 +75,7 @@ Stable machine-readable error code.
 
 > `readonly` **context**: `Readonly`\<`Record`\<`string`, `unknown`\>\>
 
-Defined in: [packages/core/src/errors/RythraError.ts:8](https://github.com/ekretos/Rythra/blob/8c65b2b9a1c3f4d653aa63873bbc3c7b0f9b3db4/packages/core/src/errors/RythraError.ts#L8)
+Defined in: [packages/core/src/errors/RythraError.ts:8](https://github.com/ekretos/Rythra/blob/6d3e11d8b74cbecf36b255d64f946bfb20532192/packages/core/src/errors/RythraError.ts#L8)
 
 Additional structured diagnostic context.
 
@@ -89,7 +89,7 @@ Additional structured diagnostic context.
 
 > **message**: `string`
 
-Defined in: node\_modules/.bun/typescript@6.0.3/node\_modules/typescript/lib/lib.es5.d.ts:1075
+Defined in: scripts/typedoc/node\_modules/typescript/lib/lib.es5.d.ts:1075
 
 #### Inherited from
 
@@ -101,7 +101,7 @@ Defined in: node\_modules/.bun/typescript@6.0.3/node\_modules/typescript/lib/lib
 
 > **name**: `string`
 
-Defined in: node\_modules/.bun/typescript@6.0.3/node\_modules/typescript/lib/lib.es5.d.ts:1074
+Defined in: scripts/typedoc/node\_modules/typescript/lib/lib.es5.d.ts:1074
 
 #### Inherited from
 
@@ -113,7 +113,7 @@ Defined in: node\_modules/.bun/typescript@6.0.3/node\_modules/typescript/lib/lib
 
 > `optional` **stack?**: `string`
 
-Defined in: node\_modules/.bun/typescript@6.0.3/node\_modules/typescript/lib/lib.es5.d.ts:1076
+Defined in: scripts/typedoc/node\_modules/typescript/lib/lib.es5.d.ts:1076
 
 #### Inherited from
 
@@ -247,7 +247,7 @@ Create .stack property on a target object
 
 > `static` **isError**(`error`): `error is Error`
 
-Defined in: node\_modules/.bun/typescript@6.0.3/node\_modules/typescript/lib/lib.esnext.error.d.ts:21
+Defined in: scripts/typedoc/node\_modules/typescript/lib/lib.esnext.error.d.ts:21
 
 Indicates whether the argument provided is a built-in Error instance or not.
 

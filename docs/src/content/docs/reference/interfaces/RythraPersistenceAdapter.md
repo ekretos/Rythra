@@ -7,7 +7,7 @@ description: API Reference for RythraPersistenceAdapter
 
 ***
 
-Defined in: [packages/core/src/persistence/PersistenceAdapter.ts:8](https://github.com/ekretos/Rythra/blob/8c65b2b9a1c3f4d653aa63873bbc3c7b0f9b3db4/packages/core/src/persistence/PersistenceAdapter.ts#L8)
+Defined in: [packages/core/src/persistence/PersistenceAdapter.ts:8](https://github.com/ekretos/Rythra/blob/6d3e11d8b74cbecf36b255d64f946bfb20532192/packages/core/src/persistence/PersistenceAdapter.ts#L8)
 
 Persistence boundary used by recovery and application integrations.
 
@@ -27,7 +27,7 @@ particular storage engine.
 
 > **delete**(`key`): `Promise`\<`void`\>
 
-Defined in: [packages/core/src/persistence/PersistenceAdapter.ts:16](https://github.com/ekretos/Rythra/blob/8c65b2b9a1c3f4d653aa63873bbc3c7b0f9b3db4/packages/core/src/persistence/PersistenceAdapter.ts#L16)
+Defined in: [packages/core/src/persistence/PersistenceAdapter.ts:16](https://github.com/ekretos/Rythra/blob/6d3e11d8b74cbecf36b255d64f946bfb20532192/packages/core/src/persistence/PersistenceAdapter.ts#L16)
 
 Remove a value.
 
@@ -47,7 +47,7 @@ Remove a value.
 
 > `optional` **flush**(): `Promise`\<`void`\>
 
-Defined in: [packages/core/src/persistence/PersistenceAdapter.ts:19](https://github.com/ekretos/Rythra/blob/8c65b2b9a1c3f4d653aa63873bbc3c7b0f9b3db4/packages/core/src/persistence/PersistenceAdapter.ts#L19)
+Defined in: [packages/core/src/persistence/PersistenceAdapter.ts:19](https://github.com/ekretos/Rythra/blob/6d3e11d8b74cbecf36b255d64f946bfb20532192/packages/core/src/persistence/PersistenceAdapter.ts#L19)
 
 Flush pending writes before shutdown.
 
@@ -61,7 +61,7 @@ Flush pending writes before shutdown.
 
 > **get**(`key`): `Promise`\<`T` \| `undefined`\>
 
-Defined in: [packages/core/src/persistence/PersistenceAdapter.ts:10](https://github.com/ekretos/Rythra/blob/8c65b2b9a1c3f4d653aa63873bbc3c7b0f9b3db4/packages/core/src/persistence/PersistenceAdapter.ts#L10)
+Defined in: [packages/core/src/persistence/PersistenceAdapter.ts:10](https://github.com/ekretos/Rythra/blob/6d3e11d8b74cbecf36b255d64f946bfb20532192/packages/core/src/persistence/PersistenceAdapter.ts#L10)
 
 Read a previously stored value.
 
@@ -81,7 +81,7 @@ Read a previously stored value.
 
 > **set**(`key`, `value`): `Promise`\<`void`\>
 
-Defined in: [packages/core/src/persistence/PersistenceAdapter.ts:13](https://github.com/ekretos/Rythra/blob/8c65b2b9a1c3f4d653aa63873bbc3c7b0f9b3db4/packages/core/src/persistence/PersistenceAdapter.ts#L13)
+Defined in: [packages/core/src/persistence/PersistenceAdapter.ts:13](https://github.com/ekretos/Rythra/blob/6d3e11d8b74cbecf36b255d64f946bfb20532192/packages/core/src/persistence/PersistenceAdapter.ts#L13)
 
 Store or replace a value.
 

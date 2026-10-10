@@ -19,7 +19,7 @@ Format based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 - **Breaking:** merged `@rythra/connector-discordjs`, `-eris`, `-oceanic` and `-seyfert` into `@rythra/connectors` (subpaths `/discordjs`, `/eris`, `/oceanic`, `/seyfert`, `/lunibee`). See the migration guide.
 - **Breaking:** a Lavalink node password is now required; the built-in `youshallnotpass` default was removed.
 - Node, Player and Rest no longer import each other (shared `contracts.ts`); no circular imports remain.
-- Upgraded TypeScript to 6.0.3 and all dependencies (docs: Astro 7, Starlight 0.42).
+- Removed ESLint; `bun run typecheck` (strict, with `noUnusedLocals`/`noUnusedParameters`) is the static check. Upgraded TypeScript to 7.0.2 (TypeDoc, which does not support TS 7 yet, runs from an isolated `scripts/typedoc` toolchain pinned to TypeScript 6.0.3) and all dependencies (docs: Astro 7, Starlight 0.42).
 
 ### Added (continued)
 - Opt-in `failover` option (with `failoverDelay`, default 5000 ms, so brief outages do not trigger it): when a node stays disconnected, `Rythra` moves its players to another ready node (`migratePlayers`, `RythraPlayer.moveTo`) and emits `playerMigrate` / `playerMigrateFailed`.

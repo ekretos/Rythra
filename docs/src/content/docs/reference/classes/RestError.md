@@ -7,7 +7,7 @@ description: API Reference for RestError
 
 ***
 
-Defined in: [packages/core/src/transport/RestTransport.ts:5](https://github.com/ekretos/Rythra/blob/8c65b2b9a1c3f4d653aa63873bbc3c7b0f9b3db4/packages/core/src/transport/RestTransport.ts#L5)
+Defined in: [packages/core/src/transport/RestTransport.ts:5](https://github.com/ekretos/Rythra/blob/6d3e11d8b74cbecf36b255d64f946bfb20532192/packages/core/src/transport/RestTransport.ts#L5)
 
 Error thrown when Lavalink answers a REST call with a failure payload.
 
@@ -21,7 +21,7 @@ Error thrown when Lavalink answers a REST call with a failure payload.
 
 > **new RestError**(`data`): `RestError`
 
-Defined in: [packages/core/src/transport/RestTransport.ts:13](https://github.com/ekretos/Rythra/blob/8c65b2b9a1c3f4d653aa63873bbc3c7b0f9b3db4/packages/core/src/transport/RestTransport.ts#L13)
+Defined in: [packages/core/src/transport/RestTransport.ts:13](https://github.com/ekretos/Rythra/blob/6d3e11d8b74cbecf36b255d64f946bfb20532192/packages/core/src/transport/RestTransport.ts#L13)
 
 Creates a REST error from a Lavalink error payload.
 
@@ -45,7 +45,7 @@ Creates a REST error from a Lavalink error payload.
 
 > `optional` **cause?**: `unknown`
 
-Defined in: node\_modules/.bun/typescript@6.0.3/node\_modules/typescript/lib/lib.es2022.error.d.ts:24
+Defined in: scripts/typedoc/node\_modules/typescript/lib/lib.es2022.error.d.ts:24
 
 The cause of the error.
 
@@ -59,7 +59,7 @@ The cause of the error.
 
 > `readonly` **error**: `string`
 
-Defined in: [packages/core/src/transport/RestTransport.ts:8](https://github.com/ekretos/Rythra/blob/8c65b2b9a1c3f4d653aa63873bbc3c7b0f9b3db4/packages/core/src/transport/RestTransport.ts#L8)
+Defined in: [packages/core/src/transport/RestTransport.ts:8](https://github.com/ekretos/Rythra/blob/6d3e11d8b74cbecf36b255d64f946bfb20532192/packages/core/src/transport/RestTransport.ts#L8)
 
 Error type reported by Lavalink.
 
@@ -69,7 +69,7 @@ Error type reported by Lavalink.
 
 > **message**: `string`
 
-Defined in: node\_modules/.bun/typescript@6.0.3/node\_modules/typescript/lib/lib.es5.d.ts:1075
+Defined in: scripts/typedoc/node\_modules/typescript/lib/lib.es5.d.ts:1075
 
 #### Inherited from
 
@@ -81,7 +81,7 @@ Defined in: node\_modules/.bun/typescript@6.0.3/node\_modules/typescript/lib/lib
 
 > **name**: `string`
 
-Defined in: node\_modules/.bun/typescript@6.0.3/node\_modules/typescript/lib/lib.es5.d.ts:1074
+Defined in: scripts/typedoc/node\_modules/typescript/lib/lib.es5.d.ts:1074
 
 #### Inherited from
 
@@ -93,7 +93,7 @@ Defined in: node\_modules/.bun/typescript@6.0.3/node\_modules/typescript/lib/lib
 
 > `readonly` **path**: `string`
 
-Defined in: [packages/core/src/transport/RestTransport.ts:9](https://github.com/ekretos/Rythra/blob/8c65b2b9a1c3f4d653aa63873bbc3c7b0f9b3db4/packages/core/src/transport/RestTransport.ts#L9)
+Defined in: [packages/core/src/transport/RestTransport.ts:9](https://github.com/ekretos/Rythra/blob/6d3e11d8b74cbecf36b255d64f946bfb20532192/packages/core/src/transport/RestTransport.ts#L9)
 
 Request path.
 
@@ -103,7 +103,7 @@ Request path.
 
 > `optional` **stack?**: `string`
 
-Defined in: node\_modules/.bun/typescript@6.0.3/node\_modules/typescript/lib/lib.es5.d.ts:1076
+Defined in: scripts/typedoc/node\_modules/typescript/lib/lib.es5.d.ts:1076
 
 #### Inherited from
 
@@ -115,7 +115,7 @@ Defined in: node\_modules/.bun/typescript@6.0.3/node\_modules/typescript/lib/lib
 
 > `readonly` **status**: `number`
 
-Defined in: [packages/core/src/transport/RestTransport.ts:7](https://github.com/ekretos/Rythra/blob/8c65b2b9a1c3f4d653aa63873bbc3c7b0f9b3db4/packages/core/src/transport/RestTransport.ts#L7)
+Defined in: [packages/core/src/transport/RestTransport.ts:7](https://github.com/ekretos/Rythra/blob/6d3e11d8b74cbecf36b255d64f946bfb20532192/packages/core/src/transport/RestTransport.ts#L7)
 
 HTTP status code.
 
@@ -125,7 +125,7 @@ HTTP status code.
 
 > `readonly` **timestamp**: `number`
 
-Defined in: [packages/core/src/transport/RestTransport.ts:6](https://github.com/ekretos/Rythra/blob/8c65b2b9a1c3f4d653aa63873bbc3c7b0f9b3db4/packages/core/src/transport/RestTransport.ts#L6)
+Defined in: [packages/core/src/transport/RestTransport.ts:6](https://github.com/ekretos/Rythra/blob/6d3e11d8b74cbecf36b255d64f946bfb20532192/packages/core/src/transport/RestTransport.ts#L6)
 
 Error timestamp reported by Lavalink.
 
@@ -135,7 +135,7 @@ Error timestamp reported by Lavalink.
 
 > `readonly` `optional` **trace?**: `string`
 
-Defined in: [packages/core/src/transport/RestTransport.ts:10](https://github.com/ekretos/Rythra/blob/8c65b2b9a1c3f4d653aa63873bbc3c7b0f9b3db4/packages/core/src/transport/RestTransport.ts#L10)
+Defined in: [packages/core/src/transport/RestTransport.ts:10](https://github.com/ekretos/Rythra/blob/6d3e11d8b74cbecf36b255d64f946bfb20532192/packages/core/src/transport/RestTransport.ts#L10)
 
 Optional stack trace reported by Lavalink.
 
@@ -267,7 +267,7 @@ Create .stack property on a target object
 
 > `static` **isError**(`error`): `error is Error`
 
-Defined in: node\_modules/.bun/typescript@6.0.3/node\_modules/typescript/lib/lib.esnext.error.d.ts:21
+Defined in: scripts/typedoc/node\_modules/typescript/lib/lib.esnext.error.d.ts:21
 
 Indicates whether the argument provided is a built-in Error instance or not.
 

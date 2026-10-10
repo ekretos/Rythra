@@ -1,0 +1,10 @@
+{
+  "name": "rythra-typedoc-tooling",
+  "private": true,
+  "description": "Isolated TypeDoc toolchain: TypeDoc does not support TypeScript 7 yet, so it pins its own TypeScript 6.",
+  "devDependencies": {
+    "typedoc": "^0.28.20",
+    "typedoc-plugin-markdown": "^4.13.1",
+    "typescript": "6.0.3"
+  }
+}

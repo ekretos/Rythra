@@ -7,7 +7,7 @@ description: API Reference for RythraMetricsAdapter
 
 ***
 
-Defined in: [packages/core/src/metrics/MetricsAdapter.ts:8](https://github.com/ekretos/Rythra/blob/8c65b2b9a1c3f4d653aa63873bbc3c7b0f9b3db4/packages/core/src/metrics/MetricsAdapter.ts#L8)
+Defined in: [packages/core/src/metrics/MetricsAdapter.ts:8](https://github.com/ekretos/Rythra/blob/6d3e11d8b74cbecf36b255d64f946bfb20532192/packages/core/src/metrics/MetricsAdapter.ts#L8)
 
 Minimal metrics boundary for Rythra observability.
 
@@ -21,7 +21,7 @@ dependencies to the core package.
 
 > **counter**(`name`, `value?`): `void`
 
-Defined in: [packages/core/src/metrics/MetricsAdapter.ts:10](https://github.com/ekretos/Rythra/blob/8c65b2b9a1c3f4d653aa63873bbc3c7b0f9b3db4/packages/core/src/metrics/MetricsAdapter.ts#L10)
+Defined in: [packages/core/src/metrics/MetricsAdapter.ts:10](https://github.com/ekretos/Rythra/blob/6d3e11d8b74cbecf36b255d64f946bfb20532192/packages/core/src/metrics/MetricsAdapter.ts#L10)
 
 Increment a counter by the supplied amount.
 
@@ -45,7 +45,7 @@ Increment a counter by the supplied amount.
 
 > **gauge**(`name`, `value`): `void`
 
-Defined in: [packages/core/src/metrics/MetricsAdapter.ts:13](https://github.com/ekretos/Rythra/blob/8c65b2b9a1c3f4d653aa63873bbc3c7b0f9b3db4/packages/core/src/metrics/MetricsAdapter.ts#L13)
+Defined in: [packages/core/src/metrics/MetricsAdapter.ts:13](https://github.com/ekretos/Rythra/blob/6d3e11d8b74cbecf36b255d64f946bfb20532192/packages/core/src/metrics/MetricsAdapter.ts#L13)
 
 Record the current value of a gauge.
 
@@ -69,7 +69,7 @@ Record the current value of a gauge.
 
 > **histogram**(`name`, `value`): `void`
 
-Defined in: [packages/core/src/metrics/MetricsAdapter.ts:16](https://github.com/ekretos/Rythra/blob/8c65b2b9a1c3f4d653aa63873bbc3c7b0f9b3db4/packages/core/src/metrics/MetricsAdapter.ts#L16)
+Defined in: [packages/core/src/metrics/MetricsAdapter.ts:16](https://github.com/ekretos/Rythra/blob/6d3e11d8b74cbecf36b255d64f946bfb20532192/packages/core/src/metrics/MetricsAdapter.ts#L16)
 
 Record an observation in a histogram.
 

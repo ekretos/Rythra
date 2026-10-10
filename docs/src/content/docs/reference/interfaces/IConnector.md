@@ -7,7 +7,7 @@ description: API Reference for IConnector
 
 ***
 
-Defined in: [packages/types/src/index.ts:9](https://github.com/ekretos/Rythra/blob/8c65b2b9a1c3f4d653aa63873bbc3c7b0f9b3db4/packages/types/src/index.ts#L9)
+Defined in: [packages/types/src/index.ts:9](https://github.com/ekretos/Rythra/blob/6d3e11d8b74cbecf36b255d64f946bfb20532192/packages/types/src/index.ts#L9)
 
 Minimal Discord library connector contract.
 
@@ -17,7 +17,7 @@ Minimal Discord library connector contract.
 
 > `readonly` **client**: `unknown`
 
-Defined in: [packages/types/src/index.ts:10](https://github.com/ekretos/Rythra/blob/8c65b2b9a1c3f4d653aa63873bbc3c7b0f9b3db4/packages/types/src/index.ts#L10)
+Defined in: [packages/types/src/index.ts:10](https://github.com/ekretos/Rythra/blob/6d3e11d8b74cbecf36b255d64f946bfb20532192/packages/types/src/index.ts#L10)
 
 The Discord library client.
 
@@ -27,7 +27,7 @@ The Discord library client.
 
 > **getId**(): `string` \| `null`
 
-Defined in: [packages/types/src/index.ts:14](https://github.com/ekretos/Rythra/blob/8c65b2b9a1c3f4d653aa63873bbc3c7b0f9b3db4/packages/types/src/index.ts#L14)
+Defined in: [packages/types/src/index.ts:14](https://github.com/ekretos/Rythra/blob/6d3e11d8b74cbecf36b255d64f946bfb20532192/packages/types/src/index.ts#L14)
 
 Gets the client ID from the Discord client.
 
@@ -41,7 +41,7 @@ Gets the client ID from the Discord client.
 
 > **listen**(): `void`
 
-Defined in: [packages/types/src/index.ts:13](https://github.com/ekretos/Rythra/blob/8c65b2b9a1c3f4d653aa63873bbc3c7b0f9b3db4/packages/types/src/index.ts#L13)
+Defined in: [packages/types/src/index.ts:13](https://github.com/ekretos/Rythra/blob/6d3e11d8b74cbecf36b255d64f946bfb20532192/packages/types/src/index.ts#L13)
 
 Starts listening for gateway events.
 
@@ -55,7 +55,7 @@ Starts listening for gateway events.
 
 > **sendPacket**(`shardId`, `payload`, `important`): `void`
 
-Defined in: [packages/types/src/index.ts:12](https://github.com/ekretos/Rythra/blob/8c65b2b9a1c3f4d653aa63873bbc3c7b0f9b3db4/packages/types/src/index.ts#L12)
+Defined in: [packages/types/src/index.ts:12](https://github.com/ekretos/Rythra/blob/6d3e11d8b74cbecf36b255d64f946bfb20532192/packages/types/src/index.ts#L12)
 
 Sends a packet to the Discord gateway.
 
@@ -83,7 +83,7 @@ Sends a packet to the Discord gateway.
 
 > **setManager**(`manager`): `void`
 
-Defined in: [packages/types/src/index.ts:11](https://github.com/ekretos/Rythra/blob/8c65b2b9a1c3f4d653aa63873bbc3c7b0f9b3db4/packages/types/src/index.ts#L11)
+Defined in: [packages/types/src/index.ts:11](https://github.com/ekretos/Rythra/blob/6d3e11d8b74cbecf36b255d64f946bfb20532192/packages/types/src/index.ts#L11)
 
 Sets the Rythra manager for this connector.
 

@@ -30,7 +30,6 @@ Bun workspace monorepo: `packages/core`, `protocol`, `plugins`, `connectors` (di
 ```bash
 bun run typecheck       # tsc --noEmit
 bun test                # unit tests
-bun run lint            # eslint
 bun run format          # prettier
 bun run check:packages  # workspace boundaries + version consistency
 bun run build           # build all packages and docs

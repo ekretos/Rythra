@@ -62,12 +62,11 @@
     "build:plugins": "bun --filter @rythra/plugins build",
     "build:connectors": "bun --filter @rythra/connectors build",
     "build:facade": "tsc --project tsconfig.facade.json",
-    "build:docs": "typedoc && node scripts/postprocess-docs.js",
+    "build:docs": "bun install --cwd scripts/typedoc && bun scripts/typedoc/node_modules/.bin/typedoc --options typedoc.json --tsconfig tsconfig.json && node scripts/postprocess-docs.js",
     "publish:all": "node scripts/publish-all.mjs",
     "typecheck": "bun x tsc --noEmit",
     "test": "bun test",
     "test:file": "bun --watch run example/bot.ts",
-    "lint": "eslint .",
     "format": "prettier --write .",
     "check:boundaries": "node scripts/check-workspace-boundaries.mjs",
     "check:versions": "node scripts/check-package-versions.mjs",
@@ -83,18 +82,11 @@
     "typescript": ">=5 <8"
   },
   "devDependencies": {
-    "@eslint/js": "^10.0.1",
     "@types/bun": "^1.4.2",
     "@types/node": "^26.6.5",
     "@types/ws": "^8.18.2",
     "discord.js": "^14.27.0",
-    "eslint": "^10.12.0",
-    "eslint-config-prettier": "^10.1.8",
-    "globals": "^17.13.0",
     "prettier": "^3.9.10",
-    "typedoc": "^0.28.20",
-    "typedoc-plugin-markdown": "^4.13.1",
-    "typescript": "6.0.3",
-    "typescript-eslint": "^8.71.1"
+    "typescript": "^7.0.2"
   }
 }

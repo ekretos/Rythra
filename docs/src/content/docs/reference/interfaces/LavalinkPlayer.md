@@ -7,7 +7,7 @@ description: API Reference for LavalinkPlayer
 
 ***
 
-Defined in: [packages/types/src/index.ts:65](https://github.com/ekretos/Rythra/blob/8c65b2b9a1c3f4d653aa63873bbc3c7b0f9b3db4/packages/types/src/index.ts#L65)
+Defined in: [packages/types/src/index.ts:65](https://github.com/ekretos/Rythra/blob/6d3e11d8b74cbecf36b255d64f946bfb20532192/packages/types/src/index.ts#L65)
 
 Lavalink player state.
 
@@ -17,7 +17,7 @@ Lavalink player state.
 
 > **filters**: [`Filters`](Filters.md)
 
-Defined in: [packages/types/src/index.ts:65](https://github.com/ekretos/Rythra/blob/8c65b2b9a1c3f4d653aa63873bbc3c7b0f9b3db4/packages/types/src/index.ts#L65)
+Defined in: [packages/types/src/index.ts:65](https://github.com/ekretos/Rythra/blob/6d3e11d8b74cbecf36b255d64f946bfb20532192/packages/types/src/index.ts#L65)
 
 ***
 
@@ -25,7 +25,7 @@ Defined in: [packages/types/src/index.ts:65](https://github.com/ekretos/Rythra/b
 
 > **guildId**: `string`
 
-Defined in: [packages/types/src/index.ts:65](https://github.com/ekretos/Rythra/blob/8c65b2b9a1c3f4d653aa63873bbc3c7b0f9b3db4/packages/types/src/index.ts#L65)
+Defined in: [packages/types/src/index.ts:65](https://github.com/ekretos/Rythra/blob/6d3e11d8b74cbecf36b255d64f946bfb20532192/packages/types/src/index.ts#L65)
 
 ***
 
@@ -33,7 +33,7 @@ Defined in: [packages/types/src/index.ts:65](https://github.com/ekretos/Rythra/b
 
 > **paused**: `boolean`
 
-Defined in: [packages/types/src/index.ts:65](https://github.com/ekretos/Rythra/blob/8c65b2b9a1c3f4d653aa63873bbc3c7b0f9b3db4/packages/types/src/index.ts#L65)
+Defined in: [packages/types/src/index.ts:65](https://github.com/ekretos/Rythra/blob/6d3e11d8b74cbecf36b255d64f946bfb20532192/packages/types/src/index.ts#L65)
 
 ***
 
@@ -41,7 +41,7 @@ Defined in: [packages/types/src/index.ts:65](https://github.com/ekretos/Rythra/b
 
 > **state**: [`PlayerState`](PlayerState.md)
 
-Defined in: [packages/types/src/index.ts:65](https://github.com/ekretos/Rythra/blob/8c65b2b9a1c3f4d653aa63873bbc3c7b0f9b3db4/packages/types/src/index.ts#L65)
+Defined in: [packages/types/src/index.ts:65](https://github.com/ekretos/Rythra/blob/6d3e11d8b74cbecf36b255d64f946bfb20532192/packages/types/src/index.ts#L65)
 
 ***
 
@@ -49,7 +49,7 @@ Defined in: [packages/types/src/index.ts:65](https://github.com/ekretos/Rythra/b
 
 > **track**: [`Track`](Track.md) \| `null`
 
-Defined in: [packages/types/src/index.ts:65](https://github.com/ekretos/Rythra/blob/8c65b2b9a1c3f4d653aa63873bbc3c7b0f9b3db4/packages/types/src/index.ts#L65)
+Defined in: [packages/types/src/index.ts:65](https://github.com/ekretos/Rythra/blob/6d3e11d8b74cbecf36b255d64f946bfb20532192/packages/types/src/index.ts#L65)
 
 ***
 
@@ -57,7 +57,7 @@ Defined in: [packages/types/src/index.ts:65](https://github.com/ekretos/Rythra/b
 
 > **voice**: `object`
 
-Defined in: [packages/types/src/index.ts:65](https://github.com/ekretos/Rythra/blob/8c65b2b9a1c3f4d653aa63873bbc3c7b0f9b3db4/packages/types/src/index.ts#L65)
+Defined in: [packages/types/src/index.ts:65](https://github.com/ekretos/Rythra/blob/6d3e11d8b74cbecf36b255d64f946bfb20532192/packages/types/src/index.ts#L65)
 
 #### endpoint
 
@@ -77,4 +77,4 @@ Defined in: [packages/types/src/index.ts:65](https://github.com/ekretos/Rythra/b
 
 > **volume**: `number`
 
-Defined in: [packages/types/src/index.ts:65](https://github.com/ekretos/Rythra/blob/8c65b2b9a1c3f4d653aa63873bbc3c7b0f9b3db4/packages/types/src/index.ts#L65)
+Defined in: [packages/types/src/index.ts:65](https://github.com/ekretos/Rythra/blob/6d3e11d8b74cbecf36b255d64f946bfb20532192/packages/types/src/index.ts#L65)
