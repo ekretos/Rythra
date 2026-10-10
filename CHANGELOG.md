@@ -28,6 +28,7 @@ Format based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 - `docs/TROUBLESHOOTING.md`.
 
 ### Fixed
+- The Lunibee connector's client type rejected a real Lunibee `Client` (its gateway payload requires `s` and `t`); `sendPacket` now sends a complete payload. Verified against `lunibee@0.2.4` with a local fake gateway.
 - `FilePersistenceAdapter` no longer fails permanently on a corrupt JSON file (it is kept as `<file>.corrupt` and the store starts empty) and uses a unique temp file per write.
 - A `connect()` call waiting on an in-flight attempt now rejects when `disconnect()` is called instead of hanging.
 - `PrometheusMetricsAdapter` appends `_total` to counter names; a test keeps the default client version in sync with the package version.
