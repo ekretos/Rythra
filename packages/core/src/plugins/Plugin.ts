@@ -65,6 +65,7 @@ export class PluginRegistry<Context = unknown> {
     /** Tears down and removes every registered plugin. */
     public async clear(context: Context): Promise<void> {
         const failures: unknown[] = [];
+        // Intentionally sequential: plugins tear down in registration order and may depend on one another.
         for (const name of [...this.plugins.keys()]) {
             try { await this.unregister(name, context); } catch (error) { failures.push(error); }
         }
