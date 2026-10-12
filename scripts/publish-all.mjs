@@ -6,7 +6,7 @@ const root = path.resolve(import.meta.dirname, '..');
 const packages = ['packages/types', 'packages/core', 'packages/protocol', 'packages/plugins', 'packages/metrics', 'packages/persistence', 'packages/connectors', '.'];
 
 console.log('Building all packages first...');
-execSync('bun run build', { cwd: root, stdio: 'inherit' });
+execSync('bun run build:all', { cwd: root, stdio: 'inherit' });
 
 console.log('\nPublishing packages to npm...');
 for (const pkg of packages) {
